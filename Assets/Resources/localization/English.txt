@@ -1,0 +1,4 @@
+Language = English
+Maximum Survival Time = Maximum Survival Time
+Current Survival Time = Current Survival Time
+Game Result = Game Result

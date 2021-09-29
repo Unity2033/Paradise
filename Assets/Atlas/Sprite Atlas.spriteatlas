@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
+    - {fileID: 2800000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
+    - {fileID: 2800000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
+    - {fileID: 2800000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
+    - {fileID: 102900000, guid: 070b90268eff637408ec0e90797e0f5c, type: 3}
+    - {fileID: 102900000, guid: eade3516bfef63c47b20fbcf645e83a3, type: 3}
+    - {fileID: 102900000, guid: bb3e338899432408a9491440d7123e65, type: 3}
+    - {fileID: 2800000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
+    - {fileID: 102900000, guid: 513e3ec86a0e1044e87ff06fb1250686, type: 3}
+    - {fileID: 2800000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
+    - {fileID: 102900000, guid: fdc58836044fe2d44998bf9942a9f7d1, type: 3}
+    - {fileID: 2800000, guid: ddce39766e2a9ce48a69c914a4a29487, type: 3}
+    - {fileID: 2800000, guid: 12c40864f9ef9974592868faef1d76c5, type: 3}
+    - {fileID: 2800000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
+    - {fileID: 2800000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
+    - {fileID: 2800000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
+    - {fileID: 2800000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
+    - {fileID: 2800000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
+    - {fileID: 2800000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
+    - {fileID: 102900000, guid: b61ee9b9b1ffafe448d64d9590a497a3, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
+  - {fileID: 21300000, guid: ba76f530cc53c9d4b904abb644442e73, type: 3}
+  - {fileID: 21300000, guid: 33cc404051e6b2b49916ed1b3ab1896d, type: 3}
+  - {fileID: 21300000, guid: 78ad08609c083ba4694c35dfe0b3e30f, type: 3}
+  - {fileID: 21300000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
+  - {fileID: 21300000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
+  - {fileID: 21300000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
+  - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
+  - {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
+  - {fileID: 21300000, guid: 4502cc628f26d4348a5ee7026ac64396, type: 3}
+  - {fileID: 21300000, guid: ca24ded279f9c5a4c897cb7b0d27353e, type: 3}
+  - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
+  - {fileID: 21300000, guid: 834318432ef78ee4eab5a6c5cf436426, type: 3}
+  - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
+  - {fileID: 21300000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
+  - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
+  - {fileID: 21300000, guid: ccb3948546150844a83f8446e576ab41, type: 3}
+  - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
+  - {fileID: 21300000, guid: e4d6aa763e1e655408fcbb00b7bf69c5, type: 3}
+  - {fileID: 21300000, guid: ffa80b5722428a84aabe3379eafbd7ab, type: 3}
+  - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
+  - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
+  - {fileID: 21300000, guid: d2936d286b13cda45a02c2eb97234deb, type: 3}
+  - {fileID: 21300000, guid: 466352a8507aa5b45bff0868257889c9, type: 3}
+  - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
+  - {fileID: 21300000, guid: c24c864ab98dbe24fa5930629ae7149f, type: 3}
+  - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
+  - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
+  - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
+  - {fileID: 21300000, guid: 0216e9db89de8aa428f297985eb98270, type: 3}
+  - {fileID: 21300000, guid: 7ca2a6eb6bf4b69469262322badd2677, type: 3}
+  - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
+  - {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
+  - {fileID: 21300000, guid: 485bfbfc6c4ba8f4b85c9bd7da8e7267, type: 3}
+  - {fileID: 21300000, guid: 84a7733da38288b4ca8d45e4d03942c0, type: 3}
+  - {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
+  - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
+  - {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
+  - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Setting
+  - Earth Store
+  - Game Over Window
+  - Atlantis
+  - Speed Down
+  - Buy Now 500
+  - Barrier
+  - Discovery Button
+  - Gliese 876 Store
+  - Pause Window
+  - Continue
+  - Mission
+  - Item Shop
+  - Icon
+  - Atlantis Button
+  - Blue Window
+  - Left Button
+  - Title
+  - Readerboard
+  - Replay
+  - Buy Now 300
+  - Shield
+  - Pause
+  - Red Window
+  - Sound off
+  - Store Window
+  - Endeavour Button
+  - Time Window
+  - Localize
+  - Right Button
+  - Space station
+  - Sound on
+  - Discovery
+  - Exit
+  - Setting Window
+  - Endeavour
+  - Support Fire
+  - Kepler-452b Store
+  - Curreny Window
+  m_Tag: Sprite Atlas
+  m_IsVariant: 0
