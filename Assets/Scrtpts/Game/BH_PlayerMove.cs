@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class BH_PlayerMove : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BH_PlayerMove : MonoBehaviour
     public float speed;
     public bool Condition;
     public GameObject Barrier, Particle;
+    public GameObject Watch;
+    [SerializeField] Text Life_Cycle;
 
     float Life_time;
 
@@ -55,32 +58,41 @@ public class BH_PlayerMove : MonoBehaviour
     {
         if (Condition)
         {
-            Life_time += Time.deltaTime;
+            Watch.SetActive(true);
+            Life_time -= Time.deltaTime;
+
+            Life_Cycle.text = Life_time.ToString("F0");
 
             switch (classification)
             {
                 case 1:
-                    Item_Life(Life_time, 5.0f);
+                    Item_Life(Life_time, 0.0f);
                     break;
                 case 2:
-                    Item_Life(Life_time, 5.0f);
+                    Item_Life(Life_time, 0.0f);
                     break;
-                case 3:                   
-                    Item_Life(Life_time, 5.0f);
+                case 3:
+                    Item_Life(Life_time, 0.0f);
                     break;
             }
         }
-        else Life_time = 0;
+        else
+        {
+            Life_time = 5.0f;
+            Watch.SetActive(false);          
+        }
+
     }
 
     void Item_Life(float time, float compare)
     {
-        if (time >= compare)
+        if (time <= compare)
         {
             Condition = false;
             Barrier.SetActive(false);
+            Watch.SetActive(false);
             classification = 0;
-            Life_time = 0.0f;
+            Life_time = 5.0f;
         }
     }
 

@@ -12,7 +12,7 @@ public class BH_GameManager : MonoBehaviour
     float current_time, degree;
 
     public Text Diamond, _playTime, Curret_Time, Maximum_Time;
-    public GameObject _reStartButton;
+    public GameObject _reStartButton, Watch;
     public SpriteRenderer Shuttle;
 
     public Material[] Space;
@@ -83,10 +83,10 @@ public class BH_GameManager : MonoBehaviour
             Advertisement.Show("video");
         }
 
+        Watch.SetActive(false);
         Pause_Button.SetActive(false);
         _reStartButton.SetActive(true);
         Singleton.instance.GamePlay = false;
-        _playTime.gameObject.SetActive(false);
         Sound_Manager.instance.Belch_Auido.Stop();        
     }
 
