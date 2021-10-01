@@ -60,7 +60,7 @@ public class BH_GameManager : MonoBehaviour
 
             if(current_time  > PlayerPrefs.GetFloat("Record") )
             {
-                Singleton.instance.Record = current_time;
+                Singleton.instance.Record = current_time;   
                 Singleton.instance.SaveData();
             }
 

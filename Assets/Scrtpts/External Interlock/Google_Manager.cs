@@ -50,7 +50,8 @@ public class Google_Manager : MonoBehaviour
             Social.ReportProgress(GPGSIds.achievement_4, 100, null);
         }
 
-        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, Singleton.instance.Currency, null);       
+        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, Singleton.instance.Currency, null);
+        Social.ReportScore(Singleton.instance.Record_span.Milliseconds, GPGSIds.leaderboard, null);
     }
 
     void AuthenticateCallback(bool success)
@@ -97,7 +98,7 @@ public class Google_Manager : MonoBehaviour
                 {
                     // Sign In 성공
                     // 바로 리더보드 UI 표시 요청
-                    Social.ShowLeaderboardUI();
+                    ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
                     return;
                 }
                 else
@@ -109,6 +110,6 @@ public class Google_Manager : MonoBehaviour
             });
         }
 
-        Social.ShowLeaderboardUI();
+        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
     }
 }
