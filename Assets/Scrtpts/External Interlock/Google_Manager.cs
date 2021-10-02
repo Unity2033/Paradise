@@ -48,10 +48,7 @@ public class Google_Manager : MonoBehaviour
         if(Singleton.instance.Gliese_876 >= 1)
         {
             Social.ReportProgress(GPGSIds.achievement_4, 100, null);
-        }
-
-        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, Singleton.instance.Currency, null);
-        Social.ReportScore(Singleton.instance.Record_span.Milliseconds, GPGSIds.leaderboard, null);
+        }    
     }
 
     void AuthenticateCallback(bool success)

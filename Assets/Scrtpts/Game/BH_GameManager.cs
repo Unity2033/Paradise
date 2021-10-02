@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.U2D;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
 
 public class BH_GameManager : MonoBehaviour
 {
@@ -55,12 +56,11 @@ public class BH_GameManager : MonoBehaviour
             current_time += Time.deltaTime;
 
             TimeSpan time_span = TimeSpan.FromSeconds(current_time);
-   
-            _playTime.text = string.Format("{0:00}:{1:00}:{2:00}", time_span.Hours, time_span.Minutes, time_span.Seconds);
+            _playTime.text = time_span.ToString(@"mm\:ss\:ff");
 
             if(current_time  > PlayerPrefs.GetFloat("Record") )
             {
-                Singleton.instance.Record = current_time;   
+                Singleton.instance.Record = current_time;             
                 Singleton.instance.SaveData();
             }
 
@@ -71,8 +71,8 @@ public class BH_GameManager : MonoBehaviour
             RenderSettings.skybox.SetFloat("_Rotation", degree);
 
             Diamond.text = Singleton.instance.Currency.ToString();
-            Curret_Time.text = string.Format("{0:00}:{1:00}:{2:00}", time_span.Hours, time_span.Minutes, time_span.Seconds);
-            Maximum_Time.text = string.Format("{0:00}:{1:00}:{2:00}", Singleton.instance.Record_span.Hours, Singleton.instance.Record_span.Minutes, Singleton.instance.Record_span.Seconds);
+            Curret_Time.text = time_span.ToString(@"mm\:ss\:ff");
+            Maximum_Time.text = Singleton.instance.Record_span.ToString(@"mm\:ss\:ff");        
         } 
     }
 
@@ -83,11 +83,15 @@ public class BH_GameManager : MonoBehaviour
             Advertisement.Show("video");
         }
 
+        Social.ReportScore((long)Singleton.instance.Record_span.Milliseconds, GPGSIds.leaderboard, null);
+
         Watch.SetActive(false);
         Pause_Button.SetActive(false);
         _reStartButton.SetActive(true);
         Singleton.instance.GamePlay = false;
-        Sound_Manager.instance.Belch_Auido.Stop();        
+        Sound_Manager.instance.Belch_Auido.Stop();
+
+        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, 1, null);
     }
 
     public void OnClick_ReStart()
