@@ -95,7 +95,9 @@ public class Google_Manager : MonoBehaviour
                 {
                     // Sign In 성공
                     // 바로 리더보드 UI 표시 요청
-                    ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
+                      Social.ShowLeaderboardUI();
+
+                    // ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
                     return;
                 }
                 else
@@ -106,7 +108,7 @@ public class Google_Manager : MonoBehaviour
                 }
             });
         }
+        Social.ShowLeaderboardUI();
 
-        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
     }
 }
