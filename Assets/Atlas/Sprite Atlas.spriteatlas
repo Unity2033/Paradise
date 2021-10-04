@@ -92,6 +92,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c24c864ab98dbe24fa5930629ae7149f, type: 3}
   - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
+  - {fileID: 21300000, guid: 61644dca7a76faa47984cb13f6f01d79, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
   - {fileID: 21300000, guid: 0216e9db89de8aa428f297985eb98270, type: 3}
   - {fileID: 21300000, guid: 7ca2a6eb6bf4b69469262322badd2677, type: 3}
@@ -132,6 +133,7 @@ SpriteAtlas:
   - Store Window
   - Endeavour Button
   - Time Window
+  - Bank
   - Localize
   - Right Button
   - Space station

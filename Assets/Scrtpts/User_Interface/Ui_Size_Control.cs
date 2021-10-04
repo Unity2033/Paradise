@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class Ui_Size_Control : MonoBehaviour
 {
     Animator Store_animator, Setting_animator;
-    Animator Title_animator, Start_animator, Store_Button_animator, Setting_Button_animator, Mission_Button_animator, Leaderboard_animator;
+    Animator Title_animator, Start_animator, Store_Button_animator, Setting_Button_animator, Mission_Button_animator, Leaderboard_animator, Reward_animator;
 
     public Button Launch;
     public GameObject Store_Window, Setting_Window;
-    public GameObject Title, Start_Button, Store_Button, Setting_Button, Mission_Button, Leaderboard_Button;
+    public GameObject Title, Start_Button, Store_Button, Setting_Button, Mission_Button, Leaderboard_Button, Reward_Button;
 
     readonly string Close = "close";
 
@@ -26,6 +26,7 @@ public class Ui_Size_Control : MonoBehaviour
 
         Title_animator = Title.GetComponent<Animator>();
         Start_animator = Start_Button.GetComponent<Animator>();
+        Reward_animator = Reward_Button.GetComponent<Animator>();
         Store_Button_animator = Store_Button.GetComponent<Animator>();
         Setting_Button_animator = Setting_Button.GetComponent<Animator>();
         Mission_Button_animator = Mission_Button.GetComponent<Animator>();
@@ -91,6 +92,7 @@ public class Ui_Size_Control : MonoBehaviour
     {
         Title_animator.SetTrigger(Close);
         Start_animator.SetTrigger(Close);
+        Reward_animator.SetTrigger(Close);
         Store_Button_animator.SetTrigger(Close);
         Setting_Button_animator.SetTrigger(Close);
         Mission_Button_animator.SetTrigger(Close);

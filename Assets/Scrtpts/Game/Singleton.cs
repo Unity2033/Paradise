@@ -31,11 +31,11 @@ public class Singleton : MonoBehaviour
    
            SaveRoad();
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);      
     }
 
     private void Update()
-    {
+    {     
         Record_span = TimeSpan.FromSeconds(Record);
     }
 

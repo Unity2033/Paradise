@@ -63,7 +63,7 @@ public class BH_GameManager : MonoBehaviour
                 Singleton.instance.Record = current_time;             
                 Singleton.instance.SaveData();
             }
-
+         
             degree += Time.deltaTime;
 
             if (degree >= 360) degree = 0;
@@ -83,7 +83,7 @@ public class BH_GameManager : MonoBehaviour
             Advertisement.Show("video");
         }
 
-        Social.ReportScore((long)Singleton.instance.Record_span.Milliseconds, GPGSIds.leaderboard, null);
+        Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
 
         Watch.SetActive(false);
         Pause_Button.SetActive(false);

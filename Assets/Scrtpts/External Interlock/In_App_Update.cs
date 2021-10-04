@@ -30,11 +30,9 @@ public class In_App_Update : MonoBehaviour
             // 업데이트 여부 표시
             if(appUpdateInforResult.UpdateAvailability == UpdateAvailability.UpdateAvailable)
             {
-
             }
             else
             {
-
             }
 
             // 즉각적인 인앱을 정의하는 AppUpdateOptions 생성 업데이트 흐름 및 해당 매개변수

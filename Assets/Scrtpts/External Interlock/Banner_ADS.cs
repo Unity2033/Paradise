@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class Banner_ADS : MonoBehaviour
+public class Banner_ADS : MonoBehaviour, IUnityAdsListener
 {
     void Start()
     {
@@ -30,5 +30,35 @@ public class Banner_ADS : MonoBehaviour
         Show_Banner();
     }
 
+    public void Reward_Show()
+    {
+        Advertisement.Show("Reward");
+    }
 
+    public void OnUnityAdsReady(string placementId)
+    {
+      
+    }
+
+    public void OnUnityAdsDidError(string message)
+    {
+       
+    }
+
+    public void OnUnityAdsDidStart(string placementId)
+    {
+       
+    }
+
+    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    {
+        if(showResult == ShowResult.Finished)
+        {
+            Singleton.instance.Currency += Random.Range(1, 10);
+        }
+        else if(showResult == ShowResult.Failed)
+        {
+
+        }
+    }
 }
