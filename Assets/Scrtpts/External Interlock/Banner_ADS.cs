@@ -7,6 +7,7 @@ public class Banner_ADS : MonoBehaviour, IUnityAdsListener
 {
     void Start()
     {
+        Advertisement.AddListener(this);
         Advertisement.Initialize("4376819");
         Show_Banner();
     }
@@ -55,6 +56,7 @@ public class Banner_ADS : MonoBehaviour, IUnityAdsListener
         if(showResult == ShowResult.Finished)
         {
             Singleton.instance.Currency += Random.Range(1, 10);
+            Singleton.instance.SaveData();
         }
         else if(showResult == ShowResult.Failed)
         {

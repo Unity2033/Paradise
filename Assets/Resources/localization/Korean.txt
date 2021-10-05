@@ -2,3 +2,4 @@
 Maximum Survival Time = 최고 생존 시간
 Current Survival Time = 현재 생존 시간
 Game Result = 게임 결과
+Game End = 게임 종료

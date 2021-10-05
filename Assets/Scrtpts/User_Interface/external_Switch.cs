@@ -41,4 +41,10 @@ public class external_Switch : MonoBehaviour
 
         Singleton.instance.SaveData();
     }
+
+    public void Game_End()
+    {
+        Singleton.instance.SaveData();
+        Application.Quit();
+    }
 }
