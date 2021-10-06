@@ -23,32 +23,7 @@ public class Google_Manager : MonoBehaviour
         else
         {
             Social.localUser.Authenticate(AuthenticateCallback);
-        }
-
-        if(Singleton.instance.Adventure == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement, 100, null);
-        }
-
-        if (Singleton.instance.Quest_Barrier == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement__sh1, 100, null);
-        }
-
-        if (Singleton.instance.Quest_Slow == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement_3, 100, null);
-        }
-
-        if (Singleton.instance.Quest_Turret == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement_2, 100, null);
-        }
-
-        if(Singleton.instance.Gliese_876 == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement_4, 100, null);
-        }    
+        }       
     }
 
     void AuthenticateCallback(bool success)

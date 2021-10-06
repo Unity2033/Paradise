@@ -13,8 +13,6 @@ public class Singleton : MonoBehaviour
     public int Language_Count, Sound_count = 0;
     public int Count, Planet_count, Currency = 0;
 
-    public int Adventure, Quest_Barrier, Quest_Slow, Quest_Turret = 0;
-
     public float Record;
     public string Galaxy_Name, Shuttle_Name = "";
 
@@ -30,7 +28,7 @@ public class Singleton : MonoBehaviour
             Destroy(this.gameObject);
    
            SaveRoad();
-
+    
         DontDestroyOnLoad(this.gameObject);      
     }
 
@@ -51,11 +49,6 @@ public class Singleton : MonoBehaviour
 
         PlayerPrefs.SetFloat("Record", Record);
 
-        PlayerPrefs.SetInt("Adventure", Adventure);
-        PlayerPrefs.SetInt("Quest_Barrier", Quest_Barrier);
-        PlayerPrefs.SetInt("Quest_Slow", Quest_Slow);
-        PlayerPrefs.SetInt("Quest_Turret", Quest_Turret);
-
         PlayerPrefs.SetInt("Sound_count", Sound_count);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
         PlayerPrefs.SetInt("Language_Count", Language_Count);
@@ -72,14 +65,8 @@ public class Singleton : MonoBehaviour
 
         Record = PlayerPrefs.GetFloat("Record", 0f);
 
-        Adventure = PlayerPrefs.GetInt("Adventure", 0);
-        Quest_Barrier = PlayerPrefs.GetInt("Quest_Barrier", 0);
-        Quest_Slow = PlayerPrefs.GetInt("Quest_Slow", 0);
-        Quest_Turret = PlayerPrefs.GetInt("Quest_Turret", 0);
-
         Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Language_Count = PlayerPrefs.GetInt("Language_Count", 0);
     }
-
 }

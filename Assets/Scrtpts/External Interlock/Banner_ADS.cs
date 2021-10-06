@@ -55,6 +55,7 @@ public class Banner_ADS : MonoBehaviour, IUnityAdsListener
     {
         if(showResult == ShowResult.Finished)
         {
+            Social.ReportProgress(GPGSIds.achievement_4, 10, null);
             Singleton.instance.Currency += Random.Range(1, 10);
             Singleton.instance.SaveData();
         }

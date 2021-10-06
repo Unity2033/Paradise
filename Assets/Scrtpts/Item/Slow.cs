@@ -23,8 +23,7 @@ public class Slow : Move_Object
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Singleton.instance.Quest_Slow = 1;
-            Singleton.instance.SaveData();
+            Social.ReportProgress(GPGSIds.achievement_3, 100, null);
             Destroy(gameObject);
         }
     }

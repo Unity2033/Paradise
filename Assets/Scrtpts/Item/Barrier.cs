@@ -23,8 +23,7 @@ public class Barrier : Move_Object
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Singleton.instance.Quest_Barrier = 1;
-            Singleton.instance.SaveData();
+            Social.ReportProgress(GPGSIds.achievement__sh1, 100, null);
              Destroy(gameObject);
         }
     }

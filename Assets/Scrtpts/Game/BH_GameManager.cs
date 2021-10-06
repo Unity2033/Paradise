@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
 using UnityEngine.U2D;
+using UnityEngine.Analytics;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
@@ -43,10 +43,9 @@ public class BH_GameManager : MonoBehaviour
                 break;
         }
 
-        Singleton.instance.Adventure = 1;
-        Singleton.instance.SaveData();
+        Social.ReportProgress(GPGSIds.achievement, 100, null);
 
-        Shuttle.sprite = Atlas.GetSprite(Singleton.instance.Shuttle_Name);
+        Shuttle.sprite = Atlas.GetSprite(Singleton.instance.Shuttle_Name);      
     }
 
     void Update()
@@ -58,7 +57,7 @@ public class BH_GameManager : MonoBehaviour
             TimeSpan time_span = TimeSpan.FromSeconds(current_time);
             _playTime.text = time_span.ToString(@"mm\:ss\:ff");
 
-            if(current_time  > PlayerPrefs.GetFloat("Record") )
+            if(current_time > PlayerPrefs.GetFloat("Record") )
             {
                 Singleton.instance.Record = current_time;             
                 Singleton.instance.SaveData();
@@ -82,6 +81,14 @@ public class BH_GameManager : MonoBehaviour
         {
             Advertisement.Show("video");
         }
+
+        AnalyticsResult analytics= Analytics.CustomEvent("Death",
+            new Dictionary<string, object> {
+                { "Currency", Singleton.instance.Currency },
+                { "Position", Shuttle.transform.position}
+            });
+
+        Debug.Log(analytics);
 
         Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
 

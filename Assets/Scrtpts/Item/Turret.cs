@@ -23,8 +23,7 @@ public class Turret : Move_Object
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Singleton.instance.Quest_Turret = 1;
-            Singleton.instance.SaveData();
+            Social.ReportProgress(GPGSIds.achievement_2, 100, null);
             Destroy(gameObject);
         }
     }
