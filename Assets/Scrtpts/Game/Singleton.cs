@@ -17,6 +17,7 @@ public class Singleton : MonoBehaviour
     public string Galaxy_Name, Shuttle_Name = "";
 
     public static Singleton instance = null;
+    public static int Connect = 0;
 
     public TimeSpan Record_span; 
 

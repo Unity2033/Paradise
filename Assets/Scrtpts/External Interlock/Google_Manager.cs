@@ -1,11 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Google_Manager : MonoBehaviour
 {
+
+    [SerializeField] Image Login;
+    float time = 0f;
+    float Fade_Out = 1f;
 
     private void Awake()
     {
@@ -15,21 +19,24 @@ public class Google_Manager : MonoBehaviour
     }
 
     void Start()
-    {
-        if(Social.localUser.authenticated) // 이미 인증된 사용자는 바로 로그인 성공합니다.
+    {       
+        if (Singleton.Connect == 0)
         {
-            return;
+            StartCoroutine(Connection());
         }
-        else
-        {
-            Social.localUser.Authenticate(AuthenticateCallback);
-        }       
     }
 
     void AuthenticateCallback(bool success)
     {
-        if(success) {}
-        else {}
+        if(success)
+        {
+            Singleton.Connect++;
+            StartCoroutine(Fade());
+        }
+        else 
+        {
+            Login.gameObject.SetActive(true);
+        }
     }
 
     public void Achievement_UI()
@@ -84,6 +91,53 @@ public class Google_Manager : MonoBehaviour
             });
         }
         Social.ShowLeaderboardUI();
-
     }
+
+    IEnumerator Connection()
+    {
+        yield return null;
+
+        int try_Loing = 3;
+
+        while(true)
+        {
+            yield return null;
+
+            if(Social.localUser.authenticated)
+            {
+                break;
+            }
+            else
+            {
+                try_Loing--;
+                Social.localUser.Authenticate(AuthenticateCallback);
+                yield return new WaitForSeconds(1.0f);
+            }
+
+            // 3번 로그인 시도 후에 로그인 되지 않으면 강제 종료
+            if(try_Loing < 0)
+            {
+                // Text로 로그인 실패를 알린 후 Application.Quit(); 발동
+                break;
+            }
+        }
+    }
+
+    IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Color color = Login.color;
+
+        while (color.a > 0f)
+        {
+            time += Time.deltaTime / Fade_Out;
+            color.a = Mathf.Lerp(1, 0, time);
+            Login.color = color;
+            yield return null;
+        }
+        Login.gameObject.SetActive(false);
+        yield return null;
+    }
+
 }
