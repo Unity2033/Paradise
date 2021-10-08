@@ -34,6 +34,11 @@ public class Item_Choice : MonoBehaviour
 
     private void Start()
     {       
+        if(Singleton.instance.Gliese_876 == 1)
+        {
+            Social.ReportProgress(GPGSIds.achievement, 100, null);
+        }
+
         switch (Singleton.instance.Planet_count)
         {
             case 0:
@@ -242,7 +247,7 @@ public class Item_Choice : MonoBehaviour
             case 1 :
                 Singleton.instance.Gliese_876++;
                 Singleton.instance.Currency -= 300;
-
+              
                 Sound_Manager.instance.Play_Music("A little Star");
 
                 RenderSettings.skybox = Sky[1];

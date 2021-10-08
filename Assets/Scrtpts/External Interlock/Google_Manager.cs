@@ -24,6 +24,10 @@ public class Google_Manager : MonoBehaviour
         {
             StartCoroutine(Connection());
         }
+        else
+        {
+            Login.gameObject.SetActive(false);
+        }
     }
 
     void AuthenticateCallback(bool success)
@@ -125,7 +129,7 @@ public class Google_Manager : MonoBehaviour
 
     IEnumerator Fade()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         Color color = Login.color;
 
@@ -136,6 +140,7 @@ public class Google_Manager : MonoBehaviour
             Login.color = color;
             yield return null;
         }
+
         Login.gameObject.SetActive(false);
         yield return null;
     }

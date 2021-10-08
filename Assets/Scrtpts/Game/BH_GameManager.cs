@@ -42,9 +42,7 @@ public class BH_GameManager : MonoBehaviour
                 RenderSettings.skybox = Space[2];
                 break;
         }
-
-        Social.ReportProgress(GPGSIds.achievement, 100, null);
-
+ 
         Shuttle.sprite = Atlas.GetSprite(Singleton.instance.Shuttle_Name);      
     }
 
@@ -82,13 +80,13 @@ public class BH_GameManager : MonoBehaviour
             Advertisement.Show("video");
         }
 
+        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_4, 1, null);
+
         AnalyticsResult analytics= Analytics.CustomEvent("Death",
             new Dictionary<string, object> {
                 { "Currency", Singleton.instance.Currency },
                 { "Position", Shuttle.transform.position}
             });
-
-        Debug.Log(analytics);
 
         Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
 
@@ -98,7 +96,7 @@ public class BH_GameManager : MonoBehaviour
         Singleton.instance.GamePlay = false;
         Sound_Manager.instance.Belch_Auido.Stop();
 
-        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, 1, null);
+     
     }
 
     public void OnClick_ReStart()

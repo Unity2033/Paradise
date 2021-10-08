@@ -3,4 +3,3 @@ Maximum Survival Time = thời gian tồn tại tốt nhất
 Current Survival Time = thời gian tồn tại hiện tại
 Game Result = kết quả trò chơi
 Game End = trò chơi kết thúc
-Data Load = Đang tải dữ liệu ...
