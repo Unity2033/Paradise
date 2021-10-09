@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class Ui_Size_Control : MonoBehaviour
 {
     Animator Store_animator, Setting_animator;
-    Animator Title_animator, Start_animator, Store_Button_animator, Setting_Button_animator, Mission_Button_animator, Leaderboard_animator, Reward_animator;
+    Animator Title_animator, Store_Button_animator, Setting_Button_animator, Mission_Button_animator, Leaderboard_animator, Reward_animator;
+
+    public Animator Start_animator;
 
     public Button Launch;
     public GameObject Store_Window, Setting_Window;
@@ -104,29 +105,5 @@ public class Ui_Size_Control : MonoBehaviour
         Launch.interactable = true;
         Store_animator.SetTrigger(Close);
         Setting_animator.SetTrigger(Close);
-    }
-
-    public void Scene_Start()
-    {
-        StartCoroutine(Load_Scene());
-        Resources.UnloadUnusedAssets();
-        Sound_Manager.instance.Start_Sound();
-    }
-
-    IEnumerator Load_Scene()
-    {
-        AsyncOperation Async = SceneManager.LoadSceneAsync(1);
-
-        Async.allowSceneActivation = false;
-
-        while (!Async.isDone)
-        {
-            yield return null;
-
-            if (Async.progress >= 0.9f && Start_animator.GetCurrentAnimatorStateInfo(0).IsName(Close))
-            {
-                Async.allowSceneActivation = true;
-            }    
-        }
     }
 }

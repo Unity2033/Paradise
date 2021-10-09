@@ -69,29 +69,6 @@ public class Game_Switch : MonoBehaviour
         restart.gameObject.SetActive(false);
     }
 
-    public void Home_Return()
-    {
-        AudioListener.pause = false;
-        StartCoroutine(Load_Scene());     
-    }
-
-    IEnumerator Load_Scene()
-    {
-        AsyncOperation Async = SceneManager.LoadSceneAsync(0);
-
-        Async.allowSceneActivation = false;
-
-        while (!Async.isDone)
-        {
-            yield return null;
-
-            if (Async.progress >= 0.9f)
-            {
-                Async.allowSceneActivation = true;
-            }
-        }
-    }
-
     public void Pause_true()
     {
         Pause_Window.SetActive(true);

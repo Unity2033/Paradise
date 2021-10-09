@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Sound
@@ -68,7 +66,6 @@ public class Sound_Manager : MonoBehaviour
     {
         Belch_Auido.PlayOneShot(Sound_Effect[6]);
     }
-
 
     public void Play_Music(string P_Music)
     {

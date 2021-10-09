@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class external_Switch : MonoBehaviour
 {
@@ -23,11 +20,6 @@ public class external_Switch : MonoBehaviour
     public void Reduction()
     {
         Ui_Size_Control.instacne.Button_Reduction();
-    }
-
-    public void Start_Scene()
-    {
-        Ui_Size_Control.instacne.Scene_Start();
     }
 
     public void Language()

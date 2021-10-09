@@ -94,15 +94,6 @@ public class BH_GameManager : MonoBehaviour
         Pause_Button.SetActive(false);
         _reStartButton.SetActive(true);
         Singleton.instance.GamePlay = false;
-        Sound_Manager.instance.Belch_Auido.Stop();
-
-     
-    }
-
-    public void OnClick_ReStart()
-    {
-        Sound_Manager.instance.Start_Sound();
-        Sound_Manager.instance.Belch_Auido.Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Sound_Manager.instance.Belch_Auido.Stop();    
     }
 }
