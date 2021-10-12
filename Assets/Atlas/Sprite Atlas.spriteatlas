@@ -90,7 +90,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: d2936d286b13cda45a02c2eb97234deb, type: 3}
-  - {fileID: 21300000, guid: 466352a8507aa5b45bff0868257889c9, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
   - {fileID: 21300000, guid: c24c864ab98dbe24fa5930629ae7149f, type: 3}
@@ -135,7 +134,6 @@ SpriteAtlas:
   - Buy Now 300
   - Shield
   - Pause
-  - Red Window
   - Termination
   - Sound off
   - Store Window

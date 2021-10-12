@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.U2D;
 using UnityEngine.Analytics;
 using UnityEngine.Advertisements;
-using UnityEngine.SceneManagement;
 using GooglePlayGames;
 
 public class BH_GameManager : MonoBehaviour
@@ -75,9 +74,13 @@ public class BH_GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (Advertisement.IsReady("video"))
+
+        if(UnityEngine.Random.Range(1,100) <= 50)
         {
-            Advertisement.Show("video");
+            if (Advertisement.IsReady("video"))
+            {
+                Advertisement.Show("video");
+            }
         }
 
         PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_4, 1, null);
