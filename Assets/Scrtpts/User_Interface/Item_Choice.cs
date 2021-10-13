@@ -10,31 +10,29 @@ public class Planet
     public Sprite Ground;
 }
 
-[System.Serializable]
-public class Shuttle
-{
-    public Sprite Character;
-}
-
 public class Item_Choice : MonoBehaviour
 {
     [SerializeField] SpriteAtlas Atlas;
 
     [SerializeField] Image Space_Back = null;
-    [SerializeField] Image Space_Ship = null;
+    [SerializeField] Image Store_Space_Ship = null;
     [SerializeField] Planet [] Planet_Array = null;
-    [SerializeField] Shuttle[] Shuttle_Array = null;
     [SerializeField] Button Character_Button = null;
+
+    [SerializeField] Space_Ship[] Shuttle;
 
     public Button [] Purchase;
     public Button Sound_Setting;
     [SerializeField] Text Diamond;
+    public bool Locked;
 
     public Material[] Sky;
 
     private void Start()
-    {       
-        if(Singleton.instance.Gliese_876 == 1)
+    {
+        Unlocked();
+
+        if (Singleton.instance.Gliese_876 == 1)
         {
             Social.ReportProgress(GPGSIds.achievement, 100, null);
         }
@@ -50,6 +48,18 @@ public class Item_Choice : MonoBehaviour
                 break;
         }
     }
+
+    void Unlocked()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (PlayerPrefs.GetInt(Shuttle[i].shuttle_name.ToString()) == 1)
+            {
+                Locked = true;
+            }
+        }
+    }
+
 
     void Sound_Function(int instance, int instnace_1, bool Condition , string Music, string Music_1, string Music_2)
     {
@@ -77,7 +87,6 @@ public class Item_Choice : MonoBehaviour
     private void Update()
     {
         Change_Planet();
-        Change_Shuttle();
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
@@ -108,17 +117,6 @@ public class Item_Choice : MonoBehaviour
         {
             AudioListener.volume = 0;
             Sound_Setting.GetComponent<Image>().sprite = Atlas.GetSprite("Sound off");
-        }
-
-        switch (Singleton.instance.Count)
-        {
-            case 0:
-                Purchase[0].gameObject.SetActive(false);
-                break;
-            case 1 : Store_Function(Singleton.instance.Endeavour, Singleton.instance.Currency, 0, 300, "Buy Now 300");
-                break;
-            case 2 : Store_Function(Singleton.instance.Challenger, Singleton.instance.Currency, 0, 500, "Buy Now 500");
-                break;
         }
 
         switch (Singleton.instance.Planet_count)
@@ -158,10 +156,71 @@ public class Item_Choice : MonoBehaviour
     {
         Singleton.instance.Shuttle_Condition = true;
 
-        if (++Singleton.instance.Count > Shuttle_Array.Length - 1)
+        if(++Singleton.instance.Count > Shuttle.Length - 1)
             Singleton.instance.Count = 0;
 
-        Change_Shuttle();
+        switch (Singleton.instance.Count)
+        {
+            case 0:
+                Purchase[0].gameObject.SetActive(false);
+                Singleton.Equip = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Atlantis.ToString());
+                break;
+            case 1:
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
+
+                if (Locked)
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+
+                    Singleton.Equip = Shuttle[1].Shuttle_Sprite;
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Discovery.ToString());
+                }
+                else
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Shuttle[1].Price))
+                    {
+                        Unlocked();
+
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+
+                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);
+                    }
+                }
+                break;
+            case 2:
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+
+                if (Locked)
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+                    Singleton.Equip = Shuttle[2].Shuttle_Sprite;
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
+                }
+                else
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Shuttle[2].Price))
+                    {
+                        Unlocked();
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);
+                    }
+                }
+                break;
+        }
 
         Singleton.instance.SaveData();
     }
@@ -171,9 +230,7 @@ public class Item_Choice : MonoBehaviour
         Singleton.instance.Shuttle_Condition = false;
 
         if (--Singleton.instance.Count < 0)
-            Singleton.instance.Count = Shuttle_Array.Length - 1;
-
-        Change_Shuttle();
+        
 
         Singleton.instance.SaveData();
     }
@@ -220,23 +277,6 @@ public class Item_Choice : MonoBehaviour
         Singleton.instance.SaveData();
     }
 
-    public void Space_Ship_Purchase()
-    {
-        Sound_Manager.instance.Setting_Sound();
-
-        if (Singleton.instance.Count == 1)
-        {
-            Singleton.instance.Endeavour++;
-            Singleton.instance.Currency -= 300;
-        }
-        else if (Singleton.instance.Count == 2)
-        {
-            Singleton.instance.Challenger++;
-            Singleton.instance.Currency -= 500;
-        }
-
-        Singleton.instance.SaveData();
-    }
 
     public void Galaxy_Purchase()
     {
@@ -378,81 +418,9 @@ public class Item_Choice : MonoBehaviour
         Singleton.instance.SaveData();
     }
 
-    void Change_Shuttle()
-    {
-        Space_Ship.sprite = Shuttle_Array[Singleton.instance.Count].Character;
 
-        switch (Singleton.instance.Count)
-        {
-            case 0:
-                Singleton.instance.Shuttle_Name = "Atlantis";
-                Space_Ship.sprite = Shuttle_Array[Singleton.instance.Count = 0].Character;
-                Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
-                break;
-            case 1:
-                if(Singleton.instance.Endeavour == 1 && Singleton.instance.Challenger == 1)
-                {
-                        Singleton.instance.Shuttle_Name = "Discovery";
-                        Space_Ship.sprite = Shuttle_Array[Singleton.instance.Count = 1].Character;
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
-                }
-                else if (Singleton.instance.Endeavour == 1 && Singleton.instance.Challenger == 0)
-                {              
-                        Singleton.instance.Shuttle_Name = "Discovery";
-                        Space_Ship.sprite = Shuttle_Array[Singleton.instance.Count = 1].Character;
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
-                }
-                else if (Singleton.instance.Endeavour == 0 && Singleton.instance.Challenger == 1)
-                {
-                    if (Singleton.instance.Shuttle_Condition == true)
-                    {
-                        Singleton.instance.Shuttle_Name = "Atlantis";
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
-                    }
-                    else if (Singleton.instance.Shuttle_Condition == false)
-                    {
-                        Singleton.instance.Shuttle_Name = "Endeavour";
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
-                    }
-                }
-                else if(Singleton.instance.Endeavour == 0 && Singleton.instance.Challenger == 0)
-                {
-                    Singleton.instance.Shuttle_Name = "Atlantis";
-                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
-                }           
-                break;
-            case 2:
-                if (Singleton.instance.Challenger == 1 && Singleton.instance.Endeavour == 1)
-                {
-                    Singleton.instance.Shuttle_Name = "Endeavour";
-                    Space_Ship.sprite = Shuttle_Array[Singleton.instance.Count = 2].Character;
-                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
-                }
-                else if (Singleton.instance.Endeavour == 1 && Singleton.instance.Challenger == 0)
-                {
-                    if (Singleton.instance.Shuttle_Condition == true)
-                    {
-                        Singleton.instance.Shuttle_Name = "Discovery";
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
-                    }
-                    else if(Singleton.instance.Shuttle_Condition == false)
-                    {
-                        Singleton.instance.Shuttle_Name = "Atlantis";
-                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
-                    }
-                }
-                else if (Singleton.instance.Endeavour == 0 && Singleton.instance.Challenger == 1)
-                {
-                    Singleton.instance.Shuttle_Name = "Endeavour";
-                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
-                }
-                else if(Singleton.instance.Endeavour == 0 && Singleton.instance.Challenger == 0)
-                {
-                    Singleton.instance.Shuttle_Name = "Atlantis";
-                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
-                }
-                break;
-        }
-        Singleton.instance.SaveData();
+    public void Changed_Shuttle()
+    {
+        
     }
 }

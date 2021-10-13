@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &35126912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1443545201}
-        m_MethodName: Space_Ship_Purchase
+        m_MethodName: Shuttle_Right_Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2626,6 +2626,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GamePlay: 0
+  All_Ship:
+  - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
+  - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
+  - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
+  Shuttle: {fileID: 2436563071705686914, guid: 1d49f80bb76c63340b4c588457532485, type: 3}
   Planet_Condition: 0
   Shuttle_Condition: 0
   Earth: 0
@@ -3337,21 +3342,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Atlas: {fileID: 4343727234628468602, guid: 9e3895cb6aceb42458dcbf5453923e6d, type: 2}
   Space_Back: {fileID: 1193969842}
-  Space_Ship: {fileID: 428418265}
+  Store_Space_Ship: {fileID: 428418265}
   Planet_Array:
   - Ground: {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
   - Ground: {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
   - Ground: {fileID: 21300000, guid: ba76f530cc53c9d4b904abb644442e73, type: 3}
-  Shuttle_Array:
-  - Character: {fileID: 21300000, guid: 78ad08609c083ba4694c35dfe0b3e30f, type: 3}
-  - Character: {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
-  - Character: {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
   Character_Button: {fileID: 785756709}
+  Shuttle:
+  - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
+  - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
+  - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
   Purchase:
   - {fileID: 35126913}
   - {fileID: 1489894492}
   Sound_Setting: {fileID: 672059805}
   Diamond: {fileID: 285885051}
+  Locked: 0
   Sky:
   - {fileID: 2100000, guid: dbafadb718b560541a9577aa03f1d89f, type: 2}
   - {fileID: 2100000, guid: a38d37bd1e700e94fb9f024ab3de6e9c, type: 2}

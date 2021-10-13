@@ -4,6 +4,9 @@ using System;
 public class Singleton : MonoBehaviour
 {
     public bool GamePlay;
+    public Space_Ship[] All_Ship;
+    public static Sprite Equip;
+    public SpriteRenderer Shuttle;
     public bool Planet_Condition, Shuttle_Condition;
 
     public int Earth, Gliese_876 = 0;
@@ -25,14 +28,38 @@ public class Singleton : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(this.gameObject);
-   
-           SaveRoad();
-    
+
+        SaveRoad();
+
+        string last_Uesd = PlayerPrefs.GetString("Shuttle", Space_Ship.Shuttle_Name.Atlantis.ToString());
+
+        foreach (Space_Ship All_Shuttle in All_Ship)
+        {
+            if (All_Shuttle.shuttle_name.ToString() == last_Uesd)
+            {
+                Equip_Shuttle(All_Shuttle);
+            }
+        }
+
         DontDestroyOnLoad(this.gameObject);      
     }
 
+    public bool Purchase(int Calculate)
+    {
+        if(Currency >= Calculate)
+        {
+            Currency -= Calculate;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private void Update()
-    {     
+    {
+        Shuttle.sprite = Equip;
         Record_span = TimeSpan.FromSeconds(Record);
     }
 
@@ -67,5 +94,11 @@ public class Singleton : MonoBehaviour
         Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Language_Count = PlayerPrefs.GetInt("Language_Count", 0);
+    }
+
+    public void Equip_Shuttle(Space_Ship Ship)
+    {
+        Equip = Ship.Shuttle_Sprite;
+        PlayerPrefs.SetString("Shuttle", Ship.shuttle_name.ToString());
     }
 }

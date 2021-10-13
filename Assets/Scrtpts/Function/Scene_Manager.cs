@@ -23,7 +23,6 @@ public class Scene_Manager : MonoBehaviour
                 Sound_Manager.instance.Belch_Auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
-
         }
     }
    
