@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Turret : Move_Object
 {
@@ -10,6 +8,8 @@ public class Turret : Move_Object
     {
         if (Singleton.instance.GamePlay)
         {
+            transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
+
             if (Vector3.Distance(Origin.transform.position, this.transform.position) >= 12.5f)
             {
                 Destroy(gameObject);

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.U2D;
 
@@ -60,7 +58,6 @@ public class Item_Choice : MonoBehaviour
         }
     }
 
-
     void Sound_Function(int instance, int instnace_1, bool Condition , string Music, string Music_1, string Music_2)
     {
         if (instance == 1)
@@ -86,7 +83,10 @@ public class Item_Choice : MonoBehaviour
 
     private void Update()
     {
+        Shuttle_Purchase();
+
         Change_Planet();
+        Change_Shuttle();
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
@@ -154,83 +154,20 @@ public class Item_Choice : MonoBehaviour
 
     public void Shuttle_Right_Button()
     {
-        Singleton.instance.Shuttle_Condition = true;
-
         if(++Singleton.instance.Count > Shuttle.Length - 1)
             Singleton.instance.Count = 0;
 
-        switch (Singleton.instance.Count)
-        {
-            case 0:
-                Purchase[0].gameObject.SetActive(false);
-                Singleton.Equip = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
-                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
-                PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Atlantis.ToString());
-                break;
-            case 1:
-                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
-                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
-
-                if (Locked)
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(false);
-
-                    Singleton.Equip = Shuttle[1].Shuttle_Sprite;
-                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Discovery.ToString());
-                }
-                else
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
-
-                    if (Singleton.instance.Purchase(Shuttle[1].Price))
-                    {
-                        Unlocked();
-
-                        Purchase[0].interactable = true;
-                        Purchase[0].gameObject.SetActive(true);
-
-                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);
-                    }
-                }
-                break;
-            case 2:
-                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
-                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
-
-                if (Locked)
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(false);
-                    Singleton.Equip = Shuttle[2].Shuttle_Sprite;
-                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
-                }
-                else
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
-
-                    if (Singleton.instance.Purchase(Shuttle[2].Price))
-                    {
-                        Unlocked();
-                        Purchase[0].interactable = true;
-                        Purchase[0].gameObject.SetActive(true);
-                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);
-                    }
-                }
-                break;
-        }
+        Change_Shuttle();
 
         Singleton.instance.SaveData();
     }
 
     public void Shuttle_Left_Button()
-    {
-        Singleton.instance.Shuttle_Condition = false;
-
+    { 
         if (--Singleton.instance.Count < 0)
-        
+            Singleton.instance.Count = 2;
+
+        Change_Shuttle();
 
         Singleton.instance.SaveData();
     }
@@ -419,8 +356,94 @@ public class Item_Choice : MonoBehaviour
     }
 
 
-    public void Changed_Shuttle()
+    public void Shuttle_Purchase()
     {
-        
+        switch (Singleton.instance.Count)
+        {
+            case 0:
+                Purchase[0].gameObject.SetActive(false);
+                break;
+            case 1:
+                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
+
+                if (Locked)
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Discovery.ToString());
+                }
+                else
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Shuttle[1].Price))
+                    {
+                        Unlocked();
+
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);
+                    }
+                }
+                break;
+            case 2:
+                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+
+                if (Locked)
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
+                }
+                else
+                {
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Shuttle[2].Price))
+                    {
+                        Unlocked();
+
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);
+                    }
+                }
+                break;
+        }
+
+    }
+
+    public void Change_Shuttle()
+    {
+        switch (Singleton.instance.Count)
+        {
+            case 0:
+                Singleton.Equip = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+                Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
+                break;
+            case 1:
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+
+                if (Locked)
+                {
+                    Singleton.Equip = Shuttle[1].Shuttle_Sprite;
+                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
+                }
+                break;
+            case 2:
+                Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
+
+                if (Locked)
+                {
+                    Singleton.Equip = Shuttle[2].Shuttle_Sprite;
+                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
+                }
+                break;
+        }
     }
 }

@@ -7,10 +7,9 @@ public class Singleton : MonoBehaviour
     public Space_Ship[] All_Ship;
     public static Sprite Equip;
     public SpriteRenderer Shuttle;
-    public bool Planet_Condition, Shuttle_Condition;
+    public bool Planet_Condition;
 
     public int Earth, Gliese_876 = 0;
-    public int Endeavour, Challenger = 0;
     public int Language_Count, Sound_count = 0;
     public int Count, Planet_count, Currency = 0;
 
@@ -68,8 +67,6 @@ public class Singleton : MonoBehaviour
         PlayerPrefs.SetInt("Count", Count);
         PlayerPrefs.SetInt("Earth", Earth);
         PlayerPrefs.SetInt("Currency", Currency);
-        PlayerPrefs.SetInt("Endeavour", Endeavour);
-        PlayerPrefs.SetInt("Challenger", Challenger);
 
         PlayerPrefs.SetInt("Gliese_876", Gliese_876);
 
@@ -85,8 +82,6 @@ public class Singleton : MonoBehaviour
         Count = PlayerPrefs.GetInt("Count", 0);
         Earth = PlayerPrefs.GetInt("Earth", 0);
         Currency = PlayerPrefs.GetInt("Currency", 0);
-        Endeavour = PlayerPrefs.GetInt("Endeavour", 0);
-        Challenger = PlayerPrefs.GetInt("Challenger", 0);
         Gliese_876 = PlayerPrefs.GetInt("Gliese_876", 0);
 
         Record = PlayerPrefs.GetFloat("Record", 0f);

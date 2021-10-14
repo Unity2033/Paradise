@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable, CreateAssetMenu(fileName ="Shuttle Skin", menuName = "Create New Shuttle")]
 public class Space_Ship : ScriptableObject

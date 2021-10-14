@@ -13,17 +13,13 @@ public class BH_GameManager : MonoBehaviour
 
     public Text Diamond, _playTime, Curret_Time, Maximum_Time;
     public GameObject _reStartButton, Watch;
-    public SpriteRenderer Shuttle;
 
     public Material[] Space;
 
-    [SerializeField] SpriteAtlas Atlas;
     [SerializeField] GameObject Pause_Button;
 
     void Start()
     {
-        _playTime.text = "00 : 00 : 00";
-
         Singleton.instance.GamePlay = true;
         Advertisement.Initialize("4376819");
 
@@ -40,9 +36,7 @@ public class BH_GameManager : MonoBehaviour
             case "Earth":
                 RenderSettings.skybox = Space[2];
                 break;
-        }
- 
-        Shuttle.sprite = Atlas.GetSprite(Singleton.instance.Shuttle_Name);      
+        }    
     }
 
     void Update()
@@ -88,7 +82,7 @@ public class BH_GameManager : MonoBehaviour
         AnalyticsResult analytics= Analytics.CustomEvent("Death",
             new Dictionary<string, object> {
                 { "Currency", Singleton.instance.Currency },
-                { "Position", Shuttle.transform.position}
+                { "Survival Time", Singleton.instance.Record_span}
             });
 
         Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
