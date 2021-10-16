@@ -46,20 +46,8 @@ public class BH_BulletManager : MonoBehaviour
             }
 
             if (five_time >= 5.0f)
-            {
-                switch (Singleton.instance.Galaxy_Name)
-                {
-                    case "Kepler-452b" :
-                        Singleton.instance.Currency += 1;
-                        break;
-                    case "Gliese 876" :
-                        Singleton.instance.Currency += 2;
-                        break;
-                    case "Earth" :
-                        Singleton.instance.Currency += 3;
-                        break;
-                }
-
+            {          
+                 Singleton.instance.Currency += 1;           
                 Singleton.instance.SaveData();
 
                 five_time = 0.0f;
@@ -83,19 +71,8 @@ public class BH_BulletManager : MonoBehaviour
           dir = Player.transform.position - _bullet_1.transform.position;
           dir.Normalize();
 
-          switch (Singleton.instance.Galaxy_Name)
-          {
-              case "Kepler-452b":
-                _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(2.5f, 5.0f), memorypool);
-                break;
-              case "Gliese 876":
-                _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(5.0f, 7.5f), memorypool);
-                break;
-              case "Earth":
-                _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(7.5f, 10.0f), memorypool);
-                break;
-          }
-
+         _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(2.5f, 5.0f), memorypool);
+   
          _bullet_1.GetComponent<BH_Bullet>().SetUp(dir, memorypool);
     }
 

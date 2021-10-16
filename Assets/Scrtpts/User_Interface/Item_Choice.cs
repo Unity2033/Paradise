@@ -2,89 +2,59 @@
 using UnityEngine.UI;
 using UnityEngine.U2D;
 
-[System.Serializable]
-public class Planet
-{
-    public Sprite Ground;
-}
-
 public class Item_Choice : MonoBehaviour
 {
     [SerializeField] SpriteAtlas Atlas;
 
-    [SerializeField] Image Space_Back = null;
-    [SerializeField] Image Store_Space_Ship = null;
-    [SerializeField] Planet [] Planet_Array = null;
+    [SerializeField] Image Store_Space_Ship, Store_Space_Ground = null;
     [SerializeField] Button Character_Button = null;
 
     [SerializeField] Space_Ship[] Shuttle;
+    [SerializeField] Space_Ground[] Space;
 
     public Button [] Purchase;
     public Button Sound_Setting;
     [SerializeField] Text Diamond;
-    public bool Locked;
+    public bool Shuttle_Locked, Space_Locked;
 
-    public Material[] Sky;
 
     private void Start()
     {
-        Unlocked();
-
-        if (Singleton.instance.Gliese_876 == 1)
-        {
-            Social.ReportProgress(GPGSIds.achievement, 100, null);
-        }
-
-        switch (Singleton.instance.Planet_count)
-        {
-            case 0:
-                Sound_Manager.instance.Play_Music("Connection");
-                break;
-            case 1 : Sound_Function(Singleton.instance.Gliese_876, Singleton.instance.Earth, Singleton.instance.Planet_Condition, "A little Star", "Connection", "Star");
-                break;
-            case 2 : Sound_Function(Singleton.instance.Earth, Singleton.instance.Gliese_876, Singleton.instance.Planet_Condition, "Star", "A little Star", "Connection");
-                break;
-        }
+        Space_Unlock();
+        Shuttle_Unlocked();
+        Change_Planet();
+  
+       //Social.ReportProgress(GPGSIds.achievement, 100, null);
+        
     }
 
-    void Unlocked()
+    void Shuttle_Unlocked()
     {
         for (int i = 0; i < 3; i++)
         {
             if (PlayerPrefs.GetInt(Shuttle[i].shuttle_name.ToString()) == 1)
             {
-                Locked = true;
+                Shuttle_Locked = true;
             }
         }
     }
 
-    void Sound_Function(int instance, int instnace_1, bool Condition , string Music, string Music_1, string Music_2)
+    void Space_Unlock()
     {
-        if (instance == 1)
+        for (int i = 0; i < 3; i++)
         {
-            Sound_Manager.instance.Play_Music(Music);
-        }
-        else if (instance == 0 && instnace_1 == 1)
-        {
-            if (Condition == true)
+            if (PlayerPrefs.GetInt(Space[i].space_name.ToString()) == 1)
             {
-                Sound_Manager.instance.Play_Music(Music_1);
+                Space_Locked = true;
             }
-            else if (Condition == false)
-            {
-                Sound_Manager.instance.Play_Music(Music_2);
-            }
-        }
-        else if (instance == 0 && instnace_1 == 0)
-        {
-            Sound_Manager.instance.Play_Music("Connection");
         }
     }
 
     private void Update()
     {
+        Space_Purchase();
         Shuttle_Purchase();
-
+ 
         Change_Planet();
         Change_Shuttle();
 
@@ -118,38 +88,6 @@ public class Item_Choice : MonoBehaviour
             AudioListener.volume = 0;
             Sound_Setting.GetComponent<Image>().sprite = Atlas.GetSprite("Sound off");
         }
-
-        switch (Singleton.instance.Planet_count)
-        {
-            case 0:
-                Purchase[1].gameObject.SetActive(false);
-                break;
-            case 1 : Store_Function(Singleton.instance.Gliese_876, Singleton.instance.Currency, 1, 300, "Buy Now 300");
-                break;
-            case 2 : Store_Function(Singleton.instance.Earth, Singleton.instance.Currency, 1, 500, "Buy Now 500");
-                break;
-        }
-    }
-
-    void Store_Function(int Item,int Currency,int Array,int Price,string Sprite_Name)
-    {
-        if (Item == 1)
-        {
-            Purchase[Array].interactable = false;
-            Purchase[Array].gameObject.SetActive(false);
-        }
-        else if (Currency < Price)
-        {
-            Purchase[Array].interactable = false;
-            Purchase[Array].gameObject.SetActive(true);
-            Purchase[Array].GetComponent<Image>().sprite = Atlas.GetSprite(Sprite_Name);
-        }
-        else if (Currency >= Price)
-        {
-            Purchase[Array].interactable = true;
-            Purchase[Array].gameObject.SetActive(true);
-            Purchase[Array].GetComponent<Image>().sprite = Atlas.GetSprite(Sprite_Name);
-        }
     }
 
     public void Shuttle_Right_Button()
@@ -165,7 +103,7 @@ public class Item_Choice : MonoBehaviour
     public void Shuttle_Left_Button()
     { 
         if (--Singleton.instance.Count < 0)
-            Singleton.instance.Count = 2;
+            Singleton.instance.Count = Shuttle.Length - 1;
 
         Change_Shuttle();
 
@@ -174,23 +112,19 @@ public class Item_Choice : MonoBehaviour
 
     public void Planet_Right_Button()
     {
-       Singleton.instance.Planet_Condition = true;
-
-        if (++Singleton.instance.Planet_count > Planet_Array.Length - 1)
+        if (++Singleton.instance.Planet_count > Space.Length - 1)
             Singleton.instance.Planet_count = 0;
 
-        Change_Song();
         Change_Planet();
+
+        Singleton.instance.SaveData();
     }
 
     public void Planet_Left_Button()
     {
-        Singleton.instance.Planet_Condition = false;
-
         if (--Singleton.instance.Planet_count < 0)
-            Singleton.instance.Planet_count = Planet_Array.Length - 1;
+            Singleton.instance.Planet_count = Space.Length - 1;
 
-        Change_Song();
         Change_Planet();
 
         Singleton.instance.SaveData();
@@ -215,29 +149,67 @@ public class Item_Choice : MonoBehaviour
     }
 
 
-    public void Galaxy_Purchase()
+    public void Space_Purchase()
     {
-        Sound_Manager.instance.Setting_Sound();
-
         switch (Singleton.instance.Planet_count)
         {
-            case 1 :
-                Singleton.instance.Gliese_876++;
-                Singleton.instance.Currency -= 300;
-              
-                Sound_Manager.instance.Play_Music("A little Star");
+            case 0:
+                Purchase[1].gameObject.SetActive(false);
+                break;
+            case 1:
+                Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                RenderSettings.skybox = Sky[1];
-                Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count].Ground;
+                if (Space_Locked)
+                {
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(false);
+
+                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Gliese_876.ToString());
+                }
+                else
+                {
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Space[1].Price))
+                    {
+                        Space_Unlock();
+
+                        Purchase[1].interactable = true;
+                        Purchase[1].gameObject.SetActive(true);
+                        RenderSettings.skybox = Space[1].Galaxy;
+                        Sound_Manager.instance.Play_Music("A little Star");
+
+                        PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Gliese_876.ToString(), 1);
+                    }
+                }
                 break;
             case 2:
-                Singleton.instance.Earth++;
-                Singleton.instance.Currency -= 500;
+                Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                Sound_Manager.instance.Play_Music("Star");
+                if (Space_Locked)
+                {
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(false);
 
-                RenderSettings.skybox = Sky[2];
-                Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count].Ground;
+                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Earth.ToString());
+                }
+                else
+                {
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(true);
+
+                    if (Singleton.instance.Purchase(Space[2].Price))
+                    {
+                        Space_Unlock();
+
+                        Purchase[1].interactable = true;
+                        Purchase[1].gameObject.SetActive(true);
+                        RenderSettings.skybox = Space[2].Galaxy;
+                        Sound_Manager.instance.Play_Music("Star");
+                        PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Earth.ToString(), 1);
+                    }
+                }
                 break;
         }
 
@@ -246,115 +218,37 @@ public class Item_Choice : MonoBehaviour
 
     void Change_Planet()
     {
-        Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count].Ground;
-
         switch (Singleton.instance.Planet_count)
         {
             case 0:
-                RenderSettings.skybox = Sky[0];
-                Singleton.instance.Galaxy_Name = "Kepler-452b";
-                Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 0].Ground;
+                Sound_Manager.instance.Play_Music("Connection");
+                RenderSettings.skybox = Space[Singleton.instance.Planet_count].Galaxy;
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
                 break;
             case 1:
-                if (Singleton.instance.Gliese_876 == 1 && Singleton.instance.Earth == 1)
-                {
-                    RenderSettings.skybox = Sky[1];
-                    Singleton.instance.Galaxy_Name = "Gliese 876";
-                    Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 1].Ground;
-                }
-                else if(Singleton.instance.Gliese_876 == 1 && Singleton.instance.Earth == 0)
-                {
-                    RenderSettings.skybox = Sky[1];
-                    Singleton.instance.Galaxy_Name = "Gliese 876";
-                    Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 1].Ground;
-                }
-                else if (Singleton.instance.Gliese_876 == 0 && Singleton.instance.Earth == 1)
-                {
-                    if(Singleton.instance.Planet_Condition == true)
-                    {
-                        RenderSettings.skybox = Sky[0];
-                        Singleton.instance.Galaxy_Name = "Kepler-452b";
-                        Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 1].Ground;
-                    }
-                    else if(Singleton.instance.Planet_Condition == false)
-                    {
-                        RenderSettings.skybox = Sky[2];
-                        Singleton.instance.Galaxy_Name = "Earth";                    
-                        Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 1].Ground;
-                    }
-                }
-                else if (Singleton.instance.Gliese_876 == 0 && Singleton.instance.Earth == 0)
-                {
-                    RenderSettings.skybox = Sky[0];
-                    Singleton.instance.Galaxy_Name = "Kepler-452b";
-                }
-                break;
-            case 2:
-                if (Singleton.instance.Gliese_876 == 1 && Singleton.instance.Earth == 1)
-                {
-                    RenderSettings.skybox = Sky[2];
-                    Singleton.instance.Galaxy_Name = "Earth";
-                    Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 2].Ground;
-                }
-                else if (Singleton.instance.Gliese_876 == 1 && Singleton.instance.Earth == 0)
-                {
-                    if (Singleton.instance.Planet_Condition == true)
-                    {
-                        RenderSettings.skybox = Sky[1];
-                        Singleton.instance.Galaxy_Name = "Gliese 876";
-                        Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 2].Ground;
-                    }
-                    else if (Singleton.instance.Planet_Condition == false)
-                    {
-                        RenderSettings.skybox = Sky[0];
-                        Singleton.instance.Galaxy_Name = "Kepler-452b";
-                        Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 2].Ground;
-                    }
-                }
-                else if (Singleton.instance.Gliese_876 == 0 && Singleton.instance.Earth == 1)
-                {
-                    RenderSettings.skybox = Sky[2];
-                    Singleton.instance.Galaxy_Name = "Earth";
-                    Space_Back.sprite = Planet_Array[Singleton.instance.Planet_count = 2].Ground;        
-                }
-                else if (Singleton.instance.Gliese_876 == 0 && Singleton.instance.Earth == 0)
-                {
-                    RenderSettings.skybox = Sky[0];
-                    Singleton.instance.Galaxy_Name = "Kepler-452b";                 
-                }
-                break;
-        }
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
 
-        Singleton.instance.SaveData();
-    }
-
-    void Change_Song()
-    {    
-        switch (Singleton.instance.Planet_count)
-        {
-            case 0:
-                if (Singleton.instance.Gliese_876 == 1 || Singleton.instance.Earth == 1)
+                if (Space_Locked)
                 {
-                    Sound_Manager.instance.Play_Music("Connection");
-                }
-                break;
-            case 1:
-                if (Singleton.instance.Gliese_876 == 1)
-                {
+                    RenderSettings.skybox = RenderSettings.skybox = Space[1].Galaxy;
                     Sound_Manager.instance.Play_Music("A little Star");
                 }
+
                 break;
             case 2:
-                if (Singleton.instance.Earth == 1)
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+
+                if (Space_Locked)
                 {
                     Sound_Manager.instance.Play_Music("Star");
+                    RenderSettings.skybox = RenderSettings.skybox = Space[2].Galaxy;
                 }
+
                 break;
         }
 
         Singleton.instance.SaveData();
     }
-
 
     public void Shuttle_Purchase()
     {
@@ -366,7 +260,7 @@ public class Item_Choice : MonoBehaviour
             case 1:
                 Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                if (Locked)
+                if (Shuttle_Locked)
                 {
                     Purchase[0].interactable = false;
                     Purchase[0].gameObject.SetActive(false);
@@ -380,7 +274,7 @@ public class Item_Choice : MonoBehaviour
 
                     if (Singleton.instance.Purchase(Shuttle[1].Price))
                     {
-                        Unlocked();
+                        Shuttle_Unlocked();
 
                         Purchase[0].interactable = true;
                         Purchase[0].gameObject.SetActive(true);
@@ -391,7 +285,7 @@ public class Item_Choice : MonoBehaviour
             case 2:
                 Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                if (Locked)
+                if (Shuttle_Locked)
                 {
                     Purchase[0].interactable = false;
                     Purchase[0].gameObject.SetActive(false);
@@ -405,7 +299,7 @@ public class Item_Choice : MonoBehaviour
 
                     if (Singleton.instance.Purchase(Shuttle[2].Price))
                     {
-                        Unlocked();
+                        Shuttle_Unlocked();
 
                         Purchase[0].interactable = true;
                         Purchase[0].gameObject.SetActive(true);
@@ -429,7 +323,7 @@ public class Item_Choice : MonoBehaviour
             case 1:
                 Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
 
-                if (Locked)
+                if (Shuttle_Locked)
                 {
                     Singleton.Equip = Shuttle[1].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
@@ -438,7 +332,7 @@ public class Item_Choice : MonoBehaviour
             case 2:
                 Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
 
-                if (Locked)
+                if (Shuttle_Locked)
                 {
                     Singleton.Equip = Shuttle[2].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");

@@ -69,7 +69,7 @@ public class Sound_Manager : MonoBehaviour
 
     public void Play_Music(string P_Music)
     {
-        for(int i = 0; i < Music.Length;i++)
+        for(int i = 0; i < Music.Length; i++)
         {
             if(P_Music == Music[i].name)
             {

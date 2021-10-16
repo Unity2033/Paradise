@@ -5,16 +5,15 @@ public class Singleton : MonoBehaviour
 {
     public bool GamePlay;
     public Space_Ship[] All_Ship;
+    public Space_Ground[] All_Ground;
+
     public static Sprite Equip;
     public SpriteRenderer Shuttle;
-    public bool Planet_Condition;
 
-    public int Earth, Gliese_876 = 0;
     public int Language_Count, Sound_count = 0;
     public int Count, Planet_count, Currency = 0;
 
     public float Record;
-    public string Galaxy_Name, Shuttle_Name = "";
 
     public static Singleton instance = null;
     public static int Connect = 0;
@@ -29,6 +28,16 @@ public class Singleton : MonoBehaviour
             Destroy(this.gameObject);
 
         SaveRoad();
+
+        string last_Space = PlayerPrefs.GetString("Space", Space_Ground.Space_Ground_Name.Kepler_452b.ToString());
+
+        foreach (Space_Ground All_Space in All_Ground)
+        {
+            if (All_Space.space_name.ToString() == last_Space)
+            {
+                Equip_Space(All_Space);
+            }
+        }
 
         string last_Uesd = PlayerPrefs.GetString("Shuttle", Space_Ship.Shuttle_Name.Atlantis.ToString());
 
@@ -65,10 +74,7 @@ public class Singleton : MonoBehaviour
     public void SaveData()
     {      
         PlayerPrefs.SetInt("Count", Count);
-        PlayerPrefs.SetInt("Earth", Earth);
         PlayerPrefs.SetInt("Currency", Currency);
-
-        PlayerPrefs.SetInt("Gliese_876", Gliese_876);
 
         PlayerPrefs.SetFloat("Record", Record);
 
@@ -80,9 +86,7 @@ public class Singleton : MonoBehaviour
     public void SaveRoad()
     {
         Count = PlayerPrefs.GetInt("Count", 0);
-        Earth = PlayerPrefs.GetInt("Earth", 0);
         Currency = PlayerPrefs.GetInt("Currency", 0);
-        Gliese_876 = PlayerPrefs.GetInt("Gliese_876", 0);
 
         Record = PlayerPrefs.GetFloat("Record", 0f);
 
@@ -95,5 +99,11 @@ public class Singleton : MonoBehaviour
     {
         Equip = Ship.Shuttle_Sprite;
         PlayerPrefs.SetString("Shuttle", Ship.shuttle_name.ToString());
+    }
+
+    public void Equip_Space(Space_Ground Ground)
+    {
+        RenderSettings.skybox = Ground.Galaxy;
+        PlayerPrefs.SetString("Space", Ground.space_name.ToString());
     }
 }

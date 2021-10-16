@@ -2630,8 +2630,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
   - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
   - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
+  All_Ground:
+  - {fileID: 11400000, guid: 36ca7dd161c0fce42a744d3168d45f19, type: 2}
+  - {fileID: 11400000, guid: 4ae7e4f518792e74bb89799be0636a15, type: 2}
+  - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
   Shuttle: {fileID: 2436563071705686914, guid: 1d49f80bb76c63340b4c588457532485, type: 3}
-  Planet_Condition: 0
   Earth: 0
   Gliese_876: 0
   Language_Count: 0
@@ -3338,27 +3341,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Atlas: {fileID: 4343727234628468602, guid: 9e3895cb6aceb42458dcbf5453923e6d, type: 2}
-  Space_Back: {fileID: 1193969842}
   Store_Space_Ship: {fileID: 428418265}
-  Planet_Array:
-  - Ground: {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
-  - Ground: {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
-  - Ground: {fileID: 21300000, guid: ba76f530cc53c9d4b904abb644442e73, type: 3}
+  Store_Space_Ground: {fileID: 1193969842}
   Character_Button: {fileID: 785756709}
   Shuttle:
   - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
   - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
   - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
+  Space:
+  - {fileID: 11400000, guid: 36ca7dd161c0fce42a744d3168d45f19, type: 2}
+  - {fileID: 11400000, guid: 4ae7e4f518792e74bb89799be0636a15, type: 2}
+  - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
   Purchase:
   - {fileID: 35126913}
   - {fileID: 1489894492}
   Sound_Setting: {fileID: 672059805}
   Diamond: {fileID: 285885051}
-  Locked: 0
-  Sky:
-  - {fileID: 2100000, guid: dbafadb718b560541a9577aa03f1d89f, type: 2}
-  - {fileID: 2100000, guid: a38d37bd1e700e94fb9f024ab3de6e9c, type: 2}
-  - {fileID: 2100000, guid: e5a03f892a6a1d4448b03b380ea21c2e, type: 2}
+  Shuttle_Locked: 0
+  Space_Locked: 0
 --- !u!4 &1443545202
 Transform:
   m_ObjectHideFlags: 0
@@ -3661,7 +3661,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1443545201}
-        m_MethodName: Galaxy_Purchase
+        m_MethodName: Space_Purchase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

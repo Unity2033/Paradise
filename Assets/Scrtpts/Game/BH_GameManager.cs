@@ -14,8 +14,6 @@ public class BH_GameManager : MonoBehaviour
     public Text Diamond, _playTime, Curret_Time, Maximum_Time;
     public GameObject _reStartButton, Watch;
 
-    public Material[] Space;
-
     [SerializeField] GameObject Pause_Button;
 
     void Start()
@@ -25,18 +23,15 @@ public class BH_GameManager : MonoBehaviour
 
         Advertisement.Banner.Hide();
 
-        switch (Singleton.instance.Galaxy_Name)
+        string last_Space = PlayerPrefs.GetString("Space", Space_Ground.Space_Ground_Name.Kepler_452b.ToString());
+
+        foreach (Space_Ground All_Space in Singleton.instance.All_Ground)
         {
-            case "Kepler-452b":
-                RenderSettings.skybox = Space[0];
-                break;
-            case "Gliese 876":
-                RenderSettings.skybox = Space[1];
-                break;
-            case "Earth":
-                RenderSettings.skybox = Space[2];
-                break;
-        }    
+            if (All_Space.space_name.ToString() == last_Space)
+            {
+                Singleton.instance.Equip_Space(All_Space);
+            }
+        }
     }
 
     void Update()
@@ -55,9 +50,7 @@ public class BH_GameManager : MonoBehaviour
             }
          
             degree += Time.deltaTime;
-
-            if (degree >= 360) degree = 0;
-          
+            if (degree >= 360) degree = 0;     
             RenderSettings.skybox.SetFloat("_Rotation", degree);
 
             Diamond.text = Singleton.instance.Currency.ToString();
@@ -68,7 +61,6 @@ public class BH_GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
         if(UnityEngine.Random.Range(1,100) <= 50)
         {
             if (Advertisement.IsReady("video"))

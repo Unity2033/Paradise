@@ -5,9 +5,10 @@ public class BH_PlayerMove : MonoBehaviour
 {
     BH_GameManager Game;
 
-    private Touch touch;
     public float speed;
     public bool Condition;
+
+    private Touch touch;
     public GameObject Barrier, Particle;
     public GameObject Watch;
     [SerializeField] Text Life_Cycle;
