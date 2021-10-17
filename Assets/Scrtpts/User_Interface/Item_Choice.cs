@@ -23,9 +23,41 @@ public class Item_Choice : MonoBehaviour
         Space_Unlock();
         Shuttle_Unlocked();
         Change_Planet();
-  
-       //Social.ReportProgress(GPGSIds.achievement, 100, null);
-        
+
+        switch (Singleton.instance.Planet_count)
+        {
+            case 0:
+                Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                Singleton.instance.BGM_Sound.Play();
+                break;
+            case 1:
+                if (Space_Locked)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[1].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                else
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                break;
+            case 2:
+                if (Space_Locked)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[2].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                else
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                break;
+        }
+
+
+        //Social.ReportProgress(GPGSIds.achievement, 100, null);
     }
 
     void Shuttle_Unlocked()
@@ -52,11 +84,20 @@ public class Item_Choice : MonoBehaviour
 
     private void Update()
     {
-        Space_Purchase();
-        Shuttle_Purchase();
- 
-        Change_Planet();
         Change_Shuttle();
+        Auto_Calculate(300, 500);
+
+        if (Shuttle_Locked)
+        {
+            Purchase[0].interactable = false;
+            Purchase[0].gameObject.SetActive(false);
+        }
+
+        if (Space_Locked)
+        {
+            Purchase[1].interactable = false;
+            Purchase[1].gameObject.SetActive(false);
+        }
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
@@ -148,102 +189,113 @@ public class Item_Choice : MonoBehaviour
         Singleton.instance.SaveData();
     }
 
-
-    public void Space_Purchase()
+    public void Auto_Calculate(int First_Calculate, int Two_Calculate)
     {
+        switch (Singleton.instance.Count)
+        {
+            case 0:
+                Purchase[0].gameObject.SetActive(false);
+                break;
+            case 1:
+                if (Singleton.instance.Currency >= First_Calculate)
+                {
+                    Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
+
+                    Purchase[0].interactable = true;
+                    Purchase[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
+
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+                }
+                break;
+            case 2:
+                if (Singleton.instance.Currency >= Two_Calculate)
+                {
+                    Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+
+                    Purchase[0].interactable = true;
+                    Purchase[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(true);
+                }
+                break;
+        }
+
         switch (Singleton.instance.Planet_count)
         {
             case 0:
                 Purchase[1].gameObject.SetActive(false);
                 break;
             case 1:
-                Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
-
-                if (Space_Locked)
+                if (Singleton.instance.Currency >= First_Calculate)
                 {
-                    Purchase[1].interactable = false;
-                    Purchase[1].gameObject.SetActive(false);
+                    Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Gliese_876.ToString());
+                    Purchase[1].interactable = true;
+                    Purchase[1].gameObject.SetActive(true);
                 }
                 else
                 {
+                    Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
+
                     Purchase[1].interactable = false;
                     Purchase[1].gameObject.SetActive(true);
-
-                    if (Singleton.instance.Purchase(Space[1].Price))
-                    {
-                        Space_Unlock();
-
-                        Purchase[1].interactable = true;
-                        Purchase[1].gameObject.SetActive(true);
-                        RenderSettings.skybox = Space[1].Galaxy;
-                        Sound_Manager.instance.Play_Music("A little Star");
-
-                        PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Gliese_876.ToString(), 1);
-                    }
                 }
                 break;
             case 2:
-                Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
-
-                if (Space_Locked)
+                if (Singleton.instance.Currency >= Two_Calculate)
                 {
-                    Purchase[1].interactable = false;
-                    Purchase[1].gameObject.SetActive(false);
+                    Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Earth.ToString());
+                    Purchase[1].interactable = true;
+                    Purchase[1].gameObject.SetActive(true);
                 }
                 else
                 {
+                    Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+
                     Purchase[1].interactable = false;
                     Purchase[1].gameObject.SetActive(true);
-
-                    if (Singleton.instance.Purchase(Space[2].Price))
-                    {
-                        Space_Unlock();
-
-                        Purchase[1].interactable = true;
-                        Purchase[1].gameObject.SetActive(true);
-                        RenderSettings.skybox = Space[2].Galaxy;
-                        Sound_Manager.instance.Play_Music("Star");
-                        PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Earth.ToString(), 1);
-                    }
                 }
                 break;
         }
-
-        Singleton.instance.SaveData();
     }
 
-    void Change_Planet()
+    public void Space_Purchase()
     {
         switch (Singleton.instance.Planet_count)
         {
             case 0:
-                Sound_Manager.instance.Play_Music("Connection");
-                RenderSettings.skybox = Space[Singleton.instance.Planet_count].Galaxy;
-                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
                 break;
             case 1:
-                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+                    Singleton.instance.Currency -= Space[1].Price;
+                      
+                    Space_Unlock();
+                    RenderSettings.skybox = Space[1].Galaxy;
 
-                if (Space_Locked)
-                {
-                    RenderSettings.skybox = RenderSettings.skybox = Space[1].Galaxy;
-                    Sound_Manager.instance.Play_Music("A little Star");
-                }
+                    Singleton.instance.BGM_Sound.clip = Space[1].Sound;
+                    Singleton.instance.BGM_Sound.Play();
 
+                    PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Gliese_876.ToString(), 1);                                   
                 break;
-            case 2:
-                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+            case 2:           
+                    Singleton.instance.Currency -= Space[2].Price;
+                    
+                    Space_Unlock();                      
+                    RenderSettings.skybox = Space[2].Galaxy;
 
-                if (Space_Locked)
-                {
-                    Sound_Manager.instance.Play_Music("Star");
-                    RenderSettings.skybox = RenderSettings.skybox = Space[2].Galaxy;
-                }
-
+                    Singleton.instance.BGM_Sound.clip = Space[2].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                    PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Earth.ToString(), 1);                   
                 break;
         }
 
@@ -255,60 +307,64 @@ public class Item_Choice : MonoBehaviour
         switch (Singleton.instance.Count)
         {
             case 0:
-                Purchase[0].gameObject.SetActive(false);
                 break;
             case 1:
-                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
-
-                if (Shuttle_Locked)
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(false);
-
-                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Discovery.ToString());
-                }
-                else
-                {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
-
-                    if (Singleton.instance.Purchase(Shuttle[1].Price))
-                    {
-                        Shuttle_Unlocked();
-
-                        Purchase[0].interactable = true;
-                        Purchase[0].gameObject.SetActive(true);
-                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);
-                    }
-                }
+                    Singleton.instance.Currency -= Shuttle[1].Price;
+                    
+                    Shuttle_Unlocked();
+                    PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);                                   
                 break;
             case 2:
-                Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
+                    Singleton.instance.Currency -= Shuttle[2].Price;
+                    
+                    Shuttle_Unlocked();
+                    PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);                                  
+                break;
+        }
+    }
 
-                if (Shuttle_Locked)
+    void Change_Planet()
+    {
+        switch (Singleton.instance.Planet_count)
+        {
+            case 0:
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 || PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
                 {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(false);
-
-                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
+                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    Singleton.instance.BGM_Sound.Play();
                 }
-                else
+
+                RenderSettings.skybox = Space[Singleton.instance.Planet_count].Galaxy;
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+                break;
+            case 1:
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+
+                if (Space_Locked)
                 {
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
+                    Singleton.instance.BGM_Sound.clip = Space[1].Sound;
+                    Singleton.instance.BGM_Sound.Play();
 
-                    if (Singleton.instance.Purchase(Shuttle[2].Price))
-                    {
-                        Shuttle_Unlocked();
+                    RenderSettings.skybox = RenderSettings.skybox = Space[1].Galaxy;
+                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Gliese_876.ToString());
+                }
 
-                        Purchase[0].interactable = true;
-                        Purchase[0].gameObject.SetActive(true);
-                        PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);
-                    }
+                break;
+            case 2:
+                Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
+
+                if (Space_Locked)
+                {  
+                    Singleton.instance.BGM_Sound.clip = Space[2].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+
+                    RenderSettings.skybox = RenderSettings.skybox = Space[2].Galaxy;
+                    PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Earth.ToString());
                 }
                 break;
         }
 
+        Singleton.instance.SaveData();
     }
 
     public void Change_Shuttle()
@@ -327,6 +383,7 @@ public class Item_Choice : MonoBehaviour
                 {
                     Singleton.Equip = Shuttle[1].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Discovery.ToString());
                 }
                 break;
             case 2:
@@ -336,6 +393,7 @@ public class Item_Choice : MonoBehaviour
                 {
                     Singleton.Equip = Shuttle[2].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
+                    PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
                 }
                 break;
         }

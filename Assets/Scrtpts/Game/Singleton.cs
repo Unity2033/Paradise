@@ -8,6 +8,7 @@ public class Singleton : MonoBehaviour
     public Space_Ground[] All_Ground;
 
     public static Sprite Equip;
+    public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
 
     public int Language_Count, Sound_count = 0;
@@ -52,17 +53,9 @@ public class Singleton : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);      
     }
 
-    public bool Purchase(int Calculate)
+    private void Start()
     {
-        if(Currency >= Calculate)
-        {
-            Currency -= Calculate;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        BGM_Sound = GetComponent<AudioSource>();
     }
 
     private void Update()

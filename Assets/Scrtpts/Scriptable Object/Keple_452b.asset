@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Keple_452b
   m_EditorClassIdentifier: 
   space_name: 0
-  Space_sprite: {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
   Galaxy: {fileID: 2100000, guid: dbafadb718b560541a9577aa03f1d89f, type: 2}
+  Sound: {fileID: 8300000, guid: bde2c6cb31dd9d045a3af59bd3058dd3, type: 3}
+  Space_sprite: {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
   Price: 0

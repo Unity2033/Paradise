@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gliese_876
   m_EditorClassIdentifier: 
   space_name: 1
-  Space_sprite: {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
   Galaxy: {fileID: 2100000, guid: a38d37bd1e700e94fb9f024ab3de6e9c, type: 2}
+  Sound: {fileID: 8300000, guid: 745e081eab32ecb48a0f87547b8a1f47, type: 3}
+  Space_sprite: {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
   Price: 300

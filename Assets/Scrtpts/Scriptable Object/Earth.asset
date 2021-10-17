@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   space_name: 2
-  Space_sprite: {fileID: 21300000, guid: ba76f530cc53c9d4b904abb644442e73, type: 3}
   Galaxy: {fileID: 2100000, guid: e5a03f892a6a1d4448b03b380ea21c2e, type: 2}
+  Sound: {fileID: 8300000, guid: 202931080f583414e893d5914415bdc0, type: 3}
+  Space_sprite: {fileID: 21300000, guid: ba76f530cc53c9d4b904abb644442e73, type: 3}
   Price: 500
