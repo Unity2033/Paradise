@@ -8,8 +8,10 @@ public class Singleton : MonoBehaviour
     public Space_Ground[] All_Ground;
 
     public static Sprite Equip;
+    public static Material Space_Material;
     public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
+    public Material Space_Equip;
 
     public int Language_Count, Sound_count = 0;
     public int Count, Planet_count, Currency = 0;
@@ -61,6 +63,7 @@ public class Singleton : MonoBehaviour
     private void Update()
     {
         Shuttle.sprite = Equip;
+        RenderSettings.skybox = Space_Equip = Space_Material;
         Record_span = TimeSpan.FromSeconds(Record);
     }
 
@@ -96,7 +99,7 @@ public class Singleton : MonoBehaviour
 
     public void Equip_Space(Space_Ground Ground)
     {
-        RenderSettings.skybox = Ground.Galaxy;
+        Space_Material = Ground.Galaxy;
         PlayerPrefs.SetString("Space", Ground.space_name.ToString());
     }
 }

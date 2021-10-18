@@ -1,16 +1,7 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class Sound
-{
-    public string name;
-    public AudioClip clip;
-}
-
 public class Sound_Manager : MonoBehaviour
 {
-    [SerializeField] Sound[] Music = null;
-    
     public AudioSource Belch_Auido;
 
     public AudioClip[] Sound_Effect;
@@ -66,16 +57,4 @@ public class Sound_Manager : MonoBehaviour
     {
         Belch_Auido.PlayOneShot(Sound_Effect[6]);
     }
-
-    //public void Play_Music(string P_Music)
-    //{
-    //    for(int i = 0; i < Music.Length; i++)
-    //    {
-    //        if(P_Music == Music[i].name)
-    //        {
-    //            Belch_Auido.clip = Music[i].clip;
-    //            Belch_Auido.Play();
-    //        }
-    //    }
-    //}
 }

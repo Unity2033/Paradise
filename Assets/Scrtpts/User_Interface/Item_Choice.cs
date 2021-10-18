@@ -15,15 +15,9 @@ public class Item_Choice : MonoBehaviour
     public Button [] Purchase;
     public Button Sound_Setting;
     [SerializeField] Text Diamond;
-    public bool Shuttle_Locked, Space_Locked;
-
 
     private void Start()
-    {
-        Space_Unlock();
-        Shuttle_Unlocked();
-        Change_Planet();
-
+    {    
         switch (Singleton.instance.Planet_count)
         {
             case 0:
@@ -31,7 +25,7 @@ public class Item_Choice : MonoBehaviour
                 Singleton.instance.BGM_Sound.Play();
                 break;
             case 1:
-                if (Space_Locked)
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
                 {
                     Singleton.instance.BGM_Sound.clip = Space[1].Sound;
                     Singleton.instance.BGM_Sound.Play();
@@ -43,7 +37,7 @@ public class Item_Choice : MonoBehaviour
                 }
                 break;
             case 2:
-                if (Space_Locked)
+                if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
                 {
                     Singleton.instance.BGM_Sound.clip = Space[2].Sound;
                     Singleton.instance.BGM_Sound.Play();
@@ -56,48 +50,14 @@ public class Item_Choice : MonoBehaviour
                 break;
         }
 
-
         //Social.ReportProgress(GPGSIds.achievement, 100, null);
-    }
-
-    void Shuttle_Unlocked()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            if (PlayerPrefs.GetInt(Shuttle[i].shuttle_name.ToString()) == 1)
-            {
-                Shuttle_Locked = true;
-            }
-        }
-    }
-
-    void Space_Unlock()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            if (PlayerPrefs.GetInt(Space[i].space_name.ToString()) == 1)
-            {
-                Space_Locked = true;
-            }
-        }
     }
 
     private void Update()
     {
+        Change_Planet();
         Change_Shuttle();
         Auto_Calculate(300, 500);
-
-        if (Shuttle_Locked)
-        {
-            Purchase[0].interactable = false;
-            Purchase[0].gameObject.SetActive(false);
-        }
-
-        if (Space_Locked)
-        {
-            Purchase[1].interactable = false;
-            Purchase[1].gameObject.SetActive(false);
-        }
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
@@ -156,6 +116,7 @@ public class Item_Choice : MonoBehaviour
         if (++Singleton.instance.Planet_count > Space.Length - 1)
             Singleton.instance.Planet_count = 0;
 
+        Select_Sound();
         Change_Planet();
 
         Singleton.instance.SaveData();
@@ -166,6 +127,7 @@ public class Item_Choice : MonoBehaviour
         if (--Singleton.instance.Planet_count < 0)
             Singleton.instance.Planet_count = Space.Length - 1;
 
+        Select_Sound();
         Change_Planet();
 
         Singleton.instance.SaveData();
@@ -201,15 +163,31 @@ public class Item_Choice : MonoBehaviour
                 {
                     Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                    Purchase[0].interactable = true;
-                    Purchase[0].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 1)
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
                     Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 1)
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(true);
+                    }
                 }
                 break;
             case 2:
@@ -217,15 +195,31 @@ public class Item_Choice : MonoBehaviour
                 {
                     Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                    Purchase[0].interactable = true;
-                    Purchase[0].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 1)
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[0].interactable = true;
+                        Purchase[0].gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
                     Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                    Purchase[0].interactable = false;
-                    Purchase[0].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 1)
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[0].interactable = false;
+                        Purchase[0].gameObject.SetActive(true);
+                    }
                 }
                 break;
         }
@@ -240,15 +234,31 @@ public class Item_Choice : MonoBehaviour
                 {
                     Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                    Purchase[1].interactable = true;
-                    Purchase[1].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[1].interactable = true;
+                        Purchase[1].gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
                     Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 300");
 
-                    Purchase[1].interactable = false;
-                    Purchase[1].gameObject.SetActive(true);
+                    if(PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(true);
+                    }
                 }
                 break;
             case 2:
@@ -256,15 +266,31 @@ public class Item_Choice : MonoBehaviour
                 {
                     Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                    Purchase[1].interactable = true;
-                    Purchase[1].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[1].interactable = true;
+                        Purchase[1].gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
                     Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite("Buy Now 500");
 
-                    Purchase[1].interactable = false;
-                    Purchase[1].gameObject.SetActive(true);
+                    if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Purchase[1].interactable = false;
+                        Purchase[1].gameObject.SetActive(true);
+                    }
                 }
                 break;
         }
@@ -278,9 +304,10 @@ public class Item_Choice : MonoBehaviour
                 break;
             case 1:
                     Singleton.instance.Currency -= Space[1].Price;
-                      
-                    Space_Unlock();
-                    RenderSettings.skybox = Space[1].Galaxy;
+
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(false);
+                    RenderSettings.skybox = Singleton.Space_Material = Space[1].Galaxy;
 
                     Singleton.instance.BGM_Sound.clip = Space[1].Sound;
                     Singleton.instance.BGM_Sound.Play();
@@ -289,12 +316,14 @@ public class Item_Choice : MonoBehaviour
                 break;
             case 2:           
                     Singleton.instance.Currency -= Space[2].Price;
-                    
-                    Space_Unlock();                      
-                    RenderSettings.skybox = Space[2].Galaxy;
+
+                    Purchase[1].interactable = false;
+                    Purchase[1].gameObject.SetActive(false);
+                    RenderSettings.skybox = Singleton.Space_Material = Space[2].Galaxy;
 
                     Singleton.instance.BGM_Sound.clip = Space[2].Sound;
                     Singleton.instance.BGM_Sound.Play();
+
                     PlayerPrefs.SetInt(Space_Ground.Space_Ground_Name.Earth.ToString(), 1);                   
                 break;
         }
@@ -309,15 +338,21 @@ public class Item_Choice : MonoBehaviour
             case 0:
                 break;
             case 1:
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+
                     Singleton.instance.Currency -= Shuttle[1].Price;
-                    
-                    Shuttle_Unlocked();
+
+                    PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString());
                     PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Discovery.ToString(), 1);                                   
                 break;
             case 2:
+                    Purchase[0].interactable = false;
+                    Purchase[0].gameObject.SetActive(false);
+
                     Singleton.instance.Currency -= Shuttle[2].Price;
                     
-                    Shuttle_Unlocked();
+                    PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString());
                     PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);                                  
                 break;
         }
@@ -328,37 +363,24 @@ public class Item_Choice : MonoBehaviour
         switch (Singleton.instance.Planet_count)
         {
             case 0:
-                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 || PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
-                {
-                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
-                    Singleton.instance.BGM_Sound.Play();
-                }
-
-                RenderSettings.skybox = Space[Singleton.instance.Planet_count].Galaxy;
+                RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
                 Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
                 break;
             case 1:
                 Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
 
-                if (Space_Locked)
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
                 {
-                    Singleton.instance.BGM_Sound.clip = Space[1].Sound;
-                    Singleton.instance.BGM_Sound.Play();
-
-                    RenderSettings.skybox = RenderSettings.skybox = Space[1].Galaxy;
+                    RenderSettings.skybox = Singleton.Space_Material = Space[1].Galaxy;
                     PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Gliese_876.ToString());
                 }
-
                 break;
             case 2:
                 Store_Space_Ground.sprite = Space[Singleton.instance.Planet_count].Space_sprite;
 
-                if (Space_Locked)
-                {  
-                    Singleton.instance.BGM_Sound.clip = Space[2].Sound;
-                    Singleton.instance.BGM_Sound.Play();
-
-                    RenderSettings.skybox = RenderSettings.skybox = Space[2].Galaxy;
+                if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                {           
+                    RenderSettings.skybox = Singleton.Space_Material = Space[2].Galaxy;
                     PlayerPrefs.SetString("Space", Space_Ground.Space_Ground_Name.Earth.ToString());
                 }
                 break;
@@ -379,7 +401,7 @@ public class Item_Choice : MonoBehaviour
             case 1:
                 Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
 
-                if (Shuttle_Locked)
+                if (PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 1)
                 {
                     Singleton.Equip = Shuttle[1].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
@@ -389,11 +411,39 @@ public class Item_Choice : MonoBehaviour
             case 2:
                 Store_Space_Ship.sprite = Shuttle[Singleton.instance.Count].Shuttle_Sprite;
 
-                if (Shuttle_Locked)
-                {
+                if (PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 1)
+                {                   
                     Singleton.Equip = Shuttle[2].Shuttle_Sprite;
                     Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
                     PlayerPrefs.SetString("Shuttle", Space_Ship.Shuttle_Name.Endeavour.ToString());
+                }
+                break;
+        }
+    }
+
+    void Select_Sound()
+    {
+        switch (Singleton.instance.Planet_count)
+        {
+            case 0:
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 || PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                break;
+            case 1:
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[1].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+               break;
+            case 2:
+                if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[2].Sound;
+                    Singleton.instance.BGM_Sound.Play();
                 }
                 break;
         }

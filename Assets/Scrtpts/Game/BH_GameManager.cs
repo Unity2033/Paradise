@@ -22,16 +22,6 @@ public class BH_GameManager : MonoBehaviour
         Advertisement.Initialize("4376819");
 
         Advertisement.Banner.Hide();
-
-        string last_Space = PlayerPrefs.GetString("Space", Space_Ground.Space_Ground_Name.Kepler_452b.ToString());
-
-        foreach (Space_Ground All_Space in Singleton.instance.All_Ground)
-        {
-            if (All_Space.space_name.ToString() == last_Space)
-            {
-                Singleton.instance.Equip_Space(All_Space);
-            }
-        }
     }
 
     void Update()

@@ -595,13 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3a59912ff827841a4245528721e669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music:
-  - name: Connection
-    clip: {fileID: 8300000, guid: bde2c6cb31dd9d045a3af59bd3058dd3, type: 3}
-  - name: A little Star
-    clip: {fileID: 8300000, guid: 745e081eab32ecb48a0f87547b8a1f47, type: 3}
-  - name: Star
-    clip: {fileID: 8300000, guid: 202931080f583414e893d5914415bdc0, type: 3}
   Belch_Auido: {fileID: 158563254}
   Sound_Effect:
   - {fileID: 8300000, guid: be016e70580e91c4f8a8f9e7701b00d4, type: 3}
@@ -2637,6 +2630,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
   BGM_Sound: {fileID: 777563654}
   Shuttle: {fileID: 2436563071705686914, guid: 1d49f80bb76c63340b4c588457532485, type: 3}
+  Space_Equip: {fileID: 2100000, guid: 083558a95371e124f96473a5d18d85db, type: 2}
   Language_Count: 0
   Sound_count: 0
   Count: 0
@@ -3451,8 +3445,6 @@ MonoBehaviour:
   - {fileID: 1489894492}
   Sound_Setting: {fileID: 672059805}
   Diamond: {fileID: 285885051}
-  Shuttle_Locked: 0
-  Space_Locked: 0
 --- !u!4 &1443545202
 Transform:
   m_ObjectHideFlags: 0
