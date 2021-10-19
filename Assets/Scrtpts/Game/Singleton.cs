@@ -9,9 +9,10 @@ public class Singleton : MonoBehaviour
 
     public static Sprite Equip;
     public static Material Space_Material;
+
+    public Material Space_Equip;
     public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
-    public Material Space_Equip;
 
     public int Language_Count, Sound_count = 0;
     public int Count, Planet_count, Currency = 0;

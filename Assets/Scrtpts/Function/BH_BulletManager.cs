@@ -72,8 +72,8 @@ public class BH_BulletManager : MonoBehaviour
           dir.Normalize();
 
          _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(2.5f, 5.0f), memorypool);
-   
-         _bullet_1.GetComponent<BH_Bullet>().SetUp(dir, memorypool);
+
+         _bullet_1.GetComponent<BH_Bullet>().SetUp(dir, memorypool);              
     }
 
     private void Random_Item_Create()

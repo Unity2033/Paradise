@@ -36,6 +36,8 @@ public class BH_Bullet : MonoBehaviour
                 this.transform.position += dir * _speed * Time.deltaTime;
             }
 
+           
+
             if(Player.classification == 3 && Player.Condition)
             {
                 time += Time.deltaTime;

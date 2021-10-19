@@ -55,6 +55,7 @@ public class BH_PlayerMove : MonoBehaviour
 
     void Item_Cylce()
     {
+    
         if (Condition)
         {
             Watch.SetActive(true);

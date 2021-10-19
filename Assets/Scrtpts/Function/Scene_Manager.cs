@@ -19,6 +19,7 @@ public class Scene_Manager : MonoBehaviour
                 StartCoroutine(Load_Scene(index));
                 break;
             case 2:
+                Singleton.instance.BGM_Sound.Play();
                 Sound_Manager.instance.Start_Sound();
                 Sound_Manager.instance.Belch_Auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

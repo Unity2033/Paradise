@@ -51,13 +51,15 @@ public class BH_GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if(UnityEngine.Random.Range(1,100) <= 50)
+        if (UnityEngine.Random.Range(1,100) <= 50)
         {
             if (Advertisement.IsReady("video"))
             {
                 Advertisement.Show("video");
             }
         }
+
+        Singleton.instance.BGM_Sound.Stop();
 
         PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_4, 1, null);
 
