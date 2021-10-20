@@ -81,7 +81,6 @@ public class BH_PlayerMove : MonoBehaviour
             Life_time = 5.0f;
             Watch.SetActive(false);          
         }
-
     }
 
     void Item_Life(float time, float compare)

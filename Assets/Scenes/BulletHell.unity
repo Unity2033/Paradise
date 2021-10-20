@@ -1198,10 +1198,6 @@ MonoBehaviour:
   Maximum_Time: {fileID: 597205743}
   _reStartButton: {fileID: 570306760}
   Watch: {fileID: 1848200031}
-  Space:
-  - {fileID: 2100000, guid: dbafadb718b560541a9577aa03f1d89f, type: 2}
-  - {fileID: 2100000, guid: a38d37bd1e700e94fb9f024ab3de6e9c, type: 2}
-  - {fileID: 2100000, guid: e5a03f892a6a1d4448b03b380ea21c2e, type: 2}
   Pause_Button: {fileID: 311567549}
 --- !u!4 &637915341
 Transform:
@@ -1215,7 +1211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &637915342
 MonoBehaviour:
@@ -1561,7 +1557,7 @@ RectTransform:
   - {fileID: 1073410983}
   - {fileID: 1848200032}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1666,7 +1662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &931970748
 GameObject:
@@ -2016,7 +2012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073410982
 GameObject:

@@ -14,7 +14,7 @@ public class Singleton : MonoBehaviour
     public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
 
-    public int Language_Count, Sound_count = 0;
+    public int Language_Count, Sound_count, Switch_Count = 0;
     public int Count, Planet_count, Currency = 0;
 
     public float Record;
@@ -77,6 +77,7 @@ public class Singleton : MonoBehaviour
 
         PlayerPrefs.SetInt("Sound_count", Sound_count);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
+        PlayerPrefs.SetInt("Switch_count", Switch_Count);
         PlayerPrefs.SetInt("Language_Count", Language_Count);
     }
 
@@ -89,6 +90,7 @@ public class Singleton : MonoBehaviour
 
         Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
+        Switch_Count = PlayerPrefs.GetInt("Switch_count", 0);
         Language_Count = PlayerPrefs.GetInt("Language_Count", 0);
     }
 

@@ -17,20 +17,35 @@ public class Item_Choice : MonoBehaviour
     [SerializeField] Text Diamond;
 
     private void Start()
-    {    
+    {
         switch (Singleton.instance.Planet_count)
         {
             case 0:
                 Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
                 break;
             case 1:
                 if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
                 {
                     Singleton.instance.BGM_Sound.clip = Space[1].Sound;
                 }
+                else if(PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 0 && PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                {
+                    if(Singleton.instance.Switch_Count == 1)
+                    {
+                        Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                        RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
+                    }
+                    else
+                    {
+                        Singleton.instance.BGM_Sound.clip = Space[2].Sound;
+                        RenderSettings.skybox = Singleton.Space_Material = Space[2].Galaxy;
+                    }
+                }
                 else
                 {
                     Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
                 }
                 break;
             case 2:
@@ -38,9 +53,23 @@ public class Item_Choice : MonoBehaviour
                 {
                     Singleton.instance.BGM_Sound.clip = Space[2].Sound;
                 }
+                else if(PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 && PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 0)
+                {
+                    if (Singleton.instance.Switch_Count == 1)
+                    {
+                        Singleton.instance.BGM_Sound.clip = Space[1].Sound;
+                        RenderSettings.skybox = Singleton.Space_Material = Space[1].Galaxy;
+                    }
+                    else
+                    {
+                        Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                        RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
+                    }
+                }
                 else
                 {
                     Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    RenderSettings.skybox = Singleton.Space_Material = Space[0].Galaxy;
                 }
                 break;
         }
@@ -115,6 +144,7 @@ public class Item_Choice : MonoBehaviour
         Select_Sound();
         Change_Planet();
 
+        Singleton.instance.Switch_Count = 1;
         Singleton.instance.SaveData();
     }
 
@@ -126,6 +156,7 @@ public class Item_Choice : MonoBehaviour
         Select_Sound();
         Change_Planet();
 
+        Singleton.instance.Switch_Count = 2;
         Singleton.instance.SaveData();
     }
 
@@ -362,29 +393,29 @@ public class Item_Choice : MonoBehaviour
 
     void Select_Sound()
     {
-            switch (Singleton.instance.Planet_count)
-            {
-                case 0:
-                    if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 || PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
-                    {
-                        Singleton.instance.BGM_Sound.clip = Space[0].Sound;
-                        Singleton.instance.BGM_Sound.Play();
-                    }
-                    break;
-                case 1:
+        switch (Singleton.instance.Planet_count)
+        {
+            case 0:
+                if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1 || PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
+                {
+                    Singleton.instance.BGM_Sound.clip = Space[0].Sound;
+                    Singleton.instance.BGM_Sound.Play();
+                }
+                break;
+            case 1:
                 if (PlayerPrefs.GetInt(Space[1].space_name.ToString()) == 1)
                 {
                     Singleton.instance.BGM_Sound.clip = Space[1].Sound;
                     Singleton.instance.BGM_Sound.Play();
                 }
                 break;
-                case 2:
+            case 2:
                 if (PlayerPrefs.GetInt(Space[2].space_name.ToString()) == 1)
                 {
                     Singleton.instance.BGM_Sound.clip = Space[2].Sound;
                     Singleton.instance.BGM_Sound.Play();
                 }
                 break;
-            }
-        }  
+        }
+    }  
 }

@@ -25,6 +25,7 @@ public class Sound_Manager : MonoBehaviour
 
     public void Belch_Sound()
     {
+        Belch_Auido.volume = 0.5f;
         Belch_Auido.PlayOneShot(Sound_Effect[0]); // Belch_Auido의 PlayOneshot는 안에 있는 사운드를 재생시키는 함수입니다.
     }
 
@@ -55,6 +56,7 @@ public class Sound_Manager : MonoBehaviour
 
     public void Support_Sound()
     {
+        Belch_Auido.volume = 0.5f;
         Belch_Auido.PlayOneShot(Sound_Effect[6]);
     }
 }
