@@ -2628,15 +2628,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 36ca7dd161c0fce42a744d3168d45f19, type: 2}
   - {fileID: 11400000, guid: 4ae7e4f518792e74bb89799be0636a15, type: 2}
   - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
+  Space_Equip: {fileID: 2100000, guid: 083558a95371e124f96473a5d18d85db, type: 2}
   BGM_Sound: {fileID: 777563654}
   Shuttle: {fileID: 2436563071705686914, guid: 1d49f80bb76c63340b4c588457532485, type: 3}
-  Space_Equip: {fileID: 2100000, guid: 083558a95371e124f96473a5d18d85db, type: 2}
   Language_Count: 0
   Sound_count: 0
+  Switch_Count: 0
+  Gear_Count: 0
+  Shuttle_Switch_Count: 0
   Count: 0
   Planet_count: 0
   Currency: 0
   Record: 0
+  Gear_Speed: 0
 --- !u!4 &777563653
 Transform:
   m_ObjectHideFlags: 0

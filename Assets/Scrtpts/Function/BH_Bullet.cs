@@ -25,7 +25,7 @@ public class BH_Bullet : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
 
-            if (Player.classification == 1 && Player.Condition)
+            if (Player.classification == 1 && Player.Item_Condition)
             {
                 Particle.gameObject.SetActive(true);
                 this.transform.position += dir * _speed * 0.1f * Time.deltaTime;
@@ -35,10 +35,8 @@ public class BH_Bullet : MonoBehaviour
                 Particle.gameObject.SetActive(false);
                 this.transform.position += dir * _speed * Time.deltaTime;
             }
-
-           
-
-            if(Player.classification == 3 && Player.Condition)
+          
+            if(Player.classification == 3 && Player.Item_Condition)
             {
                 time += Time.deltaTime;
                 Aiming.SetActive(true);

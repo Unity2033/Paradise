@@ -2,7 +2,6 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-using UnityEngine.U2D;
 using UnityEngine.Analytics;
 using UnityEngine.Advertisements;
 using GooglePlayGames;
@@ -51,13 +50,11 @@ public class BH_GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (UnityEngine.Random.Range(1,100) <= 50)
+     
+        if (Advertisement.IsReady("video"))
         {
-            if (Advertisement.IsReady("video"))
-            {
-                Advertisement.Show("video");
-            }
-        }
+             Advertisement.Show("video");
+        }        
 
         Singleton.instance.BGM_Sound.Stop();
 

@@ -18,6 +18,48 @@ public class Item_Choice : MonoBehaviour
 
     private void Start()
     {
+        switch (Singleton.instance.Count)
+        {
+            case 0:
+                Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
+                break;
+            case 1:
+                if (PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 1)
+                {
+                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
+                }
+                else if(PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 0 && PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 1)
+                {
+                    if (Singleton.instance.Shuttle_Switch_Count == 1)
+                    {
+                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
+                    }
+                    else
+                    {
+                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");
+                    }
+                }
+                break;
+            case 2:
+                if (PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 1)
+                {
+                    Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Endeavour Button");   
+                }
+                else if(PlayerPrefs.GetInt(Shuttle[1].shuttle_name.ToString()) == 1 && PlayerPrefs.GetInt(Shuttle[2].shuttle_name.ToString()) == 0)
+                {
+                    if(Singleton.instance.Shuttle_Switch_Count == 1)
+                    {
+                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Discovery Button");
+                    }
+                    else
+                    {
+                        Character_Button.GetComponent<Image>().sprite = Atlas.GetSprite("Atlantis Button");
+                    }
+                }
+                break;
+        }
+
+
         switch (Singleton.instance.Planet_count)
         {
             case 0:
@@ -80,8 +122,8 @@ public class Item_Choice : MonoBehaviour
 
     private void Update()
     {
-        Change_Planet();
-        Change_Shuttle();
+        Select_Planet();
+        Select_Shuttle();
         Auto_Calculate(300, 500);
 
         Diamond.text = Singleton.instance.Currency.ToString();
@@ -121,8 +163,9 @@ public class Item_Choice : MonoBehaviour
         if(++Singleton.instance.Count > Shuttle.Length - 1)
             Singleton.instance.Count = 0;
 
-        Change_Shuttle();
+        Select_Shuttle();
 
+        Singleton.instance.Shuttle_Switch_Count = 1;
         Singleton.instance.SaveData();
     }
 
@@ -131,7 +174,8 @@ public class Item_Choice : MonoBehaviour
         if (--Singleton.instance.Count < 0)
             Singleton.instance.Count = Shuttle.Length - 1;
 
-        Change_Shuttle();
+        Singleton.instance.Shuttle_Switch_Count = 2;
+        Select_Shuttle();
 
         Singleton.instance.SaveData();
     }
@@ -142,7 +186,7 @@ public class Item_Choice : MonoBehaviour
             Singleton.instance.Planet_count = 0;
 
         Select_Sound();
-        Change_Planet();
+        Select_Planet();
 
         Singleton.instance.Switch_Count = 1;
         Singleton.instance.SaveData();
@@ -154,7 +198,7 @@ public class Item_Choice : MonoBehaviour
             Singleton.instance.Planet_count = Space.Length - 1;
 
         Select_Sound();
-        Change_Planet();
+        Select_Planet();
 
         Singleton.instance.Switch_Count = 2;
         Singleton.instance.SaveData();
@@ -235,38 +279,6 @@ public class Item_Choice : MonoBehaviour
         }
     }
 
-    void Shuttle_Calculate_Function(string Buy_Now, int Space_Number, bool Purchase_Condition)
-    {
-        Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite(Buy_Now);
-
-        if (PlayerPrefs.GetInt(Shuttle[Space_Number].shuttle_name.ToString()) == 1)
-        {
-            Purchase[0].interactable = false;
-            Purchase[0].gameObject.SetActive(false);
-        }
-        else
-        {
-            Purchase[0].interactable = Purchase_Condition;
-            Purchase[0].gameObject.SetActive(true);
-        }
-    }
-
-    void Space_Calculate_Function(string Buy_Now, int Space_Number, bool Purchase_Condition)
-    {
-        Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite(Buy_Now);
-
-        if (PlayerPrefs.GetInt(Space[Space_Number].space_name.ToString()) == 1)
-        {
-            Purchase[1].interactable = false;
-            Purchase[1].gameObject.SetActive(false);
-        }
-        else
-        {
-            Purchase[1].interactable = Purchase_Condition;
-            Purchase[1].gameObject.SetActive(true);
-        }
-    }
-
     public void Space_Purchase()
     {
         switch (Singleton.instance.Planet_count)
@@ -326,9 +338,11 @@ public class Item_Choice : MonoBehaviour
                     PlayerPrefs.SetInt(Space_Ship.Shuttle_Name.Endeavour.ToString(), 1);                                  
                 break;
         }
+
+        Singleton.instance.SaveData();
     }
 
-    void Change_Planet()
+    void Select_Planet()
     {
         switch (Singleton.instance.Planet_count)
         {
@@ -359,7 +373,7 @@ public class Item_Choice : MonoBehaviour
         Singleton.instance.SaveData();
     }
 
-    public void Change_Shuttle()
+    public void Select_Shuttle()
     {
         switch (Singleton.instance.Count)
         {
@@ -417,5 +431,37 @@ public class Item_Choice : MonoBehaviour
                 }
                 break;
         }
-    }  
+    }
+
+    void Shuttle_Calculate_Function(string Buy_Now, int Space_Number, bool Purchase_Condition)
+    {
+        Purchase[0].GetComponent<Image>().sprite = Atlas.GetSprite(Buy_Now);
+
+        if (PlayerPrefs.GetInt(Shuttle[Space_Number].shuttle_name.ToString()) == 1)
+        {
+            Purchase[0].interactable = false;
+            Purchase[0].gameObject.SetActive(false);
+        }
+        else
+        {
+            Purchase[0].interactable = Purchase_Condition;
+            Purchase[0].gameObject.SetActive(true);
+        }
+    }
+
+    void Space_Calculate_Function(string Buy_Now, int Space_Number, bool Purchase_Condition)
+    {
+        Purchase[1].GetComponent<Image>().sprite = Atlas.GetSprite(Buy_Now);
+
+        if (PlayerPrefs.GetInt(Space[Space_Number].space_name.ToString()) == 1)
+        {
+            Purchase[1].interactable = false;
+            Purchase[1].gameObject.SetActive(false);
+        }
+        else
+        {
+            Purchase[1].interactable = Purchase_Condition;
+            Purchase[1].gameObject.SetActive(true);
+        }
+    }
 }

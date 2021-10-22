@@ -14,10 +14,10 @@ public class Singleton : MonoBehaviour
     public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
 
-    public int Language_Count, Sound_count, Switch_Count = 0;
+    public int Language_Count, Sound_count, Switch_Count, Gear_Count, Shuttle_Switch_Count = 0;
     public int Count, Planet_count, Currency = 0;
 
-    public float Record;
+    public float Record, Gear_Speed;
 
     public static Singleton instance = null;
     public static int Connect = 0;
@@ -71,27 +71,27 @@ public class Singleton : MonoBehaviour
     public void SaveData()
     {      
         PlayerPrefs.SetInt("Count", Count);
-        PlayerPrefs.SetInt("Currency", Currency);
-
         PlayerPrefs.SetFloat("Record", Record);
-
+        PlayerPrefs.SetInt("Currency", Currency);
+        PlayerPrefs.SetInt("Gear_Count", Gear_Count);
         PlayerPrefs.SetInt("Sound_count", Sound_count);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
         PlayerPrefs.SetInt("Switch_count", Switch_Count);
         PlayerPrefs.SetInt("Language_Count", Language_Count);
+        PlayerPrefs.SetInt("Shuttle_Switch_Count", Shuttle_Switch_Count);
     }
 
     public void SaveRoad()
     {
         Count = PlayerPrefs.GetInt("Count", 0);
-        Currency = PlayerPrefs.GetInt("Currency", 0);
-
         Record = PlayerPrefs.GetFloat("Record", 0f);
-
+        Currency = PlayerPrefs.GetInt("Currency", 0);
+        Gear_Count = PlayerPrefs.GetInt("Gear_Count", 0);
         Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Switch_Count = PlayerPrefs.GetInt("Switch_count", 0);
         Language_Count = PlayerPrefs.GetInt("Language_Count", 0);
+        Shuttle_Switch_Count = PlayerPrefs.GetInt("Shuttle_Switch_Count", 0);
     }
 
     public void Equip_Shuttle(Space_Ship Ship)
