@@ -131,11 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item_Condition: 0
   Skill_Condition: 0
-  Atlas: {fileID: 0}
   Barrier: {fileID: 2196542082535533864}
   Particle: {fileID: 2437452918063716928}
   Watch: {fileID: 0}
-  Gear: {fileID: 0}
   Life_Cycle: {fileID: 0}
   classification: 0
 --- !u!54 &2436563071705686926
@@ -211,7 +209,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 4.2}
+  m_Size: {x: 6.6, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

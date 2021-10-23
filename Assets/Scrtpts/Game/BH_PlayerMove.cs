@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.U2D;
 
 public class BH_PlayerMove : MonoBehaviour
 {
@@ -10,11 +9,9 @@ public class BH_PlayerMove : MonoBehaviour
 
     private Touch touch;
 
-    [SerializeField] SpriteAtlas Atlas;
     public GameObject Barrier, Particle;
     public GameObject Watch;
 
-    [SerializeField] Image Gear;
     [SerializeField] Text Life_Cycle;
 
     SpriteRenderer Shuttle;
@@ -25,71 +22,15 @@ public class BH_PlayerMove : MonoBehaviour
     private void Start()
     {
         Shuttle = GetComponent<SpriteRenderer>();
-        Game = GameObject.Find("GameManager").GetComponent<BH_GameManager>();
-
-        switch (Singleton.instance.Gear_Count)
-        {
-            case 0:
-                Gear.sprite = Atlas.GetSprite("Gear One");
-                Singleton.instance.Gear_Speed = 0.0005f;
-                break;
-            case 1:
-                Gear.sprite = Atlas.GetSprite("Gear Two");
-                Singleton.instance.Gear_Speed = 0.0075f;
-                break;
-            case 2:
-                Gear.sprite = Atlas.GetSprite("Gear Three");
-                Singleton.instance.Gear_Speed = 0.01f;
-                break;
-            case 3:
-                Gear.sprite = Atlas.GetSprite("Gear Four");
-                Singleton.instance.Gear_Speed = 0.025f;
-                break;
-            case 4:
-                Gear.sprite = Atlas.GetSprite("Gaer Five");
-                Singleton.instance.Gear_Speed = 0.05f;
-                break;
-        }
-    }
-
-    public void Gear_shift()
-    { 
-        if (++Singleton.instance.Gear_Count >= 5)
-        {
-            Singleton.instance.Gear_Count = 0;
-        }
-
-        switch (Singleton.instance.Gear_Count)
-        {
-            case 0:
-                Gear.sprite = Atlas.GetSprite("Gear One");
-                Singleton.instance.Gear_Speed = 0.0005f;
-                break;
-            case 1:
-                Gear.sprite = Atlas.GetSprite("Gear Two");
-                Singleton.instance.Gear_Speed = 0.0075f;
-                break;
-            case 2:
-                Gear.sprite = Atlas.GetSprite("Gear Three");
-                Singleton.instance.Gear_Speed = 0.01f;
-                break;
-            case 3:
-                Gear.sprite = Atlas.GetSprite("Gear Four");
-                Singleton.instance.Gear_Speed = 0.025f;
-                break;
-            case 4:
-                Gear.sprite = Atlas.GetSprite("Gear Five");
-                Singleton.instance.Gear_Speed = 0.05f;
-                break;
-        }
-
-        Singleton.instance.SaveData();
+        Game = GameObject.Find("GameManager").GetComponent<BH_GameManager>();      
     }
 
     void Update()
     {
         if (Singleton.instance.GamePlay)
         {
+            Debug.Log(Singleton.instance.Gear_Speed);
+
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);

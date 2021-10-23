@@ -47,7 +47,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
     - {fileID: 2800000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
     - {fileID: 102900000, guid: 070b90268eff637408ec0e90797e0f5c, type: 3}
-    - {fileID: 102900000, guid: eade3516bfef63c47b20fbcf645e83a3, type: 3}
+    - {fileID: 102900000, guid: bb3e338899432408a9491440d7123e65, type: 3}
     - {fileID: 102900000, guid: b61ee9b9b1ffafe448d64d9590a497a3, type: 3}
     - {fileID: 2800000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
     - {fileID: 102900000, guid: 513e3ec86a0e1044e87ff06fb1250686, type: 3}
@@ -61,7 +61,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
     - {fileID: 2800000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
     - {fileID: 2800000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
-    - {fileID: 102900000, guid: bb3e338899432408a9491440d7123e65, type: 3}
+    - {fileID: 102900000, guid: eade3516bfef63c47b20fbcf645e83a3, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -76,8 +76,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
   - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
   - {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
+  - {fileID: 21300000, guid: 0c3fb262fd68a4243b020eb8c5095227, type: 3}
   - {fileID: 21300000, guid: 4502cc628f26d4348a5ee7026ac64396, type: 3}
-  - {fileID: 21300000, guid: 7605cfc28545af244a9ca5a1ed95313b, type: 3}
   - {fileID: 21300000, guid: ca24ded279f9c5a4c897cb7b0d27353e, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
   - {fileID: 21300000, guid: 55f3be23770f5424ea136f8a7ac60a67, type: 3}
@@ -87,12 +87,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
   - {fileID: 21300000, guid: ccb3948546150844a83f8446e576ab41, type: 3}
   - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
-  - {fileID: 21300000, guid: 170e59660abba954692816d5012f2d32, type: 3}
+  - {fileID: 21300000, guid: 9c81e7b62b0231f4093ead9227c722ff, type: 3}
   - {fileID: 21300000, guid: ffa80b5722428a84aabe3379eafbd7ab, type: 3}
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: d2936d286b13cda45a02c2eb97234deb, type: 3}
-  - {fileID: 21300000, guid: aa84124980d95d4438e04eadd5233e70, type: 3}
+  - {fileID: 21300000, guid: b39ff2a882a6d54479dfb3b01b12ab29, type: 3}
+  - {fileID: 21300000, guid: b4d6acd8af29e5c409e668979ee5d301, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
   - {fileID: 21300000, guid: c24c864ab98dbe24fa5930629ae7149f, type: 3}
@@ -107,11 +108,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
   - {fileID: 21300000, guid: 485bfbfc6c4ba8f4b85c9bd7da8e7267, type: 3}
   - {fileID: 21300000, guid: 84a7733da38288b4ca8d45e4d03942c0, type: 3}
+  - {fileID: 21300000, guid: 8099124de6537d94588d11ad6d306f83, type: 3}
   - {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
-  - {fileID: 21300000, guid: a9de10dd847fff9439c14fe1c8b34099, type: 3}
   - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
   - {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
-  - {fileID: 21300000, guid: 4e411bbf6ea6320499e5e0d5917f6ae9, type: 3}
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
   - Process
@@ -125,8 +125,8 @@ SpriteAtlas:
   - Barrier
   - Discovery Button
   - Gliese 876 Store
+  - Gear Five
   - Pause Window
-  - Gear One
   - Continue
   - Mission
   - Art_Work
@@ -136,12 +136,13 @@ SpriteAtlas:
   - Blue Window
   - Left Button
   - Title
-  - Gear Four
+  - Gear One
   - Replay
   - Buy Now 300
   - Shield
   - Pause
-  - Gear Five
+  - Gear Two
+  - Gear Three
   - Termination
   - Sound off
   - Store Window
@@ -156,11 +157,10 @@ SpriteAtlas:
   - Discovery
   - Exit
   - Setting Window
+  - Gear Four
   - Endeavour
-  - Gear Two
   - Support Fire
   - Kepler-452b Store
-  - Gear Three
   - Curreny Window
   m_Tag: Sprite Atlas
   m_IsVariant: 0

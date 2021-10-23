@@ -14,10 +14,35 @@ public class Item_Choice : MonoBehaviour
 
     public Button [] Purchase;
     public Button Sound_Setting;
+    [SerializeField] Button Gear;
     [SerializeField] Text Diamond;
 
     private void Start()
     {
+        switch (Singleton.instance.Gear_Count)
+        {
+            case 0:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear One");
+                Singleton.instance.Gear_Speed = 0.0005f;
+                break;
+            case 1:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Two");
+                Singleton.instance.Gear_Speed = 0.0075f;
+                break;
+            case 2:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Three");
+                Singleton.instance.Gear_Speed = 0.01f;
+                break;
+            case 3:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Four");
+                Singleton.instance.Gear_Speed = 0.025f;
+                break;
+            case 4:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Five");
+                Singleton.instance.Gear_Speed = 0.05f;
+                break;
+        }
+
         switch (Singleton.instance.Count)
         {
             case 0:
@@ -57,6 +82,8 @@ public class Item_Choice : MonoBehaviour
                     }
                 }
                 break;
+
+
         }
 
 
@@ -463,5 +490,39 @@ public class Item_Choice : MonoBehaviour
             Purchase[1].interactable = Purchase_Condition;
             Purchase[1].gameObject.SetActive(true);
         }
+    }
+
+    public void Gear_shift()
+    {
+        if (++Singleton.instance.Gear_Count >= 5)
+        {
+            Singleton.instance.Gear_Count = 0;
+        }
+
+        switch (Singleton.instance.Gear_Count)
+        {
+            case 0:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear One");
+                Singleton.instance.Gear_Speed = 0.0005f;
+                break;
+            case 1:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Two");
+                Singleton.instance.Gear_Speed = 0.0075f;
+                break;
+            case 2:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Three");
+                Singleton.instance.Gear_Speed = 0.01f;
+                break;
+            case 3:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Four");
+                Singleton.instance.Gear_Speed = 0.025f;
+                break;
+            case 4:
+                Gear.GetComponent<Image>().sprite = Atlas.GetSprite("Gear Five");
+                Singleton.instance.Gear_Speed = 0.05f;
+                break;
+        }
+
+        Singleton.instance.SaveData();
     }
 }
