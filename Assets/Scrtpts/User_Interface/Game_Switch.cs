@@ -73,7 +73,7 @@ public class Game_Switch : MonoBehaviour
     {
         Pause_Window.SetActive(true);
         Pause_Button.SetActive(false);
-        Singleton.instance.GamePlay = false;
+        Singleton.instance.GamePlay = false;    
         AudioListener.pause = true;
     }
 

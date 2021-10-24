@@ -31,6 +31,5 @@ public static class GPGSIds
         public const string achievement_3 = "CgkIhLHxpZoVEAIQCQ"; // <GPGSID>
         public const string achievement_4 = "CgkIhLHxpZoVEAIQCw"; // <GPGSID>
         public const string achievement_5 = "CgkIhLHxpZoVEAIQDA"; // <GPGSID>
-
 }
 

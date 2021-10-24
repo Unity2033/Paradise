@@ -59,4 +59,11 @@ public class Sound_Manager : MonoBehaviour
         Belch_Auido.volume = 0.5f;
         Belch_Auido.PlayOneShot(Sound_Effect[6]);
     }
+
+    public void Store_Select_Sound()
+    {
+        Belch_Auido.PlayOneShot(Sound_Effect[7]);
+    }
+
+    
 }

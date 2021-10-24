@@ -49,8 +49,7 @@ public class BH_GameManager : MonoBehaviour
     }
 
     public void GameOver()
-    {
-     
+    {   
         if (Advertisement.IsReady("video"))
         {
              Advertisement.Show("video");

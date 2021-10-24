@@ -202,6 +202,7 @@ public class Item_Choice : MonoBehaviour
             Singleton.instance.Count = Shuttle.Length - 1;
 
         Singleton.instance.Shuttle_Switch_Count = 2;
+
         Select_Shuttle();
 
         Singleton.instance.SaveData();
@@ -498,6 +499,8 @@ public class Item_Choice : MonoBehaviour
         {
             Singleton.instance.Gear_Count = 0;
         }
+
+        Sound_Manager.instance.Store_Select_Sound();
 
         switch (Singleton.instance.Gear_Count)
         {

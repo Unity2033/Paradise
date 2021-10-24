@@ -25,7 +25,6 @@ public class BH_Bullet : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
 
-
             if (Player.classification == 1 && Player.Item_Condition)
             {
                 Particle.gameObject.SetActive(true);

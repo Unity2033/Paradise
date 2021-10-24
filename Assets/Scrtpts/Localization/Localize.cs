@@ -63,16 +63,18 @@ public class Localize : MonoBehaviour
                 currentLocalizationText = Resources.Load(STR_LOCALIZATION_PREFIX + currentLanguage, typeof(TextAsset)) as TextAsset;
                 if (currentLocalizationText == null)
                 {
-                    Debug.LogWarningFormat("Missing locale '{0}', loading English.", currentLanguage);
+                   // Debug.LogWarningFormat("Missing locale '{0}', loading English.", currentLanguage);
                     currentLanguage = SystemLanguage.English.ToString();
                     currentLocalizationText = Resources.Load(STR_LOCALIZATION_PREFIX + currentLanguage, typeof(TextAsset)) as TextAsset;
                 }
                 if (currentLocalizationText != null)
                 {
                     currentLanguageFileHasBeenFound = true;
+
                     // We wplit on newlines to retrieve the key pairs
                     string[] lines = currentLocalizationText.text.Split(new string[] { "\r\n", "\n\r", "\n" }, System.StringSplitOptions.RemoveEmptyEntries);
                     CurrentLanguageStrings.Clear();
+
                     for (int i = 0; i < lines.Length; i++)
                     {
                         string[] pairs = lines[i].Split(new char[] { '\t', '=' }, 2);
@@ -84,7 +86,7 @@ public class Localize : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogErrorFormat("Locale Language '{0}' not found!", currentLanguage);
+                   // Debug.LogErrorFormat("Locale Language '{0}' not found!", currentLanguage);
                 }
             }
         }

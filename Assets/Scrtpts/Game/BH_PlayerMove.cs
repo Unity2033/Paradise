@@ -5,7 +5,7 @@ public class BH_PlayerMove : MonoBehaviour
 {
     BH_GameManager Game;
 
-    public bool Item_Condition,Skill_Condition;
+    public bool Item_Condition;
 
     private Touch touch;
 
@@ -14,14 +14,11 @@ public class BH_PlayerMove : MonoBehaviour
 
     [SerializeField] Text Life_Cycle;
 
-    SpriteRenderer Shuttle;
-
-    float Life_time, Skill_Life_time;
+    float Life_time;
     public int classification = 0;
 
     private void Start()
     {
-        Shuttle = GetComponent<SpriteRenderer>();
         Game = GameObject.Find("GameManager").GetComponent<BH_GameManager>();      
     }
 
@@ -53,13 +50,7 @@ public class BH_PlayerMove : MonoBehaviour
 
             transform.position = Camera.main.ViewportToWorldPoint(pos);
 
-            if (Random.Range(1, 10000) <= 1)
-            {
-                Skill_Condition = true;
-            }
-
             Item_Cylce();
-            Skill_Cycle();
         }
     }
 
@@ -93,34 +84,9 @@ public class BH_PlayerMove : MonoBehaviour
         }
     }
 
-    void Skill_Cycle()
+    void Item_Life(float Item_time, float Item_compare)
     {
-        if (Skill_Condition)
-        {
-            Shuttle.color = new Color(1, 1, 1, 0.25f);
-
-            Skill_Life_time -= Time.deltaTime;
-            Skill_Life(Skill_Life_time, 0.0f);
-        }
-        else
-        {
-            Shuttle.color = new Color(1, 1, 1, 1);
-            Life_time = 3.0f;
-        }
-    }
-
-    void Skill_Life(float time, float compare)
-    {
-        if (time <= compare)
-        {
-            Skill_Condition = false;
-            Skill_Life_time = 3.0f;
-        }
-    }
-
-    void Item_Life(float time, float compare)
-    {
-        if (time <= compare)
+        if (Item_time <= Item_compare)
         {
             Item_Condition = false;
             Barrier.SetActive(false);
