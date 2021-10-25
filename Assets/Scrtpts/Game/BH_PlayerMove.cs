@@ -26,8 +26,6 @@ public class BH_PlayerMove : MonoBehaviour
     {
         if (Singleton.instance.GamePlay)
         {
-            Debug.Log(Singleton.instance.Gear_Speed);
-
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
@@ -53,7 +51,6 @@ public class BH_PlayerMove : MonoBehaviour
             Item_Cylce();
         }
     }
-
 
     void Item_Cylce()
     {  
