@@ -82,10 +82,7 @@ public class Item_Choice : MonoBehaviour
                     }
                 }
                 break;
-
-
         }
-
 
         switch (Singleton.instance.Planet_count)
         {
@@ -144,7 +141,8 @@ public class Item_Choice : MonoBehaviour
         }
 
         Singleton.instance.BGM_Sound.Play();
-        //Social.ReportProgress(GPGSIds.achievement, 100, null);
+
+        Social.ReportProgress(GPGSIds.achievement, 100, null);
     }
 
     private void Update()

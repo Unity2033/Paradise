@@ -75,6 +75,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0fb101c108735784c89e0c405aafdc8d, type: 3}
   - {fileID: 21300000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
   - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
+  - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
   - {fileID: 21300000, guid: 0c3fb262fd68a4243b020eb8c5095227, type: 3}
   - {fileID: 21300000, guid: 4502cc628f26d4348a5ee7026ac64396, type: 3}
@@ -96,8 +97,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b4d6acd8af29e5c409e668979ee5d301, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
-  - {fileID: 21300000, guid: c24c864ab98dbe24fa5930629ae7149f, type: 3}
   - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
+  - {fileID: 21300000, guid: 5759007a013259e4da61ac34cef3c5ba, type: 3}
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
   - {fileID: 21300000, guid: 61644dca7a76faa47984cb13f6f01d79, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
@@ -107,7 +108,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
   - {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
   - {fileID: 21300000, guid: 485bfbfc6c4ba8f4b85c9bd7da8e7267, type: 3}
-  - {fileID: 21300000, guid: 84a7733da38288b4ca8d45e4d03942c0, type: 3}
   - {fileID: 21300000, guid: 8099124de6537d94588d11ad6d306f83, type: 3}
   - {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
   - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
@@ -124,6 +124,7 @@ SpriteAtlas:
   - Load
   - Barrier
   - Discovery Button
+  - Store Window
   - Gliese 876 Store
   - Gear Five
   - Pause Window
@@ -145,8 +146,8 @@ SpriteAtlas:
   - Gear Three
   - Termination
   - Sound off
-  - Store Window
   - Endeavour Button
+  - Setting Window
   - Time Window
   - Bank
   - Localize
@@ -156,7 +157,6 @@ SpriteAtlas:
   - Sound on
   - Discovery
   - Exit
-  - Setting Window
   - Gear Four
   - Endeavour
   - Support Fire

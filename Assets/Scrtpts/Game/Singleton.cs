@@ -14,13 +14,15 @@ public class Singleton : MonoBehaviour
     public AudioSource BGM_Sound;
     public SpriteRenderer Shuttle;
 
-    public int Language_Count, Sound_count, Switch_Count, Gear_Count, Shuttle_Switch_Count = 0;
+    public int Gear_Count = 2;
+    public int Shuttle_Switch_Count = 0;
     public int Count, Planet_count, Currency = 0;
+    public int Language_Count, Sound_count, Switch_Count;
+
+    public static int Connect = 0;
 
     public float Record, Gear_Speed;
-
     public static Singleton instance = null;
-    public static int Connect = 0;
 
     public TimeSpan Record_span; 
 
@@ -86,7 +88,7 @@ public class Singleton : MonoBehaviour
         Count = PlayerPrefs.GetInt("Count", 0);
         Record = PlayerPrefs.GetFloat("Record", 0f);
         Currency = PlayerPrefs.GetInt("Currency", 0);
-        Gear_Count = PlayerPrefs.GetInt("Gear_Count", 0);
+        Gear_Count = PlayerPrefs.GetInt("Gear_Count", 2);
         Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Switch_Count = PlayerPrefs.GetInt("Switch_count", 0);

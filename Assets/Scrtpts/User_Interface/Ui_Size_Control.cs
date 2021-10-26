@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Ui_Size_Control : MonoBehaviour
@@ -17,8 +16,6 @@ public class Ui_Size_Control : MonoBehaviour
 
     public static Ui_Size_Control instacne { get; private set; }
 
-    Action OnKey, CancleKey;
-
     private void Awake()
     {
         instacne = this;
@@ -32,7 +29,7 @@ public class Ui_Size_Control : MonoBehaviour
         Leaderboard_animator = Leaderboard_Button.GetComponent<Animator>();
 
         Store_animator = Store_Window.GetComponent<Animator>();
-        Setting_animator = Setting_Window.GetComponent<Animator>();
+        Setting_animator = Setting_Window.GetComponent<Animator>();   
     }
 
     private void Update()
@@ -47,20 +44,14 @@ public class Ui_Size_Control : MonoBehaviour
         }
     }
 
-    public void Open(Action Click_on, Action Click_Cancle)
+    public void Open()
     {
-        OnKey = Click_on;
-        CancleKey = Click_Cancle;
-
         Window_Function(true, false, false);
         Sound_Manager.instance.Button_Sound();
     }
 
-    public void Setting_Open(Action Click_on, Action Click_Cancle)
+    public void Setting_Open()
     {
-        OnKey = Click_on;
-        CancleKey = Click_Cancle;
-
         Window_Function(false, true, false);
         Sound_Manager.instance.Button_Sound();
     }
@@ -72,18 +63,12 @@ public class Ui_Size_Control : MonoBehaviour
         Setting_Window.SetActive(Setting);
     }
 
-    public void OnClick()
-    {
-        OnKey?.Invoke();
-
-        Close_Window();
-    }
-
     public void CancleClick()
     {
-        CancleKey?.Invoke();
+        Launch.interactable = true;
+        Store_animator.SetTrigger(Close);
+        Setting_animator.SetTrigger(Close);
 
-        Close_Window();
         Sound_Manager.instance.Cancle_Sound();
     }
 
@@ -96,12 +81,5 @@ public class Ui_Size_Control : MonoBehaviour
         Setting_Button_animator.SetTrigger(Close);
         Mission_Button_animator.SetTrigger(Close);
         Leaderboard_animator.SetTrigger(Close);
-    }
-
-    void Close_Window()
-    {
-        Launch.interactable = true;
-        Store_animator.SetTrigger(Close);
-        Setting_animator.SetTrigger(Close);
     }
 }

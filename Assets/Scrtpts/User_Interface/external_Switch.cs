@@ -2,24 +2,23 @@
 
 public class external_Switch : MonoBehaviour
 {
-    public void Store_Button()
+    public void User_Interface_Open(string Name)
     {
-        Ui_Size_Control.instacne.Open(() => { }, () => { });
-    }
-
-    public void Setting_Button()
-    {
-        Ui_Size_Control.instacne.Setting_Open(() => { }, () => { });
-    }
-
-    public void Cancle_Button()
-    {
-        Ui_Size_Control.instacne.CancleClick();
-    }
-
-    public void Reduction()
-    {
-        Ui_Size_Control.instacne.Button_Reduction();
+        switch (Name)
+        {
+            case "Store" :
+                Ui_Size_Control.instacne.Open();
+                break;
+            case "Setting":
+                Ui_Size_Control.instacne.Setting_Open();
+                break;
+            case "Cancle":
+                Ui_Size_Control.instacne.CancleClick();
+                break;
+            case "Reduction":
+                Ui_Size_Control.instacne.Button_Reduction();
+                break;
+        }
     }
 
     public void Language()
