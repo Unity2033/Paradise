@@ -8,6 +8,8 @@ Optimization overview
  - The string was used by setting it as a runtime constant.
  - I created Debug as a global class and set the Log global function so that Debug.Log() can be used.
  - CompareTag() is used to compare collisions between objects.
+ - Reduced draw calls using sprite atlas.
+ - Object pooling is implemented using a list.
 
 SDK Used
  - Unity ADS
@@ -23,3 +25,12 @@ Game Sound
 
 Design Pattern
  - Singleton
+
+Game Function
+ - Localization was done using text files.
+ - I used the resize animation of the user interface.
+ - The item structure is designed with inheritance.
+ - Scriptable objects were used to classify each object.
+
+Resolution
+ - X : 1440, Y : 2960 (Fixed)
