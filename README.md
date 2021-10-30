@@ -31,6 +31,9 @@ Game Function
  - I used the resize animation of the user interface.
  - The item structure is designed with inheritance.
  - Scriptable objects were used to classify each object.
+ - Each time the scene is moved, we used a method to load it into an asynchronous program.
+ - Data is stored and managed with PlayerPrefs.
+ - After changing position from world space to viewport space, z position was converted into world unit to prevent moving out of the screen.
 
 Resolution
  - X : 1440, Y : 2960 (Fixed)
