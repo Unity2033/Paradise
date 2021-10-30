@@ -14,6 +14,7 @@ Optimization overview
 SDK Used
  - Unity ADS
  - Google Play Game Service
+ - Mobile Notifications
  - Unity Keystore Helper
 
 Game Analysis Program
@@ -34,6 +35,8 @@ Game Function
  - Each time the scene is moved, we used a method to load it into an asynchronous program.
  - Data is stored and managed with PlayerPrefs.
  - After changing position from world space to viewport space, z position was converted into world unit to prevent moving out of the screen.
+ - The maximum distance an object can move is specified using distance calculation.
+ - Using quaternions, the rotation position of the object is set to a random value between 0 and 360 degrees.
 
 Resolution
  - X : 1440, Y : 2960 (Fixed)
