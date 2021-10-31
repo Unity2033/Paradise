@@ -37,6 +37,9 @@ Game Function
  - After changing position from world space to viewport space, z position was converted into world unit to prevent moving out of the screen.
  - The maximum distance an object can move is specified using distance calculation.
  - Using quaternions, the rotation position of the object is set to a random value between 0 and 360 degrees.
+ - The sky box was rotated 360 degrees in real time to give a lively feeling.
+ - The vector was normalized for uniform movement of the object.
+ - Implemented a pause system using a bool variable.
 
 Resolution
  - X : 1440, Y : 2960 (Fixed)
