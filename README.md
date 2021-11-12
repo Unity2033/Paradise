@@ -1,7 +1,8 @@
 # Game Overview
-This is the first Unity project I started, and it is a process of learning and growing many technical elements.
+It's a survival game to avoid asteroid objects flying from all sides. \
+You can activate the effect by acquiring each item object that appears randomly at a certain time.
 
-Optimization overview
+***Optimization overview***
  - When using coroutines, new WaitForSeconds() is a class, so it was cached and used.
  - Only the UI component that needs to handle the event has enabled the setting of 'Raycast Target'.
  - I set force to mono for each audio clip.
@@ -11,23 +12,23 @@ Optimization overview
  - Reduced draw calls using sprite atlas.
  - Object pooling is implemented using a list.
 
-SDK Used
+***SDK Used***
  - Unity ADS
  - Google Play Game Service
  - Mobile Notifications
  - Unity Keystore Helper
 
-Game Analysis Program
+***Game Analysis Program***
  - Unity Analysis
 
-Game Sound
+***Game Sound***
  - We used an audio mixer to manage the sound globally.
  - After setting each sound effect as an array, I called it with PlayOneShot().
 
-Design Pattern
+***Design Pattern***
  - Singleton
 
-Game Function
+***Game Function***
  - Localization was done using text files.
  - I used the resize animation of the user interface.
  - The item structure is designed with inheritance.
@@ -41,5 +42,5 @@ Game Function
  - The vector was normalized for uniform movement of the object.
  - Implemented a pause system using a bool variable.
 
-Resolution
+***Resolution***
  - X : 1440, Y : 2960 (Fixed)
