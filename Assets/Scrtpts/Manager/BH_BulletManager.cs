@@ -47,7 +47,7 @@ public class BH_BulletManager : MonoBehaviour
 
             if (five_time >= 5.0f)
             {          
-                 Singleton.instance.Currency += 1;           
+                Singleton.instance.Currency += 1;           
                 Singleton.instance.SaveData();
 
                 five_time = 0.0f;

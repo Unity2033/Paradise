@@ -6,8 +6,9 @@ using System.Collections;
 
 public class Google_Manager : MonoBehaviour
 {
-
+    [SerializeField] Image Internet;
     [SerializeField] Image Login;
+
     float time = 0f;
     float Fade_Out = 1f;
 
@@ -122,6 +123,7 @@ public class Google_Manager : MonoBehaviour
             if(try_Loing < 0)
             {
                 // Text로 로그인 실패를 알린 후 Application.Quit(); 발동
+                Internet.gameObject.SetActive(true);
                 break;
             }
         }

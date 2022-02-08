@@ -7,7 +7,8 @@ public class BH_PlayerMove : MonoBehaviour
 
     public bool Item_Condition;
 
-    private Touch touch;
+    Touch touch;
+    SpriteRenderer sprite_renderer;
 
     public GameObject Barrier, Particle;
     public GameObject Watch;
@@ -19,6 +20,7 @@ public class BH_PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
         Game = GameObject.Find("GameManager").GetComponent<BH_GameManager>();      
     }
 
@@ -26,6 +28,9 @@ public class BH_PlayerMove : MonoBehaviour
     {
         if (Singleton.instance.GamePlay)
         {
+
+
+            /*
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
@@ -36,8 +41,36 @@ public class BH_PlayerMove : MonoBehaviour
                         transform.position.x + touch.deltaPosition.x * Singleton.instance.Gear_Speed,
                         transform.position.y + touch.deltaPosition.y * Singleton.instance.Gear_Speed,
                         transform.position.z);
+
                 }
             }
+            */
+
+            float x = Input.GetAxis("Mouse X");
+            float y = Input.GetAxis("Mouse Y");
+
+            if (Input.touchCount > 0)
+            {
+                x = Input.touches[0].deltaPosition.x;
+                y = Input.touches[0].deltaPosition.y;
+            }
+
+            if(Input.GetAxis("Mouse X") > 0)
+            {
+                sprite_renderer.flipX = false;
+            }
+            else if(Input.GetAxis("Mouse X") < 0)
+            {
+                sprite_renderer.flipX = true;
+            }
+
+            transform.Translate
+            (
+                x * 50 * Time.deltaTime,
+                y * 50 * Time.deltaTime,
+                transform.position.z
+            );
+
 
             Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 

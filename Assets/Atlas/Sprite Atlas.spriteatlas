@@ -93,6 +93,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: d2936d286b13cda45a02c2eb97234deb, type: 3}
+  - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
   - {fileID: 21300000, guid: b39ff2a882a6d54479dfb3b01b12ab29, type: 3}
   - {fileID: 21300000, guid: b4d6acd8af29e5c409e668979ee5d301, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
@@ -109,6 +110,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
   - {fileID: 21300000, guid: 485bfbfc6c4ba8f4b85c9bd7da8e7267, type: 3}
   - {fileID: 21300000, guid: 8099124de6537d94588d11ad6d306f83, type: 3}
+  - {fileID: 21300000, guid: d998f55dce3a0c74baaee558c26dc31c, type: 3}
   - {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
   - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
   - {fileID: 21300000, guid: 7561b26e663d31b48ad5353887a375c7, type: 3}
@@ -142,6 +144,7 @@ SpriteAtlas:
   - Buy Now 300
   - Shield
   - Pause
+  - Internet Window
   - Gear Two
   - Gear Three
   - Termination
@@ -158,6 +161,7 @@ SpriteAtlas:
   - Discovery
   - Exit
   - Gear Four
+  - KakaoTalk_20211101_182931904
   - Endeavour
   - Support Fire
   - Kepler-452b Store
