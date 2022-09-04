@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Manager : MonoBehaviour
 {
-    [SerializeField] Ui_Size_Control Ui_Control;
-
     public void Scene_Move(int index)
     {
         switch (index)
@@ -15,13 +13,13 @@ public class Scene_Manager : MonoBehaviour
                 AudioListener.pause = false;
                 break;
             case 1:
-                Sound_Manager.instance.Start_Sound();   
+                Sound_Manager.instance.Sound(4);   
                 StartCoroutine(Load_Scene(index));
                 break;
             case 2:
                 Singleton.instance.BGM_Sound.Play();
-                Sound_Manager.instance.Start_Sound();
-                Sound_Manager.instance.Belch_Auido.Play();
+                Sound_Manager.instance.Sound(4);
+                Sound_Manager.instance.auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
         }
@@ -46,7 +44,7 @@ public class Scene_Manager : MonoBehaviour
                     }
                     break;
                 case 1 :
-                    if (Async.progress >= 0.9f && Ui_Control.Start_animator.GetCurrentAnimatorStateInfo(0).IsName("close"))
+                    if(Async.progress >= 0.9f)
                     {
                         Async.allowSceneActivation = true;
                     }

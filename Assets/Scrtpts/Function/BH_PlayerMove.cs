@@ -7,7 +7,6 @@ public class BH_PlayerMove : MonoBehaviour
 
     public bool Item_Condition;
 
-    Touch touch;
     SpriteRenderer sprite_renderer;
 
     public GameObject Barrier, Particle;
@@ -28,24 +27,6 @@ public class BH_PlayerMove : MonoBehaviour
     {
         if (Singleton.instance.GamePlay)
         {
-
-
-            /*
-            if (Input.touchCount > 0)
-            {
-                touch = Input.GetTouch(0);
-
-                if (touch.phase == TouchPhase.Moved)
-                {
-                    transform.position = new Vector3(
-                        transform.position.x + touch.deltaPosition.x * Singleton.instance.Gear_Speed,
-                        transform.position.y + touch.deltaPosition.y * Singleton.instance.Gear_Speed,
-                        transform.position.z);
-
-                }
-            }
-            */
-
             float x = Input.GetAxis("Mouse X");
             float y = Input.GetAxis("Mouse Y");
 
@@ -66,11 +47,10 @@ public class BH_PlayerMove : MonoBehaviour
 
             transform.Translate
             (
-                x * 50 * Time.deltaTime,
-                y * 50 * Time.deltaTime,
+                x * Time.deltaTime,
+                y * Time.deltaTime,
                 transform.position.z
             );
-
 
             Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 
@@ -152,7 +132,7 @@ public class BH_PlayerMove : MonoBehaviour
             Game.GameOver();
             Particle.SetActive(true);
             Destroy(this.gameObject, 0.5f);
-            Sound_Manager.instance.Belch_Sound();
+            Sound_Manager.instance.Sound(0);
         }
     }
 }

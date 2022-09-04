@@ -56,7 +56,7 @@ public class Game_Switch : MonoBehaviour
         {
             restart.text = Mathf.Round(count).ToString();
 
-            Sound_Manager.instance.Count_Sound();
+            Sound_Manager.instance.Sound(2);
 
             AudioListener.pause = false;
 

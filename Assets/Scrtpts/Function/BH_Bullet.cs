@@ -48,7 +48,7 @@ public class BH_Bullet : MonoBehaviour
 
                 if (time >= 1.0f)
                 {
-                    Sound_Manager.instance.Support_Sound();
+                    Sound_Manager.instance.Sound(6);
                     memoryPool.DeactivatePoolItem(gameObject);
                     time = 0.0f;
                 }

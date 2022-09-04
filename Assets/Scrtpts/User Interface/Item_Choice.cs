@@ -498,7 +498,7 @@ public class Item_Choice : MonoBehaviour
             Singleton.instance.Gear_Count = 0;
         }
 
-        Sound_Manager.instance.Store_Select_Sound();
+        Sound_Manager.instance.Sound(7);
 
         switch (Singleton.instance.Gear_Count)
         {

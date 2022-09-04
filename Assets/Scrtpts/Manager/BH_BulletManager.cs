@@ -64,15 +64,12 @@ public class BH_BulletManager : MonoBehaviour
     private void SetPositionBullet()
     {
           _bullet_1 = memorypool.ActivatePoolItem();
-
-          _bullet_1.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-          _bullet_1.transform.position = _bullet_1.transform.right * 10f;
+          _bullet_1.transform.position = Random.insideUnitCircle.normalized * 10;
 
           dir = Player.transform.position - _bullet_1.transform.position;
           dir.Normalize();
 
          _bullet_1.GetComponent<BH_Bullet>().SetBullet(Random.Range(2.5f, 5.0f), memorypool);
-
          _bullet_1.GetComponent<BH_Bullet>().SetUp(dir, memorypool);              
     }
 
@@ -92,9 +89,8 @@ public class BH_BulletManager : MonoBehaviour
     {
         Instantiate(item, gameObject.transform);
 
-        item.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        item.transform.position = item.transform.right * 10f;
-
+        item.transform.position = Random.insideUnitCircle.normalized * 10;
+   
         dir = (Origin.transform.position - item.transform.position).normalized;
 
         item.GetComponent<Move_Object>().Set_Item(Random.Range(2.5f, 5.0f));

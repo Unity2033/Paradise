@@ -95,6 +95,7 @@ public class Google_Manager : MonoBehaviour
                 }
             });
         }
+
         Social.ShowLeaderboardUI();
     }
 
