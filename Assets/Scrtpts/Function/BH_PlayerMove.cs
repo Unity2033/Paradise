@@ -131,6 +131,7 @@ public class BH_PlayerMove : MonoBehaviour
         {
             Game.GameOver();
             Particle.SetActive(true);
+            Singleton.instance.SaveData();
             Destroy(this.gameObject, 0.5f);
             Sound_Manager.instance.Sound(0);
         }

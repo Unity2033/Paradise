@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class Banner_ADS : MonoBehaviour, IUnityAdsListener
+public class Banner_ADS : MonoBehaviour
 {
     void Start()
     {
-        Advertisement.AddListener(this);
+        Advertisement.AddListener((IUnityAdsListener)this);
         Advertisement.Initialize("4376819");
         Show_Banner();
     }
@@ -32,37 +32,4 @@ public class Banner_ADS : MonoBehaviour, IUnityAdsListener
         Show_Banner();
     }
 
-    public void Reward_Show()
-    {
-        Advertisement.Show("Reward");
-    }
-
-    public void OnUnityAdsReady(string placementId)
-    {
-      
-    }
-
-    public void OnUnityAdsDidError(string message)
-    {
-       
-    }
-
-    public void OnUnityAdsDidStart(string placementId)
-    {
-       
-    }
-
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        if(showResult == ShowResult.Finished)
-        {
-            PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_5, 10, null);       
-            Singleton.instance.Currency += Random.Range(1, 10);
-            Singleton.instance.SaveData();
-        }
-        else if(showResult == ShowResult.Failed)
-        {
-
-        }
-    }
 }

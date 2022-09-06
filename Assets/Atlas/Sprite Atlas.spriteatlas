@@ -78,8 +78,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 7f55b9520a8e54840a3496c206e6dab7, type: 3}
   - {fileID: 21300000, guid: 0c3fb262fd68a4243b020eb8c5095227, type: 3}
-  - {fileID: 21300000, guid: 4502cc628f26d4348a5ee7026ac64396, type: 3}
-  - {fileID: 21300000, guid: ca24ded279f9c5a4c897cb7b0d27353e, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
   - {fileID: 21300000, guid: 55f3be23770f5424ea136f8a7ac60a67, type: 3}
   - {fileID: 21300000, guid: 834318432ef78ee4eab5a6c5cf436426, type: 3}
@@ -92,7 +90,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ffa80b5722428a84aabe3379eafbd7ab, type: 3}
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
-  - {fileID: 21300000, guid: d2936d286b13cda45a02c2eb97234deb, type: 3}
   - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
   - {fileID: 21300000, guid: b39ff2a882a6d54479dfb3b01b12ab29, type: 3}
   - {fileID: 21300000, guid: b4d6acd8af29e5c409e668979ee5d301, type: 3}
@@ -101,7 +98,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
   - {fileID: 21300000, guid: 5759007a013259e4da61ac34cef3c5ba, type: 3}
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
-  - {fileID: 21300000, guid: 61644dca7a76faa47984cb13f6f01d79, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
   - {fileID: 21300000, guid: 0216e9db89de8aa428f297985eb98270, type: 3}
   - {fileID: 21300000, guid: 7ca2a6eb6bf4b69469262322badd2677, type: 3}
@@ -129,8 +125,6 @@ SpriteAtlas:
   - Store Window
   - Gliese 876 Store
   - Gear Five
-  - Pause Window
-  - Continue
   - Mission
   - Art_Work
   - Item Shop
@@ -143,7 +137,6 @@ SpriteAtlas:
   - Replay
   - Buy Now 300
   - Shield
-  - Pause
   - Internet Window
   - Gear Two
   - Gear Three
@@ -152,7 +145,6 @@ SpriteAtlas:
   - Endeavour Button
   - Setting Window
   - Time Window
-  - Bank
   - Localize
   - Right Button
   - Space station

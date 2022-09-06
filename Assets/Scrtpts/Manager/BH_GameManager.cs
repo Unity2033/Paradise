@@ -8,12 +8,10 @@ using GooglePlayGames;
 
 public class BH_GameManager : MonoBehaviour
 {
-    float current_time, degree;
+    float current_time;
 
     public Text Diamond, _playTime, Curret_Time, Maximum_Time;
     public GameObject _reStartButton, Watch;
-
-    [SerializeField] GameObject Pause_Button;
 
     void Start()
     {
@@ -30,6 +28,7 @@ public class BH_GameManager : MonoBehaviour
             current_time += Time.deltaTime;
 
             TimeSpan time_span = TimeSpan.FromSeconds(current_time);
+
             _playTime.text = time_span.ToString(@"mm\:ss\:ff");
 
             if(current_time > PlayerPrefs.GetFloat("Record") )
@@ -37,10 +36,8 @@ public class BH_GameManager : MonoBehaviour
                 Singleton.instance.Record = current_time;             
                 Singleton.instance.SaveData();
             }
-         
-            degree += Time.deltaTime;
-            if (degree >= 360) degree = 0;     
-            RenderSettings.skybox.SetFloat("_Rotation", degree);
+           
+            RenderSettings.skybox.SetFloat("_Rotation", Time.time);
 
             Diamond.text = Singleton.instance.Currency.ToString();
             Curret_Time.text = time_span.ToString(@"mm\:ss\:ff");
@@ -49,7 +46,7 @@ public class BH_GameManager : MonoBehaviour
     }
 
     public void GameOver()
-    {   
+    {
         if (Advertisement.IsReady("video"))
         {
              Advertisement.Show("video");
@@ -68,7 +65,6 @@ public class BH_GameManager : MonoBehaviour
         Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
 
         Watch.SetActive(false);
-        Pause_Button.SetActive(false);
         _reStartButton.SetActive(true);
         Singleton.instance.GamePlay = false;
         Sound_Manager.instance.auido.Stop();    
