@@ -1,7 +1,0 @@
-﻿Language = 日本語
-Maximum Survival Time = 最高 生存 時間
-Current Survival Time = 現在 生存 時間
-Game Result = ゲームの結果
-Game End = ゲーム終了
-Game Internet = ネットワーク接続へ\n失敗しました。
-

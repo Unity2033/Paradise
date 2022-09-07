@@ -153,22 +153,6 @@ public class Item_Choice : MonoBehaviour
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
-        switch (Singleton.instance.Language_Count)
-        {
-            case 0:
-                Localize.SetCurrentLanguage(SystemLanguage.Korean);
-                break;
-            case 1:
-                Localize.SetCurrentLanguage(SystemLanguage.English);
-                break;
-            case 2:
-                Localize.SetCurrentLanguage(SystemLanguage.Japanese);
-                break;
-            case 3:
-                Localize.SetCurrentLanguage(SystemLanguage.Vietnamese);
-                break;
-        }
-
         RenderSettings.skybox.SetFloat("_Rotation", 0);
 
         if (Singleton.instance.Sound_count == 0)

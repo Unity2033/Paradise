@@ -8,7 +8,7 @@ public class Banner_ADS : MonoBehaviour
 {
     void Start()
     {
-        Advertisement.AddListener((IUnityAdsListener)this);
+        // Advertisement.AddListener((IUnityAdsListener)this);
         Advertisement.Initialize("4376819");
         Show_Banner();
     }

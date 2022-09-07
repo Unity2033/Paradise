@@ -11,4 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BulletHell.unity
     guid: 9e9e2a25e03402a4eaee95e72e5a64fe
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 186a662a354acb747a2e579468e81f2c,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: bb842b31582a76f4c84e4221fd7f2333,
+      type: 2}
