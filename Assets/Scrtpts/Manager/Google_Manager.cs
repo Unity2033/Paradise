@@ -9,18 +9,14 @@ public class Google_Manager : MonoBehaviour
     [SerializeField] Image Internet;
     [SerializeField] Image Login;
 
-    float time = 0f;
-    float Fade_Out = 1f;
+    float time = 0;
 
     private void Awake()
     {
         PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
-    }
 
-    void Start()
-    {       
         if (Singleton.Connect == 0)
         {
             StartCoroutine(Connection());
@@ -44,7 +40,7 @@ public class Google_Manager : MonoBehaviour
         }
     }
 
-    IEnumerator Connection()
+    private IEnumerator Connection()
     {
         yield return null;
 
@@ -83,9 +79,10 @@ public class Google_Manager : MonoBehaviour
 
         while (color.a > 0f)
         {
-            time += Time.deltaTime / Fade_Out;
+            time += Time.deltaTime / 1f;
             color.a = Mathf.Lerp(1, 0, time);
             Login.color = color;
+
             yield return null;
         }
 

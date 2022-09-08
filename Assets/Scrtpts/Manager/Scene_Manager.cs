@@ -13,12 +13,12 @@ public class Scene_Manager : MonoBehaviour
                 AudioListener.pause = false;
                 break;
             case 1:
-                Sound_Manager.instance.Sound(4);   
+                Sound_Manager.instance.Sound(3);   
                 StartCoroutine(Load_Scene(index));
                 break;
             case 2:
+                Sound_Manager.instance.Sound(3);
                 Singleton.instance.BGM_Sound.Play();
-                Sound_Manager.instance.Sound(4);
                 Sound_Manager.instance.auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
@@ -33,23 +33,12 @@ public class Scene_Manager : MonoBehaviour
 
         while (!Async.isDone)
         {
-            yield return null;
-
-            switch(Number)
+            if (Async.progress >= 0.9f)
             {
-                case 0 :
-                    if (Async.progress >= 0.9f)
-                    {
-                        Async.allowSceneActivation = true;
-                    }
-                    break;
-                case 1 :
-                    if(Async.progress >= 0.9f)
-                    {
-                        Async.allowSceneActivation = true;
-                    }
-                    break;
+                Async.allowSceneActivation = true;
             }
+
+            yield return null;
         }
     }
 }

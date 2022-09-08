@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class VersatileButton : MonoBehaviour
 {
+   private int count = 2;
 
     public void Open(GameObject window)
     {
@@ -16,20 +18,21 @@ public class VersatileButton : MonoBehaviour
     {
         window.GetComponent<Animator>().SetTrigger("close");
 
-        Sound_Manager.instance.Sound(3);
+        Sound_Manager.instance.Sound(2);
     }
 
     public void Language()
     {
-        Sound_Manager.instance.Sound(5);
+        Sound_Manager.instance.Sound(4);
 
-        if (++Singleton.instance.Language_Count == 4)
+        if(++count >= 4)
         {
-            Singleton.instance.Language_Count = 0;
+            count = 0;
         }
 
-        Singleton.instance.SaveData();
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[count];
     }
+
 
     public void Achievement()
     {
