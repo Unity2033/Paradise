@@ -9,7 +9,10 @@ public class BH_PlayerMove : MonoBehaviour
 
     SpriteRenderer sprite_renderer;
 
+    [SerializeField] float speed = 1.0f;
+
     public GameObject Barrier, Particle;
+
     public GameObject Watch;
 
     [SerializeField] Text Life_Cycle;
@@ -47,18 +50,16 @@ public class BH_PlayerMove : MonoBehaviour
 
             transform.Translate
             (
-                x * Time.deltaTime,
-                y * Time.deltaTime,
+                x * speed *  Time.deltaTime,
+                y * speed * Time.deltaTime,
                 transform.position.z
             );
 
             Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 
-            if (pos.x < 0f) pos.x = 0.1f;
-            if (pos.x > 1f) pos.x = 0.9f;
-            if (pos.y < 0f) pos.y = 0.025f;
-            if (pos.y > 1f) pos.y = 0.95f;
-
+            pos.x = Mathf.Clamp(pos.x, 0.1f, 0.9f);
+            pos.y = Mathf.Clamp(pos.y, 0.025f, 0.95f);
+  
             transform.position = Camera.main.ViewportToWorldPoint(pos);
 
             Item_Cylce();
@@ -108,23 +109,21 @@ public class BH_PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Slow"))
+        if (other.gameObject.CompareTag("Item"))
         {
             Item_Condition = true;
-            classification = 1;
-        }
 
-        if (other.gameObject.CompareTag("Barrier")) 
-        {
-            Item_Condition = true;
-            Barrier.SetActive(true);
-            classification = 2;
-        }
+            switch (other.gameObject.GetComponent<Item>().itemCount)
+            {
+                case 0 : classification = 1;
+                    break;
+                case 1 : classification = 2;
+                    Barrier.SetActive(true);
+                    break;
+                case 2 : classification = 3;
+                    break;
 
-        if (other.gameObject.CompareTag("Turret"))
-        {
-            Item_Condition = true;
-            classification = 3;
+            }
         }
 
         if (other.gameObject.CompareTag("Enemy") && classification != 2)

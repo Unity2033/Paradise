@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CreateManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] item;
+    [SerializeField] GameObject item;
     [SerializeField] GameObject _bullet_1;
 
     private BH_PlayerMove Player;
@@ -43,7 +43,6 @@ public class CreateManager : MonoBehaviour
         }
     }
 
-
     private IEnumerator AsteroidCreation()
     {
         while(Singleton.instance.GamePlay)
@@ -68,14 +67,12 @@ public class CreateManager : MonoBehaviour
 
             if (Singleton.instance.GamePlay == false) yield break;
 
-            int index = Random.Range(0, 3);
+            item.transform.position = Random.insideUnitCircle.normalized * 10;
 
-            Instantiate(item[index], gameObject.transform);
+            item.GetComponent<Item>().Set_Item(Random.Range(2.5f, 5.0f));
+            item.GetComponent<Item>().Direction_Item((Origin.transform.position - item.transform.position).normalized);
 
-            item[index].transform.position = Random.insideUnitCircle.normalized * 10;
-
-            item[index].GetComponent<Move_Object>().Set_Item(Random.Range(2.5f, 5.0f));
-            item[index].GetComponent<Move_Object>().Direction_Item((Origin.transform.position - item[index].transform.position).normalized);
+            Instantiate(item, item.transform.position, item.transform.rotation);
         }
     }
 }

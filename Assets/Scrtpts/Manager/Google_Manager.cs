@@ -6,8 +6,7 @@ using System.Collections;
 
 public class Google_Manager : MonoBehaviour
 {
-    [SerializeField] Image Internet;
-    [SerializeField] Image Login;
+    private GameObject Login;
 
     float time = 0;
 
@@ -17,13 +16,13 @@ public class Google_Manager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
 
+        Login = Resources.Load<GameObject>("Loading Image");
+
+        Instantiate(Login);
+ 
         if (Singleton.Connect == 0)
         {
             StartCoroutine(Connection());
-        }
-        else
-        {
-            Login.gameObject.SetActive(false);
         }
     }
 
@@ -65,7 +64,7 @@ public class Google_Manager : MonoBehaviour
             if(count < 0)
             {
                 // Text로 로그인 실패를 알린 후 Application.Quit(); 발동
-                Internet.gameObject.SetActive(true);
+                Login.transform.GetChild(2).gameObject.SetActive(true);
                 break;
             }
         }
@@ -75,19 +74,19 @@ public class Google_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
 
-        Color color = Login.color;
+        Color color = Login.GetComponentInChildren<Image>().color;
 
         while (color.a > 0f)
         {
             time += Time.deltaTime / 1f;
             color.a = Mathf.Lerp(1, 0, time);
-            Login.color = color;
+            Login.GetComponentInChildren<Image>().color = color;
 
             yield return null;
         }
 
-        Login.gameObject.SetActive(false);
+        Login.SetActive(false);
+
         yield return null;
     }
-
 }

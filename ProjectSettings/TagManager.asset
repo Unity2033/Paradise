@@ -5,9 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Barrier
-  - Slow
-  - Turret
+  - Item
   layers:
   - Default
   - TransparentFX

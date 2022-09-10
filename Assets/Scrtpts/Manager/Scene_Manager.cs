@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scene_Manager : MonoBehaviour
 {
     public void Scene_Move(int index)
     {
+        Sound_Manager.instance.Sound(3);
+
         switch (index)
         {
             case 0:
@@ -13,11 +16,9 @@ public class Scene_Manager : MonoBehaviour
                 AudioListener.pause = false;
                 break;
             case 1:
-                Sound_Manager.instance.Sound(3);   
                 StartCoroutine(Load_Scene(index));
                 break;
             case 2:
-                Sound_Manager.instance.Sound(3);
                 Singleton.instance.BGM_Sound.Play();
                 Sound_Manager.instance.auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -34,7 +35,7 @@ public class Scene_Manager : MonoBehaviour
         while (!Async.isDone)
         {
             if (Async.progress >= 0.9f)
-            {
+            {       
                 Async.allowSceneActivation = true;
             }
 
