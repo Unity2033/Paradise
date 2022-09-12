@@ -6,12 +6,27 @@ using UnityEngine.Analytics;
 using UnityEngine.Advertisements;
 using GooglePlayGames;
 
-public class BH_GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     float current_time;
 
-    public Text Diamond, _playTime, Curret_Time, Maximum_Time;
+    public static GameManager instance;
+
+    public int itemState = 0;
     public GameObject _reStartButton, Watch;
+    public Text Diamond, _playTime, Curret_Time, Maximum_Time;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {

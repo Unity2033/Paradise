@@ -41,6 +41,8 @@ public class Google_Manager : MonoBehaviour
 
     private IEnumerator Connection()
     {
+        WaitForSeconds chaceSeconds = new WaitForSeconds(1f);
+
         yield return null;
 
         int count = 3;
@@ -57,7 +59,7 @@ public class Google_Manager : MonoBehaviour
             {
                 count--;
                 Social.localUser.Authenticate(AuthenticateCallback);
-                yield return new WaitForSeconds(1.0f);
+                yield return chaceSeconds;
             }
 
             // 3번 로그인 시도 후에 로그인 되지 않으면 강제 종료

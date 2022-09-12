@@ -33,9 +33,11 @@ public class CreateManager : MonoBehaviour
 
     private IEnumerator CurrencyIncrese()
     {
+        WaitForSeconds chaceSeconds = new WaitForSeconds(5f);
+
         while (Singleton.instance.GamePlay)
         {
-            yield return new WaitForSeconds(5f);
+            yield return chaceSeconds;
 
             if (Singleton.instance.GamePlay == false) yield break;
 
@@ -45,9 +47,11 @@ public class CreateManager : MonoBehaviour
 
     private IEnumerator AsteroidCreation()
     {
-        while(Singleton.instance.GamePlay)
+        WaitForSeconds chaceSeconds = new WaitForSeconds(1f);
+
+        while (Singleton.instance.GamePlay)
         {
-            yield return new WaitForSeconds(1f);
+            yield return chaceSeconds;
 
             if (Singleton.instance.GamePlay == false) yield break;
 
@@ -61,9 +65,11 @@ public class CreateManager : MonoBehaviour
 
     private IEnumerator ItemCreation()
     {
+        WaitForSeconds chaceSeconds = new WaitForSeconds(10f);
+
         while (Singleton.instance.GamePlay)
         {
-            yield return new WaitForSeconds(10f);
+            yield return chaceSeconds;
 
             if (Singleton.instance.GamePlay == false) yield break;
 

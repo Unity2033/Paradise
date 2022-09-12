@@ -1,23 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BH_Bullet : MonoBehaviour
 {
+ 
+    Object_Pool memoryPool;
+    public Vector3 direction;
     [SerializeField] GameObject Origin;
 
-    BH_PlayerMove Player;
-    Object_Pool memoryPool;
-
     public GameObject Particle, Explosion, Aiming;
-    public Vector3 dir = Vector3.zero;
-
-    public float _speed, time;
-
-    void Start()
-    {
-        Player = GameObject.Find("Player").GetComponent<BH_PlayerMove>();     
-    }
+    public float currentSpeed, slowSpeed = 0.1f, initialSpeed;
 
     void Update()
     {
@@ -25,52 +19,71 @@ public class BH_Bullet : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
 
-            if (Player.classification == 1 && Player.Item_Condition)
-            {
-                Particle.gameObject.SetActive(true);
-                this.transform.position += dir * _speed * 0.1f * Time.deltaTime;
-            }
-            else
-            {
-                Particle.gameObject.SetActive(false);
-                this.transform.position += dir * _speed * Time.deltaTime;
-            }
-          
-            if(Player.classification == 3 && Player.Item_Condition)
-            {
-                time += Time.deltaTime;
-                Aiming.SetActive(true);
-
-                if (time >= 0.75f)
-                {
-                    Explosion.SetActive(true);
-                }
-
-                if (time >= 1.0f)
-                {
-                    Sound_Manager.instance.Sound(5);
-                    memoryPool.DeactivatePoolItem(gameObject);
-                    time = 0.0f;
-                }
-            }
-            else
-            {
-                Aiming.SetActive(false);
-                Explosion.SetActive(false);
-            }
-
+            transform.position += direction * currentSpeed * Time.deltaTime;
+                 
             if (Vector3.Distance(Origin.transform.position,this.transform.position) >= 12.5f)
             {
                 memoryPool.DeactivatePoolItem(gameObject);
             }
+
+            switch (GameManager.instance.itemState)
+            {
+                case 1 : StartCoroutine(SlowEffectTime(5));               
+                    break;
+                case 2 : StartCoroutine(BombEffectTime(5));
+                    break;
+            }
+
+
+
         }
+    }
+
+    private IEnumerator SlowEffectTime(float duration)
+    {
+        while (duration >= 0)
+        {
+            currentSpeed = slowSpeed;
+            Particle.SetActive(true);
+            duration -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        currentSpeed = initialSpeed;
+        Particle.gameObject.SetActive(false);
+    }
+
+    private IEnumerator BombEffectTime(float duration)
+    {
+        while (duration >= 0)
+        {
+            Aiming.SetActive(true);
+            Explosion.SetActive(true);
+
+            duration -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        Sound_Manager.instance.Sound(5);
+        memoryPool.DeactivatePoolItem(gameObject);
+
+        Aiming.SetActive(false);
+        Explosion.SetActive(false);
     }
 
     public void SetBullet(float speed, Object_Pool memoryPool)
     {
         this.memoryPool = memoryPool;
+        initialSpeed = speed;
+        currentSpeed = initialSpeed;
+    }
 
-        _speed = speed;
+    public void SetUp(Vector3 direction, Object_Pool memoryPool)
+    {
+        this.memoryPool = memoryPool;
+        this.direction = direction;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,12 +92,5 @@ public class BH_Bullet : MonoBehaviour
         {
             memoryPool.DeactivatePoolItem(gameObject);
         }
-    }
-
-    public void SetUp(Vector3 direction, Object_Pool memoryPool)
-    {
-        this.memoryPool = memoryPool;
-
-        dir = direction;
     }
 }

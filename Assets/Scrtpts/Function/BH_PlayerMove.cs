@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class BH_PlayerMove : MonoBehaviour
 {
-    BH_GameManager Game;
-
-    public bool Item_Condition;
-
-    SpriteRenderer sprite_renderer;
+    private GameManager Game;
+    private SpriteRenderer sprite_renderer;
 
     [SerializeField] float speed = 1.0f;
 
@@ -15,15 +13,10 @@ public class BH_PlayerMove : MonoBehaviour
 
     public GameObject Watch;
 
-    [SerializeField] Text Life_Cycle;
-
-    float Life_time;
-    public int classification = 0;
-
     private void Start()
     {
         sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
-        Game = GameObject.Find("GameManager").GetComponent<BH_GameManager>();      
+        Game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -50,7 +43,7 @@ public class BH_PlayerMove : MonoBehaviour
 
             transform.Translate
             (
-                x * speed *  Time.deltaTime,
+                x * speed * Time.deltaTime,
                 y * speed * Time.deltaTime,
                 transform.position.z
             );
@@ -61,77 +54,48 @@ public class BH_PlayerMove : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, 0.025f, 0.95f);
   
             transform.position = Camera.main.ViewportToWorldPoint(pos);
-
-            Item_Cylce();
         }
     }
 
-    void Item_Cylce()
-    {  
-        if (Item_Condition)
-        {
-            Watch.SetActive(true);
-            Life_time -= Time.deltaTime;
-
-            Life_Cycle.text = Life_time.ToString("F0");
-
-            switch (classification)
-            {
-                case 1:
-                    Item_Life(Life_time, 0.0f);
-                    break;
-                case 2:
-                    Item_Life(Life_time, 0.0f);
-                    break;
-                case 3:
-                    Item_Life(Life_time, 0.0f);
-                    break;
-            }
-        }
-        else
-        {
-            Life_time = 5.0f;
-            Watch.SetActive(false);          
-        }
-    }
-
-    void Item_Life(float Item_time, float Item_compare)
+    private IEnumerator EffectTime(float duration)
     {
-        if (Item_time <= Item_compare)
+        Watch.SetActive(true);
+
+        while (duration >= 0)
         {
-            Item_Condition = false;
-            Barrier.SetActive(false);
-            Watch.SetActive(false);
-            classification = 0;
-            Life_time = 5.0f;
+            duration -= Time.deltaTime;
+            Watch.GetComponentInChildren<Text>().text = duration.ToString("F0");
+            yield return null;
         }
+
+        Watch.SetActive(false);
+        Barrier.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            Item_Condition = true;
-
             switch (other.gameObject.GetComponent<Item>().itemCount)
             {
-                case 0 : classification = 1;
+                case 0 : Barrier.SetActive(true);
+                    StartCoroutine(EffectTime(5));              
                     break;
-                case 1 : classification = 2;
-                    Barrier.SetActive(true);
+                case 1 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
+                    StartCoroutine(EffectTime(5));
                     break;
-                case 2 : classification = 3;
+                case 2 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
+                    StartCoroutine(EffectTime(5));
                     break;
-
             }
         }
 
-        if (other.gameObject.CompareTag("Enemy") && classification != 2)
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Game.GameOver();
+            //Game.GameOver();
             Particle.SetActive(true);
             Singleton.instance.SaveData();
-            Destroy(this.gameObject, 0.5f);
+            //Destroy(this.gameObject, 0.5f);
             Sound_Manager.instance.Sound(0);
         }
     }

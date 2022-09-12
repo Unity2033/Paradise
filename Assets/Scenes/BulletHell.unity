@@ -860,12 +860,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16918e87caa09d84b8c5c87fe0ea7e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  _reStartButton: {fileID: 570306760}
+  Watch: {fileID: 1848200031}
   Diamond: {fileID: 794773324}
   _playTime: {fileID: 1001330375}
   Curret_Time: {fileID: 537761769}
   Maximum_Time: {fileID: 597205743}
-  _reStartButton: {fileID: 570306760}
-  Watch: {fileID: 1848200031}
 --- !u!4 &637915341
 Transform:
   m_ObjectHideFlags: 0
@@ -1499,9 +1500,20 @@ PrefabInstance:
       objectReference: {fileID: 1848200031}
     - target: {fileID: 2436563071705686925, guid: 1d49f80bb76c63340b4c588457532485,
         type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436563071705686925, guid: 1d49f80bb76c63340b4c588457532485,
+        type: 3}
       propertyPath: Passive
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2436563071705686925, guid: 1d49f80bb76c63340b4c588457532485,
+        type: 3}
+      propertyPath: asteroid
+      value: 
+      objectReference: {fileID: 3866908219799925039, guid: 257ee569cabba8649b1cb25afb2624b2,
+        type: 3}
     - target: {fileID: 2436563071705686925, guid: 1d49f80bb76c63340b4c588457532485,
         type: 3}
       propertyPath: Life_Cycle
@@ -1629,7 +1641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 5307787739639741878, guid: 48346d876657a57468fb9b4eee820275, type: 3}
-  _bullet_1: {fileID: 3866908219806479915, guid: 257ee569cabba8649b1cb25afb2624b2,
+  _bullet_1: {fileID: 5043648495233843000, guid: 04d5f0d8dc038b840ac9ecd2ac248339,
     type: 3}
   Origin: {fileID: 23116789}
 --- !u!4 &1004026137

@@ -133,13 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9db7551676c34c8e2ddab0927e19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item_Condition: 0
   speed: 1
   Barrier: {fileID: 2196542082535533864}
   Particle: {fileID: 2437452918063716928}
   Watch: {fileID: 0}
-  Life_Cycle: {fileID: 0}
-  classification: 0
 --- !u!54 &2436563071705686926
 Rigidbody:
   m_ObjectHideFlags: 0

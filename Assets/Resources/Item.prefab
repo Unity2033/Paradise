@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5307787739639741878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.804477, y: 6.25221, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,5 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 8375986117291034540, guid: 5073e544374ef5048962f9132393d488, type: 3}
-  direction: {x: 0, y: 0, z: 0}
-  _speed: 1
+  direction: {x: 0.7804477, y: -0.625221, z: 0}
+  _speed: 4.345845
+  itemCount: 0
+  itemName:
+  - Barrier
+  - Speed Down
+  - Support Fire
