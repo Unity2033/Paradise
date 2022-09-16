@@ -129,8 +129,6 @@ public class Item_Choice : MonoBehaviour
 
         Diamond.text = Singleton.instance.Currency.ToString();
 
-        RenderSettings.skybox.SetFloat("_Rotation", 0);
-
         if (Singleton.instance.Sound_count == 0)
         {
             AudioListener.volume = 1;

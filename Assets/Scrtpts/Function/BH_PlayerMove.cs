@@ -12,9 +12,11 @@ public class BH_PlayerMove : MonoBehaviour
     public GameObject Barrier, Particle;
 
     public GameObject Watch;
+    private Rigidbody rigid;
 
     private void Start()
     {
+        rigid = GetComponent<Rigidbody>();
         sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
         Game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -55,6 +57,7 @@ public class BH_PlayerMove : MonoBehaviour
   
             transform.position = Camera.main.ViewportToWorldPoint(pos);
         }
+
     }
 
     private IEnumerator EffectTime(float duration)
@@ -70,6 +73,8 @@ public class BH_PlayerMove : MonoBehaviour
 
         Watch.SetActive(false);
         Barrier.SetActive(false);
+
+        GameManager.instance.itemState = -1;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,7 +83,8 @@ public class BH_PlayerMove : MonoBehaviour
         {
             switch (other.gameObject.GetComponent<Item>().itemCount)
             {
-                case 0 : Barrier.SetActive(true);
+                case 0 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
+                    Barrier.SetActive(true);
                     StartCoroutine(EffectTime(5));              
                     break;
                 case 1 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
@@ -92,11 +98,14 @@ public class BH_PlayerMove : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //Game.GameOver();
-            Particle.SetActive(true);
-            Singleton.instance.SaveData();
-            //Destroy(this.gameObject, 0.5f);
-            Sound_Manager.instance.Sound(0);
+            if (GameManager.instance.itemState != 0)
+            {
+                Game.GameOver();
+                Particle.SetActive(true);
+                Singleton.instance.SaveData();
+                Destroy(this.gameObject, 0.5f);
+                Sound_Manager.instance.Sound(0);
+            }
         }
     }
 }

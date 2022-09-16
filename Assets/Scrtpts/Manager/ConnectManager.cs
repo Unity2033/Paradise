@@ -4,11 +4,9 @@ using GooglePlayGames.BasicApi;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Google_Manager : MonoBehaviour
+public class ConnectManager : MonoBehaviour
 {
-    private GameObject Login;
-
-    float time = 0;
+    [SerializeField] Image sceneImage;
 
     private void Awake()
     {
@@ -16,10 +14,6 @@ public class Google_Manager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
 
-        Login = Resources.Load<GameObject>("Loading Image");
-
-        Instantiate(Login);
- 
         if (Singleton.Connect == 0)
         {
             StartCoroutine(Connection());
@@ -31,11 +25,11 @@ public class Google_Manager : MonoBehaviour
         if(success)
         {
             Singleton.Connect++;
-            StartCoroutine(Fade());
+            StartCoroutine(FadeIn(1));
         }
         else 
         {
-            Login.gameObject.SetActive(true);
+            sceneImage.gameObject.SetActive(true);
         }
     }
 
@@ -66,29 +60,23 @@ public class Google_Manager : MonoBehaviour
             if(count < 0)
             {
                 // Text로 로그인 실패를 알린 후 Application.Quit(); 발동
-                Login.transform.GetChild(2).gameObject.SetActive(true);
+                sceneImage.transform.GetChild(2).gameObject.SetActive(true);
                 break;
             }
         }
     }
-
-    IEnumerator Fade()
+    private IEnumerator FadeIn(float time)
     {
-        yield return new WaitForSeconds(0.25f);
-
-        Color color = Login.GetComponentInChildren<Image>().color;
+        Color color = sceneImage.color;
+        color.a = 1;
 
         while (color.a > 0f)
         {
-            time += Time.deltaTime / 1f;
-            color.a = Mathf.Lerp(1, 0, time);
-            Login.GetComponentInChildren<Image>().color = color;
-
+            color.a -= Time.deltaTime / time;
+            sceneImage.color = color;
             yield return null;
         }
 
-        Login.SetActive(false);
-
-        yield return null;
+        sceneImage.transform.root.gameObject.SetActive(false);
     }
 }

@@ -33,9 +33,6 @@ public class BH_Bullet : MonoBehaviour
                 case 2 : StartCoroutine(BombEffectTime(5));
                     break;
             }
-
-
-
         }
     }
 
@@ -52,25 +49,29 @@ public class BH_Bullet : MonoBehaviour
 
         currentSpeed = initialSpeed;
         Particle.gameObject.SetActive(false);
+
+        GameManager.instance.itemState = -1;
     }
 
     private IEnumerator BombEffectTime(float duration)
     {
+        Aiming.SetActive(true);
         while (duration >= 0)
-        {
-            Aiming.SetActive(true);
-            Explosion.SetActive(true);
-
+        {     
             duration -= Time.deltaTime;
-
             yield return null;
         }
 
-        Sound_Manager.instance.Sound(5);
-        memoryPool.DeactivatePoolItem(gameObject);
+        GameManager.instance.itemState = -1;
+        // Sound_Manager.instance.Sound(5);
 
         Aiming.SetActive(false);
-        Explosion.SetActive(false);
+
+        //Explosion.SetActive(true);
+
+        memoryPool.DeactivatePoolItem(gameObject);
+
+        //Explosion.SetActive(false);
     }
 
     public void SetBullet(float speed, Object_Pool memoryPool)

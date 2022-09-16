@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public int itemState = 0;
+    public int itemState = -1;
     public GameObject _reStartButton, Watch;
     public Text Diamond, _playTime, Curret_Time, Maximum_Time;
 
