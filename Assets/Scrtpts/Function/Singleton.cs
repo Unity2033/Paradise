@@ -4,8 +4,6 @@ using System;
 public class Singleton : MonoBehaviour
 {
     public bool GamePlay;
-    public Space_Ship[] All_Ship;
-    public Space_Ground[] All_Ground;
 
     public static Sprite Equip;
     public static Material Space_Material;
@@ -17,7 +15,7 @@ public class Singleton : MonoBehaviour
     public int Gear_Count = 2;
     public int Shuttle_Switch_Count = 0;
     public int Count, Planet_count, Currency = 0;
-    public int Sound_count, Switch_Count;
+    public int Switch_Count;
 
     public static int Connect = 0;
 
@@ -29,31 +27,15 @@ public class Singleton : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+        }
         else if (instance != this)
+        {
             Destroy(this.gameObject);
+        }
 
         SaveRoad();
-
-        string last_Space = PlayerPrefs.GetString("Space", Space_Ground.Space_Ground_Name.Kepler_452b.ToString());
-
-        foreach (Space_Ground All_Space in All_Ground)
-        {
-            if (All_Space.space_name.ToString() == last_Space)
-            {
-                Equip_Space(All_Space);
-            }
-        }
-
-        string last_Uesd = PlayerPrefs.GetString("Shuttle", Space_Ship.Shuttle_Name.Atlantis.ToString());
-
-        foreach (Space_Ship All_Shuttle in All_Ship)
-        {
-            if (All_Shuttle.shuttle_name.ToString() == last_Uesd)
-            {
-                Equip_Shuttle(All_Shuttle);
-            }
-        }
 
         DontDestroyOnLoad(this.gameObject);      
     }
@@ -76,7 +58,6 @@ public class Singleton : MonoBehaviour
         PlayerPrefs.SetFloat("Record", Record);
         PlayerPrefs.SetInt("Currency", Currency);
         PlayerPrefs.SetInt("Gear_Count", Gear_Count);
-        PlayerPrefs.SetInt("Sound_count", Sound_count);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
         PlayerPrefs.SetInt("Switch_count", Switch_Count);
         PlayerPrefs.SetInt("Shuttle_Switch_Count", Shuttle_Switch_Count);
@@ -88,21 +69,8 @@ public class Singleton : MonoBehaviour
         Record = PlayerPrefs.GetFloat("Record", 0f);
         Currency = PlayerPrefs.GetInt("Currency", 0);
         Gear_Count = PlayerPrefs.GetInt("Gear_Count", 2);
-        Sound_count = PlayerPrefs.GetInt("Sound_count", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Switch_Count = PlayerPrefs.GetInt("Switch_count", 0);
         Shuttle_Switch_Count = PlayerPrefs.GetInt("Shuttle_Switch_Count", 0);
-    }
-
-    public void Equip_Shuttle(Space_Ship Ship)
-    {
-        Equip = Ship.Shuttle_Sprite;
-        PlayerPrefs.SetString("Shuttle", Ship.shuttle_name.ToString());
-    }
-
-    public void Equip_Space(Space_Ground Ground)
-    {
-        Space_Material = Ground.Galaxy;
-        PlayerPrefs.SetString("Space", Ground.space_name.ToString());
     }
 }

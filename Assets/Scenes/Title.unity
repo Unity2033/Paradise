@@ -155,7 +155,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1151604675}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -651,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 5380613887184865956, guid: ddf77b4f18585dd46a690a1ec3e09488,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5835050534202820247, guid: ddf77b4f18585dd46a690a1ec3e09488,
         type: 3}
@@ -1033,12 +1033,12 @@ GameObject:
   - component: {fileID: 428418266}
   - component: {fileID: 428418265}
   m_Layer: 5
-  m_Name: (I) Space Ship
+  m_Name: (I) Space Ship Atlantis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &428418264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1741,7 +1741,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1151604675}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1793,8 +1793,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1443545201}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Shuttle_Left_Button
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SpaceShipLeftButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1955,6 +1955,7 @@ GameObject:
   - component: {fileID: 672059807}
   - component: {fileID: 672059806}
   - component: {fileID: 672059805}
+  - component: {fileID: 672059808}
   m_Layer: 5
   m_Name: (B) Sound Switch
   m_TagString: Untagged
@@ -2026,10 +2027,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443545201}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Sound_Button
-        m_Mode: 1
+      - m_Target: {fileID: 672059808}
+        m_TargetAssemblyTypeName: VersatileButton, Assembly-CSharp
+        m_MethodName: SoundMute
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2076,6 +2077,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672059803}
   m_CullTransparentMesh: 0
+--- !u!114 &672059808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672059803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5963c0b0cf8c63f48b99e4bbe0bd4522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726315810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,14 +2266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GamePlay: 0
-  All_Ship:
-  - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
-  - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
-  - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
-  All_Ground:
-  - {fileID: 11400000, guid: 36ca7dd161c0fce42a744d3168d45f19, type: 2}
-  - {fileID: 11400000, guid: 4ae7e4f518792e74bb89799be0636a15, type: 2}
-  - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
   Space_Equip: {fileID: 2100000, guid: 083558a95371e124f96473a5d18d85db, type: 2}
   BGM_Sound: {fileID: 777563654}
   Shuttle: {fileID: 2436563071705686914, guid: 1d49f80bb76c63340b4c588457532485, type: 3}
@@ -2269,7 +2274,6 @@ MonoBehaviour:
   Count: 0
   Planet_count: 0
   Currency: 0
-  Sound_count: 0
   Switch_Count: 0
   Record: 0
   Gear_Speed: 0
@@ -2607,6 +2611,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869863345}
   m_CullTransparentMesh: 0
+--- !u!1 &877800069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877800070}
+  - component: {fileID: 877800072}
+  - component: {fileID: 877800071}
+  m_Layer: 5
+  m_Name: (I) Space Ship Discovery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &877800070
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877800069}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1151604675}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 375, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &877800071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877800069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3f533ccc195543a4cb90136fb5a6db7a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &877800072
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877800069}
+  m_CullTransparentMesh: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2828,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 428418264}
+  - {fileID: 877800070}
+  - {fileID: 1542285799}
   - {fileID: 1322731973}
   - {fileID: 554579008}
   - {fileID: 35126912}
@@ -3051,7 +3133,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1151604675}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3103,8 +3185,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1443545201}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Shuttle_Right_Button
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SpaceShipRightButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3225,7 +3307,7 @@ GameObject:
   - component: {fileID: 1443545202}
   - component: {fileID: 1443545201}
   m_Layer: 0
-  m_Name: Item Selection
+  m_Name: Shop Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3243,23 +3325,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42bd9e9f500b364f8d2d11c086a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Atlas: {fileID: 4343727234628468602, guid: 9e3895cb6aceb42458dcbf5453923e6d, type: 2}
-  Store_Space_Ship: {fileID: 428418265}
-  Store_Space_Ground: {fileID: 1193969842}
-  Character_Button: {fileID: 785756709}
-  Shuttle:
-  - {fileID: 11400000, guid: 8266ee0e03f706a4892dd05474fb5896, type: 2}
-  - {fileID: 11400000, guid: 1f30ad7253b940541a0449d047728510, type: 2}
-  - {fileID: 11400000, guid: a82b758e61a25b448bcb1ccc6db6cb71, type: 2}
-  Space:
-  - {fileID: 11400000, guid: 36ca7dd161c0fce42a744d3168d45f19, type: 2}
-  - {fileID: 11400000, guid: 4ae7e4f518792e74bb89799be0636a15, type: 2}
-  - {fileID: 11400000, guid: ff31c03fa4ba3334f8ef3bba958f8da5, type: 2}
-  Purchase:
-  - {fileID: 35126913}
-  - {fileID: 1489894492}
-  Sound_Setting: {fileID: 672059805}
   Diamond: {fileID: 285885051}
+  spaceShip:
+  - {fileID: 428418263}
+  - {fileID: 877800069}
+  - {fileID: 1542285796}
 --- !u!4 &1443545202
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,6 +3478,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489894490}
   m_CullTransparentMesh: 0
+--- !u!1 &1542285796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542285799}
+  - component: {fileID: 1542285798}
+  - component: {fileID: 1542285797}
+  m_Layer: 5
+  m_Name: (I) Space Ship Endeavour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1542285797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542285796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3abad29d4a87c984f8950e5744d833d6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1542285798
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542285796}
+  m_CullTransparentMesh: 0
+--- !u!224 &1542285799
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542285796}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1151604675}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 375, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1561178503
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2123763666
 RectTransform:
   m_ObjectHideFlags: 0

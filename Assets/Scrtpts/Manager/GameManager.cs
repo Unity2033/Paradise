@@ -71,12 +71,6 @@ public class GameManager : MonoBehaviour
 
         PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_4, 1, null);
 
-        AnalyticsResult analytics= Analytics.CustomEvent("Death",
-            new Dictionary<string, object> {
-                { "Currency", Singleton.instance.Currency },
-                { "Survival Time", Singleton.instance.Record_span}
-            });
-
         Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
 
         Watch.SetActive(false);

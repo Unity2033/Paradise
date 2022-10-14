@@ -12,11 +12,9 @@ public class BH_PlayerMove : MonoBehaviour
     public GameObject Barrier, Particle;
 
     public GameObject Watch;
-    private Rigidbody rigid;
-
+  
     private void Start()
     {
-        rigid = GetComponent<Rigidbody>();
         sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
         Game = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
