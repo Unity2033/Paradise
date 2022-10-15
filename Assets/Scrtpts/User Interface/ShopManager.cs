@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.U2D;
+
+[System.Serializable]
+public class Shuttle
+{
+    public int price;
+    public Sprite sprite;
+
+}
+
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Text Diamond;
-    [SerializeField] GameObject [ ] spaceShip;
+    [SerializeField] GameObject spaceShip;
+
+    public Shuttle [] shuttle;
 
     private void Start()
     {
         SpaceShipView();
-        Singleton.instance.BGM_Sound.Play();
     }
 
     private void Update()
@@ -18,9 +27,27 @@ public class ShopManager : MonoBehaviour
         Diamond.text = Singleton.instance.Currency.ToString();
     }
 
+    public void PurchaseButton()
+    {
+        switch (Singleton.instance.Shuttle_Switch_Count)
+        {
+            case 1 : if(shuttle[1].price <= Singleton.instance.Currency)
+            {
+                Singleton.instance.Currency -= shuttle[1].price;
+            }
+            break;
+            case 2 : if (shuttle[2].price <= Singleton.instance.Currency)
+            {
+                Singleton.instance.Currency -= shuttle[2].price;
+            }
+            break;
+        }
+
+    }
+
     public void SpaceShipRightButton()
     {
-        if (++Singleton.instance.Shuttle_Switch_Count >= spaceShip.Length)
+        if (++Singleton.instance.Shuttle_Switch_Count >= shuttle.Length)
         {
             Singleton.instance.Shuttle_Switch_Count = 0;
         }
@@ -32,7 +59,7 @@ public class ShopManager : MonoBehaviour
     {
         if (--Singleton.instance.Shuttle_Switch_Count < 0)
         {
-            Singleton.instance.Shuttle_Switch_Count = spaceShip.Length - 1;
+            Singleton.instance.Shuttle_Switch_Count = shuttle.Length - 1;
         }
 
         SpaceShipView();
@@ -40,12 +67,7 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipView()
     {
-        for(int i = 0; i < spaceShip.Length; i++)
-        {
-            spaceShip[i].SetActive(false);
-        }
-
-        spaceShip[Singleton.instance.Shuttle_Switch_Count].SetActive(true);
+        spaceShip.GetComponent<Image>().sprite = shuttle[Singleton.instance.Shuttle_Switch_Count].sprite;
     }
    
 

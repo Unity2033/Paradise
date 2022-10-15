@@ -49,11 +49,9 @@ public class GameManager : MonoBehaviour
             if(current_time > PlayerPrefs.GetFloat("Record") )
             {
                 Singleton.instance.Record = current_time;             
-                Singleton.instance.SaveData();
+                Singleton.instance.DataSave();
             }
            
-            RenderSettings.skybox.SetFloat("_Rotation", Time.time);
-
             Diamond.text = Singleton.instance.Currency.ToString();
             Curret_Time.text = time_span.ToString(@"mm\:ss\:ff");
             Maximum_Time.text = Singleton.instance.Record_span.ToString(@"mm\:ss\:ff");        
@@ -67,7 +65,7 @@ public class GameManager : MonoBehaviour
              Advertisement.Show("video");
         }        
 
-        Singleton.instance.BGM_Sound.Stop();
+        Singleton.instance.fullSound.Stop();
 
         PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_4, 1, null);
 

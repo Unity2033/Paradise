@@ -7,6 +7,7 @@ using UnityEngine.Localization.Settings;
 public class VersatileButton : MonoBehaviour
 {
     private int count = 2;
+    private bool power;
 
     public void Open(GameObject window)
     {
@@ -23,10 +24,10 @@ public class VersatileButton : MonoBehaviour
         Sound_Manager.instance.Sound(2);
     }
 
-    public void SoundMute(bool power)
+    public void SoundMute()
     {       
         power = !power;
-     
+
         AudioListener.volume = Convert.ToInt32(power);
     }
 

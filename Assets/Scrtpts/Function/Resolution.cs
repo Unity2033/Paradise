@@ -4,8 +4,7 @@ public class Resolution : MonoBehaviour
 {
     private void Awake()
     {
-        Camera camera = GetComponent<Camera>();
-        Rect rect = camera.rect;
+        Rect rect = Camera.main.rect;
 
         float height = ((float)Screen.width / Screen.height) / (9.0f / 18.5f);
         float width = 1f / height;
@@ -20,7 +19,8 @@ public class Resolution : MonoBehaviour
             rect.width = width;
             rect.x = (1f - width) / 2f;
         }
-        camera.rect = rect;
+
+        Camera.main.rect = rect;
     }
 
     void OnPreCull() => GL.Clear(true, true, Color.black);

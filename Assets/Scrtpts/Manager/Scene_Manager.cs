@@ -18,8 +18,7 @@ public class Scene_Manager : MonoBehaviour
             case 1:
                 StartCoroutine(Load_Scene(index));
                 break;
-            case 2:
-                Singleton.instance.BGM_Sound.Play();
+            case 2:              
                 Sound_Manager.instance.auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;

@@ -6,7 +6,7 @@ public class CreateManager : MonoBehaviour
     [SerializeField] GameObject item;
     [SerializeField] GameObject _bullet_1;
 
-    private BH_PlayerMove Player;
+    private SpaceShip Player;
     private Object_Pool memorypool;
 
     [SerializeField] GameObject Origin;
@@ -19,12 +19,12 @@ public class CreateManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         memorypool.Destoryobject();
-        Singleton.instance.SaveData();
+        Singleton.instance.DataSave();
     }
 
     void Start()
     {
-        Player = GameObject.Find("Player").GetComponent<BH_PlayerMove>();
+        Player = GameObject.Find("Player").GetComponent<SpaceShip>();
 
         StartCoroutine(nameof(ItemCreation));
         StartCoroutine(nameof(CurrencyIncrese));
