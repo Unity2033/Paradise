@@ -32,15 +32,15 @@ public class SpaceShip : MonoBehaviour
 
     void Update()
     {
-        if (Singleton.instance.GamePlay)
-        {
-            //if (Input.touchCount > 0)
-            //{
-            //    x = Input.touches[0].deltaPosition.x;
-            //    y = Input.touches[0].deltaPosition.y;
-            //}
+        if (Singleton.instance.state == false) return;
 
-            if(Input.GetAxis("Mouse X") > 0)
+        //if (Input.touchCount > 0)
+        //{
+        //    x = Input.touches[0].deltaPosition.x;
+        //    y = Input.touches[0].deltaPosition.y;
+        //}
+
+        if (Input.GetAxis("Mouse X") > 0)
             {
                 sprite.flipX = false;
             }
@@ -62,8 +62,6 @@ public class SpaceShip : MonoBehaviour
             position.y = Mathf.Clamp(position.y, 0.025f, 0.95f);
   
             transform.position = Camera.main.ViewportToWorldPoint(position);
-        }
-
     }
 
     private IEnumerator EffectTime(float duration)
@@ -106,10 +104,11 @@ public class SpaceShip : MonoBehaviour
         {
             if (GameManager.instance.itemState != 0)
             {
-                Game.GameOver();
                 Particle.SetActive(true);
                 Singleton.instance.DataSave();
                 Destroy(this.gameObject, 0.5f);
+
+                Game.GameOver();
                 Sound_Manager.instance.Sound(0);
             }
         }

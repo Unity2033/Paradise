@@ -3,11 +3,11 @@ using System;
 
 public class Singleton : MonoBehaviour
 {
-    public bool GamePlay;
     public AudioSource fullSound;
 
+    public bool state;
     public int Shuttle_Switch_Count = 0;
-    public int Count, Planet_count, Currency = 0;
+    public int Planet_count, Currency = 0;
 
     public static int Connect = 0;
 
@@ -44,7 +44,6 @@ public class Singleton : MonoBehaviour
 
     public void DataSave()
     {      
-        PlayerPrefs.SetInt("Count", Count);
         PlayerPrefs.SetFloat("Record", Record);
         PlayerPrefs.SetInt("Currency", Currency);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
@@ -53,7 +52,6 @@ public class Singleton : MonoBehaviour
 
     public void DataLoad()
     {
-        Count = PlayerPrefs.GetInt("Count", 0);
         Record = PlayerPrefs.GetFloat("Record", 0f);
         Currency = PlayerPrefs.GetInt("Currency", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);

@@ -35,11 +35,11 @@ public class CreateManager : MonoBehaviour
     {
         WaitForSeconds chaceSeconds = new WaitForSeconds(5f);
 
-        while (Singleton.instance.GamePlay)
+        while (Singleton.instance.state)
         {
             yield return chaceSeconds;
 
-            if (Singleton.instance.GamePlay == false) yield break;
+            if (Singleton.instance.state == false) yield break;
 
             Singleton.instance.Currency += 1;
         }
@@ -49,11 +49,11 @@ public class CreateManager : MonoBehaviour
     {
         WaitForSeconds chaceSeconds = new WaitForSeconds(1f);
 
-        while (Singleton.instance.GamePlay)
+        while (Singleton.instance.state == true)
         {
             yield return chaceSeconds;
 
-            if (Singleton.instance.GamePlay == false) yield break;
+             if (Singleton.instance.state == false) yield break;
 
             _bullet_1 = memorypool.ActivatePoolItem();
             _bullet_1.transform.position = Random.insideUnitCircle.normalized * 10;
@@ -67,11 +67,11 @@ public class CreateManager : MonoBehaviour
     {
         WaitForSeconds chaceSeconds = new WaitForSeconds(10f);
 
-        while (Singleton.instance.GamePlay)
+        while (Singleton.instance.state == true)
         {
             yield return chaceSeconds;
 
-            if (Singleton.instance.GamePlay == false) yield break;
+            if (Singleton.instance.state == false) yield break;
 
             item.transform.position = Random.insideUnitCircle.normalized * 10;
 

@@ -15,24 +15,23 @@ public class BH_Bullet : MonoBehaviour
 
     void Update()
     {
-        if (Singleton.instance.GamePlay)
-        {
-            transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
+        if (Singleton.instance.state == false) return;
 
-            transform.position += direction * currentSpeed * Time.deltaTime;
+        transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
+
+        transform.position += direction * currentSpeed * Time.deltaTime;
                  
-            if (Vector3.Distance(Origin.transform.position,this.transform.position) >= 12.5f)
-            {
-                memoryPool.DeactivatePoolItem(gameObject);
-            }
+        if (Vector3.Distance(Origin.transform.position,this.transform.position) >= 12.5f)
+        {
+            memoryPool.DeactivatePoolItem(gameObject);
+        }
 
-            switch (GameManager.instance.itemState)
-            {
-                case 1 : StartCoroutine(SlowEffectTime(5));               
-                    break;
-                case 2 : StartCoroutine(BombEffectTime(5));
-                    break;
-            }
+        switch (GameManager.instance.itemState)
+        {
+            case 1 : StartCoroutine(SlowEffectTime(5));               
+                break;
+            case 2 : StartCoroutine(BombEffectTime(5));
+                break;
         }
     }
 

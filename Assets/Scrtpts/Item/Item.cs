@@ -19,17 +19,16 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        if (Singleton.instance.GamePlay)
+        if (Singleton.instance.state == false) return;
+
+        transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
+
+        if (Vector3.Distance(origin.transform.position, transform.position) >= 12.5f)
         {
-            transform.Rotate(new Vector3(0, 0, 50f) * Time.deltaTime);
-
-            if (Vector3.Distance(origin.transform.position, transform.position) >= 12.5f)
-            {
-                Destroy(gameObject);
-            }
-
-            transform.position += direction * _speed * Time.deltaTime;
+            Destroy(gameObject);
         }
+
+        transform.position += direction * _speed * Time.deltaTime;
     }
 
     public void Direction_Item(Vector3 direction)
@@ -46,10 +45,10 @@ public class Item : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Social.ReportProgress(GPGSIds.achievement__sh1, 100, null);
-
+            // Social.ReportProgress(GPGSIds.achievement__sh1, 100, null);
             // Social.ReportProgress(GPGSIds.achievement_3, 100, null);
             // Social.ReportProgress(GPGSIds.achievement_2, 100, null);
+
             Destroy(gameObject);
         }
     }
