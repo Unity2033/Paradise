@@ -6,7 +6,7 @@ public class Scene_Manager : MonoBehaviour
 {
     public void Scene_Move(int index)
     {
-        Sound_Manager.instance.Sound(3);
+        SoundManager.instance.Sound(3);
 
         switch (index)
         {
@@ -17,8 +17,8 @@ public class Scene_Manager : MonoBehaviour
             case 1:
                 StartCoroutine(Load_Scene(index));
                 break;
-            case 2:              
-                Sound_Manager.instance.auido.Play();
+            case 2:
+                SoundManager.instance.auido.Play();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
         }

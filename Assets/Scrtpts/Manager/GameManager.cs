@@ -2,7 +2,6 @@
 using System;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
-using GooglePlayGames;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,8 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int itemState = -1;
-    public GameObject _reStartButton, Watch;
-    public Text Diamond, _playTime, Curret_Time, Maximum_Time;
+    public GameObject overPanel;
+    public Text _playTime, Curret_Time, Maximum_Time;
 
     private void Awake()
     {
@@ -51,7 +50,6 @@ public class GameManager : MonoBehaviour
             Singleton.instance.DataSave();
         }
            
-        Diamond.text = Singleton.instance.Currency.ToString();
         Curret_Time.text = time_span.ToString(@"mm\:ss\:ff");
         Maximum_Time.text = Singleton.instance.Record_span.ToString(@"mm\:ss\:ff");        
       
@@ -66,11 +64,7 @@ public class GameManager : MonoBehaviour
 
         Singleton.instance.fullSound.Stop();
 
-       // Social.ReportScore((long)Singleton.instance.Record_span.TotalMilliseconds, GPGSIds.leaderboard, null);
-
-        Watch.SetActive(false);
-        _reStartButton.SetActive(true);
-        Singleton.instance.state = false;
-        Sound_Manager.instance.auido.Stop();    
+        overPanel.SetActive(true);
+        Singleton.instance.state = false;   
     }
 }

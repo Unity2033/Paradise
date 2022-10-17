@@ -14,14 +14,14 @@ public class VersatileButton : MonoBehaviour
         window.SetActive(true);
         window.GetComponent<Animator>().Rebind();
 
-        Sound_Manager.instance.Sound(1);
+        SoundManager.instance.Sound(1);
     }
 
     public void Cancle(GameObject window)
     {
         window.GetComponent<Animator>().SetTrigger("close");
 
-        Sound_Manager.instance.Sound(2);
+        SoundManager.instance.Sound(2);
     }
 
     public void SoundMute()
@@ -33,7 +33,7 @@ public class VersatileButton : MonoBehaviour
 
     public void Language()
     {
-        Sound_Manager.instance.Sound(4);
+        SoundManager.instance.Sound(4);
 
         if(++count >= 4) count = 0;
         

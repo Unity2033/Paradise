@@ -9,7 +9,7 @@ public class SpaceShip : MonoBehaviour
 
     [SerializeField] float speed = 1.0f;
 
-    public GameObject Barrier, Particle;
+    public GameObject Barrier;
 
     public GameObject Watch;
   
@@ -41,27 +41,13 @@ public class SpaceShip : MonoBehaviour
         //}
 
         if (Input.GetAxis("Mouse X") > 0)
-            {
-                sprite.flipX = false;
-            }
-            else if(Input.GetAxis("Mouse X") < 0)
-            {
-                sprite.flipX = true;
-            }
-
-            transform.Translate
-            (
-                Input.GetAxis("Mouse X") * speed * Time.deltaTime,
-                Input.GetAxis("Mouse Y") * speed * Time.deltaTime,
-                transform.position.z
-            );
-
-            Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
-
-            position.x = Mathf.Clamp(position.x, 0.1f, 0.9f);
-            position.y = Mathf.Clamp(position.y, 0.025f, 0.95f);
-  
-            transform.position = Camera.main.ViewportToWorldPoint(position);
+        {
+             sprite.flipX = false;
+        }
+        else if(Input.GetAxis("Mouse X") < 0)
+        {
+             sprite.flipX = true;
+        }
     }
 
     private IEnumerator EffectTime(float duration)
@@ -104,12 +90,11 @@ public class SpaceShip : MonoBehaviour
         {
             if (GameManager.instance.itemState != 0)
             {
-                Particle.SetActive(true);
                 Singleton.instance.DataSave();
                 Destroy(this.gameObject, 0.5f);
 
                 Game.GameOver();
-                Sound_Manager.instance.Sound(0);
+                SoundManager.instance.Sound(0);
             }
         }
     }
