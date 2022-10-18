@@ -4,37 +4,64 @@ using UnityEngine;
 
 public class ScaffoldManager : MonoBehaviour
 {
-    int [ ] positionX = new int[10];
+    [SerializeField] ParticleSystem particle; 
+    [SerializeField] SpriteRenderer characterSprite;
 
-    [SerializeField] GameObject scaffold;
+    private GameObject temporary;
+
+    int positionX;
 
     void Start()
     {
-        for(int i = 0; i < positionX.Length; i++)
-        {
-            int [ ] value = RandomPositionX();
+        particle.Stop();
 
-            Instantiate
+        for (int i = 0; i < 15; i++)
+        {
+            temporary = Instantiate
             (
-                scaffold,
-                new Vector3(value[i], -2 + i / 2f, 0),
+                Resources.Load<GameObject>("Scaffold"), 
+                new Vector3 
+                (
+                    RandomPositionX(), 
+                    -3.5f + i / 2f
+                    , 0
+                ), 
                 Quaternion.identity
             );
+
+            temporary.transform.SetParent(transform);
         }
     }
 
-    public int [ ] RandomPositionX()
+    public int RandomPositionX()
     {
-        for (int i = 1; i < positionX.Length; i++)
+        if(Random.Range(0, 2) == 0)
         {
-            positionX[i-1] = Random.Range(-3, 3);
-
-            if (positionX[i-1] == positionX[i])
-            {
-                i--;
-            }
+             positionX += 1;         
+        }
+        else
+        {
+             positionX -= 1;
         }
 
         return positionX;       
+    }
+
+    public void ScaffoldMove(bool direction)
+    {
+        particle.Play();
+
+        SoundManager.instance.Sound(0);
+
+        if (direction == true) // Right Direction
+        {
+            characterSprite.flipX = false;
+            transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.5f, transform.position.z);
+        }
+        else // Left Direction
+        {
+            characterSprite.flipX = true;
+            transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
+        }      
     }
 }

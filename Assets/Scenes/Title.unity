@@ -574,12 +574,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   auido: {fileID: 158563254}
   Sound_Effect:
-  - {fileID: 8300000, guid: be016e70580e91c4f8a8f9e7701b00d4, type: 3}
+  - {fileID: 8300000, guid: 0d6b319fdfd26764c8aebbd9b77fdbe4, type: 3}
   - {fileID: 8300000, guid: f8cab9ed881c12249b7c8b4795964bdd, type: 3}
   - {fileID: 8300000, guid: 9e3e2909f5021dc4abafbd4fabe8d02d, type: 3}
   - {fileID: 8300000, guid: 6abdb27f1bcef9c48ab02a001bfb0c6e, type: 3}
   - {fileID: 8300000, guid: 342f2c8239bf8a34da167b5c06198c79, type: 3}
-  - {fileID: 8300000, guid: c36ca4d8a59972f4982bad4365937c3e, type: 3}
 --- !u!4 &158563256
 Transform:
   m_ObjectHideFlags: 0
@@ -2417,11 +2416,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 745e081eab32ecb48a0f87547b8a1f47, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 202931080f583414e893d5914415bdc0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
