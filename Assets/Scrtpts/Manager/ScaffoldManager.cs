@@ -9,28 +9,14 @@ public class ScaffoldManager : MonoBehaviour
 
     private GameObject temporary;
 
-    int positionX;
+    private int positionX;
+    private int selectCount = 0;
 
     void Start()
     {
         particle.Stop();
 
-        for (int i = 0; i < 15; i++)
-        {
-            temporary = Instantiate
-            (
-                Resources.Load<GameObject>("Scaffold"), 
-                new Vector3 
-                (
-                    RandomPositionX(), 
-                    -3.5f + i / 2f
-                    , 0
-                ), 
-                Quaternion.identity
-            );
-
-            temporary.transform.SetParent(transform);
-        }
+        CreateScaffold(10);
     }
 
     public int RandomPositionX()
@@ -45,6 +31,26 @@ public class ScaffoldManager : MonoBehaviour
         }
 
         return positionX;       
+    }
+
+    public void CreateScaffold(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            temporary = Instantiate
+            (
+                Resources.Load<GameObject>("Scaffold"),
+                new Vector3
+                (
+                    RandomPositionX() + transform.position.x,
+                    -3.5f + (i / 2f)
+                    , 0
+                ),
+                Quaternion.identity
+            ); ; 
+
+            temporary.transform.SetParent(transform);
+        }
     }
 
     public void ScaffoldMove(bool direction)
@@ -62,6 +68,11 @@ public class ScaffoldManager : MonoBehaviour
         {
             characterSprite.flipX = true;
             transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
-        }      
+        }
+
+        if (++selectCount % 10 == 0)
+        {          
+            CreateScaffold(10);       
+        }
     }
 }
