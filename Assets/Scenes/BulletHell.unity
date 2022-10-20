@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 514964770}
   m_Layer: 0
   m_Name: Scaffold Delete Area
-  m_TagString: Untagged
+  m_TagString: Destroy Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,12 +700,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514964769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &537761767
 GameObject:
@@ -981,7 +981,7 @@ Transform:
   m_Children:
   - {fileID: 904348813}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &605244612
 MonoBehaviour:
@@ -996,7 +996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 1459122962}
-  characterSprite: {fileID: 2436563072411833418}
+  character: {fileID: 975910858}
+  scaffoldCount: 1
 --- !u!1 &637915339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,8 +1027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16918e87caa09d84b8c5c87fe0ea7e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemState: 0
-  overPanel: {fileID: 0}
+  state: 0
+  overPanel: {fileID: 570306760}
   _playTime: {fileID: 1001330375}
   Curret_Time: {fileID: 537761769}
   Maximum_Time: {fileID: 597205743}
@@ -1039,12 +1040,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637915339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2307.0918}
-  m_LocalScale: {x: 25.634354, y: 25.634354, z: 25.634354}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 880034541}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880034537
 GameObject:
@@ -1143,7 +1144,6 @@ RectTransform:
   - {fileID: 570306761}
   - {fileID: 283319827}
   - {fileID: 1850201901}
-  - {fileID: 637915341}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1439,7 +1439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  scaffold: {fileID: 605244612}
   Barrier: {fileID: 2196542082365070048}
+  successesCount: 0
 --- !u!1 &1001330373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,7 +2364,7 @@ SphereCollider:
   m_GameObject: {fileID: 2436563072411833415}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -2396,8 +2398,8 @@ GameObject:
   - component: {fileID: 975910858}
   - component: {fileID: 2436563072411833412}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Character
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2469,7 +2471,7 @@ Transform:
   - {fileID: 2196542082365070054}
   - {fileID: 1459122963}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &2537920982696817616
 Canvas:
@@ -2619,7 +2621,7 @@ RectTransform:
   m_Children:
   - {fileID: 4116829675593612519}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

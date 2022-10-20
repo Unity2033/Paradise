@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public int itemState = -1;
+    public bool state;
     public GameObject overPanel;
     public Text _playTime, Curret_Time, Maximum_Time;
 
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Singleton.instance.state = true;
+        state = true;
 
         Advertisement.Initialize("4376819");
 
@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Singleton.instance.state == false) return;
- 
+        if (state == false) return;
+
         currentTime += Time.deltaTime;
 
         TimeSpan time_span = TimeSpan.FromSeconds(currentTime);
@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
 
         Singleton.instance.fullSound.Stop();
 
-        overPanel.SetActive(true);
-        Singleton.instance.state = false;   
+        overPanel.SetActive(true);   
     }
 }

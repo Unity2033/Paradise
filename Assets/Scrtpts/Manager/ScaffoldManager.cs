@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScaffoldManager : MonoBehaviour
 {
     [SerializeField] ParticleSystem particle; 
-    [SerializeField] SpriteRenderer characterSprite;
+    [SerializeField] SpaceShip character;
 
     private GameObject temporary;
 
     private int positionX;
-    private int selectCount = 0;
+    private int scaffoldNumber = 15;
 
     void Start()
     {
         particle.Stop();
 
-        CreateScaffold(10);
+        CreateScaffold(0, scaffoldNumber);    
     }
 
     public int RandomPositionX()
@@ -33,9 +31,9 @@ public class ScaffoldManager : MonoBehaviour
         return positionX;       
     }
 
-    public void CreateScaffold(int count)
+    public void CreateScaffold(int initial, int count)
     {
-        for (int i = 0; i < count; i++)
+        for (int i = initial; i < count; i++)
         {
             temporary = Instantiate
             (
@@ -43,7 +41,7 @@ public class ScaffoldManager : MonoBehaviour
                 new Vector3
                 (
                     RandomPositionX() + transform.position.x,
-                    -3.5f + (i / 2f)
+                    -3.5f + i / 2f
                     , 0
                 ),
                 Quaternion.identity
@@ -55,24 +53,23 @@ public class ScaffoldManager : MonoBehaviour
 
     public void ScaffoldMove(bool direction)
     {
+        if (GameManager.instance.state == false) return;
+
         particle.Play();
 
         SoundManager.instance.Sound(0);
 
         if (direction == true) // Right Direction
         {
-            characterSprite.flipX = false;
+            character.GetComponent<SpriteRenderer>().flipX = false;
             transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.5f, transform.position.z);
         }
         else // Left Direction
         {
-            characterSprite.flipX = true;
+            character.GetComponent<SpriteRenderer>().flipX = true;
             transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
         }
 
-        if (++selectCount % 10 == 0)
-        {          
-            CreateScaffold(10);       
-        }
+        CreateScaffold(scaffoldNumber - 1, ++scaffoldNumber);       
     }
 }

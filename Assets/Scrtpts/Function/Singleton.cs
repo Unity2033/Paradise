@@ -5,7 +5,6 @@ public class Singleton : MonoBehaviour
 {
     public AudioSource fullSound;
 
-    public bool state;
     public int Shuttle_Switch_Count = 0;
     public int Planet_count, Currency = 0;
 

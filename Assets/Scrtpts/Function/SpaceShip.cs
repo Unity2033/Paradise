@@ -1,17 +1,19 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
     private SpriteRenderer sprite;
 
+    private Rigidbody rigidBody;
+
     [SerializeField] float speed = 1.0f;
 
     public GameObject Barrier;
-  
+
     private void Start()
     {
+        rigidBody = GetComponent<Rigidbody>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
 
         switch (Singleton.instance.Shuttle_Switch_Count)
@@ -25,36 +27,28 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-    private IEnumerator EffectTime(float duration)
+    private void Update()
     {
-        while (duration >= 0)
+        if (GameManager.instance.state == false)
         {
-            duration -= Time.deltaTime;
-            yield return null;
+            rigidBody.useGravity = true;
         }
-
-        Barrier.SetActive(false);
-
-        GameManager.instance.itemState = -1;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Item"))
+        if (other.CompareTag("Scaffold"))
         {
-            switch (other.gameObject.GetComponent<Item>().itemCount)
-            {
-                case 0 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
-                    Barrier.SetActive(true);
-                    StartCoroutine(EffectTime(5));              
-                    break;
-                case 1 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
-                    StartCoroutine(EffectTime(5));
-                    break;
-                case 2 : GameManager.instance.itemState = other.gameObject.GetComponent<Item>().itemCount;
-                    StartCoroutine(EffectTime(5));
-                    break;
-            }
+            GameManager.instance.state = true;
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Scaffold"))
+        {
+            GameManager.instance.state = false;
         }
     }
 }
