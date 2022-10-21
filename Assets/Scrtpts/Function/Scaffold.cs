@@ -4,9 +4,9 @@ public class Scaffold : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Destroy Zone"))
+        if (other.CompareTag("Destroy Zone"))
         {
-            Destroy(gameObject);
-        }
+            ScaffoldManager.instance.Position(ScaffoldManager.instance.scaffoldNumber - 5);
+        }        
     }
 }

@@ -1,14 +1,27 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ScaffoldManager : MonoBehaviour
 {
+    public static ScaffoldManager instance;
+
     [SerializeField] ParticleSystem particle; 
     [SerializeField] SpaceShip character;
 
+    private List<GameObject> scaffold = new List<GameObject>();
+    int value = 0;
     private GameObject temporary;
 
     private int positionX;
-    private int scaffoldNumber = 15;
+    public int scaffoldNumber = 15;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -40,7 +53,7 @@ public class ScaffoldManager : MonoBehaviour
                 Resources.Load<GameObject>("Scaffold"),
                 new Vector3
                 (
-                    RandomPositionX() + transform.position.x,
+                    RandomPositionX(),
                     -3.5f + i / 2f
                     , 0
                 ),
@@ -48,6 +61,24 @@ public class ScaffoldManager : MonoBehaviour
             ); ; 
 
             temporary.transform.SetParent(transform);
+            scaffold.Add(temporary);
+        }
+    }
+
+    public void Position(int count)
+    {
+        Vector3 direction = new Vector3
+        (
+            RandomPositionX() + transform.position.x,
+            -3.5f + (count / 2f), 
+            0
+        );
+
+        scaffold[value].transform.position = direction;
+
+        if(++value >= scaffoldNumber)
+        {
+            value = 0;
         }
     }
 
@@ -68,8 +99,6 @@ public class ScaffoldManager : MonoBehaviour
         {
             character.GetComponent<SpriteRenderer>().flipX = true;
             transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
-        }
-
-        CreateScaffold(scaffoldNumber - 1, ++scaffoldNumber);       
+        }    
     }
 }
