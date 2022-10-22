@@ -13,7 +13,7 @@ public class ScaffoldManager : MonoBehaviour
     private GameObject temporary;
 
     private int positionX;
-    public int scaffoldNumber = 15;
+    public int scaffoldNumber = 20;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class ScaffoldManager : MonoBehaviour
                 new Vector3
                 (
                     RandomPositionX(),
-                    -3.5f + i / 2f
+                    -3f + i / 2f
                     , 0
                 ),
                 Quaternion.identity
@@ -70,7 +70,7 @@ public class ScaffoldManager : MonoBehaviour
         Vector3 direction = new Vector3
         (
             RandomPositionX() + transform.position.x,
-            -3.5f + (count / 2f), 
+            -3f + (count / 2f), 
             0
         );
 

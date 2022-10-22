@@ -6,7 +6,7 @@ public class Scaffold : MonoBehaviour
     {
         if (other.CompareTag("Destroy Zone"))
         {
-            ScaffoldManager.instance.Position(ScaffoldManager.instance.scaffoldNumber - 5);
+            ScaffoldManager.instance.Position(ScaffoldManager.instance.scaffoldNumber - 7);
         }        
     }
 }

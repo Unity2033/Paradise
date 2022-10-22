@@ -10,10 +10,7 @@ public class Singleton : MonoBehaviour
 
     public static int Connect = 0;
 
-    public float Record;
     public static Singleton instance = null;
-
-    public TimeSpan Record_span; 
 
     void Awake()
     {
@@ -36,14 +33,8 @@ public class Singleton : MonoBehaviour
         fullSound.Play();
     }
 
-    private void Update()
-    {
-        Record_span = TimeSpan.FromSeconds(Record);
-    }
-
     public void DataSave()
     {      
-        PlayerPrefs.SetFloat("Record", Record);
         PlayerPrefs.SetInt("Currency", Currency);
         PlayerPrefs.SetInt("Planet_count", Planet_count);
         PlayerPrefs.SetInt("Shuttle_Switch_Count", Shuttle_Switch_Count);
@@ -51,7 +42,6 @@ public class Singleton : MonoBehaviour
 
     public void DataLoad()
     {
-        Record = PlayerPrefs.GetFloat("Record", 0f);
         Currency = PlayerPrefs.GetInt("Currency", 0);
         Planet_count = PlayerPrefs.GetInt("Planet_count", 0);
         Shuttle_Switch_Count = PlayerPrefs.GetInt("Shuttle_Switch_Count", 0);
