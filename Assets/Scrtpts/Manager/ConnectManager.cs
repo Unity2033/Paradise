@@ -7,6 +7,7 @@ using System.Collections;
 public class ConnectManager : MonoBehaviour
 {
     [SerializeField] Image sceneImage;
+    [SerializeField] Image connectionFailureImage;
 
     private void Awake()
     {
@@ -60,7 +61,7 @@ public class ConnectManager : MonoBehaviour
             if(count < 0)
             {
                 // Text로 로그인 실패를 알린 후 Application.Quit(); 발동
-                sceneImage.transform.GetChild(2).gameObject.SetActive(true);
+                connectionFailureImage.gameObject.SetActive(true);
                 break;
             }
         }

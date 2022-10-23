@@ -40,6 +40,12 @@ public class VersatileButton : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[count];
     }
 
+    public void GameStart(GameObject canvas)
+    {
+        canvas.SetActive(false);
+        GameManager.instance.State = GameManager.state.EXECUTION;
+    }
+
 
     public void Achievement()
     {

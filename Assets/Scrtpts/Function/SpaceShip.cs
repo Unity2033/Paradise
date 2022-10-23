@@ -9,8 +9,6 @@ public class SpaceShip : MonoBehaviour
 
     [SerializeField] float speed = 1.0f;
 
-    public GameObject Barrier;
-
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -29,7 +27,7 @@ public class SpaceShip : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.state == false)
+        if (GameManager.instance.State == GameManager.state.END)
         {
             rigidBody.useGravity = true;
         }
@@ -39,7 +37,7 @@ public class SpaceShip : MonoBehaviour
     {
         if (other.CompareTag("Scaffold"))
         {
-            GameManager.instance.state = true;
+            GameManager.instance.State = GameManager.state.EXECUTION;
         }
     }
 
@@ -47,7 +45,7 @@ public class SpaceShip : MonoBehaviour
     {
         if (other.CompareTag("Scaffold"))
         {
-            GameManager.instance.state = false;
+            GameManager.instance.State = GameManager.state.END;
         }
     }
 }

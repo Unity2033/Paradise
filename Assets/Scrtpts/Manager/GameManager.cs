@@ -7,7 +7,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool state;
+    public enum state
+    {
+        IDLE,
+        EXECUTION,
+        END
+    };
+
+    public state currentStatus;
+
+    public state State
+    {
+        get { return currentStatus; }
+        set { currentStatus = value; }
+    }
+
     public GameObject overPanel;
     public Text stairsNumber, CurretStairsNumber, MaximumStairsNumber;
 
@@ -25,18 +39,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        state = true;
-
-        Advertisement.Initialize("4376819");
-
-        Advertisement.Banner.Hide();
+        currentStatus = state.IDLE;
     }
 
-    public void Update()
-    {
-        if (state == false) return;
-          
-    }
 
     public void GameOver()
     {

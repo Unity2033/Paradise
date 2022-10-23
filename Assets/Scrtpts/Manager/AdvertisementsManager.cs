@@ -7,10 +7,10 @@ public class AdvertisementsManager : MonoBehaviour
     void Start()
     {
         Advertisement.Initialize("4376819");
-        Show_Banner();
+        BannerAdvertisement();
     }
 
-    public void Show_Banner()
+    public void BannerAdvertisement()
     {
         if (Advertisement.IsReady("banner"))
         {
@@ -26,7 +26,7 @@ public class AdvertisementsManager : MonoBehaviour
     IEnumerator Repeate_Banner()
     {
         yield return new WaitForSeconds(1f);
-        Show_Banner();
+        BannerAdvertisement();
     }
 
 }

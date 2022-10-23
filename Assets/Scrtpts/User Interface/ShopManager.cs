@@ -31,12 +31,14 @@ public class ShopManager : MonoBehaviour
     {
         switch (Singleton.instance.Shuttle_Switch_Count)
         {
-            case 1 : if(shuttle[1].price <= Singleton.instance.Currency)
+            case 1 : 
+            if(shuttle[1].price <= Singleton.instance.Currency)
             {
                 Singleton.instance.Currency -= shuttle[1].price;
             }
             break;
-            case 2 : if (shuttle[2].price <= Singleton.instance.Currency)
+            case 2 : 
+                if (shuttle[2].price <= Singleton.instance.Currency)
             {
                 Singleton.instance.Currency -= shuttle[2].price;
             }

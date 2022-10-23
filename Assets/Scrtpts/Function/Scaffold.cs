@@ -6,6 +6,8 @@ public class Scaffold : MonoBehaviour
     {
         if (other.CompareTag("Destroy Zone"))
         {
+            transform.GetChild(0).GetComponent<Item>().ProbabilityActivation(Random.Range(0, 100));
+
             ScaffoldManager.instance.Position(ScaffoldManager.instance.scaffoldNumber - 7);
         }        
     }

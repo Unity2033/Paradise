@@ -9,7 +9,7 @@ public class ScaffoldManager : MonoBehaviour
     [SerializeField] SpaceShip character;
 
     private List<GameObject> scaffold = new List<GameObject>();
-    int value = 0;
+    private int value = 0;
     private GameObject temporary;
 
     private int positionX;
@@ -26,7 +26,7 @@ public class ScaffoldManager : MonoBehaviour
     void Start()
     {
         particle.Stop();
-
+        
         CreateScaffold(0, scaffoldNumber);    
     }
 
@@ -76,7 +76,7 @@ public class ScaffoldManager : MonoBehaviour
 
         scaffold[value].transform.position = direction;
 
-        if(++value >= scaffoldNumber)
+        if (++value >= scaffoldNumber)
         {
             value = 0;
         }
@@ -84,7 +84,7 @@ public class ScaffoldManager : MonoBehaviour
 
     public void ScaffoldMove(bool direction)
     {
-        if (GameManager.instance.state == false) return;
+        if (GameManager.instance.State == GameManager.state.END) return;
 
         particle.Play();
 

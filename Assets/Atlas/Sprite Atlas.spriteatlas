@@ -64,7 +64,6 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 789f4420a87864657831cc9f2bfdae7f, type: 3}
   - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
   - {fileID: 21300000, guid: 33cc404051e6b2b49916ed1b3ab1896d, type: 3}
   - {fileID: 21300000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
@@ -74,7 +73,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
-  - {fileID: 21300000, guid: 55f3be23770f5424ea136f8a7ac60a67, type: 3}
   - {fileID: 21300000, guid: 834318432ef78ee4eab5a6c5cf436426, type: 3}
   - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
   - {fileID: 21300000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
@@ -100,7 +98,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Process
   - Setting
   - Game Over Window
   - Speed Down
@@ -110,7 +107,6 @@ SpriteAtlas:
   - Discovery Button
   - Store Window
   - Mission
-  - Art_Work
   - Item Shop
   - Icon
   - Atlantis Button
@@ -119,7 +115,7 @@ SpriteAtlas:
   - Title
   - Replay
   - Buy Now 300
-  - Shield
+  - Buffer
   - Internet Window
   - Termination
   - Sound off
@@ -132,8 +128,8 @@ SpriteAtlas:
   - Leader Board
   - Sound on
   - Exit
-  - KakaoTalk_20211101_182931904
-  - Support Fire
+  - Network Connection
+  - Turret
   - Curreny Window
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
