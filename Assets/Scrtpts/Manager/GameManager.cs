@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
         if (Advertisement.IsReady("video"))
         {
              Advertisement.Show("video");
-        }        
+        }
 
-        Singleton.instance.fullSound.Stop();
+        DataManager.instance.fullSound.Stop();
 
         overPanel.SetActive(true);   
     }

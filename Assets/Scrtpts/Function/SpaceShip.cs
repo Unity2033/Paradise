@@ -14,7 +14,7 @@ public class SpaceShip : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
 
-        switch (Singleton.instance.Shuttle_Switch_Count)
+        switch (DataManager.instance.data.spaceShipCount)
         {
             case 0 : sprite.sprite = Resources.Load<Sprite>("Atlantis");
                 break;

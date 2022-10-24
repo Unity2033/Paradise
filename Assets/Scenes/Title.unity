@@ -1491,8 +1491,9 @@ Transform:
   - {fileID: 658379123}
   - {fileID: 1942916373}
   - {fileID: 1010507706}
+  - {fileID: 777563653}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428418263
 GameObject:
@@ -2846,7 +2847,7 @@ Transform:
   - {fileID: 1549853746}
   - {fileID: 829295920}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726315810
 GameObject:
@@ -3139,7 +3140,7 @@ GameObject:
   - component: {fileID: 777563652}
   - component: {fileID: 777563654}
   m_Layer: 0
-  m_Name: Singleton
+  m_Name: Data Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,9 +3159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullSound: {fileID: 777563654}
-  Shuttle_Switch_Count: 0
-  Planet_count: 0
-  Currency: 0
+  data:
+    spaceShipCount: 0
+    diamond: 0
 --- !u!4 &777563653
 Transform:
   m_ObjectHideFlags: 0
@@ -3168,13 +3169,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777563651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 416479577}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &777563654
 AudioSource:
@@ -6745,12 +6746,12 @@ GameObject:
   - component: {fileID: 1849731753}
   - component: {fileID: 1849731752}
   m_Layer: 0
-  m_Name: Connect Manager
+  m_Name: Network Connect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1849731752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6841,7 +6842,7 @@ RectTransform:
   - {fileID: 1812102572}
   - {fileID: 1265191044}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7486,7 +7487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2056957190
 GameObject:

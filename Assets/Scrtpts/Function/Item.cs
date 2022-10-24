@@ -37,6 +37,8 @@ public class Item : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
+
+            DataManager.instance.Save();
         }
     }
 

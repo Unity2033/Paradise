@@ -6,6 +6,7 @@ using System.Collections;
 
 public class ConnectManager : MonoBehaviour
 {
+     static int connectNumber = 0;
     [SerializeField] Image sceneImage;
     [SerializeField] Image connectionFailureImage;
 
@@ -15,7 +16,7 @@ public class ConnectManager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
 
-        if (Singleton.Connect == 0)
+        if (connectNumber == 0)
         {
             StartCoroutine(Connection());
         }
@@ -25,7 +26,7 @@ public class ConnectManager : MonoBehaviour
     {
         if(success)
         {
-            Singleton.Connect++;
+            connectNumber++;
             StartCoroutine(FadeIn(1));
         }
         else 

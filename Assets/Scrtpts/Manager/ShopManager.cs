@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Text Diamond;
     [SerializeField] GameObject spaceShip;
 
+   
     public Shuttle [] shuttle;
 
     private void Start()
@@ -24,23 +25,23 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        Diamond.text = Singleton.instance.Currency.ToString();
+        Diamond.text = DataManager.instance.data.diamond.ToString();
     }
 
     public void PurchaseButton()
     {
-        switch (Singleton.instance.Shuttle_Switch_Count)
+        switch (DataManager.instance.data.spaceShipCount)
         {
             case 1 : 
-            if(shuttle[1].price <= Singleton.instance.Currency)
+            if(shuttle[1].price <= DataManager.instance.data.diamond)
             {
-                Singleton.instance.Currency -= shuttle[1].price;
+                    DataManager.instance.data.diamond -= shuttle[1].price;
             }
             break;
             case 2 : 
-                if (shuttle[2].price <= Singleton.instance.Currency)
+                if (shuttle[2].price <= DataManager.instance.data.diamond)
             {
-                Singleton.instance.Currency -= shuttle[2].price;
+                    DataManager.instance.data.diamond -= shuttle[2].price;
             }
             break;
         }
@@ -49,9 +50,9 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipRightButton()
     {
-        if (++Singleton.instance.Shuttle_Switch_Count >= shuttle.Length)
+        if (++DataManager.instance.data.spaceShipCount >= shuttle.Length)
         {
-            Singleton.instance.Shuttle_Switch_Count = 0;
+            DataManager.instance.data.spaceShipCount = 0;
         }
 
         SpaceShipView();
@@ -59,9 +60,9 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipLeftButton()
     {
-        if (--Singleton.instance.Shuttle_Switch_Count < 0)
+        if (--DataManager.instance.data.spaceShipCount < 0)
         {
-            Singleton.instance.Shuttle_Switch_Count = shuttle.Length - 1;
+            DataManager.instance.data.spaceShipCount = shuttle.Length - 1;
         }
 
         SpaceShipView();
@@ -69,7 +70,8 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipView()
     {
-        spaceShip.GetComponent<Image>().sprite = shuttle[Singleton.instance.Shuttle_Switch_Count].sprite;
+        DataManager.instance.Save();
+        spaceShip.GetComponent<Image>().sprite = shuttle[DataManager.instance.data.spaceShipCount].sprite;
     }
    
 
