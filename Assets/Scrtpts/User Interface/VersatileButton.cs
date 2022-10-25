@@ -1,7 +1,9 @@
-﻿using GooglePlayGames;
-using System;
+﻿using System;
 using UnityEngine;
+using GooglePlayGames;
+using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
+
 
 
 public class VersatileButton : MonoBehaviour
@@ -40,12 +42,16 @@ public class VersatileButton : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[count];
     }
 
-    public void GameStart(GameObject canvas)
+    public void GameStart()
     {
-        canvas.SetActive(false);
-        GameManager.instance.State = GameManager.state.EXECUTION;
+        GameManager.instance.State = GameManager.state.Progress;
+        GameManager.instance.StateCanvas();
     }
 
+    public void ReStart()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     public void Achievement()
     {

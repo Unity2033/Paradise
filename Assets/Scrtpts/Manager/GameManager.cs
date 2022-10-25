@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
@@ -9,12 +8,12 @@ public class GameManager : MonoBehaviour
 
     public enum state
     {
-        IDLE,
-        EXECUTION,
-        END
+        Idle,
+        Progress,
+        Exit
     };
 
-    public state currentStatus;
+    private state currentStatus;
 
     public state State
     {
@@ -22,8 +21,9 @@ public class GameManager : MonoBehaviour
         set { currentStatus = value; }
     }
 
-    public GameObject overPanel;
     public Text stairsNumber, CurretStairsNumber, MaximumStairsNumber;
+   
+    [SerializeField] GameObject [] gameCanvas;
 
     private void Awake()
     {
@@ -39,19 +39,31 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        currentStatus = state.IDLE;
+        currentStatus = state.Idle;
     }
 
-
-    public void GameOver()
+    public void StateCanvas()
     {
-        if (Advertisement.IsReady("video"))
+        switch (currentStatus)
         {
-             Advertisement.Show("video");
+            case state.Idle :
+                {
+                    gameCanvas[0].SetActive(true);
+                    gameCanvas[1].SetActive(false);
+                }
+                break;
+            case state.Progress :
+                {
+                    gameCanvas[0].SetActive(false);
+                    gameCanvas[1].SetActive(true);
+                }
+                break;
+            case state.Exit :
+                {
+                    gameCanvas[2].SetActive(true);
+                    DataManager.instance.fullSound.Stop();
+                }
+                break;
         }
-
-        DataManager.instance.fullSound.Stop();
-
-        overPanel.SetActive(true);   
     }
 }

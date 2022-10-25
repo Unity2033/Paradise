@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
-    private SpriteRenderer sprite;
-
     private Rigidbody rigidBody;
-
-    [SerializeField] float speed = 1.0f;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
@@ -27,25 +23,28 @@ public class SpaceShip : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.State == GameManager.state.END)
+        if (GameManager.instance.State == GameManager.state.Exit)
         {
             rigidBody.useGravity = true;
+            GameManager.instance.StateCanvas();
+            return;
         }
     }
+
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Scaffold"))
         {
-            GameManager.instance.State = GameManager.state.EXECUTION;
-        }
+            GameManager.instance.State = GameManager.state.Progress;        
+        }      
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Scaffold"))
         {
-            GameManager.instance.State = GameManager.state.END;
+                GameManager.instance.State = GameManager.state.Exit;          
         }
     }
 }

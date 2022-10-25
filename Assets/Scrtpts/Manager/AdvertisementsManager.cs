@@ -10,6 +10,15 @@ public class AdvertisementsManager : MonoBehaviour
         BannerAdvertisement();
     }
 
+    public void FullPageAdvertisement()
+    {
+        if (Advertisement.IsReady("video"))
+        {
+            Advertisement.Show("video");
+        }
+
+    }
+
     public void BannerAdvertisement()
     {
         if (Advertisement.IsReady("banner"))

@@ -84,7 +84,7 @@ public class ScaffoldManager : MonoBehaviour
 
     public void ScaffoldMove(bool direction)
     {
-        if (GameManager.instance.State == GameManager.state.END) return;
+        if (GameManager.instance.State == GameManager.state.Exit) return;
 
         particle.Play();
 
