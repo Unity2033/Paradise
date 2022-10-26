@@ -44,7 +44,7 @@ public class SpaceShip : MonoBehaviour
     {
         if (other.CompareTag("Scaffold"))
         {
-                GameManager.instance.State = GameManager.state.Exit;          
+            GameManager.instance.State = GameManager.state.Exit;          
         }
     }
 }

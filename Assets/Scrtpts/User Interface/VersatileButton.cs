@@ -8,23 +8,26 @@ using UnityEngine.Localization.Settings;
 
 public class VersatileButton : MonoBehaviour
 {
+    private int windowCount = 0;
     private int count = 2;
-    private bool power;
+    private bool power = true;
 
     public void Open(GameObject window)
     {
-        window.SetActive(true);
-        window.GetComponent<Animator>().Rebind();
-
-        SoundManager.instance.Sound(1);
+        if(++windowCount % 2 == 1)
+        {
+            window.SetActive(true);
+            SoundManager.instance.Sound(1);
+            window.GetComponent<Animator>().Rebind();
+        }
+        else
+        {
+            window.GetComponent<Animator>().SetTrigger("close");
+            SoundManager.instance.Sound(2);
+        }
+   
     }
 
-    public void Cancle(GameObject window)
-    {
-        window.GetComponent<Animator>().SetTrigger("close");
-
-        SoundManager.instance.Sound(2);
-    }
 
     public void SoundMute()
     {       
@@ -44,13 +47,14 @@ public class VersatileButton : MonoBehaviour
 
     public void GameStart()
     {
+        if (GameManager.instance.State == GameManager.state.Exit)
+        {
+            SceneManager.LoadScene(0);
+            GameManager.instance.StateCanvas();
+        }
+
         GameManager.instance.State = GameManager.state.Progress;
         GameManager.instance.StateCanvas();
-    }
-
-    public void ReStart()
-    {
-        SceneManager.LoadScene(0);
     }
 
     public void Achievement()

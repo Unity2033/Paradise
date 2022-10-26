@@ -8,10 +8,8 @@ public class Data
     public int diamond;
 }
 
-
 public class DataManager : MonoBehaviour
 {
-    public AudioSource fullSound;
     public Data data = new Data();
     public static DataManager instance;
 
@@ -27,11 +25,6 @@ public class DataManager : MonoBehaviour
         }
 
         Load();
-    }
-
-    private void Start()
-    {
-        fullSound.Play();
     }
 
     public void Save()

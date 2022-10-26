@@ -65,7 +65,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
-  - {fileID: 21300000, guid: 33cc404051e6b2b49916ed1b3ab1896d, type: 3}
   - {fileID: 21300000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
   - {fileID: 21300000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
   - {fileID: 21300000, guid: 0fb101c108735784c89e0c405aafdc8d, type: 3}
@@ -79,10 +78,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
   - {fileID: 21300000, guid: ccb3948546150844a83f8446e576ab41, type: 3}
   - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
-  - {fileID: 21300000, guid: ffa80b5722428a84aabe3379eafbd7ab, type: 3}
+  - {fileID: 21300000, guid: fa63d596b03bbb3448fd988c218ca206, type: 3}
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
+  - {fileID: 21300000, guid: 2644b3c8d1a4a3343b6874abac882cfc, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
   - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
@@ -90,22 +90,19 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
   - {fileID: 21300000, guid: 0216e9db89de8aa428f297985eb98270, type: 3}
-  - {fileID: 21300000, guid: 7ca2a6eb6bf4b69469262322badd2677, type: 3}
   - {fileID: 21300000, guid: 01d3ab1cc5941724682807220e912de2, type: 3}
   - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
-  - {fileID: 21300000, guid: 485bfbfc6c4ba8f4b85c9bd7da8e7267, type: 3}
   - {fileID: 21300000, guid: d998f55dce3a0c74baaee558c26dc31c, type: 3}
   - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
   - Setting
-  - Game Over Window
   - Speed Down
   - Buy Now 500
   - Load
   - Barrier
   - Discovery Button
-  - Store Window
+  - Setting Window
   - Mission
   - Item Shop
   - Icon
@@ -113,21 +110,20 @@ SpriteAtlas:
   - Blue Window
   - Left Button
   - Title
-  - Replay
+  - Step Up Button
   - Buy Now 300
   - Buffer
   - Internet Window
+  - Direction Change
   - Termination
   - Sound off
   - Endeavour Button
-  - Setting Window
+  - GameOver Window
   - Time Window
   - Localize
   - Right Button
-  - Space station
   - Leader Board
   - Sound on
-  - Exit
   - Network Connection
   - Turret
   - Curreny Window

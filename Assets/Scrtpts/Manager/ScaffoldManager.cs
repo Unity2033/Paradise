@@ -5,7 +5,6 @@ public class ScaffoldManager : MonoBehaviour
 {
     public static ScaffoldManager instance;
 
-    [SerializeField] ParticleSystem particle; 
     [SerializeField] SpaceShip character;
 
     private List<GameObject> scaffold = new List<GameObject>();
@@ -25,8 +24,6 @@ public class ScaffoldManager : MonoBehaviour
 
     void Start()
     {
-        particle.Stop();
-        
         CreateScaffold(0, scaffoldNumber);    
     }
 
@@ -85,8 +82,6 @@ public class ScaffoldManager : MonoBehaviour
     public void ScaffoldMove(bool direction)
     {
         if (GameManager.instance.State == GameManager.state.Exit) return;
-
-        particle.Play();
 
         SoundManager.instance.Sound(0);
 

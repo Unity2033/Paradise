@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,24 +45,22 @@ public class GameManager : MonoBehaviour
     {
         switch (currentStatus)
         {
-            case state.Idle :
-                {
-                    gameCanvas[0].SetActive(true);
-                    gameCanvas[1].SetActive(false);
-                }
+            case state.Idle : ActivationCanvas(false, 0, true);             
                 break;
-            case state.Progress :
-                {
-                    gameCanvas[0].SetActive(false);
-                    gameCanvas[1].SetActive(true);
-                }
+            case state.Progress : ActivationCanvas(false, 1, true);             
                 break;
-            case state.Exit :
-                {
-                    gameCanvas[2].SetActive(true);
-                    DataManager.instance.fullSound.Stop();
-                }
+            case state.Exit : ActivationCanvas(true, 1, false);
                 break;
         }
+    }
+
+    public void ActivationCanvas(bool active, int disableCount, bool enableActive)
+    {
+        for(int i = 0; i < gameCanvas.Length; i++)
+        {
+            gameCanvas[i].SetActive(active);
+        }
+
+        gameCanvas[disableCount].SetActive(enableActive);
     }
 }
