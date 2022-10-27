@@ -28,11 +28,11 @@ public class AdvertisementsManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Repeate_Banner());
+            StartCoroutine(WaitBanner());
         }
     }
 
-    IEnumerator Repeate_Banner()
+    IEnumerator WaitBanner()
     {
         yield return new WaitForSeconds(1f);
         BannerAdvertisement();

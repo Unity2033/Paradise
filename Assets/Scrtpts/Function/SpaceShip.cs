@@ -30,21 +30,4 @@ public class SpaceShip : MonoBehaviour
             return;
         }
     }
-
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Scaffold"))
-        {
-            GameManager.instance.State = GameManager.state.Progress;        
-        }      
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Scaffold"))
-        {
-            GameManager.instance.State = GameManager.state.Exit;          
-        }
-    }
 }

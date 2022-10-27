@@ -28,7 +28,6 @@ public class VersatileButton : MonoBehaviour
    
     }
 
-
     public void SoundMute()
     {       
         power = !power;

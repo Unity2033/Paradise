@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class ScaffoldManager : MonoBehaviour
@@ -6,10 +7,13 @@ public class ScaffoldManager : MonoBehaviour
     public static ScaffoldManager instance;
 
     [SerializeField] SpaceShip character;
-
-    private List<GameObject> scaffold = new List<GameObject>();
+ 
     private int value = 0;
     private GameObject temporary;
+    private List<GameObject> scaffold = new List<GameObject>();
+
+    private int keyCount;
+    private int accumulateCount;
 
     private int positionX;
     public int scaffoldNumber = 20;
@@ -55,7 +59,7 @@ public class ScaffoldManager : MonoBehaviour
                     , 0
                 ),
                 Quaternion.identity
-            ); ; 
+            );
 
             temporary.transform.SetParent(transform);
             scaffold.Add(temporary);
@@ -84,16 +88,28 @@ public class ScaffoldManager : MonoBehaviour
         if (GameManager.instance.State == GameManager.state.Exit) return;
 
         SoundManager.instance.Sound(0);
-
+    
         if (direction == true) // Right Direction
         {
+            keyCount += 1;
             character.GetComponent<SpriteRenderer>().flipX = false;
             transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.5f, transform.position.z);
         }
         else // Left Direction
         {
+            keyCount -= 1;
             character.GetComponent<SpriteRenderer>().flipX = true;
             transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
-        }    
+        }
+
+        if (scaffold[accumulateCount].transform.localPosition.x != keyCount)
+        {
+            GameManager.instance.State = GameManager.state.Exit;
+        }
+
+        if (++accumulateCount >= scaffoldNumber)
+        {
+            accumulateCount = 0;
+        }
     }
 }
