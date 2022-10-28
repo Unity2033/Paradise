@@ -5,22 +5,20 @@ using UnityEngine.UI;
 public class Shuttle
 {
     public int price;
-    public Sprite sprite;
-
+    public Button purchaseButton;
 }
 
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Text Diamond;
-    [SerializeField] GameObject spaceShip;
+    [SerializeField] SpaceShip spaceShip;
 
-   
     public Shuttle [] shuttle;
 
     private void Start()
     {
-        SpaceShipView();
+        spaceShip.SpriteView();
     }
 
     private void Update()
@@ -30,49 +28,47 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseButton()
     {
-        switch (DataManager.instance.data.spaceShipCount)
-        {
-            case 1 : 
-            if(shuttle[1].price <= DataManager.instance.data.diamond)
-            {
-                    DataManager.instance.data.diamond -= shuttle[1].price;
-            }
-            break;
-            case 2 : 
-                if (shuttle[2].price <= DataManager.instance.data.diamond)
-            {
-                    DataManager.instance.data.diamond -= shuttle[2].price;
-            }
-            break;
+         if(shuttle[spaceShip.spaceShipNumber].price <= DataManager.instance.data.diamond)
+         {
+              DataManager.instance.data.diamond -= shuttle[spaceShip.spaceShipNumber].price;         
+              DataManager.instance.data.purchaseConfirmation[spaceShip.spaceShipNumber] = true;
+              shuttle[spaceShip.spaceShipNumber].purchaseButton.interactable = false;
         }
+    }
 
+    public void PurchaseHistory()
+    {
+        for (int i = 0; i < shuttle.Length; i++)
+        {
+            if (DataManager.instance.data.purchaseConfirmation[i] == false)
+            {
+                shuttle[i].purchaseButton.interactable = false;
+            }
+            else
+            {
+                shuttle[i].purchaseButton.interactable = true;
+            }
+        }
     }
 
     public void SpaceShipRightButton()
     {
-        if (++DataManager.instance.data.spaceShipCount >= shuttle.Length)
+        if (++spaceShip.spaceShipNumber >= shuttle.Length)
         {
-            DataManager.instance.data.spaceShipCount = 0;
+            spaceShip.spaceShipNumber = 0;
         }
 
-        SpaceShipView();
+        spaceShip.SpriteView();
     }
 
     public void SpaceShipLeftButton()
     {
-        if (--DataManager.instance.data.spaceShipCount < 0)
+        if (--spaceShip.spaceShipNumber < 0)
         {
-            DataManager.instance.data.spaceShipCount = shuttle.Length - 1;
+            spaceShip.spaceShipNumber = shuttle.Length - 1;
         }
 
-        SpaceShipView();
+        spaceShip.SpriteView();
     }
-
-    public void SpaceShipView()
-    {
-        DataManager.instance.Save();
-        spaceShip.GetComponent<Image>().sprite = shuttle[DataManager.instance.data.spaceShipCount].sprite;
-    }
-   
 
 }

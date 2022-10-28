@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         set { currentStatus = value; }
     }
 
-    public Text stairsNumber, CurretStairsNumber, MaximumStairsNumber;
+    public Text CurretStairsNumber, MaximumStairsNumber;
    
     [SerializeField] GameObject [] gameCanvas;
 
@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentStatus = state.Idle;
+    }
+
+    private void Update()
+    {
+        CurretStairsNumber.text = DataManager.instance.CurrentScore.ToString();
+        MaximumStairsNumber.text = DataManager.instance.data.statirsMaxScore.ToString();
     }
 
     public void StateCanvas()

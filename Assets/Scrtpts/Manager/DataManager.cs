@@ -3,13 +3,23 @@ using UnityEngine;
 
 [System.Serializable]
 public class Data
-{
-    public int spaceShipCount;
+{ 
     public int diamond;
+    public int statirsMaxScore;
+
+    public bool [] purchaseConfirmation = new bool[3];
 }
 
 public class DataManager : MonoBehaviour
 {
+    private int stairsScore;
+
+    public int CurrentScore
+    {
+        get { return stairsScore; }
+        set { stairsScore = value; }
+    }
+
     public Data data = new Data();
     public static DataManager instance;
 
@@ -25,6 +35,14 @@ public class DataManager : MonoBehaviour
         }
 
         Load();
+    }
+
+    public void BestScore()
+    {
+        if (data.statirsMaxScore <= CurrentScore)
+        {
+           data.statirsMaxScore = CurrentScore;
+        }
     }
 
     public void Save()

@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 
     public int itemCount;
     [SerializeField] int probability = 90;
-    private string [] itemName = { "Barrier", "Speed Down", "Turret", "Diamond" };
+    private string [] itemName = { "Coal", "Sapphire", "Topaz", "Diamond" };
 
     private void Start()
     {
@@ -37,6 +37,8 @@ public class Item : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
+
+            DataManager.instance.data.diamond++;
 
             DataManager.instance.Save();
         }

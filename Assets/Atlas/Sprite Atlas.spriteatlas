@@ -44,9 +44,6 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
-    - {fileID: 2800000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
-    - {fileID: 2800000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
     - {fileID: 2800000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
     - {fileID: 102900000, guid: bb3e338899432408a9491440d7123e65, type: 3}
     - {fileID: 102900000, guid: b61ee9b9b1ffafe448d64d9590a497a3, type: 3}
@@ -65,14 +62,11 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
-  - {fileID: 21300000, guid: 879987b0ef927384c9da4638b7fe1d62, type: 3}
   - {fileID: 21300000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
   - {fileID: 21300000, guid: 0fb101c108735784c89e0c405aafdc8d, type: 3}
-  - {fileID: 21300000, guid: e2a1f7c143d68334093888b1c46ead1a, type: 3}
   - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
-  - {fileID: 21300000, guid: 834318432ef78ee4eab5a6c5cf436426, type: 3}
   - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
   - {fileID: 21300000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
@@ -93,18 +87,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 01d3ab1cc5941724682807220e912de2, type: 3}
   - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
   - {fileID: 21300000, guid: d998f55dce3a0c74baaee558c26dc31c, type: 3}
-  - {fileID: 21300000, guid: 1ba918fd3b2ee1d45a8634b62cf077de, type: 3}
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
   - Setting
-  - Speed Down
   - Buy Now 500
   - Load
-  - Barrier
   - Discovery Button
   - Setting Window
   - Mission
-  - Item Shop
   - Icon
   - Atlantis Button
   - Blue Window
@@ -125,7 +115,6 @@ SpriteAtlas:
   - Leader Board
   - Sound on
   - Network Connection
-  - Turret
   - Curreny Window
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
