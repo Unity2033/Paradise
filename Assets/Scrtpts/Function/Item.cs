@@ -4,8 +4,8 @@ public class Item : MonoBehaviour
 {
     private SpriteRenderer shape;
 
-    public int itemCount;
     [SerializeField] int probability = 90;
+
     private string [] itemName = { "Coal", "Sapphire", "Topaz", "Diamond" };
 
     private void Start()
@@ -27,15 +27,14 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
-        itemCount = Random.Range(0, 4);
         shape = GetComponent<SpriteRenderer>();
-        shape.sprite = Resources.Load<Sprite>(itemName[itemCount]);
+        shape.sprite = Resources.Load<Sprite>(itemName[Random.Range(0, 4)]);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
+        {  
             gameObject.SetActive(false);
 
             DataManager.instance.data.diamond++;

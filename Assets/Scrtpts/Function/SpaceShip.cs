@@ -5,6 +5,7 @@ public class SpaceShip : MonoBehaviour
     public int spaceShipNumber;
     private Rigidbody rigidBody;
     private SpriteRenderer sprite;
+    [SerializeField] ParticleSystem particle;
 
     private void Start()
     {
@@ -44,11 +45,15 @@ public class SpaceShip : MonoBehaviour
     {
         if(other.CompareTag("Scaffold"))
         {
+            particle.Play();
+
             DataManager.instance.CurrentScore++;
 
             DataManager.instance.BestScore();
 
             DataManager.instance.Save();
         }
+
+    
     }
 }

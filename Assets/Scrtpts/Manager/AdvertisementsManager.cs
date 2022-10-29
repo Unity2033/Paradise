@@ -16,7 +16,28 @@ public class AdvertisementsManager : MonoBehaviour
         {
             Advertisement.Show("video");
         }
+    }
 
+    public void RewardAdvertisementShow()
+    {
+        if (Advertisement.IsReady("Reward"))
+        {
+            var options = new ShowOptions { resultCallback = RewardAdvertisement };
+            Advertisement.Show("Reward", options);
+        }
+    }
+
+    public void RewardAdvertisement(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Failed : Debug.Log("The ad Failed to be Shown");
+                break;
+            case ShowResult.Skipped : Debug.Log("The ad was Skipped Before reaching the end");
+                break;
+            case ShowResult.Finished : DataManager.instance.data.diamond += 10;
+                break;
+        }
     }
 
     public void BannerAdvertisement()

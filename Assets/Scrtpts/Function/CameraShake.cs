@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using System.Collections;
 public class CameraShake : MonoBehaviour
 {
     private float endTime = 0; 

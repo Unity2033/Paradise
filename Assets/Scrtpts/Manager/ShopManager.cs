@@ -8,7 +8,6 @@ public class Shuttle
     public Button purchaseButton;
 }
 
-
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Text Diamond;
@@ -31,26 +30,9 @@ public class ShopManager : MonoBehaviour
          if(shuttle[spaceShip.spaceShipNumber].price <= DataManager.instance.data.diamond)
          {
               DataManager.instance.data.diamond -= shuttle[spaceShip.spaceShipNumber].price;         
-              DataManager.instance.data.purchaseConfirmation[spaceShip.spaceShipNumber] = true;
               shuttle[spaceShip.spaceShipNumber].purchaseButton.interactable = false;
         }
     }
-
-    public void PurchaseHistory()
-    {
-        for (int i = 0; i < shuttle.Length; i++)
-        {
-            if (DataManager.instance.data.purchaseConfirmation[i] == false)
-            {
-                shuttle[i].purchaseButton.interactable = false;
-            }
-            else
-            {
-                shuttle[i].purchaseButton.interactable = true;
-            }
-        }
-    }
-
     public void SpaceShipRightButton()
     {
         if (++spaceShip.spaceShipNumber >= shuttle.Length)

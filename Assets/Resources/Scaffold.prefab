@@ -223,5 +223,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9641197665ccf4c8fc438fb49a682f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCount: 0
   probability: 90

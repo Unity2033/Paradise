@@ -6,8 +6,6 @@ public class Data
 { 
     public int diamond;
     public int statirsMaxScore;
-
-    public bool [] purchaseConfirmation = new bool[3];
 }
 
 public class DataManager : MonoBehaviour
