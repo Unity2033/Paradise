@@ -33,13 +33,16 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {  
-            gameObject.SetActive(false);
+        if (GameManager.instance.State == GameManager.state.Progress)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                gameObject.SetActive(false);
+                SoundManager.instance.Sound(2);
+                DataManager.instance.data.diamond++;
 
-            DataManager.instance.data.diamond++;
-
-            DataManager.instance.Save();
+                DataManager.instance.Save();
+            }
         }
     }
 

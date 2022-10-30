@@ -70,7 +70,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
   - {fileID: 21300000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
-  - {fileID: 21300000, guid: ccb3948546150844a83f8446e576ab41, type: 3}
   - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
   - {fileID: 21300000, guid: fa63d596b03bbb3448fd988c218ca206, type: 3}
   - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
@@ -83,7 +82,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5759007a013259e4da61ac34cef3c5ba, type: 3}
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
-  - {fileID: 21300000, guid: 0216e9db89de8aa428f297985eb98270, type: 3}
   - {fileID: 21300000, guid: 01d3ab1cc5941724682807220e912de2, type: 3}
   - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
   - {fileID: 21300000, guid: d998f55dce3a0c74baaee558c26dc31c, type: 3}
@@ -98,7 +96,6 @@ SpriteAtlas:
   - Icon
   - Atlantis Button
   - Blue Window
-  - Left Button
   - Title
   - Step Up Button
   - Buy Now 300
@@ -111,7 +108,6 @@ SpriteAtlas:
   - GameOver Window
   - Time Window
   - Localize
-  - Right Button
   - Leader Board
   - Sound on
   - Network Connection

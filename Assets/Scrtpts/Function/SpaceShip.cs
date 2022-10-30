@@ -2,6 +2,7 @@
 
 public class SpaceShip : MonoBehaviour
 {
+    [SerializeField] Animator animator;
     public int spaceShipNumber;
     private Rigidbody rigidBody;
     private SpriteRenderer sprite;
@@ -43,17 +44,19 @@ public class SpaceShip : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Scaffold"))
+        if (GameManager.instance.State == GameManager.state.Progress)
         {
-            particle.Play();
+            if (other.CompareTag("Scaffold"))
+            {
+                animator.SetTrigger("Jump");
 
-            DataManager.instance.CurrentScore++;
+                particle.Play();
 
-            DataManager.instance.BestScore();
+                DataManager.instance.CurrentScore++;
+                DataManager.instance.BestScore();
 
-            DataManager.instance.Save();
-        }
-
-    
+                DataManager.instance.Save();
+            }
+        }   
     }
 }
