@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class SpaceShip : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    public Animator animator;
     public int spaceShipNumber;
     private Rigidbody rigidBody;
     private SpriteRenderer sprite;
@@ -34,29 +35,38 @@ public class SpaceShip : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.State == GameManager.state.Exit)
+        if (GameManager.Instance.State == GameManager.state.Exit)
         {
             rigidBody.useGravity = true;
-            GameManager.instance.StateCanvas();
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            GameManager.Instance.StateCanvas();
             return;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.instance.State == GameManager.state.Progress)
+        if (GameManager.Instance.State == GameManager.state.Progress)
         {
             if (other.CompareTag("Scaffold"))
             {
-                animator.SetTrigger("Jump");
-
                 particle.Play();
 
-                DataManager.instance.CurrentScore++;
-                DataManager.instance.BestScore();
+                DataManager.Instance.CurrentScore++;
+                DataManager.Instance.BestScore();
 
-                DataManager.instance.Save();
+                DataManager.Instance.Save();
+
+                StartCoroutine(DelayAnimation());
             }
         }   
     }
+
+    private IEnumerator DelayAnimation()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("Jump", false);
+    }
+
+    
 }

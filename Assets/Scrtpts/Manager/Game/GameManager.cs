@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager instance;
-
     public enum state
     {
         Idle,
@@ -24,50 +22,38 @@ public class GameManager : MonoBehaviour
    
     [SerializeField] GameObject [] gameCanvas;
 
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     void Start()
-    {
+    {      
         currentStatus = state.Idle;
     }
 
     private void Update()
     {
-        CurretStairs.text = DataManager.instance.CurrentScore.ToString();
-        CurretStairsNumber.text = DataManager.instance.CurrentScore.ToString();
-        MaximumStairsNumber.text = DataManager.instance.data.statirsMaxScore.ToString();
+        CurretStairs.text = DataManager.Instance.CurrentScore.ToString();
+        CurretStairsNumber.text = DataManager.Instance.CurrentScore.ToString();
+        MaximumStairsNumber.text = DataManager.Instance.data.statirsMaxScore.ToString();
     }
 
     public void StateCanvas()
     {
         switch (currentStatus)
         {
-            case state.Idle : ActivationCanvas(false, 0, true);             
+            case state.Idle : ActivationCanvas(0);             
                 break;
-            case state.Progress : ActivationCanvas(false, 1, true);             
+            case state.Progress : ActivationCanvas(1);             
                 break;
-            case state.Exit : ActivationCanvas(true, 1, false);
+            case state.Exit : ActivationCanvas(2);
                 break;
         }
     }
 
-    public void ActivationCanvas(bool active, int disableCount, bool enableActive)
+    public void ActivationCanvas(int selectActive)
     {
         for(int i = 0; i < gameCanvas.Length; i++)
         {
-            gameCanvas[i].SetActive(active);
+            gameCanvas[i].SetActive(false);
         }
 
-        gameCanvas[disableCount].SetActive(enableActive);
+        gameCanvas[selectActive].SetActive(true);
     }
 }

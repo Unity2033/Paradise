@@ -22,14 +22,14 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        Diamond.text = DataManager.instance.data.diamond.ToString();
+        Diamond.text = DataManager.Instance.data.diamond.ToString();
     }
 
     public void PurchaseButton()
     {
-         if(shuttle[spaceShip.spaceShipNumber].price <= DataManager.instance.data.diamond)
+         if(shuttle[spaceShip.spaceShipNumber].price <= DataManager.Instance.data.diamond)
          {
-              DataManager.instance.data.diamond -= shuttle[spaceShip.spaceShipNumber].price;         
+              DataManager.Instance.data.diamond -= shuttle[spaceShip.spaceShipNumber].price;         
               shuttle[spaceShip.spaceShipNumber].purchaseButton.interactable = false;
          }
     }

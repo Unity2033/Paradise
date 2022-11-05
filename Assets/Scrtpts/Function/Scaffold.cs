@@ -3,10 +3,13 @@ using System.Collections;
 
 public class Scaffold : MonoBehaviour
 {
+    ScaffoldManager scaffoldManager;
+
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+            scaffoldManager = GameObject.Find("Character").GetComponent<ScaffoldManager>();
             StartCoroutine(StepAniamtion());
         }
     }
@@ -16,8 +19,8 @@ public class Scaffold : MonoBehaviour
         if (other.CompareTag("Destroy Zone"))
         {
             transform.GetChild(0).GetComponent<Item>().ProbabilityActivation(Random.Range(0, 100));
-
-            ScaffoldManager.instance.Position(ScaffoldManager.instance.scaffoldNumber - 7);
+            scaffoldManager = GameObject.Find("Scaffold Manager").GetComponent<ScaffoldManager>();
+            scaffoldManager.Position(scaffoldManager.scaffoldNumber - 7);
         }        
     }
 

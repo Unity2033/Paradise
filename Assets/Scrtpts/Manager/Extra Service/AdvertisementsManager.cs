@@ -35,7 +35,7 @@ public class AdvertisementsManager : MonoBehaviour
                 break;
             case ShowResult.Skipped : Debug.Log("The ad was Skipped Before reaching the end");
                 break;
-            case ShowResult.Finished : DataManager.instance.data.diamond += 10;
+            case ShowResult.Finished : DataManager.Instance.data.diamond += 10;
                 break;
         }
     }

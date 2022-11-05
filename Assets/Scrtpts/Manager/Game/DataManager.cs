@@ -8,7 +8,7 @@ public class Data
     public int statirsMaxScore;
 }
 
-public class DataManager : MonoBehaviour
+public class DataManager : Singleton<DataManager>
 {
     private int stairsScore;
 
@@ -19,19 +19,9 @@ public class DataManager : MonoBehaviour
     }
 
     public Data data = new Data();
-    public static DataManager instance;
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-
         Load();
     }
 

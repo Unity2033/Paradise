@@ -46,14 +46,14 @@ public class VersatileButton : MonoBehaviour
     {
         SoundManager.instance.Sound(3);
 
-        if (GameManager.instance.State == GameManager.state.Exit)
+        if (GameManager.Instance.State == GameManager.state.Exit)
         {
             SceneManager.LoadScene(0);
-            GameManager.instance.StateCanvas();
+            GameManager.Instance.StateCanvas();
         }
 
-        GameManager.instance.State = GameManager.state.Progress;
-        GameManager.instance.StateCanvas();
+        GameManager.Instance.State = GameManager.state.Progress;
+        GameManager.Instance.StateCanvas();
     }
 
     public void Achievement()

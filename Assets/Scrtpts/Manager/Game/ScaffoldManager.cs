@@ -1,11 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class ScaffoldManager : MonoBehaviour
 {
-    public static ScaffoldManager instance;
-
     [SerializeField] SpaceShip character;
  
     private int value = 0;
@@ -17,14 +14,6 @@ public class ScaffoldManager : MonoBehaviour
 
     private int positionX;
     public int scaffoldNumber = 20;
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-    }
 
     void Start()
     {
@@ -85,7 +74,9 @@ public class ScaffoldManager : MonoBehaviour
 
     public void ScaffoldMove(bool direction)
     {
-        if (GameManager.instance.State == GameManager.state.Exit) return;
+        if (GameManager.Instance.State == GameManager.state.Exit) return;
+
+        character.animator.SetBool("Jump", true);
 
         SoundManager.instance.Sound(0);
     
@@ -104,7 +95,7 @@ public class ScaffoldManager : MonoBehaviour
 
         if (scaffold[accumulateCount].transform.localPosition.x != keyCount)
         {
-            GameManager.instance.State = GameManager.state.Exit;
+            GameManager.Instance.State = GameManager.state.Exit;
         }
 
         if (++accumulateCount >= scaffoldNumber)

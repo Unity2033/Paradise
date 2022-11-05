@@ -50,8 +50,6 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
     - {fileID: 2800000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
     - {fileID: 2800000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
-    - {fileID: 2800000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
-    - {fileID: 2800000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
     - {fileID: 2800000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
     - {fileID: 2800000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
     - {fileID: 2800000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
@@ -62,7 +60,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
-  - {fileID: 21300000, guid: d6b843f0dadc8ce4597c1d2657383359, type: 3}
   - {fileID: 21300000, guid: 0fb101c108735784c89e0c405aafdc8d, type: 3}
   - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
@@ -72,7 +69,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
   - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
   - {fileID: 21300000, guid: fa63d596b03bbb3448fd988c218ca206, type: 3}
-  - {fileID: 21300000, guid: 0249916750f2a0849b940ac892e2d961, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
   - {fileID: 21300000, guid: 2644b3c8d1a4a3343b6874abac882cfc, type: 3}
@@ -88,7 +84,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
   - Setting
-  - Buy Now 500
   - Load
   - Discovery Button
   - Setting Window
@@ -98,7 +93,6 @@ SpriteAtlas:
   - Blue Window
   - Title
   - Step Up Button
-  - Buy Now 300
   - Buffer
   - Internet Window
   - Direction Change
