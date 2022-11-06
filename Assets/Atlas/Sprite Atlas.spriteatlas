@@ -44,11 +44,8 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
     - {fileID: 102900000, guid: bb3e338899432408a9491440d7123e65, type: 3}
     - {fileID: 102900000, guid: b61ee9b9b1ffafe448d64d9590a497a3, type: 3}
-    - {fileID: 2800000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
-    - {fileID: 2800000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
     - {fileID: 2800000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
     - {fileID: 2800000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
     - {fileID: 2800000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
@@ -61,20 +58,18 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 55d8c5202e0936343ab10874753f35a2, type: 3}
   - {fileID: 21300000, guid: 0fb101c108735784c89e0c405aafdc8d, type: 3}
-  - {fileID: 21300000, guid: 93a46602d069e654ead95bd6a727e4a5, type: 3}
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
+  - {fileID: 21300000, guid: 08ce91c3004bee74b8c50d3f8e3fc66d, type: 3}
   - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
-  - {fileID: 21300000, guid: be4bcf1433f36aa45a404efda093c172, type: 3}
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
-  - {fileID: 21300000, guid: 7e9176167fe088045b52498448c372dd, type: 3}
+  - {fileID: 21300000, guid: ccc03836e364b7540978e8b6374f7887, type: 3}
   - {fileID: 21300000, guid: fa63d596b03bbb3448fd988c218ca206, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
   - {fileID: 21300000, guid: 2644b3c8d1a4a3343b6874abac882cfc, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
-  - {fileID: 21300000, guid: d678fd4a4f44b9a4b82e40e7b6e5f866, type: 3}
   - {fileID: 21300000, guid: 5759007a013259e4da61ac34cef3c5ba, type: 3}
   - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
@@ -85,20 +80,18 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Setting
   - Load
-  - Discovery Button
   - Setting Window
   - Mission
+  - Space_Cat_Title2
   - Icon
-  - Atlantis Button
   - Blue Window
-  - Title
+  - Buy_Button
   - Step Up Button
   - Buffer
   - Internet Window
   - Direction Change
   - Termination
   - Sound off
-  - Endeavour Button
   - GameOver Window
   - Time Window
   - Localize

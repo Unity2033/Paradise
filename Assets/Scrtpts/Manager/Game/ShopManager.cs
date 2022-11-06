@@ -5,56 +5,65 @@ using UnityEngine.UI;
 public class Shuttle
 {
     public int price;
-    public Button purchaseButton;
+    public Sprite selectedCharacter;
 }
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Text Diamond;
-    [SerializeField] SpaceShip spaceShip;
+    [SerializeField] Image characterSprite;
+    [SerializeField] Button purchaseButton;
 
     public Shuttle [] shuttle;
 
     private void Start()
     {
-        spaceShip.SpriteView();
+        SpriteView();
+    }
+
+    private void SpriteView()
+    {
+        characterSprite.sprite = shuttle[DataManager.Instance.data.characterSelectNumber].selectedCharacter;
     }
 
     private void Update()
     {
         Diamond.text = DataManager.Instance.data.diamond.ToString();
+        purchaseButton.interactable = DataManager.Instance.data.check[DataManager.Instance.data.characterSelectNumber];
     }
 
     public void PurchaseButton()
     {
-         if(shuttle[spaceShip.spaceShipNumber].price <= DataManager.Instance.data.diamond)
+         if(shuttle[DataManager.Instance.data.characterSelectNumber].price <= DataManager.Instance.data.diamond)
          {
-              DataManager.Instance.data.diamond -= shuttle[spaceShip.spaceShipNumber].price;         
-              shuttle[spaceShip.spaceShipNumber].purchaseButton.interactable = false;
+              DataManager.Instance.data.diamond -= shuttle[DataManager.Instance.data.characterSelectNumber].price;                 
          }
+
+        DataManager.Instance.Save();
     }
+
     public void SpaceShipRightButton()
     {
         SoundManager.instance.Sound(5);
 
-        if (++spaceShip.spaceShipNumber >= shuttle.Length)
+        if (++DataManager.Instance.data.characterSelectNumber >= shuttle.Length)
         {
-            spaceShip.spaceShipNumber = 0;
+            DataManager.Instance.data.characterSelectNumber = 0;
         }
 
-        spaceShip.SpriteView();
+        SpriteView();
     }
 
     public void SpaceShipLeftButton()
     {
         SoundManager.instance.Sound(5);
 
-        if (--spaceShip.spaceShipNumber < 0)
+        if (--DataManager.Instance.data.characterSelectNumber < 0)
         {
-            spaceShip.spaceShipNumber = shuttle.Length - 1;
+            DataManager.Instance.data.characterSelectNumber = shuttle.Length - 1;
         }
 
-        spaceShip.SpriteView();
+        SpriteView();
     }
 
 }

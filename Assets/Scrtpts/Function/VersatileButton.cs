@@ -81,12 +81,26 @@ public class VersatileButton : MonoBehaviour
     {
         if (Social.localUser.authenticated == false)
         {
+            Social.ReportScore
+            (
+                DataManager.Instance.data.statirsMaxScore, "CgkIhLHxpZoVEAIQDQ",
+                (bool success) =>
+                {
+                    if(success)
+                    {
+                        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
+                    }
+                }
+
+            );
+
             Social.localUser.Authenticate((bool success) =>
             {
                 if (success)
                 {
                     Social.ShowLeaderboardUI();
 
+              
                     ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
                     return;
                 }

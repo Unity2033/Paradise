@@ -4,7 +4,7 @@ using System.Collections;
 public class SpaceShip : MonoBehaviour
 {
     public Animator animator;
-    public int spaceShipNumber;
+
     private Rigidbody rigidBody;
     private SpriteRenderer sprite;
     [SerializeField] ParticleSystem particle;
@@ -13,24 +13,6 @@ public class SpaceShip : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
-
-        SpriteView();
-    }
-
-    public void SpriteView()
-    {
-        switch (spaceShipNumber)
-        {
-            case 0:
-                sprite.sprite = Resources.Load<Sprite>("Atlantis");
-                break;
-            case 1:
-                sprite.sprite = Resources.Load<Sprite>("Discovery");
-                break;
-            case 2:
-                sprite.sprite = Resources.Load<Sprite>("Endeavour");
-                break;
-        }
     }
 
     private void Update()
@@ -64,7 +46,9 @@ public class SpaceShip : MonoBehaviour
 
     private IEnumerator DelayAnimation()
     {
-        yield return new WaitForSeconds(0.1f);
+        WaitForSeconds chaceSeconds = new WaitForSeconds(0.1f);
+
+        yield return chaceSeconds;
         animator.SetBool("Jump", false);
     }
 

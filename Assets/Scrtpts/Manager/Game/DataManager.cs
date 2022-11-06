@@ -3,15 +3,17 @@ using UnityEngine;
 
 [System.Serializable]
 public class Data
-{ 
+{
+    public bool [] check = new bool[3];
     public int diamond;
     public int statirsMaxScore;
+    public int characterSelectNumber;
 }
 
 public class DataManager : Singleton<DataManager>
 {
     private int stairsScore;
-
+    
     public int CurrentScore
     {
         get { return stairsScore; }

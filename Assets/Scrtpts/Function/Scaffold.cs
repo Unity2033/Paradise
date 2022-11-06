@@ -25,7 +25,7 @@ public class Scaffold : MonoBehaviour
     }
 
     private IEnumerator StepAniamtion()
-    {
+    {    
         transform.position = new Vector3
         (
               transform.position.x,
