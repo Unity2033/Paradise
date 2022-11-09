@@ -44,7 +44,7 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipRightButton()
     {
-        SoundManager.instance.Sound(5);
+        SoundManager.Instance.Sound(5);
 
         if (++DataManager.Instance.data.characterSelectNumber >= shuttle.Length)
         {
@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
 
     public void SpaceShipLeftButton()
     {
-        SoundManager.instance.Sound(5);
+        SoundManager.Instance.Sound(5);
 
         if (--DataManager.Instance.data.characterSelectNumber < 0)
         {

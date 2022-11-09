@@ -3,6 +3,7 @@ using UnityEngine;
 using GooglePlayGames;
 using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class VersatileButton : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class VersatileButton : MonoBehaviour
 
     public void Open(GameObject window)
     {
-        SoundManager.instance.Sound(1);
+        SoundManager.Instance.Sound(1);
 
         if (++windowCount % 2 == 1)
         {
@@ -29,12 +30,21 @@ public class VersatileButton : MonoBehaviour
     {       
         power = !power;
 
-        AudioListener.volume = Convert.ToInt32(power);
+        if(power)
+        {
+            GetComponent<Image>().sprite = Resources.Load<Sprite>("Sound on");
+        }
+        else
+        {
+            GetComponent<Image>().sprite = Resources.Load<Sprite>("Sound off");
+        }
+
+        AudioListener.volume = Convert.ToInt32(power);     
     }
 
     public void Language()
     {
-        SoundManager.instance.Sound(4);
+        SoundManager.Instance.Sound(4);
 
         if(++count >= 4)
             count = 0;
@@ -44,7 +54,7 @@ public class VersatileButton : MonoBehaviour
 
     public void GameStart()
     {
-        SoundManager.instance.Sound(3);
+        SoundManager.Instance.Sound(3);
 
         if (GameManager.Instance.State == GameManager.state.Exit)
         {

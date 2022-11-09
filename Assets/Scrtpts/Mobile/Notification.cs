@@ -1,34 +1,32 @@
 ﻿using UnityEngine;
-using Unity.Notifications.Android;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using Assets.SimpleAndroidNotifications;
 
 public class Notification : MonoBehaviour
 {
-    void Start()
+    readonly string title = "Space Cat's ";
+    readonly string content = "Let's escape the planet~";
+
+    private void OnApplicationPause(bool isPause)
     {
-        AndroidNotificationCenter.CancelAllDisplayedNotifications();
+#if UNITY_ANDROID
+        // 등록된 알림 모두 제거
+        NotificationManager.CancelAll();
 
-        var channel = new AndroidNotificationChannel()
+        if (isPause)
         {
-            Id = "channel_id",
-            Name = "Notifications_Chanel_Name",
-            Importance = Importance.Default,
-            Description = "Generic notification",
-        };
+            // Application 나갔을 때 지정된 시간에 알림이 호출
+            DateTime specifiedTime = Convert.ToDateTime("8:00:00 PM");
+            TimeSpan timespan = specifiedTime - DateTime.Now;
 
-        AndroidNotificationCenter.RegisterNotificationChannel(channel);
-
-        var notification = new AndroidNotification();
-        notification.Title = "Come Back Meow Meow";
-        notification.Text = "Go Go Play Space Cat's~";
-        notification.FireTime = System.DateTime.Now.AddHours(1);
-
-        var ID = AndroidNotificationCenter.SendNotification(notification, "channel_id");
-
-        if (AndroidNotificationCenter.CheckScheduledNotificationStatus(ID) == NotificationStatus.Scheduled)
-        {
-            AndroidNotificationCenter.CancelAllNotifications();
-            AndroidNotificationCenter.SendNotification(notification, "channel_id");
+            if (timespan.Ticks > 0)
+            {
+                NotificationManager.SendWithAppIcon(timespan, title, content, Color.red, NotificationIcon.Message);
+            }               
         }
-
+#endif
     }
 }

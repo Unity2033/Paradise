@@ -38,7 +38,7 @@ public class Item : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 gameObject.SetActive(false);
-                SoundManager.instance.Sound(2);
+                SoundManager.Instance.Sound(2);
                 DataManager.Instance.data.diamond++;
 
                 DataManager.Instance.Save();

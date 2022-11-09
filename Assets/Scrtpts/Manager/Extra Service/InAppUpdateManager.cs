@@ -17,7 +17,6 @@ public class InAppUpdateManager : MonoBehaviour
         {
             if (isConnected)
             {
-                Debug.Log("Internet Available!");
                 StartCoroutine(CheckForUpdate());
             }
             else
@@ -51,6 +50,7 @@ public class InAppUpdateManager : MonoBehaviour
         var startUpdateRequest = appUpdateManager.StartUpdate(appUpdateInfo_i, appUpdateOptions_i);
         yield return startUpdateRequest;
     }
+
     IEnumerator CheckInternetConnections(Action<bool> action)
     {
         UnityWebRequest request = new UnityWebRequest("http://google.com");
@@ -58,15 +58,10 @@ public class InAppUpdateManager : MonoBehaviour
         yield return request.SendWebRequest();
         
         if (request.error != null)
-        {
-            Debug.Log("Error");
-            action(false);
-        }
+            action(false);       
         else
-        {
-            Debug.Log("Success");
             action(true);
-        }
+        
     }
 
 }

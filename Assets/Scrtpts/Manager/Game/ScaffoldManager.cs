@@ -40,12 +40,11 @@ public class ScaffoldManager : MonoBehaviour
         {
             temporary = Instantiate
             (
-                Resources.Load<GameObject>("Scaffold"),
-                new Vector3
+                Resources.Load<GameObject>("Scaffold"), new Vector3
                 (
                     RandomPositionX(),
-                    -3f + i / 2f
-                    , 0
+                    -3f + i / 2f,
+                    0
                 ),
                 Quaternion.identity
             );
@@ -78,13 +77,13 @@ public class ScaffoldManager : MonoBehaviour
 
         character.animator.SetBool("Jump", true);
 
-        SoundManager.instance.Sound(0);
+        SoundManager.Instance.Sound(0);
     
         if (direction == true) // Right Direction
         {
             keyCount += 1;
             character.GetComponent<SpriteRenderer>().flipX = false;
-            transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x + -1f, transform.position.y - 0.5f, transform.position.z);
         }
         else // Left Direction
         {
