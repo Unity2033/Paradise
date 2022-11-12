@@ -13,6 +13,7 @@ public class ScaffoldManager : MonoBehaviour
     private int accumulateCount;
 
     private int positionX;
+    private bool direction = false;
     public int scaffoldNumber = 20;
 
     void Start()
@@ -23,15 +24,9 @@ public class ScaffoldManager : MonoBehaviour
     public int RandomPositionX()
     {
         if(Random.Range(0, 2) == 0)
-        {
-             positionX += 1;         
-        }
+            return positionX += 1;         
         else
-        {
-             positionX -= 1;
-        }
-
-        return positionX;       
+            return positionX -= 1; 
     }
 
     public void CreateScaffold(int initial, int count)
@@ -71,27 +66,38 @@ public class ScaffoldManager : MonoBehaviour
         }
     }
 
-    public void ScaffoldMove(bool direction)
+    public void StepUpButton()
     {
-        if (GameManager.Instance.State == GameManager.state.Exit) return;
-
         character.animator.SetBool("Jump", true);
 
         SoundManager.Instance.Sound(0);
-    
-        if (direction == true) // Right Direction
-        {
-            keyCount += 1;
-            character.GetComponent<SpriteRenderer>().flipX = false;
-            transform.position = new Vector3(transform.position.x + -1f, transform.position.y - 0.5f, transform.position.z);
-        }
-        else // Left Direction
-        {
-            keyCount -= 1;
-            character.GetComponent<SpriteRenderer>().flipX = true;
-            transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.5f, transform.position.z);
-        }
 
+        if(direction == false)
+            keyCount += 1;      
+        else
+            keyCount -= 1;
+
+        character.GetComponent<SpriteRenderer>().flipX = direction;
+
+        if (direction == true)
+        {
+            transform.position = new Vector3
+            (
+                transform.position.x + 1,
+                transform.position.y - 0.5f,
+                transform.position.z
+            );
+        }
+        else
+        {
+            transform.position = new Vector3
+            (
+                transform.position.x - 1,
+                transform.position.y - 0.5f,
+                transform.position.z
+            );
+        }
+        
         if (scaffold[accumulateCount].transform.localPosition.x != keyCount)
         {
             GameManager.Instance.State = GameManager.state.Exit;
@@ -102,4 +108,13 @@ public class ScaffoldManager : MonoBehaviour
             accumulateCount = 0;
         }
     }
+
+    public void DirectionButton()
+    {
+        direction = !direction;
+
+        StepUpButton();
+    }
+
+
 }

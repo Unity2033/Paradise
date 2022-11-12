@@ -31,13 +31,9 @@ public class VersatileButton : MonoBehaviour
         power = !power;
 
         if(power)
-        {
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Sound on");
-        }
         else
-        {
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Sound off");
-        }
 
         AudioListener.volume = Convert.ToInt32(power);     
     }

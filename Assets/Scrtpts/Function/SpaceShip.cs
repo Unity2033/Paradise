@@ -6,13 +6,11 @@ public class SpaceShip : MonoBehaviour
     public Animator animator;
 
     private Rigidbody rigidBody;
-    private SpriteRenderer sprite;
     [SerializeField] ParticleSystem particle;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()

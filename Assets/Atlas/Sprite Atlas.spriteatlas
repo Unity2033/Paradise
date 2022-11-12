@@ -61,22 +61,23 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae23343246d7a494bb1e983bdce2033d, type: 3}
   - {fileID: 21300000, guid: 49fbd342dc0942f40a3b6b3fe304d030, type: 3}
   - {fileID: 21300000, guid: 54e5abf25b1a6974987e73243588faba, type: 3}
+  - {fileID: 21300000, guid: eac6c23342400084daf424e58e387744, type: 3}
   - {fileID: 21300000, guid: 08ce91c3004bee74b8c50d3f8e3fc66d, type: 3}
   - {fileID: 21300000, guid: 01959ce36e87f314ea5ae763f2dcf784, type: 3}
   - {fileID: 21300000, guid: 3ec7044440762dd4ba894c3ef1388024, type: 3}
-  - {fileID: 21300000, guid: fa63d596b03bbb3448fd988c218ca206, type: 3}
   - {fileID: 21300000, guid: 218eb497b470f9e47ab11b630be4f200, type: 3}
   - {fileID: 21300000, guid: 9103da183ffab644ab2258ad12d51324, type: 3}
   - {fileID: 21300000, guid: 7b492568e93a3844582730dac0f34348, type: 3}
-  - {fileID: 21300000, guid: 2644b3c8d1a4a3343b6874abac882cfc, type: 3}
+  - {fileID: 21300000, guid: 53870219c49a2004da93e488ba96ed8f, type: 3}
   - {fileID: 21300000, guid: a13339893fb6b004ca2bc3fb978fbed2, type: 3}
   - {fileID: 21300000, guid: 3bfca51ae4951794bbef6641bd494372, type: 3}
   - {fileID: 21300000, guid: 09293c2a403752d419a932340cdcd7d7, type: 3}
+  - {fileID: 21300000, guid: 7d9d583acd382734c9f7690d838cf36c, type: 3}
   - {fileID: 21300000, guid: 5759007a013259e4da61ac34cef3c5ba, type: 3}
-  - {fileID: 21300000, guid: 99eb07ca19656864da371bca78a5c437, type: 3}
   - {fileID: 21300000, guid: be34c88b79dea44448859f4822d8365e, type: 3}
   - {fileID: 21300000, guid: 01d3ab1cc5941724682807220e912de2, type: 3}
   - {fileID: 21300000, guid: e62a4c3cfcb579048afc86b25191e868, type: 3}
+  - {fileID: 21300000, guid: b7fc188cd26c1cd4c9be3db5aed28ccc, type: 3}
   - {fileID: 21300000, guid: d998f55dce3a0c74baaee558c26dc31c, type: 3}
   - {fileID: 21300000, guid: 32a88edfbe06fa045b5d96ca02521500, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -85,22 +86,23 @@ SpriteAtlas:
   - Setting Window
   - Revival_Button
   - Mission
+  - Select Cat Button
   - Space_Cat_Title2
   - Icon
   - Blue Window
-  - Step Up Button
   - Buffer
   - Share Button
   - Internet Window
-  - Direction Change
+  - Ground
   - Termination
   - Sound off
   - Start Button
+  - Step Up Button
   - GameOver Window
-  - Time Window
   - Localize
   - Leader Board
   - Sound on
+  - Direction Change Button
   - Network Connection
   - Curreny Window
   m_RenderDataMap: {}
