@@ -18,9 +18,9 @@ public class GameManager : Singleton<GameManager>
         set { currentStatus = value; }
     }
 
-    public Text CurretStairsNumber, MaximumStairsNumber, CurretStairs;
-   
+    [SerializeField] Text [] StairsScore;
     [SerializeField] GameObject [] gameCanvas;
+    [SerializeField] Slider progressBar;
 
     void Start()
     {      
@@ -29,9 +29,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        CurretStairs.text = DataManager.Instance.CurrentScore.ToString();
-        CurretStairsNumber.text = DataManager.Instance.CurrentScore.ToString();
-        MaximumStairsNumber.text = DataManager.Instance.data.statirsMaxScore.ToString();
+        progressBar.value -= Time.deltaTime;
+
+        StairsScore[0].text = DataManager.Instance.CurrentScore.ToString();
+        StairsScore[1].text = DataManager.Instance.CurrentScore.ToString();
+        StairsScore[2].text = DataManager.Instance.data.statirsMaxScore.ToString();
     }
 
     public void StateCanvas()
@@ -55,5 +57,18 @@ public class GameManager : Singleton<GameManager>
         }
 
         gameCanvas[selectActive].SetActive(true);
+    }
+
+
+    void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 }

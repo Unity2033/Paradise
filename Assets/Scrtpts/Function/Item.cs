@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 
     [SerializeField] int probability = 90;
 
-    private string [] itemName = { "Coal", "Sapphire", "Topaz", "Diamond" };
+    private string itemName = "Diamond";
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class Item : MonoBehaviour
 
     public void ProbabilityActivation(int percentage)
     {
-        if(percentage > probability)
+        if (percentage > probability)
         {
             gameObject.SetActive(true);
         }
@@ -28,7 +28,7 @@ public class Item : MonoBehaviour
     private void OnEnable()
     {
         shape = GetComponent<SpriteRenderer>();
-        shape.sprite = Resources.Load<Sprite>(itemName[Random.Range(0, 4)]);
+        shape.sprite = Resources.Load<Sprite>(itemName);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ScaffoldManager : MonoBehaviour
+public class ScaffoldManager : Singleton<ScaffoldManager>
 {
     [SerializeField] SpaceShip character;
- 
+
     private int value = 0;
     private GameObject temporary;
     private List<GameObject> scaffold = new List<GameObject>();
@@ -23,7 +24,7 @@ public class ScaffoldManager : MonoBehaviour
 
     public int RandomPositionX()
     {
-        if(Random.Range(0, 2) == 0)
+        if(UnityEngine.Random.Range(0, 2) == 0)
             return positionX += 1;         
         else
             return positionX -= 1; 
