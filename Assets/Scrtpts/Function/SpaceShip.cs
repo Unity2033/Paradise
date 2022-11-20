@@ -6,7 +6,6 @@ public class SpaceShip : MonoBehaviour
     public Animator animator;
 
     private Rigidbody rigidBody;
-    [SerializeField] ParticleSystem particle;
 
     private void Start()
     {
@@ -30,25 +29,19 @@ public class SpaceShip : MonoBehaviour
         {
             if (other.CompareTag("Scaffold"))
             {
-                particle.Play();
-
                 DataManager.Instance.CurrentScore++;
                 DataManager.Instance.BestScore();
 
                 DataManager.Instance.Save();
-
-                StartCoroutine(DelayAnimation());
             }
-        }   
+        }
+
+        Invoke(nameof(FalseAnimation), 0.05f);
     }
 
-    private IEnumerator DelayAnimation()
+    void FalseAnimation()
     {
-        WaitForSeconds chaceSeconds = new WaitForSeconds(0.1f);
-
-        yield return chaceSeconds;
         animator.SetBool("Jump", false);
-    }
 
-    
+    }
 }

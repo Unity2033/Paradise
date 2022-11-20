@@ -72,8 +72,9 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
         character.animator.SetBool("Jump", true);
 
         SoundManager.Instance.Sound(0);
+        GameManager.Instance.IncreaseGauge();
 
-        if(direction == false)
+        if (direction == false)
             keyCount += 1;      
         else
             keyCount -= 1;
