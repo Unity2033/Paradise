@@ -6,7 +6,7 @@ using System.Collections;
 
 public class ConnectManager : MonoBehaviour
 {
-     static int connectNumber = 0;
+    static int connectNumber = 0;
     [SerializeField] Image sceneImage;
     [SerializeField] Image connectionFailureImage;
 

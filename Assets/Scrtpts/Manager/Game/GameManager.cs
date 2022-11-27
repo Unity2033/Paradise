@@ -11,7 +11,6 @@ public class GameManager : Singleton<GameManager>
     };
 
     private state currentStatus;
-    private float decreaseGauge = 0.0001f;
 
     public state State
     {
@@ -20,7 +19,6 @@ public class GameManager : Singleton<GameManager>
     }
 
     [SerializeField] Text diamond;
-    [SerializeField] Slider progressBar;
     [SerializeField] Text [] StairsScore;
     [SerializeField] GameObject [] gameCanvas;
 
@@ -31,11 +29,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if(currentStatus == state.Progress)
-        {      
-            progressBar.value -= decreaseGauge;
-        }
-
         diamond.text = DataManager.Instance.data.diamond.ToString();
 
         StairsScore[0].text = DataManager.Instance.CurrentScore.ToString();
@@ -43,13 +36,6 @@ public class GameManager : Singleton<GameManager>
         StairsScore[2].text = DataManager.Instance.data.statirsMaxScore.ToString();
     }
 
-    public void IncreaseGauge()
-    {
-        if (DataManager.Instance.CurrentScore % 5 == 0)
-        {
-            decreaseGauge += 0.00005f;
-        }
-    }
 
     public void StateCanvas()
     {

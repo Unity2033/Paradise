@@ -8,7 +8,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
 
     private int value = 0;
     private GameObject temporary;
-    private List<GameObject> scaffold = new List<GameObject>();
+    public GameObject [ ] scaffold = new GameObject[20];
 
     private int keyCount;
     private int accumulateCount;
@@ -46,7 +46,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
             );
 
             temporary.transform.SetParent(transform);
-            scaffold.Add(temporary);
+            scaffold[i] = temporary;
         }
     }
 
@@ -72,7 +72,6 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
         character.animator.SetBool("Jump", true);
 
         SoundManager.Instance.Sound(0);
-        GameManager.Instance.IncreaseGauge();
 
         if (direction == false)
             keyCount += 1;      
