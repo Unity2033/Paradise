@@ -10,7 +10,6 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
     private GameObject temporary;
     public GameObject [ ] scaffold = new GameObject[20];
 
-    private int keyCount;
     private int accumulateCount;
 
     private int positionX;
@@ -73,11 +72,6 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
 
         SoundManager.Instance.Sound(0);
 
-        if (direction == false)
-            keyCount += 1;      
-        else
-            keyCount -= 1;
-
         character.GetComponent<SpriteRenderer>().flipX = direction;
 
         if (direction == true)
@@ -98,8 +92,9 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
                 transform.position.z
             );
         }
-        
-        if (scaffold[accumulateCount].transform.localPosition.x != keyCount)
+
+        // ScaffoldManager 오브젝트의 위치와 Scaffold 오브젝트의 현재 요소의 local 위치를 계산합니다.
+        if (transform.position.x + scaffold[accumulateCount].transform.localPosition.x != 0)
         {
             GameManager.Instance.State = GameManager.state.Exit;
         }

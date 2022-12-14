@@ -13,8 +13,7 @@ public class CharacterSelect : MonoBehaviour
     }
 
     private void SpriteView()
-    {
-    
+    { 
         characterSprite.sprite = sprite[DataManager.Instance.data.characterSelectNumber];
         purchaseButton.interactable = DataManager.Instance.data.check[DataManager.Instance.data.characterSelectNumber];
     }
