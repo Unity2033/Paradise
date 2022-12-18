@@ -9,7 +9,6 @@ public class SpaceShip : MonoBehaviour
     {
         if (GameManager.Instance.State == GameManager.state.Exit)
         {
-            GameManager.Instance.StateCanvas();
             animator.Play("Death Animation");
         }
     }

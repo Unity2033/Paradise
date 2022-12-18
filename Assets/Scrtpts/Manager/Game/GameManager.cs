@@ -34,6 +34,8 @@ public class GameManager : Singleton<GameManager>
         StairsScore[0].text = DataManager.Instance.CurrentScore.ToString();
         StairsScore[1].text = DataManager.Instance.CurrentScore.ToString();
         StairsScore[2].text = DataManager.Instance.data.statirsMaxScore.ToString();
+
+        StateCanvas();
     }
 
 
