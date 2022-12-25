@@ -12,26 +12,18 @@ public class UiManager : MonoBehaviour
     private int count = 2;
     private bool power = true;
 
-    [SerializeField] GameObject window;
-
-    public void WindowToggle(bool state)
-    {
-        SoundManager.Instance.Sound(1);
-
-        window.SetActive(state);
-    }
-
     public void GameStart()
     {
         SoundManager.Instance.Sound(3);
 
-        if (GameManager.Instance.State == GameManager.state.Exit)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        GameManager.Instance.State = GameManager.state.Progress;
+        GameManager.Instance.StateCanvas(GameManager.state.Progress);
     }
+
+    public void SceneInitialization()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 
     public void SoundMute()
     {
@@ -60,63 +52,6 @@ public class UiManager : MonoBehaviour
         }
         
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[count];
-    }
-
-    public void Achievement()
-    {
-        if (Social.localUser.authenticated == false)
-        {
-            Social.localUser.Authenticate((bool success) =>
-            {
-                if (success)
-                {
-                    Social.ShowAchievementsUI();
-                    return;
-                }
-                else
-                {
-                    return;
-                }
-            });
-        }
-
-        Social.ShowAchievementsUI();
-    }
-
-    public void LeaderBoard()
-    {
-        if (Social.localUser.authenticated == false)
-        {
-            Social.ReportScore
-            (
-                DataManager.Instance.data.statirsMaxScore, "CgkIhLHxpZoVEAIQDQ",
-                (bool success) =>
-                {
-                    if (success)
-                    {
-                        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
-                    }
-                }
-
-            );
-
-            Social.localUser.Authenticate((bool success) =>
-            {
-                if (success)
-                {
-                    Social.ShowLeaderboardUI();
-
-                    ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(GPGSIds.leaderboard);
-                    return;
-                }
-                else
-                {
-                    return;
-                }
-            });
-        }
-
-        Social.ShowLeaderboardUI();
     }
 
     public void Exit()

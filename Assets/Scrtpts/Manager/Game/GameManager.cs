@@ -10,22 +10,17 @@ public class GameManager : Singleton<GameManager>
         Exit
     };
 
-    private state currentStatus;
-
     public state State
     {
-        get { return currentStatus; }
-        set { currentStatus = value; }
-    }
+        get;
+        set;
+    } = state.Idle;
 
     [SerializeField] Text diamond;
-    [SerializeField] Text [] StairsScore;
-    [SerializeField] GameObject [] gameCanvas;
+    [SerializeField] Text [ ] StairsScore;
+    [SerializeField] GameObject [ ] gameCanvas;
 
-    void Start()
-    {      
-        currentStatus = state.Idle;
-    }
+    [SerializeField] SpaceShip character;
 
     private void Update()
     {
@@ -34,21 +29,31 @@ public class GameManager : Singleton<GameManager>
         StairsScore[0].text = DataManager.Instance.CurrentScore.ToString();
         StairsScore[1].text = DataManager.Instance.CurrentScore.ToString();
         StairsScore[2].text = DataManager.Instance.data.statirsMaxScore.ToString();
-
-        StateCanvas();
     }
 
 
-    public void StateCanvas()
+    public void StateCanvas(state currentState)
     {
-        switch (currentStatus)
+        switch (currentState)
         {
-            case state.Idle : ActivationCanvas(0);             
-                break;
-            case state.Progress : ActivationCanvas(1);             
-                break;
-            case state.Exit : ActivationCanvas(2);
-                break;
+            case state.Idle :
+            {
+                    ActivationCanvas(0);
+
+                    break;
+            }
+            case state.Progress :
+            {
+                    ActivationCanvas(1);
+
+                    break;
+            }
+            case state.Exit :
+            {
+                    ActivationCanvas(2);
+                    character.animator.Play("Death Animation");
+                    break;
+            }
         }
     }
 

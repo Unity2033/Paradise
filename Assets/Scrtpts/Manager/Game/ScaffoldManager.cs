@@ -7,7 +7,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
     [SerializeField] SpaceShip character;
 
     private int value = 0;
-    private GameObject temporary;
+ 
     public GameObject [ ] scaffold = new GameObject[20];
 
     private int accumulateCount;
@@ -33,7 +33,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
     {
         for (int i = initial; i < count; i++)
         {
-            temporary = Instantiate
+            GameObject temporary = Instantiate
             (
                 Resources.Load<GameObject>("Scaffold"), new Vector3
                 (
@@ -68,7 +68,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
 
     public void StepUpButton()
     {
-        character.animator.SetBool("Jump", true);
+        character.animator.Play("Jump Animation");
 
         SoundManager.Instance.Sound(0);
 
@@ -96,7 +96,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
         // ScaffoldManager 오브젝트의 위치와 Scaffold 오브젝트의 현재 요소의 local 위치를 계산합니다.
         if (transform.position.x + scaffold[accumulateCount].transform.localPosition.x != 0)
         {
-            GameManager.Instance.State = GameManager.state.Exit;
+            GameManager.Instance.StateCanvas(GameManager.state.Exit);
         }
 
         if (++accumulateCount >= scaffoldNumber)
