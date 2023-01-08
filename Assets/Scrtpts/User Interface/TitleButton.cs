@@ -4,28 +4,26 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using GooglePlayGames;
 
-public class CreateButtonManager : MonoBehaviour
+public class TitleButton : CreateButton
 {
     [SerializeField] GameObject window;
-    [SerializeField] Transform parentPosition;
-    [SerializeField] Sprite [] sprite;
-
+ 
     private List<GameObject> button = new List<GameObject>();
 
     private void Start()
     {
-        CreateButton(3);
+        Create(3, "Title Button");
 
-        button[0].GetComponent<Button>().onClick.AddListener(WindowToggle);
-        button[1].GetComponent<Button>().onClick.AddListener(Achievement);
-        button[2].GetComponent<Button>().onClick.AddListener(LeaderBoard);
+        button[0].GetComponent<Button>().onClick.AddListener(Function1);
+        button[1].GetComponent<Button>().onClick.AddListener(Function2);
+        button[2].GetComponent<Button>().onClick.AddListener(Function3);
     }
 
-    private void CreateButton(int createCount)
+    public override void Create(int createCount, string buttonName)
     {
         for (int i = 0; i < createCount; i++)
         {
-            GameObject buttonPrefab = Instantiate(Resources.Load<GameObject>("Versatile Button"));
+            GameObject buttonPrefab = Instantiate(Resources.Load<GameObject>(buttonName));
 
             button.Add(buttonPrefab);
 
@@ -36,15 +34,14 @@ public class CreateButtonManager : MonoBehaviour
         }
     }
 
-    public void WindowToggle()
+    public override void Function1()
     {
         SoundManager.Instance.Sound(1);
 
         window.SetActive(true);
     }
 
-
-    public void Achievement()
+    public override void Function2()
     {
         if (Social.localUser.authenticated == false)
         {
@@ -65,7 +62,7 @@ public class CreateButtonManager : MonoBehaviour
         Social.ShowAchievementsUI();
     }
 
-    public void LeaderBoard()
+    public override void Function3()
     {
         if (Social.localUser.authenticated == false)
         {
@@ -100,5 +97,4 @@ public class CreateButtonManager : MonoBehaviour
 
         Social.ShowLeaderboardUI();
     }
-
 }
