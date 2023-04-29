@@ -37,7 +37,7 @@ public class Item : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            SoundManager.Instance.Sound(2);
+            SoundManager.Instance.Sound(SoundType.Collision);
 
             DataManager.Instance.data.diamond++;
 

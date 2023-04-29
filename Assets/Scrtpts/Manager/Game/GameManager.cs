@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] Text diamond;
     [SerializeField] Text [ ] StairsScore;
-    [SerializeField] GameObject [ ] gameCanvas;
+    [SerializeField] Canvas [ ] gameCanvas;
 
     [SerializeField] SpaceShip character;
 
@@ -34,37 +34,22 @@ public class GameManager : Singleton<GameManager>
 
     public void StateCanvas(state currentState)
     {
-        switch (currentState)
+        CanvasPriority((int)currentState);
+
+        if (state.Exit == currentState)
         {
-            case state.Idle :
-            {
-                    ActivationCanvas(0);
-
-                    break;
-            }
-            case state.Progress :
-            {
-                    ActivationCanvas(1);
-
-                    break;
-            }
-            case state.Exit :
-            {
-                    ActivationCanvas(2);
-                    character.animator.Play("Death Animation");
-                    break;
-            }
+             character.animator.Play("Death Animation");         
         }
     }
 
-    public void ActivationCanvas(int selectActive)
+    public void CanvasPriority(int select)
     {
         for(int i = 0; i < gameCanvas.Length; i++)
         {
-            gameCanvas[i].SetActive(false);
+            gameCanvas[i].planeDistance = 0;
         }
 
-        gameCanvas[selectActive].SetActive(true);
+        gameCanvas[select].planeDistance = 1;
     }
 
 

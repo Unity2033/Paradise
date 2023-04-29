@@ -20,7 +20,7 @@ public class CharacterSelect : MonoBehaviour
 
     public void SpaceShipRightButton()
     {
-        SoundManager.Instance.Sound(5);
+        SoundManager.Instance.Sound(SoundType.Click);
 
         if (++DataManager.Instance.data.characterSelectNumber >= sprite.Length)
         {
@@ -32,7 +32,7 @@ public class CharacterSelect : MonoBehaviour
 
     public void SpaceShipLeftButton()
     {
-        SoundManager.Instance.Sound(5);
+        SoundManager.Instance.Sound(SoundType.Click);
 
         if (--DataManager.Instance.data.characterSelectNumber < 0)
         {

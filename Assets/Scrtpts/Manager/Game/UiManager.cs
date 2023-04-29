@@ -10,7 +10,7 @@ public class UiManager : MonoBehaviour
 {
     public void GameStart()
     {
-        SoundManager.Instance.Sound(3);
+        SoundManager.Instance.Sound(SoundType.Start);
 
         GameManager.Instance.StateCanvas(GameManager.state.Progress);
     }

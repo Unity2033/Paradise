@@ -70,7 +70,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
     {
         character.animator.Play("Jump Animation");
 
-        SoundManager.Instance.Sound(0);
+        SoundManager.Instance.Sound(SoundType.Move);
 
         character.GetComponent<SpriteRenderer>().flipX = direction;
 

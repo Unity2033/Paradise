@@ -30,13 +30,12 @@ public class TitleButton : CreateButton
             button[i].transform.SetParent(parentPosition);
             button[i].GetComponent<Image>().sprite = sprite[i];
             button[i].transform.localScale = new Vector3(1, 1, 1);
-            button[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(-550 + (i * 300), -1200);
         }
     }
 
     public override void Function1()
     {
-        SoundManager.Instance.Sound(1);
+        SoundManager.Instance.Sound(SoundType.Open);
 
         window.SetActive(true);
     }

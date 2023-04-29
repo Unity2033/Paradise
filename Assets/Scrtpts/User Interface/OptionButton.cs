@@ -44,7 +44,7 @@ public class OptionButton : CreateButton
 
     public override void Function2()
     {
-        SoundManager.Instance.Sound(4);
+        SoundManager.Instance.Sound(SoundType.Select);
 
         if (++count >= 4)
         {
