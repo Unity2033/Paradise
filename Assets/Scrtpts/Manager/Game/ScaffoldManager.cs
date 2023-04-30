@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class ScaffoldManager : Singleton<ScaffoldManager>
 {
@@ -10,6 +11,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
  
     public GameObject [ ] scaffold = new GameObject[20];
 
+    private int positionIncrementValue = 0;
     private int accumulateCount;
 
     private int positionX;
@@ -60,10 +62,7 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
 
         scaffold[value].transform.position = direction;
 
-        if (++value >= scaffoldNumber)
-        {
-            value = 0;
-        }
+        value = ++value % 20;
     }
 
     public void StepUpButton()
@@ -98,11 +97,13 @@ public class ScaffoldManager : Singleton<ScaffoldManager>
         {
             GameManager.Instance.StateCanvas(GameManager.state.Exit);
         }
-
-        if (++accumulateCount >= scaffoldNumber)
+        
+        if (positionIncrementValue++ >= 6)
         {
-            accumulateCount = 0;
+            Position(13);
         }
+
+        accumulateCount = ++accumulateCount % scaffoldNumber;
     }
 
     public void DirectionButton()

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public abstract class CreateButton : MonoBehaviour
 {
-    public Sprite[] sprite;
-    public Transform parentPosition;
-
-    abstract public void Create(int createCount, string buttonName);
-
+    public GameObject [ ] button;
     abstract public void Function1();
     abstract public void Function2();
     abstract public void Function3();

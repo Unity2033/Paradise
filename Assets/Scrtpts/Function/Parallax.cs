@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GroundScroll : MonoBehaviour
+public class Parallax : MonoBehaviour
 {
     private Rect rect;
     private RawImage scenery;
