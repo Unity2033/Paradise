@@ -67,6 +67,7 @@ public class ConnectManager : MonoBehaviour
             }
         }
     }
+
     private IEnumerator FadeIn(float time)
     {
         Color color = sceneImage.color;

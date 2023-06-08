@@ -5,23 +5,19 @@ public class Parallax : MonoBehaviour
 {
     private Rect rect;
     private RawImage scenery;
+    [SerializeField] float speed = 0.1f;
 
     void Start()
     {
         scenery = GetComponent<RawImage>();
     }
 
-    public void VerticalScroll(float speed)
+    private void Update()
     {
         rect = scenery.uvRect;
 
         rect.y += Time.deltaTime * speed;
 
         scenery.uvRect = rect;
-    }
-
-    private void Update()
-    {
-        VerticalScroll(0.1f);
     }
 }

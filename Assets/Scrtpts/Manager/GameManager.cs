@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Text [ ] StairsScore;
     [SerializeField] Canvas [ ] gameCanvas;
 
-    [SerializeField] SpaceShip character;
+    [SerializeField] GameObject character;
 
     private void Update()
     {
@@ -38,7 +38,7 @@ public class GameManager : Singleton<GameManager>
 
         if (state.Exit == currentState)
         {
-             character.animator.Play("Death Animation");         
+             character.GetComponent<Animator>().Play("Death Animation");         
         }
     }
 
@@ -52,6 +52,10 @@ public class GameManager : Singleton<GameManager>
         gameCanvas[select].planeDistance = 1;
     }
 
+    private void OnApplicationQuit()
+    {
+        DataManager.Instance.Save();
+    }
 
     void OnApplicationPause(bool pause)
     {

@@ -4,22 +4,16 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using GooglePlayGames;
 
-public class TitleButton : CreateButton
+public class TitleButton : MonoBehaviour
 {
-    private void Start()
-    {
-        button[0].GetComponent<Button>().onClick.AddListener(Function1);
-        button[1].GetComponent<Button>().onClick.AddListener(Function2);
-        button[2].GetComponent<Button>().onClick.AddListener(Function3);
-    }
 
-    public override void Function1()
+    public void Function1()
     {
         Debug.Log("Open");
         SoundManager.Instance.Sound(SoundType.Open);
     }
 
-    public override void Function2()
+    public void Function2()
     {
         if (Social.localUser.authenticated == false)
         {
@@ -40,7 +34,7 @@ public class TitleButton : CreateButton
         Social.ShowAchievementsUI();
     }
 
-    public override void Function3()
+    public void Function3()
     {
         if (Social.localUser.authenticated == false)
         {

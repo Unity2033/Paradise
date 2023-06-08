@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1324749409142844468}
   - component: {fileID: 2702814855907582805}
   - component: {fileID: 1567828509350472376}
-  - component: {fileID: -2338711846937970302}
   m_Layer: 0
   m_Name: Scaffold
   m_TagString: Scaffold
@@ -100,18 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.05, z: 0}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &-2338711846937970302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7686072246059743997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98906c8d62831c144ab2ab95e0bc439c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8303219522437829480
 GameObject:
   m_ObjectHideFlags: 0

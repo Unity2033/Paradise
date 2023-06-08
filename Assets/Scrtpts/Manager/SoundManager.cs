@@ -13,8 +13,6 @@ public enum SoundType
 
 public class SoundManager : Singleton<SoundManager>
 {
-    SoundType soundType;
-
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip [] soundEffect;
 
