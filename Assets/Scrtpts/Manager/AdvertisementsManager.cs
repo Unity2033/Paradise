@@ -7,56 +7,25 @@ public class AdvertisementsManager : MonoBehaviour
     void Start()
     {
         Advertisement.Initialize("4376819");
-        BannerAdvertisement();
+        StartCoroutine(BannerInitialize());
     }
 
     public void FullPageAdvertisement()
     {
-        if (Advertisement.IsReady("video"))
-        {
-            Advertisement.Show("video");
-        }
+        Advertisement.Show("video");
     }
 
-    public void RewardAdvertisementShow()
+    private IEnumerator BannerInitialize()
     {
-        if (Advertisement.IsReady("Reward"))
-        {
-            var options = new ShowOptions { resultCallback = RewardAdvertisement };
-            Advertisement.Show("Reward", options);
-        }
-    }
+        WaitForSeconds wait = new WaitForSeconds(0.5f);
 
-    public void RewardAdvertisement(ShowResult result)
-    {
-        switch (result)
+        while (Advertisement.isInitialized == false)
         {
-            case ShowResult.Failed : Debug.Log("The ad Failed to be Shown");
-                break;
-            case ShowResult.Skipped : Debug.Log("The ad was Skipped Before reaching the end");
-                break;
-            case ShowResult.Finished : DataManager.Instance.data.diamond += 10;
-                break;
+            yield return wait;
         }
-    }
 
-    public void BannerAdvertisement()
-    {
-        if (Advertisement.IsReady("banner"))
-        {
-            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-            Advertisement.Banner.Show("banner");
-        }
-        else
-        {
-            StartCoroutine(WaitBanner());
-        }
-    }
-
-    IEnumerator WaitBanner()
-    {
-        yield return new WaitForSeconds(1f);
-        BannerAdvertisement();
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        Advertisement.Banner.Show("banner");
     }
 
 }

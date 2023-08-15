@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] Text diamond;
     [SerializeField] Text [ ] StairsScore;
-    [SerializeField] Canvas [ ] gameCanvas;
+    [SerializeField] GameObject [ ] screen;
 
     [SerializeField] GameObject character;
 
@@ -44,12 +44,12 @@ public class GameManager : Singleton<GameManager>
 
     public void CanvasPriority(int select)
     {
-        for(int i = 0; i < gameCanvas.Length; i++)
+        for(int i = 0; i < screen.Length; i++)
         {
-            gameCanvas[i].planeDistance = 0;
+            screen[i].gameObject.SetActive(false);
         }
 
-        gameCanvas[select].planeDistance = 1;
+        screen[select].gameObject.SetActive(true);
     }
 
     private void OnApplicationQuit()
