@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class Mouse : MonoBehaviour
 {
+    [SerializeField] GameObject mouseCanvas;
+
     void Start()
     {
-        ActiveMouse(true, CursorLockMode.Locked);
+        ActiveMouse(true, true, CursorLockMode.Locked);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ActiveMouse(true, CursorLockMode.None);
+            if (mouseCanvas.activeSelf == true)
+            {
+                ActiveMouse(false, true, CursorLockMode.None);
+            }
+            else
+            {
+                ActiveMouse(true, true, CursorLockMode.Locked);
+            }
         }
     }
 
-    public void ActiveMouse(bool state, CursorLockMode mode)
+    public void ActiveMouse(bool active, bool state, CursorLockMode mode)
     {
+        mouseCanvas.SetActive(active);
         Cursor.visible = state;
         Cursor.lockState = mode;
     }
