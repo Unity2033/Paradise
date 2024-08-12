@@ -8,7 +8,7 @@ public class Mouse : MonoBehaviour
 
     void Start()
     {
-        ActiveMouse(true, false, CursorLockMode.Locked);
+       // ActiveMouse(true, false, CursorLockMode.Locked);
     }
 
     //private void Update()

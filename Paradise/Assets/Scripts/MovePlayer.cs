@@ -7,6 +7,7 @@ public class MovePlayer : MonoBehaviour
 {
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] float speed;
+    [SerializeField] AudioClip audioClip;
 
     private float x;
     private float z;

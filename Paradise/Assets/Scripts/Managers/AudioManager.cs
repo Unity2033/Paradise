@@ -14,6 +14,12 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] AudioSource effectSource;
     [SerializeField] AudioSource scenerySource;
 
+    // protected override void Awake()
+    // {
+    //     // effectSource = transform.GetChild(0).GetComponent<AudioSource>();
+    //     // scenerySource = transform.GetChild(1).GetComponent<AudioSource>();
+    // }
+
     public void Sound(AudioClip clip)
     {
         effectSource.PlayOneShot(clip);
