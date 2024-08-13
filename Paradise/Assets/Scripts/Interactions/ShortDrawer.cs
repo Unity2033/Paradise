@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShortDrawer : Interaction
 {
+    [SerializeField] GameObject drawer;
     [SerializeField] bool isOpen = false;
 
     float openPositionZ = 0.5f;
@@ -12,57 +13,65 @@ public class ShortDrawer : Interaction
     Vector3 initialPosition;
     Vector3 openPosition;
 
-    Coroutine routine = null;
+    Vector3 colliderInitialPosition;
+    Vector3 colliderOpenPosition;
 
     private void Start()
     {
-        initialPosition = transform.position;
-        openPosition = transform.TransformPoint(new Vector3(0, 0, openPositionZ));
+        initialPosition = drawer.transform.position;
+        openPosition = drawer.transform.TransformPoint(new Vector3(0, 0, openPositionZ));
+
+        colliderInitialPosition = transform.position;
+        colliderOpenPosition = transform.TransformPoint(new Vector3(0, 0, openPositionZ / 3f));
     }
 
     public override void OnClick(RaycastHit door)
     {
-        if (routine != null) return;
+        door.collider.enabled = false;
 
-        if (isOpen) routine = StartCoroutine(PushDoor());
-        else routine = StartCoroutine(PullDoor());
+        if (isOpen) StartCoroutine(PushDoor(door.collider));
+        else StartCoroutine(PullDoor(door.collider));
 
         isOpen = !isOpen;
     }
 
-    private IEnumerator PullDoor()
+    private IEnumerator PullDoor(Collider door)
     {
         float initialTime = 0f;
 
         while (initialTime < openTime)
         {
-            transform.position = Vector3.Lerp(initialPosition, openPosition, initialTime / openTime);
+            drawer.transform.position = Vector3.Lerp(initialPosition, openPosition, initialTime / openTime);
 
             initialTime += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.position = openPosition;
+        drawer.transform.position = openPosition;
 
-        routine = null;
+        transform.position = colliderOpenPosition;
+
+        door.enabled = true;
     }
 
-    private IEnumerator PushDoor()
+    private IEnumerator PushDoor(Collider door)
     {
         float initialTime = 0f;
 
         while (initialTime < openTime)
         {
-            transform.position = Vector3.Lerp(openPosition, initialPosition, initialTime / openTime);
+            drawer.transform.position = Vector3.Lerp(openPosition, initialPosition, initialTime / openTime);
 
             initialTime += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.position = initialPosition;
+        drawer.transform.position = initialPosition;
 
-        routine = null;
+        transform.position = colliderInitialPosition;
+
+        door.enabled = true;
     }
 }
