@@ -2,5 +2,9 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    public virtual void OnClick(RaycastHit hitObject) { }
+    [SerializeField] protected bool isOpen = false;
+
+    protected float openTime;
+
+    public virtual void OnClick(Collider collider) { }
 }
