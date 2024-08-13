@@ -5,14 +5,12 @@ using UnityEngine;
 public class LeftHingesDoor : Interaction
 {
     [SerializeField] bool isOpen = false;
-
+    
     float openAngle = 90.0f;
     float openTime = 0.5f;
 
     Quaternion initialRotation;
     Quaternion openRotation;
-
-    Coroutine routine = null;
 
     private void Start()
     {
@@ -22,15 +20,15 @@ public class LeftHingesDoor : Interaction
 
     public override void OnClick(RaycastHit door)
     {
-        if (routine != null) return;
+        door.collider.enabled = false;
 
-        if (isOpen) routine = StartCoroutine(CloseDoor());
-        else routine = StartCoroutine(OpenDoor());
+        if (isOpen) StartCoroutine(CloseDoor(door.collider));
+        else StartCoroutine(OpenDoor(door.collider));
 
         isOpen = !isOpen;
     }
 
-    private IEnumerator OpenDoor()
+    private IEnumerator OpenDoor(Collider door)
     {
         float initialTime = 0f;
 
@@ -45,10 +43,10 @@ public class LeftHingesDoor : Interaction
 
         transform.rotation = openRotation;
 
-        routine = null;
+        door.enabled = true;
     }
 
-    private IEnumerator CloseDoor()
+    private IEnumerator CloseDoor(Collider door)
     {
         float initialTime = 0f;
 
@@ -63,7 +61,7 @@ public class LeftHingesDoor : Interaction
 
         transform.rotation = initialRotation;
 
-        routine = null;
+        door.enabled = true;
     }
 }
 

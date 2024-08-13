@@ -12,8 +12,6 @@ public class DownHingesDoor : Interaction
     Quaternion initialRotation;
     Quaternion openRotation;
 
-    Coroutine routine = null;
-
     private void Start()
     {
         initialRotation = transform.rotation;
@@ -22,15 +20,15 @@ public class DownHingesDoor : Interaction
 
     public override void OnClick(RaycastHit door)
     {
-        if (routine != null) return;
+        door.collider.enabled = false;
 
-        if (isOpen) routine = StartCoroutine(CloseDoor());
-        else routine = StartCoroutine(OpenDoor());
+        if (isOpen) StartCoroutine(CloseDoor(door.collider));
+        else StartCoroutine(OpenDoor(door.collider));
 
         isOpen = !isOpen;
     }
 
-    private IEnumerator OpenDoor()
+    private IEnumerator OpenDoor(Collider door)
     {
         float initialTime = 0f;
 
@@ -45,10 +43,10 @@ public class DownHingesDoor : Interaction
 
         transform.rotation = openRotation;
 
-        routine = null;
+        door.enabled = true;
     }
 
-    private IEnumerator CloseDoor()
+    private IEnumerator CloseDoor(Collider door)
     {
         float initialTime = 0f;
 
@@ -63,6 +61,6 @@ public class DownHingesDoor : Interaction
 
         transform.rotation = initialRotation;
 
-        routine = null;
+        door.enabled = true;
     }
 }
