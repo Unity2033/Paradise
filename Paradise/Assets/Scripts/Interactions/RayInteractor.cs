@@ -33,7 +33,7 @@ public class RayInteractor : MonoBehaviour
             {
                 Interaction interaction = raycastHit.collider.gameObject.GetComponentInParent<Interaction>();
 
-                if (interaction != null) interaction.OnClick(raycastHit);
+                if (interaction != null) interaction.OnClick(raycastHit.collider);
             }
         }
         else Cursor.visible = false;
