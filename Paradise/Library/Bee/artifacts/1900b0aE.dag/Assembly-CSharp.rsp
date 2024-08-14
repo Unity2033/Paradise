@@ -372,6 +372,10 @@
 "Assets/Scripts/Mouse.cs"
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/MovePlayer.cs"
+"Assets/Scripts/Puzzle/CanvasMode.cs"
+"Assets/Scripts/Puzzle/Phone/CircleId.cs"
+"Assets/Scripts/Puzzle/Phone/LockPattern.cs"
+"Assets/Scripts/Puzzle/Play Puzzle.cs"
 "Assets/Scripts/SelectButton.cs"
 "Assets/Scripts/Singleton.cs"
 -langversion:9.0
