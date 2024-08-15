@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
+using System.IO;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] AudioClip audioClip;
     [SerializeField] string [] buttonNames;
-    [SerializeField] SelectButton [] buttons; 
+    [SerializeField] SelectButton [] buttons;
 
-    void Start()
-    {
-        for(int i = 0; i < buttonNames.Length; i++)
+    [SerializeField] GameObject character;
+
+    private void Awake()
+    { 
+        for (int i = 0; i < buttonNames.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = buttonNames[i];
+        }
+
+        if (PlayerPrefs.HasKey("PositionX"))
+        {
+            buttons[1].gameObject.SetActive(true);
+        }
+        else
+        {
+            buttons[1].gameObject.SetActive(false);
         }
     }
 
@@ -22,16 +34,31 @@ public class MenuManager : MonoBehaviour
     {
         AudioManager.Instance.Sound(audioClip);
 
-        StartCoroutine(SceneryManager.Instance.AsyncLoad(SceneID.GAME));
+        Game();
     }
 
     public void Continue()
     {
         AudioManager.Instance.Sound(audioClip);
+
+        DataManager.Instance.Load();
+
+        character.transform.position = DataManager.Instance.GetPosition();
+
+        Game();
     }
 
     public void Manual()
     {
         AudioManager.Instance.Sound(audioClip);
+    }
+
+    public void Game()
+    {
+        StartCoroutine(FadeManager.Instance.FadeIn());
+
+        AudioManager.Instance.Scenery(null);
+
+        CursorManager.ActiveMouse(false, CursorLockMode.Locked);
     }
 }

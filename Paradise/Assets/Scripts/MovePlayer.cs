@@ -24,6 +24,17 @@ public class MovePlayer : MonoBehaviour
 
         Vector3 direction = transform.forward * z + transform.right * x;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CursorManager.ActiveMouse(true, CursorLockMode.None);
+
+            StartCoroutine(FadeManager.Instance.FadeOut());
+
+            DataManager.Instance.SetTransform(transform.position, transform.rotation);
+
+            DataManager.Instance.Save();
+        }
+
         rigidbody.velocity = direction * speed;
     }
 }

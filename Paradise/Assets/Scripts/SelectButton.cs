@@ -20,4 +20,9 @@ public class SelectButton : MonoBehaviour
             prefab.SetActive(true);
         }
     }
+
+    public void Select()
+    {
+        prefab.SetActive(false);
+    }
 }

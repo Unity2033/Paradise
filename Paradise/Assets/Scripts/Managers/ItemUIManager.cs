@@ -15,6 +15,7 @@ public class ItemUIManager : MonoBehaviour
     private void Awake()
     {
         itemKey = previousKey = 0;
+
         for (int i = 0; i < 5; i++)
         {
             GameObject.Find(select[i]).GetComponent<Image>().color = Color.gray;

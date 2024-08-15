@@ -14,11 +14,6 @@ public class RayInteractor : MonoBehaviour
     Ray ray;
     RaycastHit raycastHit;
 
-    void Start()
-    {
-        CursorManager.ActiveMouse(false, CursorLockMode.Locked);
-    }
-
     private void Update()
     {
         if (CursorManager.interactable == false) return;
