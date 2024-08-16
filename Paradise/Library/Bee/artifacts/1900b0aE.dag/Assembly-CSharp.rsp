@@ -374,6 +374,8 @@
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/MovePlayer.cs"
 "Assets/Scripts/Puzzle/CanvasMode.cs"
+"Assets/Scripts/Puzzle/Dish/Dish.cs"
+"Assets/Scripts/Puzzle/Dish/MovingDish.cs"
 "Assets/Scripts/Puzzle/Phone/CircleId.cs"
 "Assets/Scripts/Puzzle/Phone/LockPattern.cs"
 "Assets/Scripts/Puzzle/Play Puzzle.cs"
