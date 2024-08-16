@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Door : Interaction
 {
+    [SerializeField] protected bool isOpen = false;
+
+    protected float openTime = 0.5f;
     protected float openAngle = 90f;
     
     protected Quaternion initialRotation;
@@ -14,8 +17,6 @@ public class Door : Interaction
 
     private void Awake()
     {
-        openTime = 0.5f;
-
         initialRotation = transform.rotation;
     }
 

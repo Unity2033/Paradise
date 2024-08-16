@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class Drawer : Interaction
 {
+    [SerializeField] protected bool isOpen = false;
+
     [SerializeField] protected GameObject drawer;
 
+    protected float openTime = 0.2f;
     protected float openScale; // 자식 클래스에서 값을 할당
 
     protected Vector3 initialPosition;
@@ -21,8 +24,6 @@ public class Drawer : Interaction
     {
         openDrawerAudio = AudioManager.Instance.GetAudioClip("Oepn Drawer");
         closeDrawerAudio = AudioManager.Instance.GetAudioClip("Close Drawer");
-
-        openTime = 0.2f;
 
         initialPosition = drawer.transform.position;
         colliderInitialPosition = transform.position;
