@@ -7,4 +7,5 @@ public class Interaction : MonoBehaviour
     protected float openTime;
 
     public virtual void OnClick(Collider collider) { }
+
 }

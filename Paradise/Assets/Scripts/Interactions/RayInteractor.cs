@@ -8,21 +8,26 @@ public enum Mask
 
 public class RayInteractor : MonoBehaviour
 {
+    [SerializeField] CursorController cursorController;
     [SerializeField] float rayDistacne = 1.2f;
     [SerializeField] LayerMask [] layerMask;
 
     Ray ray;
     RaycastHit raycastHit;
 
-    private void Update()
+    void Update()
     {
-        if (CursorManager.interactable == false) return;
+        if (CursorManager.interactable == false)
+        {
+            cursorController.SelectCursor(false);
+            return;
+        }
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out raycastHit, rayDistacne, layerMask[(int)Mask.INTERACTION]))
         {
-            Cursor.visible = true;
+            cursorController.SelectCursor(false, true);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -31,6 +36,6 @@ public class RayInteractor : MonoBehaviour
                 if (interaction != null) interaction.OnClick(raycastHit.collider);
             }
         }
-        else Cursor.visible = false;
+        else cursorController.SelectCursor(true);
     }
 }
