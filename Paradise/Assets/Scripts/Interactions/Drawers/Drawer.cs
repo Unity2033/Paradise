@@ -13,8 +13,15 @@ public class Drawer : Interaction
     protected Vector3 openPosition;
     protected Vector3 colliderOpenPosition;
 
+    [SerializeField] AudioClip openDrawerAudio;
+    [SerializeField] AudioClip closeDrawerAudio;
+
+
     private void Start()
     {
+        openDrawerAudio = AudioManager.Instance.GetAudioClip("Oepn Drawer");
+        closeDrawerAudio = AudioManager.Instance.GetAudioClip("Close Drawer");
+
         openTime = 0.2f;
 
         initialPosition = drawer.transform.position;
@@ -36,6 +43,8 @@ public class Drawer : Interaction
 
     private IEnumerator PullDoor(Collider drawerCollider)
     {
+        AudioManager.Instance.Sound(openDrawerAudio);
+
         float initialTime = 0f;
 
         while (initialTime < openTime)
@@ -56,6 +65,9 @@ public class Drawer : Interaction
 
     private IEnumerator PushDoor(Collider drawerCollider)
     {
+        AudioManager.Instance.Sound(closeDrawerAudio);
+
+
         float initialTime = 0f;
 
         while (initialTime < openTime)

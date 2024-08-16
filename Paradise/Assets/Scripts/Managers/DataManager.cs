@@ -34,9 +34,6 @@ public class DataManager : Singleton<DataManager>
 {
     [SerializeField] Data data = new Data();
 
-    [SerializeField] string path;
-    [SerializeField] string fileName = "Data";
-
     public void Load()
     {
         data.PositionX = PlayerPrefs.GetFloat("PositionX");

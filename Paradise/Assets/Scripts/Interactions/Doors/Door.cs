@@ -8,6 +8,10 @@ public class Door : Interaction
     protected Quaternion initialRotation;
     protected Quaternion openRotation; // 자식 클래스에서 값을 할당
 
+    [SerializeField] AudioClip openDoorAudio;
+    [SerializeField] AudioClip closeDoorAudio;
+
+
     private void Awake()
     {
         openTime = 0.5f;
@@ -27,6 +31,13 @@ public class Door : Interaction
 
     private IEnumerator OpenDoor(Collider door)
     {
+        if (openDoorAudio == null)
+        {
+            openDoorAudio = AudioManager.Instance.GetAudioClip("Open Door");
+        }
+       
+        AudioManager.Instance.Sound(openDoorAudio);
+
         float initialTime = 0f;
 
         while (initialTime < openTime)
@@ -45,6 +56,13 @@ public class Door : Interaction
 
     private IEnumerator CloseDoor(Collider door)
     {
+        if(closeDoorAudio == null)
+        {
+            closeDoorAudio = AudioManager.Instance.GetAudioClip("Close Door");
+        }
+
+        AudioManager.Instance.Sound(closeDoorAudio);
+
         float initialTime = 0f;
 
         while (initialTime < openTime)

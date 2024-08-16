@@ -30,6 +30,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        audioClip = AudioManager.Instance.GetAudioClip("Menu Button");
+    }
+
     public void Excute()
     {
         AudioManager.Instance.Sound(audioClip);
@@ -55,6 +60,8 @@ public class MenuManager : MonoBehaviour
 
     public void Game()
     {
+        GameManager.Instance.State = true;
+
         StartCoroutine(FadeManager.Instance.FadeIn());
 
         AudioManager.Instance.Scenery(null);
