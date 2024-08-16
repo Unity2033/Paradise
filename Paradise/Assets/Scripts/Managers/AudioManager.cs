@@ -23,4 +23,9 @@ public class AudioManager : Singleton<AudioManager>
     {
         effectSource.PlayOneShot(clip);
     }
+
+    public AudioClip GetAudioClip(string soundName)
+    {
+        return Resources.Load<AudioClip>(soundName);
+    }
 }

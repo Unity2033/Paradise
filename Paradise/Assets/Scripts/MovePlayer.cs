@@ -19,13 +19,19 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
+        if (GameManager.Instance.State == false) return;
+
+        x = Input.GetAxisRaw("Horizontal");
+        z = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = transform.forward * z + transform.right * x;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GameManager.Instance.State = false;
+
+            rigidbody.freezeRotation = true;
+
             CursorManager.ActiveMouse(true, CursorLockMode.None);
 
             StartCoroutine(FadeManager.Instance.FadeOut());
@@ -33,6 +39,8 @@ public class MovePlayer : MonoBehaviour
             DataManager.Instance.SetTransform(transform.position, transform.rotation);
 
             DataManager.Instance.Save();
+
+            rigidbody.freezeRotation = false;
         }
 
         rigidbody.velocity = direction * speed;

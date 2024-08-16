@@ -10,26 +10,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         { 
-            if(instance == null)
-            {
-                instance = (T)FindObjectOfType(typeof(T));
-
-                if(instance == null)
-                {
-                    instance = (T)FindObjectOfType(typeof(T));
-
-                    if (instance == null)
-                    {
-                        GameObject prefab = new GameObject(typeof(T).Name, typeof(T));
-
-                        instance = prefab.AddComponent<T>();
-
-                        DontDestroyOnLoad(prefab);
-                    }
-                }
-
-            }
-
             return instance;    
         }
     }
@@ -38,12 +18,14 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this as T;
-            DontDestroyOnLoad(gameObject);
+            instance = (T)FindObjectOfType(typeof(T));
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        DontDestroyOnLoad(instance.gameObject);
     }
 }

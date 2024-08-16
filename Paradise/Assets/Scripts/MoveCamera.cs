@@ -11,8 +11,10 @@ public class MoveCamera : MonoBehaviour
 
     private void Update()
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSpeed;
-        mouseY += Input.GetAxis("Mouse Y") * mouseSpeed;
+        if (GameManager.Instance.State == false) return;
+
+        mouseX += Input.GetAxisRaw("Mouse X") * mouseSpeed;
+        mouseY += Input.GetAxisRaw("Mouse Y") * mouseSpeed;
 
         mouseY = Mathf.Clamp(mouseY, -60, 60);
 
@@ -20,4 +22,5 @@ public class MoveCamera : MonoBehaviour
 
         transform.parent.localEulerAngles = new Vector3(0, mouseX, 0);
     }
+
 }
