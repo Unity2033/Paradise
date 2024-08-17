@@ -9,12 +9,15 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] AudioClip audioClip;
 
+    [SerializeField] Vector3 initializeDirection;
+
     private float x;
     private float z;
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        initializeDirection = transform.position;
     }
 
     void Update()
@@ -43,11 +46,11 @@ public class MovePlayer : MonoBehaviour
             DataManager.Instance.Save();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ScreenShot.TakeScreenshot();
-        }
-
         rigidbody.velocity = direction * speed;
+    }
+
+    public void ResetTransform()
+    {
+        transform.position = initializeDirection;
     }
 }
