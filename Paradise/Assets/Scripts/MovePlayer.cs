@@ -28,19 +28,24 @@ public class MovePlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.Instance.Scenery("Scenery");
+        
             GameManager.Instance.State = false;
-
+        
             rigidbody.freezeRotation = true;
-
+        
             CursorManager.ActiveMouse(true, CursorLockMode.None);
-
+        
             StartCoroutine(FadeManager.Instance.FadeOut());
-
+        
             DataManager.Instance.SetTransform(transform.position, transform.rotation);
-
+        
             DataManager.Instance.Save();
+        }
 
-            rigidbody.freezeRotation = false;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ScreenShot.TakeScreenshot();
         }
 
         rigidbody.velocity = direction * speed;
