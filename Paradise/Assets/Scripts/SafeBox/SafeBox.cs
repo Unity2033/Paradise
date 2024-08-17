@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SafeBox : Interaction
 {
+    [SerializeField] protected bool isOpen = false;
+
+    protected float openTime = 0.6f;
+
     [SerializeField] GameObject safeUI;
     [SerializeField] Transform safeDoor;
     [SerializeField] GameObject cabinetDoor;
@@ -17,8 +21,6 @@ public class SafeBox : Interaction
 
     private void Start()
     {
-        openTime = 0.6f;
-
         initialRotation = safeDoor.rotation;
 
         openRotation = Quaternion.Euler(0, initialRotation.y + openAngle, 0);
