@@ -5,6 +5,11 @@ public class Door : Interaction
 {
     [SerializeField] protected bool isOpen = false;
 
+    public override bool State
+    {
+        get { return isOpen; }
+    }
+
     protected float openTime = 0.5f;
     protected float openAngle = 90f;
     

@@ -5,6 +5,11 @@ public class Drawer : Interaction
 {
     [SerializeField] protected bool isOpen = false;
 
+    public override bool State
+    {
+        get { return isOpen; }
+    }
+
     [SerializeField] protected GameObject drawer;
 
     protected float openTime = 0.2f;
@@ -18,6 +23,7 @@ public class Drawer : Interaction
 
     [SerializeField] AudioClip openDrawerAudio;
     [SerializeField] AudioClip closeDrawerAudio;
+
 
 
     private void Start()

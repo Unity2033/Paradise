@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] SelectButton [] buttons;
 
     [SerializeField] GameObject character;
+
+    [SerializeField] UnityEvent unityEvent;
 
     private void Awake()
     { 
@@ -39,6 +42,8 @@ public class MenuManager : MonoBehaviour
     {
         AudioManager.Instance.Sound(audioClip);
 
+        if(unityEvent != null) unityEvent.Invoke();
+        
         Game();
     }
 
