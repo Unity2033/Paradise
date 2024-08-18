@@ -22,21 +22,25 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.State == false) return;
+        if (GameManager.Instance.State == false)
+        {
+            rigidbody.freezeRotation = true;
+            return;
+        }
 
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = transform.forward * z + transform.right * x;
 
+        rigidbody.velocity = direction * speed;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             AudioManager.Instance.Scenery("Scenery");
         
             GameManager.Instance.State = false;
-        
-            rigidbody.freezeRotation = true;
-        
+
             CursorManager.ActiveMouse(true, CursorLockMode.None);
         
             StartCoroutine(FadeManager.Instance.FadeOut());
@@ -45,8 +49,6 @@ public class MovePlayer : MonoBehaviour
         
             DataManager.Instance.Save();
         }
-
-        rigidbody.velocity = direction * speed;
     }
 
     public void ResetTransform()

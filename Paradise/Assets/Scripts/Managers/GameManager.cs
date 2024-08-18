@@ -11,4 +11,9 @@ public class GameManager : Singleton<GameManager>
         get { return state; }
         set { state = value; }
     }
+
+    public void GameClear()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
