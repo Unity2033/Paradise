@@ -10,8 +10,14 @@ public class PopupManager : Interaction
     private GameObject popUpObj;
     private Button exitButton;
 
-    public override void OnClick(Collider popUpObject)
+    [SerializeField] AudioClip interactionAudio;
 
+    private void Start()
+    {
+        interactionAudio = Resources.Load<AudioClip>("Close PopUp");
+    }
+
+    public override void OnClick(Collider popUpObject)
     {
         backGroundObj = Instantiate(backGroundUI);
         backGroundObj.transform.Find("BackGround").gameObject.SetActive(true);
@@ -27,6 +33,8 @@ public class PopupManager : Interaction
 
     public void ExitButton()
     {
+        AudioManager.Instance.Sound(interactionAudio);
+
         Destroy(backGroundObj);
         Destroy(popUpObj);
 

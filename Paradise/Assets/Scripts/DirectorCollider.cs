@@ -21,6 +21,8 @@ public class DirectorCollider : MonoBehaviour
             animator.Play("Fall Down");
             
             zombie.Move();
+
+            AudioManager.Instance.Scenery("Ending");
         }
     }
 
