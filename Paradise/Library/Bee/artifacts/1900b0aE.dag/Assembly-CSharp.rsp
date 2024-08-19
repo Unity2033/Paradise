@@ -381,6 +381,7 @@
 "Assets/Scripts/Managers/ItemUIManager.cs"
 "Assets/Scripts/Managers/MenuManager.cs"
 "Assets/Scripts/Managers/PopupManager.cs"
+"Assets/Scripts/Managers/TextManager.cs"
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/MovePlayer.cs"
 "Assets/Scripts/NumberButton.cs"
