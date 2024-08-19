@@ -12,6 +12,15 @@ public class SafeUI : MonoBehaviour
 
     char[] uiNumbers = { '1', '0', '0', '4'};
 
+    [SerializeField] AudioClip clearAudioClip;
+    [SerializeField] AudioClip closePopUpAudioClip;
+
+    private void Start()
+    {
+        clearAudioClip = Resources.Load<AudioClip>("Clear");
+        closePopUpAudioClip = Resources.Load<AudioClip>("Close PopUp");
+    }
+
     private void Update()
     {
         if (success == false) Success();
@@ -32,6 +41,8 @@ public class SafeUI : MonoBehaviour
         }
 
         success = true;
+
+        AudioManager.Instance.Sound(clearAudioClip);
     }
 
     private void Fail()
@@ -54,6 +65,8 @@ public class SafeUI : MonoBehaviour
     {
         if (success == false) gameObject.SetActive(false);
         else Destroy(gameObject);
+
+        AudioManager.Instance.Sound(closePopUpAudioClip);
 
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
 

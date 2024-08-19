@@ -15,7 +15,16 @@ public class CabinetPasswordUI : MonoBehaviour
     [SerializeField] GameObject cabinetDoor;
     [SerializeField] GameObject cabinetPassword;
 
+    [SerializeField] AudioClip clearAudioClip;
+    [SerializeField] AudioClip closePopUpAudioClip;
+
     char[] uiNumbers = { '4', '2', '5' };
+
+    private void Start()
+    {
+        clearAudioClip = Resources.Load<AudioClip>("Clear");
+        closePopUpAudioClip = Resources.Load<AudioClip>("Close PopUp");
+    }
 
     private void Update()
     {
@@ -39,6 +48,8 @@ public class CabinetPasswordUI : MonoBehaviour
         success = true;
 
         cabinetDoor.layer = 8;
+
+        AudioManager.Instance.Sound(clearAudioClip);
     }
 
     private void Fail()
@@ -68,6 +79,9 @@ public class CabinetPasswordUI : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        AudioManager.Instance.Sound(closePopUpAudioClip);
+
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
 
         CursorManager.interactable = true;

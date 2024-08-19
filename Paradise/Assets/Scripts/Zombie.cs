@@ -55,7 +55,7 @@ public class Zombie : MonoBehaviour
 
         if (movePlayer != null)
         {
-            Attack();
+            //Attack();
         }
     }
 }

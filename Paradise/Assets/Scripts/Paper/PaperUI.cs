@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PaperUI : MonoBehaviour
 {
+    [SerializeField] AudioClip closePopUpAudioClip;
+
+    private void Start()
+    {
+        closePopUpAudioClip = Resources.Load<AudioClip>("Close PopUp");
+    }
+
     public void ExitButton()
     {
+        AudioManager.Instance.Sound(closePopUpAudioClip);
+
         CursorManager.interactable = true;
 
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);

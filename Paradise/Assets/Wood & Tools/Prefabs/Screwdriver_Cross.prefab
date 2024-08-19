@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000012669688102}
   - component: {fileID: 23000011350513060}
   - component: {fileID: 64000012931247012}
+  - component: {fileID: 4307666734120944068}
   m_Layer: 0
   m_Name: Screwdriver_Cross
   m_TagString: Untagged
@@ -101,10 +102,23 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 18a6bbe91f3fc7241bba5c9b1df3e3e7, type: 3}
+--- !u!114 &4307666734120944068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010671269162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de884c16d89fb44bb7288910e856851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Driver

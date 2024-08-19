@@ -15,7 +15,14 @@ public class DoorPasswordUI : MonoBehaviour
     [SerializeField] GameObject door;
     [SerializeField] GameObject doorPassword;
 
+    [SerializeField] AudioClip closeAudioClip;
+
     char[] uiNumbers = { 'K', 'L', 'E', 'Y' };
+
+    private void Start()
+    {
+        closeAudioClip = Resources.Load<AudioClip>("Close PopUp");
+    }
 
     private void Update()
     {
@@ -70,6 +77,9 @@ public class DoorPasswordUI : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        AudioManager.Instance.Sound(closeAudioClip);
+
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
 
         CursorManager.interactable = true;

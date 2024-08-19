@@ -7,11 +7,15 @@ public class Pillow : Interaction
     float pullTime = 0.3f;
     float pullScale = 0.5f;
 
+    [SerializeField] AudioClip pillowAudioClip;
+
     Vector3 initialPosition;
     Vector3 pullPosition;
 
     private void Start()
     {
+        pillowAudioClip = Resources.Load<AudioClip>("Pillow");
+
         initialPosition = transform.position;
         pullPosition = transform.TransformPoint(new Vector3(-pullScale, 0, 0));
     }
@@ -23,6 +27,8 @@ public class Pillow : Interaction
 
     private IEnumerator pullPillow()
     {
+        AudioManager.Instance.Sound(pillowAudioClip);
+
         float initialTime = 0f;
 
         while (initialTime < pullTime)
