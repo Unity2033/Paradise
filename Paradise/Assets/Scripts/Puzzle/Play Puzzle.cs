@@ -1,23 +1,41 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayPuzzle : Interaction
 {
+    [SerializeField] GameObject backGroundUI;
     [SerializeField] GameObject puzzleObject;
 
+    private GameObject backGroundObj;
     private GameObject puzzleObj;
+    private Button exitButton;
 
     public override void OnClick(Collider puzzle)
+
     {
+        backGroundObj = Instantiate(backGroundUI);
+        exitButton = backGroundObj.transform.Find("ExitButton").GetComponent<Button>();
+        exitButton.onClick.AddListener(ExitButton);
+
         puzzleObj = Instantiate(puzzleObject);
+
+        CursorChange(false, true, CursorLockMode.None);
+        GameManager.Instance.State = false;
     }
 
-    private void Update()
+    public void ExitButton()
     {
-        if (puzzleObj == null) return;
+        Destroy(backGroundObj);
+        Destroy(puzzleObj);
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Destroy(puzzleObj);
-        }
+        CursorChange(true, false, CursorLockMode.Locked);
+        GameManager.Instance.State = true;
+    }
+
+    private void CursorChange(bool interactable, bool visible, CursorLockMode lockMode)
+    {
+        CursorManager.ActiveMouse(visible, lockMode);
+
+        CursorManager.interactable = interactable;
     }
 }
