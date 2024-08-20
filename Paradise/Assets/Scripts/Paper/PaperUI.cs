@@ -15,6 +15,8 @@ public class PaperUI : MonoBehaviour
     {
         AudioManager.Instance.Sound(closePopUpAudioClip);
 
+        GameManager.Instance.State = true;
+
         CursorManager.interactable = true;
 
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);

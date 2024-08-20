@@ -30,6 +30,8 @@ public class SafeBox : Interaction
     {
         if (safeUI)
         {
+            GameManager.Instance.State = false;
+
             CursorManager.interactable = false;
 
             CursorManager.ActiveMouse(true, CursorLockMode.None);

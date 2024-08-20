@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CabinetPasswordUI : MonoBehaviour
+public class KeypadUI : MonoBehaviour
 {
-    [SerializeField] bool success = false;
+    [SerializeField] bool unlocked = false;
 
     [SerializeField] Image[] redLights;
     [SerializeField] Image[] greenLights;
 
-    [SerializeField] Text[] cabinetNumbers;
+    [SerializeField] Text[] password;
 
-    [SerializeField] GameObject cabinetDoor;
-    [SerializeField] GameObject cabinetPassword;
+    [SerializeField] GameObject unlockObject;
+    [SerializeField] GameObject keypad;
 
     [SerializeField] AudioClip clearAudioClip;
     [SerializeField] AudioClip closePopUpAudioClip;
 
-    char[] uiNumbers = { '4', '2', '5' };
+    protected string unlockPassword;
 
     private void Start()
     {
@@ -28,15 +28,15 @@ public class CabinetPasswordUI : MonoBehaviour
 
     private void Update()
     {
-        if (success == false) Success();
+        if (unlocked == false) Success();
         else Fail();
     }
 
     private void Success()
     {
-        for (int i = 0; i < uiNumbers.Length; i++)
+        for (int i = 0; i < unlockPassword.Length; i++)
         {
-            if (uiNumbers[i] != cabinetNumbers[i].text[0]) return;
+            if (unlockPassword[i] != password[i].text[0]) return;
         }
 
         for (int i = 0; i < redLights.Length; i++)
@@ -45,37 +45,40 @@ public class CabinetPasswordUI : MonoBehaviour
             greenLights[i].color = Color.green;
         }
 
-        success = true;
+        unlocked = true;
 
-        cabinetDoor.layer = 8;
+        unlockObject.layer = 8;
 
         AudioManager.Instance.Sound(clearAudioClip);
     }
 
     private void Fail()
     {
-        for (int i = 0; i < uiNumbers.Length; i++)
+        for (int i = 0; i < unlockPassword.Length; i++)
         {
-            if (uiNumbers[i] != cabinetNumbers[i].text[0]) success = false;
+            if (unlockPassword[i] != password[i].text[0])
+            {
+                unlocked = false;
+
+                for (int j = 0; j < redLights.Length; j++)
+                {
+                    redLights[j].color = Color.red;
+                    greenLights[j].color = Color.black;
+                }
+
+                unlockObject.layer = 0;
+
+                return;
+            }
         }
-
-        if (success == true) return;
-
-        for (int i = 0; i < redLights.Length; i++)
-        {
-            redLights[i].color = Color.red;
-            greenLights[i].color = Color.black;
-        }
-
-        cabinetDoor.layer = 0;
     }
 
     public void ExitButton()
     {
-        if (success == false) gameObject.SetActive(false);
+        if (unlocked == false) gameObject.SetActive(false);
         else
         {
-            cabinetPassword.layer = 0;
+            keypad.layer = 0;
 
             Destroy(gameObject);
         }
@@ -86,5 +89,6 @@ public class CabinetPasswordUI : MonoBehaviour
 
         CursorManager.interactable = true;
 
+        GameManager.Instance.State = true;
     }
 }

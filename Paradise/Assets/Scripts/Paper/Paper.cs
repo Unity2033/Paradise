@@ -6,6 +6,8 @@ public class Paper : Interaction
 {
     public override void OnClick(Collider paper)
     {
+        GameManager.Instance.State = false;
+
         CursorManager.interactable = false;
 
         CursorManager.ActiveMouse(true, CursorLockMode.None);

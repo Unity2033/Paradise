@@ -11,5 +11,7 @@ public class WayOut : Interaction
     void Success()
     {
         wayOutDoor.layer = 8;
+
+        Destroy(gameObject);
     }
 }
