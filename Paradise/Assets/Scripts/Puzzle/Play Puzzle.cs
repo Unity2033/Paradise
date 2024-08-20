@@ -10,6 +10,13 @@ public class PlayPuzzle : Interaction
     private GameObject puzzleObj;
     private Button exitButton;
 
+    [SerializeField] AudioClip interactionAudio;
+
+    private void Start()
+    {
+        interactionAudio = Resources.Load<AudioClip>("Close PopUp");
+    }
+
     public override void OnClick(Collider puzzle)
 
     {
@@ -25,6 +32,8 @@ public class PlayPuzzle : Interaction
 
     public void ExitButton()
     {
+        AudioManager.Instance.Sound(interactionAudio);
+
         Destroy(backGroundObj);
         Destroy(puzzleObj);
 
