@@ -10,7 +10,7 @@ public class SafeUI : MonoBehaviour
 
     [SerializeField] Text[] safeNumbers;
 
-    char[] uiNumbers = { '1', '0', '0', '4'};
+    char[] uiNumbers = { '1', '0', '0', '4' };
 
     [SerializeField] AudioClip clearAudioClip;
     [SerializeField] AudioClip closePopUpAudioClip;
@@ -63,8 +63,13 @@ public class SafeUI : MonoBehaviour
 
     public void ExitButton()
     {
+        transform.parent.GetChild(0).gameObject.SetActive(false);
+        transform.parent.GetChild(0).transform.Find("ExitButton").GetComponent<Button>().onClick.RemoveAllListeners();
+
         if (success == false) gameObject.SetActive(false);
         else Destroy(gameObject);
+
+        GameManager.Instance.State = true;
 
         AudioManager.Instance.Sound(closePopUpAudioClip);
 

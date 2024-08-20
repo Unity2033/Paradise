@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SafeBox : Interaction
 {
@@ -8,6 +9,7 @@ public class SafeBox : Interaction
 
     protected float openTime = 0.6f;
 
+    [SerializeField] GameObject backGroundUI;
     [SerializeField] GameObject safeUI;
     [SerializeField] Transform safeDoor;
     [SerializeField] GameObject cabinetDoor;
@@ -34,7 +36,12 @@ public class SafeBox : Interaction
 
             CursorManager.ActiveMouse(true, CursorLockMode.None);
 
+            GameManager.Instance.State = false;
+
+            backGroundUI.SetActive(true);
             safeUI.SetActive(true);
+            backGroundUI.transform.Find("ExitButton").GetComponent<Button>()
+                .onClick.AddListener(safeUI.GetComponent<SafeUI>().ExitButton);
         }
         else
         {

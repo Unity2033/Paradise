@@ -72,6 +72,9 @@ public class CabinetPasswordUI : MonoBehaviour
 
     public void ExitButton()
     {
+        transform.parent.GetChild(0).gameObject.SetActive(false);
+        transform.parent.GetChild(0).transform.Find("ExitButton").GetComponent<Button>().onClick.RemoveAllListeners();
+
         if (success == false) gameObject.SetActive(false);
         else
         {
@@ -79,6 +82,8 @@ public class CabinetPasswordUI : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        GameManager.Instance.State = true;
 
         AudioManager.Instance.Sound(closePopUpAudioClip);
 
