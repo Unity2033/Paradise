@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,21 @@ public class Inventory : Singleton<Inventory>
     [SerializeField] int indexCount = 0;
 
     [SerializeField] GameObject [] items;  
+
+    public bool ConfirmItem(string itemName)
+    {
+        for(int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null && items[i].name == itemName)
+            {
+                UseItem(itemName);
+                return true; 
+            }
+        
+        }
+
+        return false;
+    }
 
     public void GetItem(string itemName)
     {

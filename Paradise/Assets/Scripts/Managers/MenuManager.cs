@@ -12,24 +12,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] string [] buttonNames;
     [SerializeField] SelectButton [] buttons;
 
-    [SerializeField] GameObject character;
-
-    [SerializeField] UnityEvent unityEvent;
+    [SerializeField] GameObject methodPopUp;
 
     private void Awake()
     { 
         for (int i = 0; i < buttonNames.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = buttonNames[i];
-        }
-
-        if (PlayerPrefs.HasKey("PositionX"))
-        {
-            buttons[1].gameObject.SetActive(true);
-        }
-        else
-        {
-            buttons[1].gameObject.SetActive(false);
         }
     }
 
@@ -38,42 +27,12 @@ public class MenuManager : MonoBehaviour
         audioClip = AudioManager.Instance.GetAudioClip("Menu Button");
     }
 
-    public void Excute()
-    {
-        AudioManager.Instance.Sound(audioClip);
-
-        if(unityEvent != null) unityEvent.Invoke();
-        
-        Game();
-    }
-
     public void Continue()
     {
+        buttons[0].GetComponentInChildren<Text>().text = "Continue";
+
         AudioManager.Instance.Sound(audioClip);
 
-        DataManager.Instance.Load();
-
-        character.transform.position = DataManager.Instance.GetPosition();
-
-        Game();
-    }
-
-    public void Manual()
-    {
-        AudioManager.Instance.Sound(audioClip);
-    }
-
-    public void Exit()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
-    public void Game()
-    {
         GameManager.Instance.State = true;
 
         StartCoroutine(FadeManager.Instance.FadeIn());
@@ -81,5 +40,23 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.Scenery(null);
 
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
+    }
+
+    public void Manual()
+    {
+        AudioManager.Instance.Sound(audioClip);
+
+        methodPopUp.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        AudioManager.Instance.Sound(audioClip);
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

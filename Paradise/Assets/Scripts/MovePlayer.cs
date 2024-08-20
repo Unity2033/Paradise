@@ -44,15 +44,6 @@ public class MovePlayer : MonoBehaviour
             CursorManager.ActiveMouse(true, CursorLockMode.None);
         
             StartCoroutine(FadeManager.Instance.FadeOut());
-        
-            DataManager.Instance.SetTransform(transform.position, transform.rotation);
-        
-            DataManager.Instance.Save();
         }
-    }
-
-    public void ResetTransform()
-    {
-        transform.position = initializeDirection;
     }
 }
