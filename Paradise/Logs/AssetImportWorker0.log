@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2022.3/staging' branch; Version is '2022.3.14f1 (eff2de9070d8) revision 15725278'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 8025 MB
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 64661 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/shjh0/OneDrive/바탕 화면/Testparadise/Paradise
+D:/GitHub/Paradise/Paradise
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61970
-Successfully changed project path to: C:/Users/shjh0/OneDrive/바탕 화면/Testparadise/Paradise
-C:/Users/shjh0/OneDrive/바탕 화면/Testparadise/Paradise
+50672
+Successfully changed project path to: D:/GitHub/Paradise/Paradise
+D:/GitHub/Paradise/Paradise
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,65 +49,65 @@ C:/Users/shjh0/OneDrive/바탕 화면/Testparadise/Paradise
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [6472] Host "[IP] 172.30.1.26 [Port] 0 [Flags] 2 [Guid] 2768250711 [EditorId] 2768250711 [Version] 1048832 [Id] WindowsEditor(7,LJY-7635) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [14920] Host "[IP] 192.168.200.103 [Port] 0 [Flags] 2 [Guid] 3824552960 [EditorId] 3824552960 [Version] 1048832 [Id] WindowsEditor(7,Educus) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [6472] Host "[IP] 172.30.1.26 [Port] 0 [Flags] 2 [Guid] 2768250711 [EditorId] 2768250711 [Version] 1048832 [Id] WindowsEditor(7,LJY-7635) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [14920] Host "[IP] 192.168.200.103 [Port] 0 [Flags] 2 [Guid] 3824552960 [EditorId] 3824552960 [Version] 1048832 [Id] WindowsEditor(7,Educus) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 30.73 ms, found 3 plugins.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
+Refreshing native plugins compatible for Editor in 5.74 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.14f1 (eff2de9070d8)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/shjh0/OneDrive/바탕 화면/Testparadise/Paradise/Assets
+[Subsystems] Discovering subsystems at path D:/GitHub/Paradise/Paradise/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
-    Vendor:   Intel
-    VRAM:     4012 MB
-    Driver:   31.0.101.2111
+    Renderer: NVIDIA GeForce RTX 4060 (ID=0x2882)
+    Vendor:   NVIDIA
+    VRAM:     7957 MB
+    Driver:   32.0.15.6070
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56348
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.024243 seconds.
-- Loaded All Assemblies, in  1.207 seconds
+Registered in 0.005164 seconds.
+- Loaded All Assemblies, in  0.232 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.801 seconds
-Domain Reload Profiling: 2003ms
-	BeginReloadAssembly (380ms)
+- Finished resetting the current domain, in  0.162 seconds
+Domain Reload Profiling: 393ms
+	BeginReloadAssembly (69ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (106ms)
-	RebuildNativeTypeToScriptingClass (36ms)
-	initialDomainReloadingComplete (196ms)
-	LoadAllAssembliesAndSetupDomain (483ms)
-		LoadAssemblies (376ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (96ms)
+		LoadAssemblies (67ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (477ms)
-			TypeCache.Refresh (473ms)
-				TypeCache.ScanAssembly (421ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (802ms)
+		AnalyzeDomain (95ms)
+			TypeCache.Refresh (94ms)
+				TypeCache.ScanAssembly (83ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (163ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (620ms)
+		SetupLoadedEditorAssemblies (124ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (24ms)
-			SetLoadedEditorAssemblies (22ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (6ms)
-			ProcessInitializeOnLoadAttributes (408ms)
-			ProcessInitializeOnLoadMethodAttributes (159ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (76ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,216 +115,665 @@ Domain Reload Profiling: 2003ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.908 seconds
-Refreshing native plugins compatible for Editor in 12.31 ms, found 3 plugins.
+Symbol file data-000001B4891592C0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466240060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465F07BE0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465F27BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466240060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4883F0450 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4891592C0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4891592C0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466168020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465B87E50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465B87E50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466180830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466180830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466240060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466240060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4661A2240 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4661A2240 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487DAE010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A94440 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4661A2240 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465BBC020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487AAC250 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4661B5650 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4661C1460 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465BBC020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488CC2020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465C1E230 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.375 seconds
+Refreshing native plugins compatible for Editor in 1.31 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.718 seconds
-Domain Reload Profiling: 3617ms
-	BeginReloadAssembly (373ms)
+- Finished resetting the current domain, in  0.327 seconds
+Domain Reload Profiling: 700ms
+	BeginReloadAssembly (96ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (11ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (45ms)
-	RebuildCommonClasses (74ms)
-	RebuildNativeTypeToScriptingClass (23ms)
-	initialDomainReloadingComplete (96ms)
-	LoadAllAssembliesAndSetupDomain (1332ms)
-		LoadAssemblies (910ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (222ms)
+		LoadAssemblies (172ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (643ms)
-			TypeCache.Refresh (564ms)
-				TypeCache.ScanAssembly (513ms)
-			ScanForSourceGeneratedMonoScriptInfo (59ms)
-			ResolveRequiredComponents (18ms)
-	FinalizeReload (1719ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (94ms)
+				TypeCache.ScanAssembly (85ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (327ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1239ms)
+		SetupLoadedEditorAssemblies (245ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (18ms)
-			SetLoadedEditorAssemblies (13ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (2ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (177ms)
-			ProcessInitializeOnLoadAttributes (949ms)
-			ProcessInitializeOnLoadMethodAttributes (61ms)
-			AfterProcessingInitializeOnLoad (21ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (37ms)
+			ProcessInitializeOnLoadAttributes (184ms)
+			ProcessInitializeOnLoadMethodAttributes (13ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (21ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
-Refreshing native plugins compatible for Editor in 10.06 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (4ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.96 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3158 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (57.0 KB). Loaded Objects now: 3628.
-Memory consumption went from 130.2 MB to 130.2 MB.
-Total: 9.772800 ms (FindLiveObjects: 0.644700 ms CreateObjectMapping: 0.512500 ms MarkObjects: 8.384000 ms  DeleteObjects: 0.228100 ms)
+Unloading 32 unused Assets / (57.1 KB). Loaded Objects now: 3628.
+Memory consumption went from 130.6 MB to 130.5 MB.
+Total: 3.282800 ms (FindLiveObjects: 0.318100 ms CreateObjectMapping: 0.117600 ms MarkObjects: 2.764100 ms  DeleteObjects: 0.082200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 350145.358728 seconds.
+  Time since last request: 123946.381466 seconds.
   path: Assets/Prefabs/BedSplit.prefab
   artifactKey: Guid(5bf37e73e8eb1fd42aed4956d89a75e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/BedSplit.prefab using Guid(5bf37e73e8eb1fd42aed4956d89a75e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd18c3f9ac26b3f0c2c801c5a46703b0e') in 0.367785 seconds
+Start importing Assets/Prefabs/BedSplit.prefab using Guid(5bf37e73e8eb1fd42aed4956d89a75e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '838e1319d60252482f0ab0fcb742f19c') in 0.087472 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 41
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000080 seconds.
+  Time since last request: 2.938510 seconds.
+  path: Assets/SafeBox/SafeBox.prefab
+  artifactKey: Guid(46235fa8f34301a4f9272f563ae23d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SafeBox/SafeBox.prefab using Guid(46235fa8f34301a4f9272f563ae23d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a8fbdf72b00f125934de153bed36611') in 0.038418 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 140
+========================================================================
+Received Import Request.
+  Time since last request: 4.624374 seconds.
+  path: Assets/Resources/Paper L UI.prefab
+  artifactKey: Guid(e3f24d0fe6297f7428bfca3ea03841d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Paper L UI.prefab using Guid(e3f24d0fe6297f7428bfca3ea03841d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ad526a5f23aa9aeb42ac841a23fa39d') in 0.001616 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 66.504269 seconds.
   path: Assets/Prefabs/BackGroundCanvas.prefab
   artifactKey: Guid(dcbb629b9ef5f5d4db7b5634ed71b469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/BackGroundCanvas.prefab using Guid(dcbb629b9ef5f5d4db7b5634ed71b469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc30d7a54c1ccbd2ceba6c17d686b4a0') in 0.033219 seconds
+Start importing Assets/Prefabs/BackGroundCanvas.prefab using Guid(dcbb629b9ef5f5d4db7b5634ed71b469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017bbea023b25107387d3da78d710b7d') in 0.002763 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 17
 ========================================================================
 Received Import Request.
-  Time since last request: 0.859907 seconds.
-  path: Assets/Dish/Prefab/Dish Puzzle.prefab
-  artifactKey: Guid(f912295df56f3c64a97ac436d8f7391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dish/Prefab/Dish Puzzle.prefab using Guid(f912295df56f3c64a97ac436d8f7391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '506ed4c4d8c47bbc5dea6f7020872bb2') in 0.386585 seconds
+  Time since last request: 2.410121 seconds.
+  path: Assets/Prefabs/BackGroundCanvas.prefab
+  artifactKey: Guid(dcbb629b9ef5f5d4db7b5634ed71b469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BackGroundCanvas.prefab using Guid(dcbb629b9ef5f5d4db7b5634ed71b469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60d5b53467e591b416b5cbafe5a58045') in 0.001360 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 302
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 9.63 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 2 unused Assets / (0.8 KB). Loaded Objects now: 3640.
-Memory consumption went from 82.0 MB to 82.0 MB.
-Total: 7.808700 ms (FindLiveObjects: 1.044100 ms CreateObjectMapping: 0.486900 ms MarkObjects: 6.122600 ms  DeleteObjects: 0.149000 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Number of asset objects unloaded after import = 17
 ========================================================================
 Received Import Request.
-  Time since last request: 22.167947 seconds.
+  Time since last request: 16.234423 seconds.
   path: Assets/Dish/Prefab/ColorDoor.prefab
   artifactKey: Guid(744e4a31ab2cb0844978d72f6359c151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dish/Prefab/ColorDoor.prefab using Guid(744e4a31ab2cb0844978d72f6359c151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a02b0569a22061110c3ce9e25a718df0') in 0.030659 seconds
+Start importing Assets/Dish/Prefab/ColorDoor.prefab using Guid(744e4a31ab2cb0844978d72f6359c151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '647a424e28bc4ba257d4565a818c6a00') in 0.010951 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 9
 ========================================================================
 Received Import Request.
-  Time since last request: 19.462949 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef06bfaa25d3bd4aea10c59e5d7a3672') in 0.012295 seconds
+  Time since last request: 0.000022 seconds.
+  path: Assets/Dish/Prefab/Dish Puzzle.prefab
+  artifactKey: Guid(f912295df56f3c64a97ac436d8f7391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dish/Prefab/Dish Puzzle.prefab using Guid(f912295df56f3c64a97ac436d8f7391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76b6ed401105bacb722f3836c025c91d') in 0.052260 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
+Number of asset objects unloaded after import = 302
 ========================================================================
 Received Import Request.
-  Time since last request: 6.077881 seconds.
-  path: Assets/Scripts/Item.cs
-  artifactKey: Guid(3de884c16d89fb44bb7288910e856851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Item.cs using Guid(3de884c16d89fb44bb7288910e856851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '265d7788e07007aeaa0840d49ab5223c') in 0.000687 seconds
+  Time since last request: 18.835831 seconds.
+  path: Assets/Scripts/Puzzle
+  artifactKey: Guid(3aebce3612d478c44bcf69d74d59bcd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Puzzle using Guid(3aebce3612d478c44bcf69d74d59bcd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8da1c5ed66b4bd24fa1d8772e4385578') in 0.000411 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 18.686289 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc4b2dbb46a97f81ca24f816f2339977') in 0.010898 seconds
+  Time since last request: 1.182511 seconds.
+  path: Assets/Scripts/Puzzle/Play Puzzle.cs
+  artifactKey: Guid(bad2e3f3a74881d45ae28ace075932bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Puzzle/Play Puzzle.cs using Guid(bad2e3f3a74881d45ae28ace075932bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b50f53e805684e5627c0c8a427ef99d4') in 0.000342 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 0.207382 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17ac8d54aae1737b8526b8b5e04a83fb') in 0.008194 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 5.950506 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9e1369ecbe78cfb94030a3812a66e22') in 0.007696 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.910 seconds
-Refreshing native plugins compatible for Editor in 8.11 ms, found 3 plugins.
+Symbol file data-000001B4B59A8E70 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465F61500 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5955E20 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465F61500 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B48838F020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B53DCE10 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488C6E130 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490F7E1F0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490C27020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465E59010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487FC6040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465E59010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490C27020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490C27020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487D2C830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B466168020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487C75830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487C75830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B56897D0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4897DD020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B53DCE10 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.271 seconds
+Refreshing native plugins compatible for Editor in 1.23 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.096 seconds
-Domain Reload Profiling: 3002ms
-	BeginReloadAssembly (298ms)
+- Finished resetting the current domain, in  0.505 seconds
+Domain Reload Profiling: 774ms
+	BeginReloadAssembly (101ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (57ms)
-	RebuildCommonClasses (70ms)
-	RebuildNativeTypeToScriptingClass (22ms)
-	initialDomainReloadingComplete (48ms)
-	LoadAllAssembliesAndSetupDomain (467ms)
-		LoadAssemblies (622ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (21ms)
+	LoadAllAssembliesAndSetupDomain (118ms)
+		LoadAssemblies (158ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (31ms)
-			TypeCache.Refresh (12ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (5ms)
 				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (16ms)
-	FinalizeReload (2096ms)
+			ScanForSourceGeneratedMonoScriptInfo (4ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (506ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (915ms)
+		SetupLoadedEditorAssemblies (240ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (11ms)
-			SetLoadedEditorAssemblies (11ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (127ms)
-			ProcessInitializeOnLoadAttributes (668ms)
-			ProcessInitializeOnLoadMethodAttributes (81ms)
-			AfterProcessingInitializeOnLoad (16ms)
+			BeforeProcessingInitializeOnLoad (40ms)
+			ProcessInitializeOnLoadAttributes (174ms)
+			ProcessInitializeOnLoadMethodAttributes (13ms)
+			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (53ms)
-Refreshing native plugins compatible for Editor in 44.62 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 2.10 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 3643.
-Memory consumption went from 132.2 MB to 132.2 MB.
-Total: 22.220500 ms (FindLiveObjects: 1.964100 ms CreateObjectMapping: 2.555400 ms MarkObjects: 17.513200 ms  DeleteObjects: 0.180600 ms)
+Unloading 26 unused Assets / (31.9 KB). Loaded Objects now: 3647.
+Memory consumption went from 132.7 MB to 132.7 MB.
+Total: 3.374300 ms (FindLiveObjects: 0.332200 ms CreateObjectMapping: 0.111700 ms MarkObjects: 2.844300 ms  DeleteObjects: 0.085300 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file data-000001B487D2C830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465E69830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B48978B020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465E69830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465E69830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490BB3020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BAA76B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488D6D030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4883AF040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488403020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B489324020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488D6D030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488D6D030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488D6D030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488997030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465582B90 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4883AF040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488026860 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4933E9FB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465EC65D0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4933E9FB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4933E9FB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4933E9FB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B489436950 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490BB3020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.315 seconds
+Refreshing native plugins compatible for Editor in 1.48 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.578 seconds
+Domain Reload Profiling: 891ms
+	BeginReloadAssembly (121ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (130ms)
+		LoadAssemblies (189ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (7ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (579ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (261ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (42ms)
+			ProcessInitializeOnLoadAttributes (191ms)
+			ProcessInitializeOnLoadMethodAttributes (14ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 3.15 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (30.2 KB). Loaded Objects now: 3650.
+Memory consumption went from 134.7 MB to 134.6 MB.
+Total: 15.960300 ms (FindLiveObjects: 0.373200 ms CreateObjectMapping: 0.173700 ms MarkObjects: 15.362700 ms  DeleteObjects: 0.048800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file data-000001B492CFCF40 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BA73C50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4878EA010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488E49010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BA73C50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4658EDEA0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4889A7040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B62BB4B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BD0E090 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B44288C020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5ED8C00 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B56540E0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4931B0250 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488C6E130 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4932CD030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465EB1070 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BD0E090 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490A34010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4933E9FB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4926B6050 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B6004E30 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B62BB4B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B62BB4B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487F88020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4658EDEA0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.302 seconds
+Refreshing native plugins compatible for Editor in 1.71 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.554 seconds
+Domain Reload Profiling: 854ms
+	BeginReloadAssembly (117ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (133ms)
+		LoadAssemblies (181ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (555ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (256ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (41ms)
+			ProcessInitializeOnLoadAttributes (184ms)
+			ProcessInitializeOnLoadMethodAttributes (15ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 3.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (30.2 KB). Loaded Objects now: 3653.
+Memory consumption went from 136.6 MB to 136.6 MB.
+Total: 3.455800 ms (FindLiveObjects: 0.465600 ms CreateObjectMapping: 0.143300 ms MarkObjects: 2.798300 ms  DeleteObjects: 0.048000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file data-000001B487D2C830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492FB8990 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490634010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488E49010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492FB8990 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A95020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BA3E010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492710040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B56540E0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B617CD40 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B489150DF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487FC6040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488D6D030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488202E20 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4932CD030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465EB1070 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B61EF2E0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490A34010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B489150DF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B62C8200 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4659F4BF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492710040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492710040 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487F88020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4897DD020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A95020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.295 seconds
+Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.557 seconds
+Domain Reload Profiling: 850ms
+	BeginReloadAssembly (113ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (125ms)
+		LoadAssemblies (176ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (557ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (269ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (45ms)
+			ProcessInitializeOnLoadAttributes (193ms)
+			ProcessInitializeOnLoadMethodAttributes (14ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 2.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3656.
+Memory consumption went from 138.5 MB to 138.5 MB.
+Total: 3.521700 ms (FindLiveObjects: 0.340800 ms CreateObjectMapping: 0.106100 ms MarkObjects: 3.027200 ms  DeleteObjects: 0.046900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
@@ -338,82 +787,153 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 73.819234 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9844ac4d03127075b91af90af5460a50') in 0.100898 seconds
+  Time since last request: 838.369354 seconds.
+  path: Assets/Phone/Prefabs/Line.prefab
+  artifactKey: Guid(b88aa06e23dd6254ab021257c64e84be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Phone/Prefabs/Line.prefab using Guid(b88aa06e23dd6254ab021257c64e84be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae9c717975d1d1c2cc169fb4d826b042') in 0.024422 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
+Number of asset objects unloaded after import = 6
 ========================================================================
 Received Import Request.
-  Time since last request: 24.147223 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96b10633b2e4dc38c0fb4da0f6d6ec8a') in 0.008613 seconds
+  Time since last request: 4.991148 seconds.
+  path: Assets/Phone/Prefabs/Phone Canvas.prefab
+  artifactKey: Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Phone/Prefabs/Phone Canvas.prefab using Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6337a0086ad20ecbf74163cbc0b90334') in 0.026744 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
+Number of asset objects unloaded after import = 99
 ========================================================================
 Received Import Request.
-  Time since last request: 1.940656 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7898172587dbf7404db0ce83c7b43b7') in 0.008443 seconds
+  Time since last request: 2.290714 seconds.
+  path: Assets/Phone/Prefabs/Phone Canvas.prefab
+  artifactKey: Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Phone/Prefabs/Phone Canvas.prefab using Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '263ea268b01a1397029a35c2396959c5') in 0.015800 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
+Number of asset objects unloaded after import = 99
+========================================================================
+Received Import Request.
+  Time since last request: 2.237417 seconds.
+  path: Assets/Phone/Prefabs/Phone Canvas.prefab
+  artifactKey: Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Phone/Prefabs/Phone Canvas.prefab using Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caeba8c42a0fa298e7b97c250010f5d3') in 0.013063 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 99
+========================================================================
+Received Import Request.
+  Time since last request: 1.796873 seconds.
+  path: Assets/Phone/Prefabs/Phone Canvas.prefab
+  artifactKey: Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Phone/Prefabs/Phone Canvas.prefab using Guid(5551e38faba645544bd1778c10b754d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9dea2bf0f8d4079d668407602e96d2') in 0.013822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 99
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.800 seconds
-Refreshing native plugins compatible for Editor in 8.07 ms, found 3 plugins.
+Symbol file data-000001B465E26010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C48D5A0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B53DAFE0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488E49010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4886A6160 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A3B050 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B49105FDB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492E1A520 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51B8B0080 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B442939230 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C6D7E90 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492C7DBF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487889010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488398250 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C7998B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B465EA1060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492F1CF50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51B8B0080 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488026860 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BA64BB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BAC6CE0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B6002E30 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B619F7A0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492E1A520 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C4E8030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492F1CF50 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A3B050 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.353 seconds
+Refreshing native plugins compatible for Editor in 1.49 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  4.043 seconds
-Domain Reload Profiling: 4848ms
-	BeginReloadAssembly (277ms)
+- Finished resetting the current domain, in  0.590 seconds
+Domain Reload Profiling: 941ms
+	BeginReloadAssembly (126ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (57ms)
-	RebuildCommonClasses (56ms)
-	RebuildNativeTypeToScriptingClass (26ms)
-	initialDomainReloadingComplete (55ms)
-	LoadAllAssembliesAndSetupDomain (380ms)
-		LoadAssemblies (526ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (23ms)
+	LoadAllAssembliesAndSetupDomain (165ms)
+		LoadAssemblies (215ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (21ms)
-			TypeCache.Refresh (8ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (11ms)
-	FinalizeReload (4053ms)
+		AnalyzeDomain (17ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (6ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (590ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2439ms)
+		SetupLoadedEditorAssemblies (272ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (16ms)
-			SetLoadedEditorAssemblies (12ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (174ms)
-			ProcessInitializeOnLoadAttributes (1666ms)
-			ProcessInitializeOnLoadMethodAttributes (416ms)
-			AfterProcessingInitializeOnLoad (154ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (46ms)
+			ProcessInitializeOnLoadAttributes (194ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (131ms)
-Refreshing native plugins compatible for Editor in 15.15 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 2.54 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 3646.
-Memory consumption went from 134.2 MB to 134.1 MB.
-Total: 11.015700 ms (FindLiveObjects: 1.270300 ms CreateObjectMapping: 0.800600 ms MarkObjects: 8.724400 ms  DeleteObjects: 0.217500 ms)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3659.
+Memory consumption went from 140.5 MB to 140.4 MB.
+Total: 3.961300 ms (FindLiveObjects: 0.368900 ms CreateObjectMapping: 0.123600 ms MarkObjects: 3.419700 ms  DeleteObjects: 0.048400 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
@@ -426,115 +946,114 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 17.828215 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1980b83f8e51ad9972a128622cacaae5') in 0.080383 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 2.552000 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '602ebb1c2059a7e1f4dd049507301aa0') in 0.011645 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 9.917179 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dd706aae5d77ac157d4c595474d3fc7') in 0.008493 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 1.832467 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6c70effbe0f7074029c02f65edc8aa1') in 0.008946 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 0.614529 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e23370562528e07970f5d950b17afb') in 0.009514 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 3.659404 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf354fcb24414f78639b28eab3010c68') in 0.009958 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
-Received Import Request.
-  Time since last request: 1.402168 seconds.
-  path: Assets/Item UI/Prefab/Item UI.prefab
-  artifactKey: Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item UI/Prefab/Item UI.prefab using Guid(41e44d4c53ee3fe4cb350c6612756a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf45090ca550398369c31f09e161510') in 0.009000 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 72
-========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.793 seconds
-Refreshing native plugins compatible for Editor in 7.20 ms, found 3 plugins.
+Symbol file data-000001B487D2C830 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488C60020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B491188010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488E49010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488C60020 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A3B050 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B49105FDB0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5B45010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51B8B0080 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B442939230 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C6D7E90 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B492C7DBF0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5B45010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488202E20 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C7998B0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488997030 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5423280 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B488026860 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51C6D7E90 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B51BAC6CE0 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B550C010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B6004E30 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B6004E30 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B490ED9010 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B4B5574060 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001B487A3B050 doesn't match image D:\GitHub\Paradise\Paradise\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.297 seconds
+Refreshing native plugins compatible for Editor in 1.99 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.364 seconds
-Domain Reload Profiling: 3155ms
-	BeginReloadAssembly (288ms)
+- Finished resetting the current domain, in  0.547 seconds
+Domain Reload Profiling: 842ms
+	BeginReloadAssembly (116ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (70ms)
-	RebuildCommonClasses (61ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (51ms)
-	LoadAllAssembliesAndSetupDomain (371ms)
-		LoadAssemblies (508ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (20ms)
+	LoadAllAssembliesAndSetupDomain (129ms)
+		LoadAssemblies (181ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (19ms)
-			TypeCache.Refresh (9ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (3ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (2368ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (547ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1079ms)
+		SetupLoadedEditorAssemblies (253ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (21ms)
-			SetLoadedEditorAssemblies (9ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (168ms)
-			ProcessInitializeOnLoadAttributes (629ms)
-			ProcessInitializeOnLoadMethodAttributes (182ms)
-			AfterProcessingInitializeOnLoad (67ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (40ms)
+			ProcessInitializeOnLoadAttributes (180ms)
+			ProcessInitializeOnLoadMethodAttributes (16ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (97ms)
-Refreshing native plugins compatible for Editor in 6.91 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 2.88 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 3649.
-Memory consumption went from 136.1 MB to 136.1 MB.
-Total: 6.699500 ms (FindLiveObjects: 0.500500 ms CreateObjectMapping: 0.456500 ms MarkObjects: 5.645200 ms  DeleteObjects: 0.095200 ms)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3662.
+Memory consumption went from 142.4 MB to 142.4 MB.
+Total: 3.802900 ms (FindLiveObjects: 0.358800 ms CreateObjectMapping: 0.128400 ms MarkObjects: 3.257600 ms  DeleteObjects: 0.057400 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
