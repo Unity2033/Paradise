@@ -10,7 +10,7 @@ public class SafeUI : MonoBehaviour
 
     [SerializeField] Text[] safeNumbers;
 
-    char[] uiNumbers = { '1', '0', '0', '4' };
+    char[] uiNumbers = { '1', '4', '7', '8' };
 
     [SerializeField] AudioClip clearAudioClip;
     [SerializeField] AudioClip closePopUpAudioClip;
