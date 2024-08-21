@@ -11,6 +11,7 @@ public class LockPattern : MonoBehaviour
     [SerializeField] GameObject linePrefab;
     [SerializeField] GameObject clearImage;
     [SerializeField] GameObject failImage;
+    [SerializeField] PlayPuzzle parents;
 
     private Dictionary<int, CircleId> circles;
 
@@ -29,13 +30,20 @@ public class LockPattern : MonoBehaviour
 
     void Start()
     {
+        parents = GameObject.Find("FOB_LOD").transform.Find("Windows").transform.Find("phone1k").GetComponent<PlayPuzzle>();
+        if (parents.clear)
+        {
+            ClearGame();
+            return;
+        }
+
         rightPattern = new List<int> { 3, 2, 4, 1, 5, 9, 6, 8, 7 };
         myPattern = new List<int>();
 
         circles = new Dictionary<int, CircleId>();
         lines = new List<CircleId>();
 
-        for(int i = 0; i < transform.childCount; i++) 
+        for (int i = 0; i < transform.childCount; i++)
         {
             var circle = transform.GetChild(i);
 
@@ -52,9 +60,9 @@ public class LockPattern : MonoBehaviour
 
     void Update()
     {
-        if(block) return;
+        if (block) return;
 
-        if(unlocking)
+        if (unlocking)
         {
             Vector3 mousePos = canvas.transform.InverseTransformPoint(Input.mousePosition);
 
@@ -82,9 +90,9 @@ public class LockPattern : MonoBehaviour
 
     public void TrySetLineEdit(CircleId circle)
     {
-        foreach(var line in lines)
+        foreach (var line in lines)
         {
-            if(line.id == circle.id)
+            if (line.id == circle.id)
             {
                 return;
             }
@@ -98,7 +106,7 @@ public class LockPattern : MonoBehaviour
 
     public void OnMouseEnterCircle(CircleId idf)
     {
-        if(block) return;
+        if (block) return;
 
         if (unlocking)
         {
@@ -134,11 +142,11 @@ public class LockPattern : MonoBehaviour
         {
             RemovePattern();
 
-            clearImage.SetActive(true);
+            ClearGame();
 
             return;
         }
-        
+
         StartCoroutine(IERelease());
     }
     public void ChangeColor(Color color)
@@ -188,5 +196,11 @@ public class LockPattern : MonoBehaviour
         RemovePattern();
 
         block = false;
+    }
+
+    private void ClearGame()
+    {
+        parents.clear = true;
+        clearImage.SetActive(true);
     }
 }
