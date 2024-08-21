@@ -15,7 +15,6 @@ public class RayInteractor : MonoBehaviour
     Ray ray;
     RaycastHit raycastHit;
 
-
     void Update()
     {
         if (GameManager.Instance.State == false) return; 

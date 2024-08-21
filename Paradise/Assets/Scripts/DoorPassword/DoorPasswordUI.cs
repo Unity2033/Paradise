@@ -27,7 +27,6 @@ public class DoorPasswordUI : MonoBehaviour
     private void Update()
     {
         if (success == false) Success();
-        else Fail();
     }
 
     private void Success()
@@ -45,27 +44,13 @@ public class DoorPasswordUI : MonoBehaviour
 
         success = true;
 
-        door.layer = 8;
-        doorPassword.layer = 0;
-    }
-
-    private void Fail()
-    {
         for (int i = 0; i < uiNumbers.Length; i++)
         {
-            if (uiNumbers[i] != doorNumbers[i].text[0]) success = false;
+            Destroy(gameObject.GetComponentInChildren<AlphabetButton>());
         }
 
-        if (success == true) return;
-
-        for (int i = 0; i < redLights.Length; i++)
-        {
-            redLights[i].color = Color.red;
-            greenLights[i].color = Color.black;
-        }
-
-        door.layer = 0;
-        doorPassword.layer = 8;
+        door.layer = 8;
+        doorPassword.layer = 0;
     }
 
     public void ExitButton()
@@ -88,6 +73,5 @@ public class DoorPasswordUI : MonoBehaviour
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
 
         CursorManager.interactable = true;
-
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SafeUI : MonoBehaviour
 {
-    [SerializeField] bool success = false;
+    [SerializeField] public bool success = false;
 
     [SerializeField] Image[] redLights;
     [SerializeField] Image[] greenLights;
@@ -24,7 +24,6 @@ public class SafeUI : MonoBehaviour
     private void Update()
     {
         if (success == false) Success();
-        else Fail();
     }
 
     private void Success()
@@ -42,23 +41,12 @@ public class SafeUI : MonoBehaviour
 
         success = true;
 
-        AudioManager.Instance.Sound(clearAudioClip);
-    }
-
-    private void Fail()
-    {
         for (int i = 0; i < uiNumbers.Length; i++)
         {
-            if (uiNumbers[i] != safeNumbers[i].text[0]) success = false;
+            Destroy(gameObject.GetComponentInChildren<NumberButton>());
         }
 
-        if (success == true) return;
-
-        for (int i = 0; i < redLights.Length; i++)
-        {
-            redLights[i].color = Color.red;
-            greenLights[i].color = Color.black;
-        }
+        AudioManager.Instance.Sound(clearAudioClip);
     }
 
     public void ExitButton()
