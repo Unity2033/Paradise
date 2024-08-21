@@ -9,19 +9,16 @@ public enum Mask
 public class RayInteractor : MonoBehaviour
 {
     [SerializeField] CursorController cursorController;
-    [SerializeField] float rayDistacne = 1.2f;
-    [SerializeField] LayerMask [] layerMask;
+    [SerializeField] float rayDistance = 1.2f;
+    [SerializeField] LayerMask[] layerMask;
 
     Ray ray;
-    RaycastHit raycastHit;
+    RaycastHit interactionHit;
+    RaycastHit etcHit;
 
     void Update()
     {
-        if (GameManager.Instance.State == false)
-        {
-            cursorController.SelectCursor(false);
-            return;
-        }
+        if (GameManager.Instance.State == false) return;
 
         if (CursorManager.interactable == false)
         {
@@ -31,16 +28,20 @@ public class RayInteractor : MonoBehaviour
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out raycastHit, rayDistacne, layerMask[(int)Mask.INTERACTION]))
+        if (Physics.Raycast(ray, out interactionHit, rayDistance, layerMask[(int)Mask.INTERACTION]))
         {
-            cursorController.SelectCursor(false, true);
-
-            if (Input.GetMouseButtonDown(0))
+            if (!Physics.Raycast(ray, out etcHit, rayDistance, layerMask[(int)Mask.ETC]) || interactionHit.distance < etcHit.distance)
             {
-                Interaction interaction = raycastHit.collider.gameObject.GetComponentInParent<Interaction>();
+                cursorController.SelectCursor(false, true);
 
-                if (interaction != null) interaction.OnClick(raycastHit.collider);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Interaction interaction = interactionHit.collider.gameObject.GetComponentInParent<Interaction>();
+
+                    if (interaction != null) interaction.OnClick(interactionHit.collider);
+                }
             }
+            else cursorController.SelectCursor(true);
         }
         else cursorController.SelectCursor(true);
     }
