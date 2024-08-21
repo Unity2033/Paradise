@@ -5659,6 +5659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundUI: {fileID: 6329390626813416451, guid: dcbb629b9ef5f5d4db7b5634ed71b469, type: 3}
   puzzleObject: {fileID: 5995270914840926992, guid: 5551e38faba645544bd1778c10b754d1, type: 3}
+  clear: 0
   interactionAudio: {fileID: 0}
 --- !u!1 &1640385492
 GameObject:
@@ -6308,6 +6309,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  methodPopUp: {fileID: 760093457}
 --- !u!4 &1762778275
 Transform:
   m_ObjectHideFlags: 0
