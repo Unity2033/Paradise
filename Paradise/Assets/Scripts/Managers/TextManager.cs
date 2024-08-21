@@ -91,9 +91,10 @@ public class TextManager : MonoBehaviour
 
     public IEnumerator Afterstory()
     {
+        storyPopUp.SetActive(true);
+
         characterName.text = null;
         dialogue.text = null;
-        GameObject data = GameObject.Find("Conversation Box");
 
         for (int i = storyCheck; i < conversation.Count; i++)
         {
@@ -134,6 +135,11 @@ public class TextManager : MonoBehaviour
             characterName.text = null;
             dialogue.text = null;
         }
-        Destroy(data);
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

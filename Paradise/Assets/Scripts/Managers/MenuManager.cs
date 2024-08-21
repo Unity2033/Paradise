@@ -12,8 +12,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] string [] buttonNames;
     [SerializeField] SelectButton [] buttons;
 
-    [SerializeField] GameObject character;
-
     [SerializeField] GameObject methodPopUp;
 
     [SerializeField] TextManager textManager;

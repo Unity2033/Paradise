@@ -6603,7 +6603,6 @@ MonoBehaviour:
   - {fileID: 689433809}
   - {fileID: 1090837032}
   - {fileID: 484915886}
-  character: {fileID: 321541023}
   methodPopUp: {fileID: 760093457}
   textManager: {fileID: 1924174580}
 --- !u!4 &1762778275
@@ -7234,6 +7233,16 @@ MonoBehaviour:
   - "\uADF8\uB7FC \uD654\uBA74\uC744 \uB744\uC6CC\uC904\uB798? \uC2E4\uD5D8\uCCB4\uC758
     \uC0C1\uD0DC\uAC00 \uC5B4\uB5A4\uC9C0 \uD655\uC778\uD574 \uBCF4\uACE0 \uC2F6\uAC70\uB4E0. "
   - "\uB124, \uC54C\uACA0\uC2B5\uB2C8\uB2E4. "
+  - "\uC2E4\uD5D8\uCCB4\uC758 \uC2E0\uCCB4 \uB2A5\uB825\uC744 \uAC1C\uC120\uD55C
+    \uD6C4 \uB2E4\uC2DC \uC2E4\uD5D8\uC744 \uC9C4\uD589\uD574\uC57C \uB420 \uAC83
+    \uAC19\uC2B5\uB2C8\uB2E4."
+  - "\uADF8\uAC74 \uC2E0\uACBD \uC4F0\uC9C0 \uB9C8. \uC911\uC694\uD55C \uAC74 \uC9C0\uB2A5\uC774\uB2C8\uAE4C."
+  - "\uADF8\uB807\uB2E4\uBA74 \uC774\uBC88 \uC2E4\uD5D8\uC740 \uC131\uACF5\uC778\uAC00\uC694?"
+  - "\uADF8\uB798. \uAD34\uBB3C\uC740 \uC54C\uC544\uC11C \uCC98\uB9AC\uD558\uACE0
+    \uACC4\uC18D \uC9C0\uB2A5 \uC0C1\uC2B9\uC744 \uC911\uC810\uC73C\uB85C \uB450\uACE0
+    \uC2E4\uD5D8\uC744 \uC9C4\uD589\uC2DC\uCF1C\uC918."
+  - "\uC6B0\uB9AC\uC758 \uB099\uC6D0(Paradise) \uD504\uB85C\uC81D\uD2B8\uC5D0 \uCC28\uC9C8\uC774
+    \uC0DD\uAE30\uC9C0 \uC54A\uB3C4\uB85D \uB9D0\uC774\uC57C."
   character:
   - "\uC5F0\uAD6C\uC6D0"
   - "\uC5F0\uAD6C\uC18C\uC7A5"
@@ -8841,6 +8850,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   speed: 3.5
   audioSource: {fileID: 0}
+  textManager: {fileID: 1924174580}
 --- !u!136 &1980057135
 CapsuleCollider:
   m_ObjectHideFlags: 0

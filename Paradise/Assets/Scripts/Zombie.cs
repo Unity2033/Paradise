@@ -16,6 +16,8 @@ public class Zombie : MonoBehaviour
     [SerializeField] float speed = 3.5f;
     [SerializeField] AudioSource audioSource;
 
+    [SerializeField] TextManager textManager;
+
     private void Start()
     {
         state = ZombieState.IDLE;
@@ -48,8 +50,6 @@ public class Zombie : MonoBehaviour
 
     public void Attack()
     {
-        audioSource.mute = true;
-
         state = ZombieState.ATTACK;
 
         animator.SetTrigger("Attack");
@@ -61,7 +61,9 @@ public class Zombie : MonoBehaviour
 
         if (movePlayer != null)
         {
-            Attack();
+            audioSource.mute = true;
+
+            StartCoroutine(textManager.Afterstory());
         }
     }
 }
