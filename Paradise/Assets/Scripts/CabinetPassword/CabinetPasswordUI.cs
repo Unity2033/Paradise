@@ -29,7 +29,6 @@ public class CabinetPasswordUI : MonoBehaviour
     private void Update()
     {
         if (success == false) Success();
-        else Fail();
     }
 
     private void Success()
@@ -47,27 +46,14 @@ public class CabinetPasswordUI : MonoBehaviour
 
         success = true;
 
+        for (int i = 0; i < uiNumbers.Length; i++)
+        {
+            Destroy(gameObject.GetComponentInChildren<NumberButton>());
+        }
+
         cabinetDoor.layer = 8;
 
         AudioManager.Instance.Sound(clearAudioClip);
-    }
-
-    private void Fail()
-    {
-        for (int i = 0; i < uiNumbers.Length; i++)
-        {
-            if (uiNumbers[i] != cabinetNumbers[i].text[0]) success = false;
-        }
-
-        if (success == true) return;
-
-        for (int i = 0; i < redLights.Length; i++)
-        {
-            redLights[i].color = Color.red;
-            greenLights[i].color = Color.black;
-        }
-
-        cabinetDoor.layer = 0;
     }
 
     public void ExitButton()
@@ -90,6 +76,5 @@ public class CabinetPasswordUI : MonoBehaviour
         CursorManager.ActiveMouse(false, CursorLockMode.Locked);
 
         CursorManager.interactable = true;
-
     }
 }

@@ -10,7 +10,6 @@ public class CabinetPassword : Interaction
 
     public override void OnClick(Collider cabinetPassword)
     {
-
         CursorManager.interactable = false;
 
         CursorManager.ActiveMouse(true, CursorLockMode.None);
