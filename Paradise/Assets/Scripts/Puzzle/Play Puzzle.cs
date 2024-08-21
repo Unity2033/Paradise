@@ -6,6 +6,8 @@ public class PlayPuzzle : Interaction
     [SerializeField] GameObject backGroundUI;
     [SerializeField] GameObject puzzleObject;
 
+    public bool clear = false;
+
     private GameObject backGroundObj;
     private GameObject puzzleObj;
     private Button exitButton;
