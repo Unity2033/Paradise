@@ -41,9 +41,9 @@ public class SafeUI : MonoBehaviour
 
         success = true;
 
-        for (int i = 0; i < uiNumbers.Length; i++)
+        for (int i = 0; i < safeNumbers.Length; i++)
         {
-            Destroy(gameObject.GetComponentInChildren<NumberButton>());
+            Destroy(safeNumbers[i].GetComponent<NumberButton>());
         }
 
         AudioManager.Instance.Sound(clearAudioClip);

@@ -46,9 +46,9 @@ public class CabinetPasswordUI : MonoBehaviour
 
         success = true;
 
-        for (int i = 0; i < uiNumbers.Length; i++)
+        for (int i = 0; i < cabinetNumbers.Length; i++)
         {
-            Destroy(gameObject.GetComponentInChildren<NumberButton>());
+            Destroy(cabinetNumbers[i].GetComponent<NumberButton>());
         }
 
         cabinetDoor.layer = 8;
