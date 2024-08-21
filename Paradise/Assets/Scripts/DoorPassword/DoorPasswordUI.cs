@@ -44,9 +44,9 @@ public class DoorPasswordUI : MonoBehaviour
 
         success = true;
 
-        for (int i = 0; i < uiNumbers.Length; i++)
+        for (int i = 0; i < doorNumbers.Length; i++)
         {
-            Destroy(gameObject.GetComponentInChildren<AlphabetButton>());
+            Destroy(doorNumbers[i].GetComponent<AlphabetButton>());
         }
 
         door.layer = 8;

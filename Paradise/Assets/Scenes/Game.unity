@@ -2654,7 +2654,7 @@ GameObject:
   - component: {fileID: 686113606}
   - component: {fileID: 686113608}
   - component: {fileID: 686113607}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinet2_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorController: {fileID: 543491726}
-  rayDistacne: 1.3
+  rayDistacne: 1.2
   layerMask:
   - serializedVersion: 2
     m_Bits: 384
