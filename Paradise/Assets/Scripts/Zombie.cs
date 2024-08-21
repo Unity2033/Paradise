@@ -13,12 +13,18 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] ZombieState state;
     [SerializeField] Animator animator;
-    [SerializeField] float speed = 2.5f;
+    [SerializeField] float speed = 3.5f;
+
+    [SerializeField] AudioSource audioSource;
 
     private void Start()
     {
         state = ZombieState.IDLE;
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.mute = true;
     }
 
     private void Update()
@@ -36,6 +42,8 @@ public class Zombie : MonoBehaviour
 
     public void Move()
     {
+        audioSource.mute = false;
+
         state = ZombieState.RUN;
 
         animator.Play("Run");
@@ -55,7 +63,8 @@ public class Zombie : MonoBehaviour
 
         if (movePlayer != null)
         {
-            //Attack();
+            audioSource.mute = true;
+            Attack();
         }
     }
 }

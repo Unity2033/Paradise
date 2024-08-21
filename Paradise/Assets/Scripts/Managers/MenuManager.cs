@@ -16,6 +16,8 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] UnityEvent unityEvent;
 
+    [SerializeField] GameObject methodPopUp;
+
     private void Awake()
     { 
         for (int i = 0; i < buttonNames.Length; i++)
@@ -60,6 +62,8 @@ public class MenuManager : MonoBehaviour
 
     public void Manual()
     {
+        methodPopUp.SetActive(true);
+
         AudioManager.Instance.Sound(audioClip);
     }
 

@@ -14,6 +14,9 @@ public class DirectorCollider : MonoBehaviour
 
         if (player != null)
         {
+            player.transform.rotation = Quaternion.identity;
+            Camera.main.transform.rotation = Quaternion.Euler(0, -90, 0);
+
             player.GetComponent<Rigidbody>().Sleep();
 
             GameManager.Instance.State = false;
