@@ -14,24 +14,15 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] GameObject character;
 
-    [SerializeField] UnityEvent unityEvent;
-
     [SerializeField] GameObject methodPopUp;
+
+    [SerializeField] TextManager textManager;
 
     private void Awake()
     { 
         for (int i = 0; i < buttonNames.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = buttonNames[i];
-        }
-
-        if (PlayerPrefs.HasKey("PositionX"))
-        {
-            buttons[1].gameObject.SetActive(true);
-        }
-        else
-        {
-            buttons[1].gameObject.SetActive(false);
         }
     }
 
@@ -40,24 +31,24 @@ public class MenuManager : MonoBehaviour
         audioClip = AudioManager.Instance.GetAudioClip("Menu Button");
     }
 
-    public void Excute()
-    {
-        AudioManager.Instance.Sound(audioClip);
-
-        if(unityEvent != null) unityEvent.Invoke();
-        
-        Game();
-    }
-
     public void Continue()
     {
+        buttons[0].GetComponentInChildren<Text>().text = "Continue";
+
         AudioManager.Instance.Sound(audioClip);
 
-        DataManager.Instance.Load();
+        StartCoroutine(FadeManager.Instance.FadeIn());
 
-        character.transform.position = DataManager.Instance.GetPosition();
+        if(textManager.BeforeStroyCheck == false)
+        {
+            StartCoroutine(textManager.Beforestory());
+        }
 
-        Game();
+        GameManager.Instance.State = true;
+
+        AudioManager.Instance.Scenery(null);
+
+        CursorManager.ActiveMouse(false, CursorLockMode.Locked);
     }
 
     public void Manual()
@@ -74,16 +65,5 @@ public class MenuManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void Game()
-    {
-        GameManager.Instance.State = true;
-
-        StartCoroutine(FadeManager.Instance.FadeIn());
-
-        AudioManager.Instance.Scenery(null);
-
-        CursorManager.ActiveMouse(false, CursorLockMode.Locked);
     }
 }

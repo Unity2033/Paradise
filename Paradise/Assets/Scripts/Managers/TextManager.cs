@@ -16,10 +16,13 @@ public class TextManager : MonoBehaviour
     [SerializeField] int storyCheck = 3; // 인게임 전후의 스토리를 나누는 기준값
     [SerializeField] bool clickButton = false; // 마우스 클릭 여부 확인(클릭 시 텍스트가 한 번에 출력)
 
-    void Start()
+    [SerializeField] bool beforeStroyCheck = false;
+
+    [SerializeField] GameObject storyPopUp;
+
+    public bool BeforeStroyCheck
     {
-        // 글자가 하나씩 출력되는 코루틴 생성
-        StartCoroutine(Beforestory());
+        get { return beforeStroyCheck; }
     }
 
     void Update()
@@ -32,6 +35,8 @@ public class TextManager : MonoBehaviour
 
     public IEnumerator Beforestory()
     {
+        storyPopUp.SetActive(true);
+
         characterName.text = null;
         dialogue.text = null;
 
@@ -63,6 +68,8 @@ public class TextManager : MonoBehaviour
 
             while (true)
             {
+                GameManager.Instance.State = false;
+
                 if (clickButton == true)
                 {
                     clickButton = false;
@@ -70,11 +77,16 @@ public class TextManager : MonoBehaviour
                 }
                 yield return null;
             }
-
+      
             characterName.text = null;
             dialogue.text = null;
         }
-        StartCoroutine(Afterstory());
+
+        GameManager.Instance.State = true;
+
+        beforeStroyCheck = true;
+
+        storyPopUp.SetActive(false);
     }
 
     public IEnumerator Afterstory()
