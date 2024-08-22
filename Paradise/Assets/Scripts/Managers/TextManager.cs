@@ -27,7 +27,7 @@ public class TextManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(storyPopUp.activeSelf && Input.GetButtonDown("Fire1"))
         {
             clickButton = true;
         }
