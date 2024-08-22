@@ -15,11 +15,9 @@ public class Mirror : Interaction
 
     public override void OnClick(Collider blood)
     {
-        if (Inventory.Instance.ConfirmItem(item))
+        if (Inventory.Instance.UseItem(item))
         {
             AudioManager.Instance.Sound(eraseAudioClip);
-
-            Inventory.Instance.UseItem(item);
 
             Destroy(gameObject);
         }
