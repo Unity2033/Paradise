@@ -14101,6 +14101,7 @@ MonoBehaviour:
   door: {fileID: 6235404176652397123}
   doorPassword: {fileID: 547757238}
   closeAudioClip: {fileID: 0}
+  clearAudioClip: {fileID: 0}
 --- !u!1 &1873538620156027029
 GameObject:
   m_ObjectHideFlags: 0
@@ -29281,6 +29282,10 @@ PrefabInstance:
     - target: {fileID: 1880075588558073636, guid: e2bd83477dc733048a5b34ef2a82acfb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443315632188445017, guid: e2bd83477dc733048a5b34ef2a82acfb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6270859839331484399, guid: e2bd83477dc733048a5b34ef2a82acfb, type: 3}

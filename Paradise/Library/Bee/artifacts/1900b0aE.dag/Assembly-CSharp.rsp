@@ -392,8 +392,6 @@
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/MovePlayer.cs"
 "Assets/Scripts/NumberButton.cs"
-"Assets/Scripts/Paper/Paper.cs"
-"Assets/Scripts/Paper/PaperUI.cs"
 "Assets/Scripts/Puzzle/CanvasMode.cs"
 "Assets/Scripts/Puzzle/Dish/Dish.cs"
 "Assets/Scripts/Puzzle/Dish/DoorChangeColor.cs"

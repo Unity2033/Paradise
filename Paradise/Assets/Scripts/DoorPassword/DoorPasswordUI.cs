@@ -16,11 +16,13 @@ public class DoorPasswordUI : MonoBehaviour
     [SerializeField] GameObject doorPassword;
 
     [SerializeField] AudioClip closeAudioClip;
+    [SerializeField] AudioClip clearAudioClip;
 
     char[] uiNumbers = { 'K', 'L', 'E', 'Y' };
 
     private void Start()
     {
+        clearAudioClip = Resources.Load<AudioClip>("Clear");
         closeAudioClip = Resources.Load<AudioClip>("Close PopUp");
     }
 
@@ -51,6 +53,8 @@ public class DoorPasswordUI : MonoBehaviour
 
         door.layer = 8;
         doorPassword.layer = 0;
+
+        AudioManager.Instance.Sound(clearAudioClip);
     }
 
     public void ExitButton()
