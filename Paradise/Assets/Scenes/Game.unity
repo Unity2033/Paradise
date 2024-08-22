@@ -1151,6 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2440cb47e98ac644863186a7bd73f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eraseAudioClip: {fileID: 0}
 --- !u!1 &133997466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2259,10 @@ PrefabInstance:
     - target: {fileID: 5691638547731097905, guid: 41e44d4c53ee3fe4cb350c6612756a12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928703309753299738, guid: 41e44d4c53ee3fe4cb350c6612756a12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7180934003555751690, guid: 41e44d4c53ee3fe4cb350c6612756a12, type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -5353,6 +5358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitDoor: {fileID: 5707754922063995969}
+  LockAudioClip: {fileID: 0}
+  unLockAudioClip: {fileID: 0}
 --- !u!1 &1386209782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +6869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toiletDoor: {fileID: 6235404176123731602}
+  LockAudioClip: {fileID: 0}
+  unLockAudioClip: {fileID: 0}
 --- !u!65 &1814276747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22597,6 +22606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftDrawer: {fileID: 5215713521313321239}
   RightDrawer: {fileID: 7570338723580012685}
+  woodBreakAudioClip: {fileID: 0}
+  woodLockAudioClip: {fileID: 0}
 --- !u!65 &4845820461473781502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30013,6 +30024,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1876550721131892659}
     m_Modifications:
+    - target: {fileID: 5445001799216907513, guid: 744e4a31ab2cb0844978d72f6359c151, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445001799216907513, guid: 744e4a31ab2cb0844978d72f6359c151, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5445001799216907513, guid: 744e4a31ab2cb0844978d72f6359c151, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.83
