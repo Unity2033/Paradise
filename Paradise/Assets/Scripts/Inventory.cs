@@ -23,7 +23,7 @@ public class Inventory : Singleton<Inventory>
 
         for (int i = 0; i < itemTransforms.Length; i++)
         {
-            itemTransforms[i].gameObject.GetComponent<Image>().color = Color.gray;
+            itemTransforms[i].parent.GetComponent<Image>().color = Color.gray;
         }
     }
 
@@ -52,7 +52,7 @@ public class Inventory : Singleton<Inventory>
         {
             Destroy(items[selectedKey]);
 
-            itemTransforms[selectedKey].GetComponent<Image>().color = Color.gray;
+            itemTransforms[selectedKey].parent.GetComponent<Image>().color = Color.gray;
 
             selectedKey = -1;
 
@@ -102,7 +102,7 @@ public class Inventory : Singleton<Inventory>
     {
         if (items[selectedKey] == null) return;
 
-        if (previousKey != -1) itemTransforms[previousKey].GetComponent<Image>().color = Color.gray;
-        itemTransforms[selectedKey].GetComponent<Image>().color = Color.red;
+        if (previousKey != -1) itemTransforms[previousKey].parent.GetComponent<Image>().color = Color.gray;
+        itemTransforms[selectedKey].parent.GetComponent<Image>().color = Color.red;
     }
 }
