@@ -16,16 +16,13 @@ public class Wood : Interaction
         woodLockAudioClip = AudioManager.Instance.GetAudioClip("Wood Lock");
     }
 
-
     string item = "Driver";
 
     public override void OnClick(Collider door)
     {
-        if (Inventory.Instance.ConfirmItem(item))
+        if (Inventory.Instance.UseItem(item))
         {
             AudioManager.Instance.Sound(woodBreakAudioClip);
-
-            Inventory.Instance.UseItem(item);
 
             LeftDrawer.layer = 8;
             RightDrawer.layer = 8;

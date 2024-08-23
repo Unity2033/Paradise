@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class ItemUIManager : MonoBehaviour
 {
-    [SerializeField] int itemKey;
+    [SerializeField] int selectedKey;
     [SerializeField] int previousKey;
 
     [SerializeField] string[] select;
 
     private void Awake()
     {
-        itemKey = previousKey = 0;
+        selectedKey = previousKey = 0;
 
         for (int i = 0; i < 5; i++)
         {
             GameObject.Find(select[i]).GetComponent<Image>().color = Color.gray;
         }
     }
+
     void Update()
     {
         ClickButton();
@@ -28,38 +29,38 @@ public class ItemUIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            itemKey = 0;
+            selectedKey = 0;
             ChangeColor();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            itemKey = 1;
+            selectedKey = 1;
             ChangeColor();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            itemKey = 2;
+            selectedKey = 2;
             ChangeColor();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            itemKey = 3;
+            selectedKey = 3;
             ChangeColor();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            itemKey = 4;
+            selectedKey = 4;
             ChangeColor();
         }
 
-        previousKey = itemKey;
+        previousKey = selectedKey;
     }
 
     public void ChangeColor()
     {
-        if (GameObject.Find(select[itemKey]).transform.GetChild(1).GetComponent<Image>().sprite == null) return;
+        if (GameObject.Find(select[selectedKey]).transform.GetChild(1).GetComponent<Image>().sprite == null) return;
 
         GameObject.Find(select[previousKey]).GetComponent<Image>().color = Color.gray;
-        GameObject.Find(select[itemKey]).GetComponent<Image>().color = Color.red;
+        GameObject.Find(select[selectedKey]).GetComponent<Image>().color = Color.red;
     }
 }

@@ -19,16 +19,15 @@ public class ToiletDoor : Interaction
 
     public override void OnClick(Collider door)
     {
-        if (Inventory.Instance.ConfirmItem(item))
+        if (Inventory.Instance.UseItem(item))
         {
             AudioManager.Instance.Sound(unLockAudioClip);
-
-            Inventory.Instance.UseItem(item);
 
             toiletDoor.layer = 8;
 
             Destroy(gameObject);
         }
+        else
         {
             AudioManager.Instance.Sound(LockAudioClip);
         }
