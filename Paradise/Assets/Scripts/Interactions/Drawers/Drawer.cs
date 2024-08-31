@@ -10,45 +10,36 @@ public class Drawer : Interaction
         get { return isOpen; }
     }
 
-    [SerializeField] protected GameObject drawer;
-
     protected float openTime = 0.2f;
     protected float openScale; // 자식 클래스에서 값을 할당
 
     protected Vector3 initialPosition;
-    protected Vector3 colliderInitialPosition;
-
     protected Vector3 openPosition;
-    protected Vector3 colliderOpenPosition;
 
     [SerializeField] AudioClip openDrawerAudio;
     [SerializeField] AudioClip closeDrawerAudio;
-
-
 
     private void Start()
     {
         openDrawerAudio = AudioManager.Instance.GetAudioClip("Oepn Drawer");
         closeDrawerAudio = AudioManager.Instance.GetAudioClip("Close Drawer");
 
-        initialPosition = drawer.transform.position;
-        colliderInitialPosition = transform.position;
+        initialPosition = transform.position;
 
-        openPosition = drawer.transform.TransformPoint(new Vector3(0, 0, openScale));
-        colliderOpenPosition = transform.TransformPoint(new Vector3(0, 0, openScale / 3f));
+        openPosition = transform.TransformPoint(new Vector3(0, 0, openScale));
     }
 
-    public override void OnClick(Collider drawerCollider)
+    public override void OnClick(Collider drawer)
     {
-        drawerCollider.enabled = false;
+        drawer.enabled = false;
 
-        if (isOpen) StartCoroutine(PushDoor(drawerCollider));
-        else StartCoroutine(PullDoor(drawerCollider));
+        if (isOpen) StartCoroutine(PushDoor(drawer));
+        else StartCoroutine(PullDoor(drawer));
 
         isOpen = !isOpen;
     }
 
-    private IEnumerator PullDoor(Collider drawerCollider)
+    private IEnumerator PullDoor(Collider drawer)
     {
         AudioManager.Instance.Sound(openDrawerAudio);
 
@@ -56,40 +47,35 @@ public class Drawer : Interaction
 
         while (initialTime < openTime)
         {
-            drawer.transform.position = Vector3.Lerp(initialPosition, openPosition, initialTime / openTime);
+            transform.position = Vector3.Lerp(initialPosition, openPosition, initialTime / openTime);
 
             initialTime += Time.deltaTime;
 
             yield return null;
         }
 
-        drawer.transform.position = openPosition;
+        transform.position = openPosition;
 
-        transform.position = colliderOpenPosition;
-
-        drawerCollider.enabled = true;
+        drawer.enabled = true;
     }
 
-    private IEnumerator PushDoor(Collider drawerCollider)
+    private IEnumerator PushDoor(Collider drawer)
     {
         AudioManager.Instance.Sound(closeDrawerAudio);
-
 
         float initialTime = 0f;
 
         while (initialTime < openTime)
         {
-            drawer.transform.position = Vector3.Lerp(openPosition, initialPosition, initialTime / openTime);
+            transform.position = Vector3.Lerp(openPosition, initialPosition, initialTime / openTime);
 
             initialTime += Time.deltaTime;
 
             yield return null;
         }
 
-        drawer.transform.position = initialPosition;
+        transform.position = initialPosition;
 
-        transform.position = colliderInitialPosition;
-
-        drawerCollider.enabled = true;
+        drawer.enabled = true;
     }
 }
