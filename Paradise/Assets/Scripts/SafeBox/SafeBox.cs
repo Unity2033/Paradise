@@ -25,7 +25,7 @@ public class SafeBox : Interaction
     {
         initialRotation = safeDoor.rotation;
 
-        openRotation = Quaternion.Euler(0, initialRotation.y + openAngle, 0);
+        openRotation = Quaternion.Euler(initialRotation.eulerAngles.x, initialRotation.eulerAngles.y + openAngle, initialRotation.eulerAngles.z);
     }
 
     public override void OnClick(Collider safe)
