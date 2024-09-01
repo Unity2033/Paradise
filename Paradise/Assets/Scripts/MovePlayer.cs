@@ -20,12 +20,22 @@ public class MovePlayer : MonoBehaviour
     {
         if (GameManager.Instance.State == false)
         {
-            rigidBody.freezeRotation = true;
+            rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+
             return;
         }
 
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.z = Input.GetAxisRaw("Vertical");
+
+        if (direction == Vector3.zero)
+        {       
+            rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            rigidBody.constraints =  RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
