@@ -31,15 +31,15 @@ public class Drawer : Interaction
 
     public override void OnClick(Collider drawer)
     {
-        drawer.enabled = false;
+        gameObject.layer = 0;
 
-        if (isOpen) StartCoroutine(PushDoor(drawer));
-        else StartCoroutine(PullDoor(drawer));
+        if (isOpen) StartCoroutine(CloseDrawer());
+        else StartCoroutine(OpenDrawer());
 
         isOpen = !isOpen;
     }
 
-    private IEnumerator PullDoor(Collider drawer)
+    private IEnumerator OpenDrawer()
     {
         AudioManager.Instance.Sound(openDrawerAudio);
 
@@ -56,13 +56,11 @@ public class Drawer : Interaction
 
         transform.position = openPosition;
 
-        drawer.enabled = true;
+        gameObject.layer = 8;
     }
 
-    private IEnumerator PushDoor(Collider drawer)
+    private IEnumerator CloseDrawer()
     {
-        AudioManager.Instance.Sound(closeDrawerAudio);
-
         float initialTime = 0f;
 
         while (initialTime < openTime)
@@ -74,8 +72,10 @@ public class Drawer : Interaction
             yield return null;
         }
 
+        AudioManager.Instance.Sound(closeDrawerAudio);
+
         transform.position = initialPosition;
 
-        drawer.enabled = true;
+        gameObject.layer = 8;
     }
 }
