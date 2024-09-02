@@ -9,8 +9,8 @@ public class SafeBox : Interaction
 
     protected float openTime = 0.6f;
 
-    [SerializeField] GameObject backGroundUI;
-    [SerializeField] GameObject safeUI;
+    // [SerializeField] GameObject backGroundUI;
+    // [SerializeField] GameObject safeUI;
     [SerializeField] Transform safeDoor;
     [SerializeField] GameObject cabinetDoor;
 
@@ -30,28 +30,28 @@ public class SafeBox : Interaction
 
     public override void OnClick(Collider safe)
     {
-        if (safeUI)
-        {
-            CursorManager.interactable = false;
-
-            CursorManager.ActiveMouse(true, CursorLockMode.None);
-
-            GameManager.Instance.State = false;
-
-            backGroundUI.SetActive(true);
-            safeUI.SetActive(true);
-            backGroundUI.transform.Find("ExitButton").GetComponent<Button>()
-                .onClick.AddListener(safeUI.GetComponent<SafeUI>().ExitButton);
-        }
-        else
-        {
+        // if (safeUI)
+        // {
+        //     CursorManager.interactable = false;
+        // 
+        //     CursorManager.ActiveMouse(true, CursorLockMode.None);
+        // 
+        //     GameManager.Instance.State = false;
+        // 
+        //     backGroundUI.SetActive(true);
+        //     safeUI.SetActive(true);
+        //     backGroundUI.transform.Find("ExitButton").GetComponent<Button>()
+        //         .onClick.AddListener(safeUI.GetComponent<SafeUI>().ExitButton);
+        // }
+        // else
+        // {
             if (routine != null) return;
 
             if (isOpen) routine = StartCoroutine(CloseDoor());
             else routine = StartCoroutine(OpenDoor());
 
             isOpen = !isOpen;
-        }
+        // }
     }
 
     private IEnumerator OpenDoor()
