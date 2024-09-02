@@ -372,6 +372,8 @@
 "Assets/Scripts/Interactions/Drawers/Drawer_Long.cs"
 "Assets/Scripts/Interactions/Drawers/Drawer_Short.cs"
 "Assets/Scripts/Interactions/Interaction.cs"
+"Assets/Scripts/Interactions/Keypad.cs"
+"Assets/Scripts/Interactions/KeypadInteractor.cs"
 "Assets/Scripts/Interactions/Pillow.cs"
 "Assets/Scripts/Interactions/Radio.cs"
 "Assets/Scripts/Interactions/RayInteractor.cs"
