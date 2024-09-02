@@ -72,8 +72,6 @@ public class Door : Interaction
             closeDoorAudio = AudioManager.Instance.GetAudioClip("Close Door");
         }
 
-        AudioManager.Instance.Sound(closeDoorAudio);
-
         float initialTime = 0f;
 
         while (initialTime < openTime)
@@ -84,6 +82,8 @@ public class Door : Interaction
 
             yield return null;
         }
+
+        AudioManager.Instance.Sound(closeDoorAudio);
 
         transform.rotation = initialRotation;
 

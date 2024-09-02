@@ -373,6 +373,7 @@
 "Assets/Scripts/Interactions/Drawers/Drawer_Short.cs"
 "Assets/Scripts/Interactions/Interaction.cs"
 "Assets/Scripts/Interactions/Pillow.cs"
+"Assets/Scripts/Interactions/Radio.cs"
 "Assets/Scripts/Interactions/RayInteractor.cs"
 "Assets/Scripts/Interactions/useItemInteraction/ExitDoor.cs"
 "Assets/Scripts/Interactions/useItemInteraction/Mirror.cs"
