@@ -37,7 +37,7 @@ public class MovePlayer : MonoBehaviour
             rigidBody.constraints =  RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Camera.main.enabled)
         {
             AudioManager.Instance.Scenery("Scenery");
         

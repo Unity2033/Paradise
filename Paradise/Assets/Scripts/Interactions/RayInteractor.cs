@@ -18,13 +18,7 @@ public class RayInteractor : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.State == false)
-        {
-            cursorController.SelectCursor(false);
-            return;
-        }
-
-        if (CursorManager.interactable == false)
+        if (GameManager.Instance.State == false || CursorManager.interactable == false)
         {
             cursorController.SelectCursor(false);
             return;

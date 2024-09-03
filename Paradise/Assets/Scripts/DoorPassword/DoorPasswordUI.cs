@@ -14,7 +14,7 @@ public class DoorPasswordUI : MonoBehaviour
 
     [SerializeField] GameObject door;
     [SerializeField] GameObject doorPassword;
-
+    
     [SerializeField] AudioClip closeAudioClip;
     [SerializeField] AudioClip clearAudioClip;
 
