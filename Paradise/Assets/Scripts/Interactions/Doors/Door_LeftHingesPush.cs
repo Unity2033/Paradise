@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class Door_LeftHingesPush : Door
+public class Door_LeftHingesPush : Door_OperatesOnlyOnce
 {
-    private void Start()
+    new private void Start()
     {
-        openRotation = Quaternion.Euler(initialRotation.eulerAngles.x, initialRotation.eulerAngles.y - openAngle, initialRotation.eulerAngles.z);
+       base.Start();
+
+       openRotation = Quaternion.Euler(initialRotation.eulerAngles.x, initialRotation.eulerAngles.y - openAngle, initialRotation.eulerAngles.z);
     }
 }
