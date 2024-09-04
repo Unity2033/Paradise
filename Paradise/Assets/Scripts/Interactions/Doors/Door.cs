@@ -19,12 +19,8 @@ public class Door : Interaction
     [SerializeField] AudioClip openDoorAudio;
     [SerializeField] AudioClip closeDoorAudio;
 
-    [SerializeField] Door_Handle door_Handle;
-
     private void Awake()
     {
-        door_Handle = GetComponentInChildren<Door_Handle>();
-
         initialRotation = transform.rotation;
     }
 
@@ -44,8 +40,6 @@ public class Door : Interaction
         {
             openDoorAudio = AudioManager.Instance.GetAudioClip("Open Door");
         }
-
-        if (door_Handle) yield return StartCoroutine(door_Handle.OpenHandling());
 
         AudioManager.Instance.Sound(openDoorAudio);
 

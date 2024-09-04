@@ -100,7 +100,11 @@ public class Inventory : Singleton<Inventory>
 
     public void ChangeColor()
     {
-        if (items[selectedKey] == null) return;
+        if (items[selectedKey] == null)
+        {
+            selectedKey = previousKey;
+            return;
+        }
 
         if (previousKey != -1)
         {
