@@ -4,7 +4,7 @@ using UnityEngine;
 public class Door_OperatesOnlyOnce : Interaction
 {
     protected float openTime = 0.5f;
-    protected float openAngle = 90f;
+    protected float openAngle = 110f;
 
     protected Quaternion initialRotation;
     protected Quaternion openRotation; // 자식 클래스에서 값을 할당
