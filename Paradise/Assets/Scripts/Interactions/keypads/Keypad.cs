@@ -32,7 +32,7 @@ public class Keypad : Interaction
     }
 
     public override void OnClick(Collider keypad)
-    {
+    {  
         CursorManager.interactable = false;
 
         CursorManager.ActiveMouse(true, CursorLockMode.None);

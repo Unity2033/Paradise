@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Mask
 {
@@ -11,6 +12,8 @@ public class RayInteractor : MonoBehaviour
     [SerializeField] CursorController cursorController;
     [SerializeField] float rayDistance = 1.2f;
     [SerializeField] LayerMask[] layerMask;
+
+    [SerializeField] Outline outLine;
 
     Ray ray;
     RaycastHit interactionHit;
@@ -32,6 +35,13 @@ public class RayInteractor : MonoBehaviour
             {
                 cursorController.SelectCursor(false, true);
 
+                outLine = interactionHit.collider.GetComponent<Outline>();
+
+                if (outLine != null)
+                {
+                    outLine.enabled = true;
+                }
+                
                 if (Input.GetMouseButtonDown(0))
                 {
                     Interaction interaction = interactionHit.collider.gameObject.GetComponentInParent<Interaction>();
@@ -39,8 +49,24 @@ public class RayInteractor : MonoBehaviour
                     if (interaction != null) interaction.OnClick(interactionHit.collider);
                 }
             }
-            else cursorController.SelectCursor(true);
+            else
+            {
+                cursorController.SelectCursor(true);
+
+                if (outLine != null)
+                {
+                    outLine.enabled = false;
+                }
+            }
         }
-        else cursorController.SelectCursor(true);
+        else
+        {
+            cursorController.SelectCursor(true);
+
+            if (outLine != null)
+            {
+                outLine.enabled = false;
+            }
+        }
     }
 }

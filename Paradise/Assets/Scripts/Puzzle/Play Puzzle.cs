@@ -20,7 +20,6 @@ public class PlayPuzzle : Interaction
     }
 
     public override void OnClick(Collider puzzle)
-
     {
         backGroundObj = Instantiate(backGroundUI);
         exitButton = backGroundObj.transform.Find("ExitButton").GetComponent<Button>();
