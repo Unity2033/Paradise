@@ -9,11 +9,11 @@ public enum Mask
 
 public class RayInteractor : MonoBehaviour
 {
-    [SerializeField] CursorController cursorController;
     [SerializeField] float rayDistance = 1.2f;
     [SerializeField] LayerMask[] layerMask;
 
     [SerializeField] Outline outLine;
+    [SerializeField] GameObject mouseIcon;
 
     Ray ray;
     RaycastHit interactionHit;
@@ -21,11 +21,7 @@ public class RayInteractor : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.State == false || CursorManager.interactable == false)
-        {
-            cursorController.SelectCursor(false);
-            return;
-        }
+        if (GameManager.Instance.State == false || CursorManager.interactable == false) return;
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -33,7 +29,7 @@ public class RayInteractor : MonoBehaviour
         {
             if (!Physics.Raycast(ray, out etcHit, rayDistance, layerMask[(int)Mask.ETC]) || interactionHit.distance < etcHit.distance)
             {
-                cursorController.SelectCursor(false, true);
+                mouseIcon.SetActive(true);
 
                 outLine = interactionHit.collider.GetComponent<Outline>();
 
@@ -51,7 +47,7 @@ public class RayInteractor : MonoBehaviour
             }
             else
             {
-                cursorController.SelectCursor(true);
+                mouseIcon.SetActive(false);
 
                 if (outLine != null)
                 {
@@ -61,7 +57,7 @@ public class RayInteractor : MonoBehaviour
         }
         else
         {
-            cursorController.SelectCursor(true);
+            mouseIcon.SetActive(false);
 
             if (outLine != null)
             {
