@@ -17,14 +17,11 @@ public class Inventory : Singleton<Inventory>
     int selectedKey = -1;
     int previousKey = -1;
 
+    int keyNumber = -1;
+
     new private void Awake()
     {
         base.Awake();
-
-        // for (int i = 0; i < itemTransforms.Length; i++)
-        // {
-        //     itemTransforms[i].parent.GetComponent<Image>().color = Color.gray;
-        // }
     }
 
     public void GetItem(string itemName)
@@ -56,6 +53,8 @@ public class Inventory : Singleton<Inventory>
 
             selectedKey = -1;
 
+            previousKey = -1;
+
             return true;
         }
 
@@ -64,41 +63,38 @@ public class Inventory : Singleton<Inventory>
 
     void Update()
     {
-        if (Input.anyKeyDown) ClickButton();   
+        if (Input.anyKeyDown) ClickButton(Input.inputString);   
     }
 
-    public void ClickButton()
+    public void ClickButton(string keyString)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedKey = 0;
-            ChangeColor();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            selectedKey = 1;
-            ChangeColor();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            selectedKey = 2;
-            ChangeColor();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            selectedKey = 3;
-            ChangeColor();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            selectedKey = 4;
-            ChangeColor();
-        }
+        if (!int.TryParse(keyString, out keyNumber)) return;
 
-        previousKey = selectedKey;
+        if (keyNumber < 1 || keyNumber > 5) return;
+
+        KeyCode keyCode = KeyCode.Alpha0 + keyNumber;
+
+        if (!Input.GetKeyDown(keyCode)) return;
+
+        selectedKey = keyNumber - 1;
+
+        if (selectedKey == previousKey)
+        {
+            itemTransforms[selectedKey].GetComponent<Image>().color = new Color(1, 1, 1);
+
+            previousKey = -1;
+
+            selectedKey = -1;
+        }
+        else
+        {
+            ChangeColor();
+
+            previousKey = selectedKey;
+        }
     }
 
-    public void ChangeColor()
+        public void ChangeColor()
     {
         if (items[selectedKey] == null)
         {
