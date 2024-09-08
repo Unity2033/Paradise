@@ -70,7 +70,7 @@ public class Inventory : Singleton<Inventory>
 
     void Update()
     {
-        if (Input.anyKeyDown) ClickButton(Input.inputString);   
+        if (Input.anyKeyDown) ClickButton(Input.inputString);       
     }
 
     public void ClickButton(string keyString)
