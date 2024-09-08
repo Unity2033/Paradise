@@ -22,10 +22,10 @@ public class Pillow : Interaction
 
     public override void OnClick(Collider pillow)
     {
-        StartCoroutine(pullPillow());
+        StartCoroutine(pullPillow(pillow));
     }
 
-    private IEnumerator pullPillow()
+    private IEnumerator pullPillow(Collider pillow)
     {
         AudioManager.Instance.Sound(pillowAudioClip);
 
@@ -42,7 +42,9 @@ public class Pillow : Interaction
 
         transform.position = pullPosition;
 
-        Destroy(this);
+        Destroy(pillow.gameObject.GetComponent<Outline>());
+
+        Destroy(pillow);
     }
 
 }
