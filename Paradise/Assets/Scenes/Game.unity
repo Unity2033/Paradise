@@ -17068,6 +17068,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   hand: {fileID: 0}
+  selectedKey: -1
+  previousKey: -1
 --- !u!1 &1962738287312167370
 GameObject:
   m_ObjectHideFlags: 0

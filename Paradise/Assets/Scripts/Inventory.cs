@@ -17,8 +17,8 @@ public class Inventory : Singleton<Inventory>
 
     [SerializeField] Transform hand;
 
-    int selectedKey = -1;
-    int previousKey = -1;
+    [SerializeField] int selectedKey = -1;
+    [SerializeField] int previousKey = -1;
 
     int keyNumber = -1;
 
@@ -60,7 +60,13 @@ public class Inventory : Singleton<Inventory>
         {
             Destroy(items[selectedKey]);
 
-            UnequipItem();
+            Destroy(actualItems[selectedKey]);
+
+            itemTransforms[selectedKey].GetComponent<Image>().color = new Color(1, 1, 1);
+
+            previousKey = -1;
+
+            selectedKey = -1;
 
             return true;
         }
@@ -91,7 +97,12 @@ public class Inventory : Singleton<Inventory>
 
     public void EquipItem()
     {
-        if (items[selectedKey] == null) return;
+        if (items[selectedKey] == null)
+        {
+            selectedKey = previousKey;
+
+            return;
+        }
 
         if (previousKey != -1)
         {
