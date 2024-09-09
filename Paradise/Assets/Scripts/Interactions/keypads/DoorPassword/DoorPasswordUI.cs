@@ -18,7 +18,7 @@ public class DoorPasswordUI : MonoBehaviour
     [SerializeField] AudioClip closeAudioClip;
     [SerializeField] AudioClip clearAudioClip;
 
-    char[] uiNumbers = { 'K', 'L', 'E', 'Y' };
+    char[] uiNumbers = { 'M', 'L', 'F', 'X' };
 
     private void Start()
     {
