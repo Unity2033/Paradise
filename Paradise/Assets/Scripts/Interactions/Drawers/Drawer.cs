@@ -10,6 +10,7 @@ public class Drawer : Interaction
         get { return isOpen; }
     }
 
+    float initialTime;
     protected float openTime = 0.2f;
     protected float openScale; // 자식 클래스에서 값을 할당
 
@@ -43,7 +44,7 @@ public class Drawer : Interaction
     {
         AudioManager.Instance.Sound(openDrawerAudio);
 
-        float initialTime = 0f;
+        initialTime = 0f;
 
         while (initialTime < openTime)
         {
@@ -61,7 +62,7 @@ public class Drawer : Interaction
 
     private IEnumerator CloseDrawer()
     {
-        float initialTime = 0f;
+        initialTime = 0f;
 
         while (initialTime < openTime)
         {

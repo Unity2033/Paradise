@@ -29,7 +29,7 @@ public class Inventory : Singleton<Inventory>
         hand = transform.parent.Find("Hand");
     }
 
-    public void GetItem(string itemName, GameObject item)
+    public void GetItem(string itemName, GameObject item, Vector3 position, Quaternion rotation)
     {
         for (int i = 0; i < items.Length; i++)
         {
@@ -44,8 +44,8 @@ public class Inventory : Singleton<Inventory>
                 actualItems[i] = item;
 
                 actualItems[i].transform.SetParent(hand);
-                actualItems[i].transform.localPosition = Vector3.zero;
-                actualItems[i].transform.localRotation = Quaternion.identity;
+                actualItems[i].transform.localPosition = position;
+                actualItems[i].transform.localRotation = rotation;
 
                 break;
             }

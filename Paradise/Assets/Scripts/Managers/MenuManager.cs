@@ -37,9 +37,9 @@ public class MenuManager : MonoBehaviour
 
         StartCoroutine(FadeManager.Instance.FadeIn());
 
-        if(textManager.BeforeStroyCheck == false)
+        if(textManager != null && textManager.BeforeStroyCheck == false)
         {
-            StartCoroutine(textManager.Beforestory());
+            // StartCoroutine(textManager.Beforestory());
         }
 
         GameManager.Instance.State = true;
