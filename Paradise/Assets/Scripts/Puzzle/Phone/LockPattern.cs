@@ -37,7 +37,7 @@ public class LockPattern : MonoBehaviour
             return;
         }
 
-        rightPattern = new List<int> { 3, 2, 4, 1, 5, 9, 6, 8, 7 };
+        rightPattern = new List<int> { 2, 4, 8, 9, 5, 7 };
         myPattern = new List<int>();
 
         circles = new Dictionary<int, CircleId>();

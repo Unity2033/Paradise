@@ -551,7 +551,6 @@ GameObject:
   - component: {fileID: 7795195259937128902}
   - component: {fileID: 8075822302870770285}
   - component: {fileID: 6034457421031627277}
-  - component: {fileID: 8263974242257372425}
   m_Layer: 0
   m_Name: Cake5
   m_TagString: Untagged
@@ -624,19 +623,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8263974242257372425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6961153533548609288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbeef37e47b6747bc442ac45add05b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 54596669c5621a94cb5fe6c8541ca3ca, type: 2}
 --- !u!1 &7787910103676490222
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +895,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163af9d28f49e73489a446d566ee2d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newTransform: {fileID: 0}
+  platePutDown: {fileID: 0}
+  ouch: {fileID: 0}
 --- !u!65 &5696973817264051617
 BoxCollider:
   m_ObjectHideFlags: 0

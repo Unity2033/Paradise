@@ -11,6 +11,10 @@ public class Oven : Interaction
     
     [SerializeField] Material fire;
 
+    [SerializeField] AudioClip ovenOnButton;
+    [SerializeField] AudioClip ovenRunning;
+    [SerializeField] AudioClip ovenStopped;
+
     float initialTime;
     float time = 3f;
 
@@ -19,25 +23,41 @@ public class Oven : Interaction
 
     Color color;
 
+    Coroutine routine;
+
     WaitForSeconds waitForSeconds = new WaitForSeconds(3f);
 
     private void Start()
     {
         ovenDoor = transform.parent.Find("Oven Door").gameObject;
+
+        color.r = 0;
+
+        fire.SetColor("_SpecColor", color);
+
+        ovenOnButton = Resources.Load<AudioClip>("Oven Button");
+        ovenRunning = Resources.Load<AudioClip>("Oven Running");
+        ovenStopped = Resources.Load<AudioClip>("Oven Stopped");
     }
     
     public override void OnClick(Collider ovenButton)
     {
         if (ovenDoor.GetComponent<Door_Oven>().isOpen == true) return;
 
+        if (routine != null) return;
+
+        AudioManager.Instance.Sound(ovenOnButton);
+
         ovenDoor.layer = 0;
 
-        StartCoroutine(RaiseTheTemperature());
+        routine = StartCoroutine(RaiseTheTemperature());
     }
 
     IEnumerator RaiseTheTemperature()
     {
         initialTime = 0;
+
+        AudioManager.Instance.Sound(ovenRunning);
 
         while (initialTime < time)
         {
@@ -88,6 +108,10 @@ public class Oven : Interaction
         color.r = 0f;
 
         fire.SetColor("_SpecColor", color);
+
+        AudioManager.Instance.Sound(ovenStopped);
+
+        routine = null;
 
         ovenDoor.layer = 8;
     }
