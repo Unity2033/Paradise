@@ -13,9 +13,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] SelectButton [] buttons;
 
     [SerializeField] GameObject methodPopUp;
-
-    [SerializeField] TextManager textManager;
-
     private void Awake()
     { 
         for (int i = 0; i < buttonNames.Length; i++)
@@ -36,12 +33,7 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.Sound(audioClip);
 
         StartCoroutine(FadeManager.Instance.FadeIn());
-
-        if(textManager != null && textManager.BeforeStroyCheck == false)
-        {
-            // StartCoroutine(textManager.Beforestory());
-        }
-
+        
         GameManager.Instance.State = true;
 
         AudioManager.Instance.Scenery(null);
