@@ -9,7 +9,7 @@ public class FadeManager : Singleton<FadeManager>
     [SerializeField] Image titleImage;
     [SerializeField] Image screenImage;
 
-    public IEnumerator FadeIn()
+    public IEnumerator FadeIn(float coefficient = 1)
     {
         titleImage.gameObject.SetActive(false);
 
@@ -21,7 +21,7 @@ public class FadeManager : Singleton<FadeManager>
 
         while (color.a >= 0.0f)
         {
-            color.a -= Time.deltaTime;
+            color.a -= coefficient * Time.deltaTime;
 
             screenImage.color = color;
 
@@ -31,7 +31,7 @@ public class FadeManager : Singleton<FadeManager>
         screenImage.gameObject.SetActive(false);
     }
 
-    public IEnumerator FadeOut()
+    public IEnumerator FadeOut(float coefficient = 1)
     {
         Color color = screenImage.color;
 
@@ -41,7 +41,7 @@ public class FadeManager : Singleton<FadeManager>
 
         while (color.a <= 1.0f)
         {
-            color.a += Time.deltaTime;
+            color.a += coefficient * Time.deltaTime;
 
             screenImage.color = color;
 
