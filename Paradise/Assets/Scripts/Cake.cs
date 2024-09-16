@@ -9,5 +9,7 @@ public class Cake : MonoBehaviour
     public void ChangeMaterial()
     {
         gameObject.GetComponent<Renderer>().material = material;
+
+        Destroy(this);
     }
 }

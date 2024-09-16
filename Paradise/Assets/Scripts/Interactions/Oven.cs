@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Oven : Interaction
 {
+    [SerializeField] public bool isFire = false;
+
     [SerializeField] GameObject ovenDoor;
     
     [SerializeField] public GameObject cakes;
@@ -79,6 +81,8 @@ public class Oven : Interaction
         if (cakes != null) 
         { 
             cakes.BroadcastMessage("ChangeMaterial", SendMessageOptions.DontRequireReceiver);
+
+            isFire = true;
 
             cakes.layer = 8;
         }
