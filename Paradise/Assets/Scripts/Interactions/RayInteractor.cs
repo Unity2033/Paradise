@@ -4,7 +4,7 @@ public enum Mask
 {
     INTERACTION,
     MOUSE,
-    MAGNIFIER,
+    EYE,
     ETC
 };
 
@@ -16,14 +16,14 @@ public class RayInteractor : MonoBehaviour
     [SerializeField] Outline outLine;
 
     [SerializeField] GameObject mouseIcon;
-    [SerializeField] GameObject magnifierIcon;
+    [SerializeField] GameObject eyeIcon;
 
     Ray ray;
 
     RaycastHit interactionHit;
     RaycastHit etcHit;
     RaycastHit mouseHit;
-    RaycastHit magnifierHit;
+    RaycastHit eyeHit;
     
     void Update()
     {
@@ -35,7 +35,7 @@ public class RayInteractor : MonoBehaviour
         {
             switch (interactionHit.collider.gameObject.layer)
             {
-                case 7: SwitchIcon(magnifierIcon, interactionHit);
+                case 7: SwitchIcon(eyeIcon, interactionHit);
                     break;
                 case 8: SwitchIcon(mouseIcon, interactionHit);
                     break;
@@ -52,20 +52,20 @@ public class RayInteractor : MonoBehaviour
             
             try
             {
-                if (mouseIcon.activeSelf && magnifierIcon.activeSelf)
+                if (mouseIcon.activeSelf && eyeIcon.activeSelf)
                 {
                     Physics.Raycast(ray, out mouseHit, rayDistance, layerMask[(int)Mask.MOUSE]);
-                    Physics.Raycast(ray, out magnifierHit, rayDistance, layerMask[(int)Mask.MAGNIFIER]);
+                    Physics.Raycast(ray, out eyeHit, rayDistance, layerMask[(int)Mask.EYE]);
 
-                    if (mouseHit.distance < magnifierHit.distance)
+                    if (mouseHit.distance < eyeHit.distance)
                     {
-                        magnifierIcon.SetActive(false);
+                        eyeIcon.SetActive(false);
                         hit = mouseHit;
                     }
                     else
                     {
                         mouseIcon.SetActive(false);
-                        hit = magnifierHit;
+                        hit = eyeHit;
                     }
                 }
 
@@ -95,7 +95,7 @@ public class RayInteractor : MonoBehaviour
     {
         mouseIcon.SetActive(false);
 
-        magnifierIcon.SetActive(false);
+        eyeIcon.SetActive(false);
 
         if (outLine != null)
         {

@@ -5,11 +5,6 @@ public class Drawer : Interaction
 {
     [SerializeField] protected bool isOpen = false;
 
-    public override bool State
-    {
-        get { return isOpen; }
-    }
-
     float initialTime;
     protected float openTime = 0.2f;
     protected float openScale; // 자식 클래스에서 값을 할당
