@@ -8,8 +8,6 @@ public class Keypad : Interaction
 {
     [SerializeField] GameObject keypadCamera;
 
-    public float fadeTime = 0.3f;
-
     private void Start()
     {
         keypadCamera = transform.Find("Camera").gameObject;
@@ -17,8 +15,6 @@ public class Keypad : Interaction
 
     public override void OnClick(Collider keypad)
     {
-        CursorManager.interactable = false;
-
         CursorManager.ActiveMouse(true, CursorLockMode.None);
 
         GameManager.Instance.State = false;

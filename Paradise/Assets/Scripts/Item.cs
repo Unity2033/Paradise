@@ -19,7 +19,7 @@ public class Item : Interaction
         outline = gameObject.GetComponent<Outline>();
     }
 
-    public string ItemNam
+    public string ItemName
     {
         get { return itemName; }
     }
@@ -38,7 +38,7 @@ public class Item : Interaction
     {
         AudioManager.Instance.Sound(collectionAudioClip);
 
-        Inventory.Instance.GetItem(item.GetComponent<Item>().itemName, item.gameObject, item.GetComponent<Item>().itemPosition, item.GetComponent<Item>().ItemRotation);
+        Inventory.Instance.GetItem(ItemName, item.gameObject, ItemPosition, ItemRotation);
 
         Destroy(outline);
 
