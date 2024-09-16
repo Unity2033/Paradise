@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class KeypadInteractor : MonoBehaviour
 {
+    [SerializeField] bool success = false;
+
+    [SerializeField] string password;
+
     [SerializeField] Image image;
     [SerializeField] Text text;
 
+    [SerializeField] GameObject door;
+    [SerializeField] GameObject mainCamera;
     [SerializeField] Camera keypadCamera;
 
     [SerializeField] AudioClip keyAudio;
@@ -26,7 +33,10 @@ public class KeypadInteractor : MonoBehaviour
     Vector3 initialPosition;
     Vector3 pressPosition;
 
-    protected string password;
+    string Password 
+    { 
+        get { return password; } 
+    }
 
     private void Awake()
     {
@@ -36,11 +46,26 @@ public class KeypadInteractor : MonoBehaviour
 
         keypadCamera = GetComponent<Camera>();
 
+        mainCamera = Camera.main.gameObject;
+
         color = image.color;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(FadeManager.Instance.SwitchCamera(mainCamera, gameObject));
+
+            GameManager.Instance.State = true;
+
+            CursorManager.ActiveMouse(false, CursorLockMode.Locked);
+
+            CursorManager.interactable = true;
+        }
+
+        if (success == true) return;
+
         ray = keypadCamera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit, distance))
@@ -60,17 +85,14 @@ public class KeypadInteractor : MonoBehaviour
                     else Fail();
                 }
             }
-        } 
+        }
     }
 
     void ChangeColor()
     {
-        image.color = color;
-    }
+        text.text = "";
 
-    void DestroyThis()
-    {
-        Destroy(this);
+        image.color = color;
     }
 
     void Succeed()
@@ -79,7 +101,7 @@ public class KeypadInteractor : MonoBehaviour
 
         image.color = Color.green;
 
-        Invoke("DestroyThis", 0.25f);
+        success = true;
     }
 
     void Fail()
@@ -87,8 +109,6 @@ public class KeypadInteractor : MonoBehaviour
         AudioManager.Instance.Sound(failAudio);
 
         image.color = Color.red;
-
-        text.text = "";
 
         Invoke("ChangeColor", 0.6f);
     }
@@ -122,13 +142,6 @@ public class KeypadInteractor : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(ReleaseTheKey(key, pressPosition, initialPosition));
-    }
-
-    IEnumerator ReleaseTheKey(Transform key, Vector3 pressPosition, Vector3 initialPosition)
-    {
-        time = 0f;
-
         while (time < pressTime)
         {
             key.localPosition = Vector3.Lerp(pressPosition, initialPosition, time / pressTime);
@@ -139,5 +152,21 @@ public class KeypadInteractor : MonoBehaviour
         }
 
         key.localPosition = initialPosition;
+    }
+
+    private void OnDisable()
+    {
+        if (success)
+        {
+            Destroy(transform.parent.GetComponent<BoxCollider>());
+
+            door.layer = 8;
+            transform.parent.gameObject.layer = 0;
+            transform.parent.parent.gameObject.layer = 8;
+
+            Destroy(gameObject);
+        }
+
+        transform.parent.GetComponent<BoxCollider>().enabled = true;
     }
 }

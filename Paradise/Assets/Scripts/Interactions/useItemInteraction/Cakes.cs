@@ -5,8 +5,6 @@ public class Cakes : Interaction
 {
     string item = "Cakes";
 
-    Oven ovenButton;
-
     [SerializeField] AudioClip platePutDown;
 
     private void Start()
@@ -24,9 +22,9 @@ public class Cakes : Interaction
 
             cakes.transform.SetParent(transform.parent);
 
-            ovenButton = oven.transform.parent.Find("Oven Button").GetComponent<Oven>();
+            oven.transform.parent.Find("Oven Button").GetComponent<Oven>().cakes = cakes;
 
-            ovenButton.cakes = cakes;
+            oven.transform.parent.Find("Oven Door").GetComponent<Door_Oven>().cakes = cakes;
 
             Destroy(oven.gameObject);
         }

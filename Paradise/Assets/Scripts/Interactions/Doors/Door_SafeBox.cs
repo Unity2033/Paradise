@@ -7,6 +7,7 @@ public class Door_SafeBox : Door
 {
     [SerializeField] Transform safeDoor;
     [SerializeField] GameObject cabinetDoor;
+    [SerializeField] GameObject key;
 
     private void Start()
     {
@@ -50,10 +51,14 @@ public class Door_SafeBox : Door
         safeDoor.rotation = openRotation;
     
         safe.enabled = true;
+
+        key.layer = 8;
     }
     
     new private IEnumerator CloseDoor(Collider safe)
     {
+        key.layer = 0;
+
         float initialTime = 0f;
     
         cabinetDoor.layer = 8;
