@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_RightHingesPush : Door_OperatesOnlyOnce
+public class DoorRightHingesPush : DoorOperatesOnlyOnce
 {
     new private void Start()
     {

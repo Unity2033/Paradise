@@ -3673,21 +3673,6 @@ MonoBehaviour:
   isOpen: 0
   openDoorAudio: {fileID: 0}
   closeDoorAudio: {fileID: 0}
---- !u!114 &751056728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7988542571324392128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!65 &758578298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4168,8 +4153,8 @@ GameObject:
   - component: {fileID: 855294053}
   - component: {fileID: 855294057}
   - component: {fileID: 855294056}
-  - component: {fileID: 855294055}
   - component: {fileID: 855294054}
+  - component: {fileID: 855294058}
   m_Layer: 8
   m_Name: Cabinet2_Door
   m_TagString: Untagged
@@ -4213,21 +4198,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.93762314, y: 0.7945526, z: 0.073754}
   m_Center: {x: 0.48233044, y: 0.3972763, z: 0.036877}
---- !u!114 &855294055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855294052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!23 &855294056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4278,6 +4248,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855294052}
   m_Mesh: {fileID: 4300002, guid: 72922a9b9662c8a4593a788990aa2334, type: 3}
+--- !u!114 &855294058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855294052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!1 &857607845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5806,21 +5791,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5718779, y: 0.7945526, z: 0.05}
   m_Center: {x: 0.28477153, y: 0.3972763, z: 0.015}
---- !u!114 &1031545447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5215713521941225153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!1 &1034805547
 GameObject:
   m_ObjectHideFlags: 0
@@ -8273,21 +8243,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496633852}
   m_CullTransparentMesh: 1
---- !u!114 &1573576534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6170440224668249292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!1 &1588565917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,8 +8631,8 @@ GameObject:
   - component: {fileID: 1674820745}
   - component: {fileID: 1674820749}
   - component: {fileID: 1674820748}
-  - component: {fileID: 1674820747}
   - component: {fileID: 1674820746}
+  - component: {fileID: 1674820750}
   m_Layer: 8
   m_Name: Cabinet2_Door
   m_TagString: Untagged
@@ -8721,21 +8676,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.93762314, y: 0.7945526, z: 0.073754}
   m_Center: {x: 0.48233044, y: 0.3972763, z: 0.036877}
---- !u!114 &1674820747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674820744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!23 &1674820748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8786,6 +8726,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674820744}
   m_Mesh: {fileID: 4300002, guid: 72922a9b9662c8a4593a788990aa2334, type: 3}
+--- !u!114 &1674820750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674820744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!114 &1690704597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8799,6 +8754,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
+  openTime: 0.5
+  openAngle: 90
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  openRotation: {x: 0, y: 0, z: 0, w: 0}
   openDoorAudio: {fileID: 0}
   closeDoorAudio: {fileID: 0}
 --- !u!1 &1717910631 stripped
@@ -9060,21 +9019,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 2.6, z: 1.6}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1840384638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7150461331507455287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!1 &1845409367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9021013368469140504, guid: b0c342e5c6633a0419605c56eb2963a2, type: 3}
@@ -9390,7 +9334,7 @@ GameObject:
   - component: {fileID: 1900530604}
   - component: {fileID: 1900530603}
   - component: {fileID: 1900530602}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door_Room_Entry_LOD_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9691,21 +9635,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5718779, y: 0.7945526, z: 0.05}
   m_Center: {x: 0.28477153, y: 0.3972763, z: 0.015}
---- !u!114 &1939019953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5215713521313321239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!1 &1940708875
 GameObject:
   m_ObjectHideFlags: 0
@@ -9875,11 +9804,11 @@ GameObject:
   - component: {fileID: 1953131019}
   - component: {fileID: 1953131021}
   m_Layer: 7
-  m_Name: Camera
+  m_Name: Door Keypad Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &1953131018
 RectTransform:
@@ -9968,7 +9897,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1953131017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5d12a2b3ca0364db01b4497a02e803, type: 3}
+  m_Script: {fileID: 11500000, guid: afea9db4cc59f0e45a2232e34476636b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   success: 0
@@ -10184,8 +10113,8 @@ GameObject:
   - component: {fileID: 1988350485}
   - component: {fileID: 1988350489}
   - component: {fileID: 1988350488}
-  - component: {fileID: 1988350487}
   - component: {fileID: 1988350486}
+  - component: {fileID: 1988350490}
   m_Layer: 8
   m_Name: Cabinet2_Door
   m_TagString: Untagged
@@ -10229,21 +10158,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.93762314, y: 0.7945526, z: 0.073754}
   m_Center: {x: 0.48233044, y: 0.3972763, z: 0.036877}
---- !u!114 &1988350487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988350484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!23 &1988350488
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10294,6 +10208,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988350484}
   m_Mesh: {fileID: 4300002, guid: 72922a9b9662c8a4593a788990aa2334, type: 3}
+--- !u!114 &1988350490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988350484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!1 &2001654098
 GameObject:
   m_ObjectHideFlags: 0
@@ -10576,6 +10505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
+  openTime: 0.5
+  openAngle: 90
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  openRotation: {x: 0, y: 0, z: 0, w: 0}
   openDoorAudio: {fileID: 0}
   closeDoorAudio: {fileID: 0}
 --- !u!1 &2138453208
@@ -11891,7 +11824,7 @@ GameObject:
   - component: {fileID: 1111165093632306559}
   - component: {fileID: 5929179974038325055}
   - component: {fileID: 5591770405937524039}
-  - component: {fileID: 9133037365216823711}
+  - component: {fileID: 5929179974038325056}
   m_Layer: 0
   m_Name: Cabinet_2_BathRoom_Sink_Door
   m_TagString: Untagged
@@ -18973,7 +18906,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &2746144375619301117
 MeshFilter:
@@ -24130,8 +24063,8 @@ GameObject:
   - component: {fileID: 2354966384237683187}
   - component: {fileID: 3653060700879813618}
   - component: {fileID: 7864406561755766967}
-  - component: {fileID: 1939019953}
   - component: {fileID: 1939019952}
+  - component: {fileID: 7864406561755766968}
   m_Layer: 0
   m_Name: Cabinet_5_Door
   m_TagString: Untagged
@@ -24150,8 +24083,8 @@ GameObject:
   - component: {fileID: 2354966384731893285}
   - component: {fileID: 3653060701493556260}
   - component: {fileID: 7864406561293283169}
-  - component: {fileID: 1031545447}
   - component: {fileID: 1031545446}
+  - component: {fileID: 7864406561293283170}
   m_Layer: 8
   m_Name: Cabinet_5_Door
   m_TagString: Untagged
@@ -24408,21 +24341,6 @@ Transform:
   - {fileID: 1658625932539994532}
   m_Father: {fileID: 4047602883822715102}
   m_LocalEulerAnglesHint: {x: -0.5, y: 0, z: 0}
---- !u!114 &5353899376473229576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771522607787725750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!1 &5361301709272248894
 GameObject:
   m_ObjectHideFlags: 0
@@ -25320,7 +25238,7 @@ GameObject:
   - component: {fileID: 5316277219089554107}
   - component: {fileID: 4942733818780932630}
   - component: {fileID: 5428749741738428947}
-  - component: {fileID: 5353899376473229576}
+  - component: {fileID: 5771522607787725751}
   m_Layer: 8
   m_Name: Cabinet_1_BathRoom_Door
   m_TagString: Untagged
@@ -25328,6 +25246,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5771522607787725751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771522607787725750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!33 &5785492156337441497
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25805,6 +25738,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5929179974038325056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426479710659537914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!1 &5931361790663653342
 GameObject:
   m_ObjectHideFlags: 0
@@ -26177,7 +26125,7 @@ GameObject:
   - component: {fileID: 1222336454297699750}
   - component: {fileID: 7492388687975686811}
   - component: {fileID: 8271397150856213925}
-  - component: {fileID: 1573576534}
+  - component: {fileID: 8271397150856213926}
   m_Layer: 8
   m_Name: Fridge_1_Door_1
   m_TagString: Untagged
@@ -28163,7 +28111,7 @@ GameObject:
   - component: {fileID: 6279368814806325659}
   - component: {fileID: 3666816909349840716}
   - component: {fileID: 5765959463435455393}
-  - component: {fileID: 1840384638}
+  - component: {fileID: 7150461331507455288}
   m_Layer: 8
   m_Name: Fridge_1_Door_2
   m_TagString: Untagged
@@ -28171,6 +28119,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7150461331507455288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150461331507455287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!114 &7180934003437324436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29223,12 +29186,12 @@ GameObject:
   - component: {fileID: 2983067678131366141}
   - component: {fileID: 3982805509513530805}
   - component: {fileID: 6882024557072776448}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bed_1.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7849909226613306280
 Transform:
@@ -29292,6 +29255,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7864406561293283170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215713521941225153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!23 &7864406561755766967
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29334,6 +29312,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7864406561755766968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215713521313321239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!1 &7871697334239003194
 GameObject:
   m_ObjectHideFlags: 0
@@ -29710,7 +29703,7 @@ GameObject:
   - component: {fileID: 5580033160687911198}
   - component: {fileID: 3170752910166860360}
   - component: {fileID: 4440699575473880141}
-  - component: {fileID: 751056728}
+  - component: {fileID: 7988542571324392129}
   m_Layer: 8
   m_Name: Cabinet1_Door
   m_TagString: Untagged
@@ -29718,6 +29711,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7988542571324392129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988542571324392128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!114 &7996758683263567620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30312,6 +30320,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.93762314, y: 1.8795888, z: 0.09009969}
   m_Center: {x: 0.46853268, y: 0.9397944, z: 0.045049846}
+--- !u!114 &8271397150856213926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170440224668249292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed117eb2692456746bd86dc66003481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  openDoorAudio: {fileID: 0}
+  closeDoorAudio: {fileID: 0}
 --- !u!1 &8281699825998578023
 GameObject:
   m_ObjectHideFlags: 0
@@ -30889,7 +30912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ac6cc8f477a0444b58b7c3bdbbf69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadCamera: {fileID: 0}
+  keypadCamera: {fileID: 1953131017}
 --- !u!33 &8602522277922063715
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32160,21 +32183,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5432989223167758960}
   m_Mesh: {fileID: 7086047577642574214, guid: f073432605ef2a84c8fd6d135c5123fb, type: 3}
---- !u!114 &9133037365216823711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426479710659537914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1051ff41ac2fa47af4583aa714cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  openDoorAudio: {fileID: 0}
-  closeDoorAudio: {fileID: 0}
 --- !u!4 &9143508859439183008
 Transform:
   m_ObjectHideFlags: 0

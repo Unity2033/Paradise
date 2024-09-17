@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door_LeftHingesPush : Door_OperatesOnlyOnce
+public class DoorLeftHingesPush : DoorOperatesOnlyOnce
 {
     new private void Start()
     {

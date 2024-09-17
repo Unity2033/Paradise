@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Door_SafeBox : Door
+public class SafeBox : Door
 {
     [SerializeField] Transform safeDoor;
     [SerializeField] GameObject cabinetDoor;

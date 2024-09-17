@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Door_OperatesOnlyOnce : Interaction
+public class DoorOperatesOnlyOnce : Interaction
 {
     protected float openTime = 0.5f;
     protected float openAngle = 110f;
@@ -12,7 +12,7 @@ public class Door_OperatesOnlyOnce : Interaction
     [SerializeField] AudioClip openDoorAudio;
     [SerializeField] AudioClip closeDoorAudio;
 
-    [SerializeField] Door_Handle handle;
+    [SerializeField] DoorHandle handle;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Door_OperatesOnlyOnce : Interaction
 
     protected void Start()
     {
-        handle = transform.Find("Door_Handle").gameObject.GetComponent<Door_Handle>();
+        handle = transform.Find("Door_Handle").gameObject.GetComponent<DoorHandle>();
     }
 
     public override void OnClick(Collider door)

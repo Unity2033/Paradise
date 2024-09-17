@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door_LeftHingesPull : Door
+public class DoorLeftHingesPull : Door
 {
     private void Start()
     {
