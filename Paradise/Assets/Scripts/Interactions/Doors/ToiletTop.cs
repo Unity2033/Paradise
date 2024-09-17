@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Toilet : Door
+public class ToiletTop : Door
 {
     private void Start()
     {

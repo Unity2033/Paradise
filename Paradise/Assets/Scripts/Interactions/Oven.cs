@@ -44,7 +44,7 @@ public class Oven : Interaction
     
     public override void OnClick(Collider ovenButton)
     {
-        if (ovenDoor.GetComponent<Door_Oven>().isOpen == true) return;
+        if (ovenDoor.GetComponent<DoorOven>().isOpen == true) return;
 
         if (routine != null) return;
 

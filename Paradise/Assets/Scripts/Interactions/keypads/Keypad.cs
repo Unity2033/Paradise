@@ -10,7 +10,7 @@ public class Keypad : Interaction
 
     private void Start()
     {
-        keypadCamera = transform.Find("Camera").gameObject;
+        if (keypadCamera == null) keypadCamera = transform.Find("Camera").gameObject;
     }
 
     public override void OnClick(Collider keypad)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_FrontOnTheSafe : Door_LeftHingesPull
+public class DoorFrontOnTheSafe : DoorLeftHingesPull
 {
     [SerializeField] GameObject keypad;
 

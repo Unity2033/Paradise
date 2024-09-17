@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeypadCamera_Door : MonoBehaviour
+public class KeypadCameraDoor : MonoBehaviour
 {
     [SerializeField] bool success = false;
 

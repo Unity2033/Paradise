@@ -24,7 +24,7 @@ public class Cakes : Interaction
 
             oven.transform.parent.Find("Oven Button").GetComponent<Oven>().cakes = cakes;
 
-            oven.transform.parent.Find("Oven Door").GetComponent<Door_Oven>().cakes = cakes;
+            oven.transform.parent.Find("Oven Door").GetComponent<DoorOven>().cakes = cakes;
 
             Destroy(oven.gameObject);
         }

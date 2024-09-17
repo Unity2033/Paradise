@@ -1,11 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class Door_FrontOnTheMitts : Door_LeftHingesPull
+public class DoorOven : Door
 {
-    [SerializeField] GameObject mitts;
+    [SerializeField] public GameObject cakes;
+
+    private void Start()
+    {
+        openRotation = Quaternion.Euler(initialRotation.eulerAngles.x + openAngle, initialRotation.eulerAngles.y, initialRotation.eulerAngles.z);
+    }
 
     public override void OnClick(Collider door)
     {
@@ -21,12 +24,12 @@ public class Door_FrontOnTheMitts : Door_LeftHingesPull
     {
         yield return StartCoroutine(base.OpenDoor(door));
 
-        mitts.layer = 8;
+        if (cakes != null && transform.parent.Find("Oven Button").GetComponent<Oven>().isFire == true) cakes.layer = 8;
     }
 
     new private IEnumerator CloseDoor(Collider door)
     {
-        mitts.layer = 0;
+        if (cakes != null) cakes.layer = 0;
 
         StartCoroutine(base.CloseDoor(door));
 

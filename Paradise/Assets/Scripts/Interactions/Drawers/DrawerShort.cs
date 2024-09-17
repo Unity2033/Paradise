@@ -1,4 +1,4 @@
-public class Drawer_Short : Drawer
+public class DrawerShort : Drawer
 {
     private void Awake()
     {

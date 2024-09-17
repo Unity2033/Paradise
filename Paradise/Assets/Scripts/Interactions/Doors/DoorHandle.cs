@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Door_Handle : MonoBehaviour
+public class DoorHandle : MonoBehaviour
 { 
     [SerializeField] Quaternion initialRotation;
     [SerializeField] Quaternion openRotation;
