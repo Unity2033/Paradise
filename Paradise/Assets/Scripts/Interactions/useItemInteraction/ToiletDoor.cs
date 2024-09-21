@@ -8,6 +8,8 @@ public class ToiletDoor : Interaction
 
     string item = "Toliet Key";
 
+    [SerializeField] GameObject key;
+
     [SerializeField] AudioClip LockAudioClip;
     [SerializeField] AudioClip unLockAudioClip;
 
@@ -21,6 +23,8 @@ public class ToiletDoor : Interaction
     {
         if (Inventory.Instance.UseItem(item))
         {
+            key.SetActive(true);
+
             AudioManager.Instance.Sound(unLockAudioClip);
 
             toiletDoor.layer = 8;

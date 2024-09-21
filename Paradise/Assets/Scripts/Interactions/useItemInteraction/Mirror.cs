@@ -6,6 +6,7 @@ public class Mirror : Interaction
 {
     string item = "Towel";
 
+    [SerializeField] GameObject tower;
     [SerializeField] AudioClip eraseAudioClip;
 
     private void Start()
@@ -19,7 +20,18 @@ public class Mirror : Interaction
         {
             AudioManager.Instance.Sound(eraseAudioClip);
 
-            Destroy(gameObject);
+            StartCoroutine(Erase());
         }
+    }
+
+    public IEnumerator Erase()
+    {
+        tower.SetActive(true);
+
+        yield return new WaitForSeconds(tower.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+        Destroy(tower);
+
+        Destroy(gameObject);
     }
 }

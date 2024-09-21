@@ -8,6 +8,8 @@ public class ExitDoor : Interaction
 
     string item = "Lobby Key";
 
+    [SerializeField] GameObject key;
+
     [SerializeField] AudioClip LockAudioClip;
     [SerializeField] AudioClip unLockAudioClip;
 
@@ -21,6 +23,8 @@ public class ExitDoor : Interaction
     {
         if (Inventory.Instance.UseItem(item))
         {
+            key.SetActive(true);
+
             AudioManager.Instance.Sound(unLockAudioClip);
 
             exitDoor.layer = 8;
