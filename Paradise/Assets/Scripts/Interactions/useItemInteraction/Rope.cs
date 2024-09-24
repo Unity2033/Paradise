@@ -40,6 +40,9 @@ public class Rope : Interaction
         rightRope.SetActive(true);
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
+        LeftDrawer.layer = 8;
+        RightDrawer.layer = 8;
+
         while (leftRope.transform.localRotation.z >= -0.707)
         {
             leftRope.transform.localRotation = Quaternion.Lerp
@@ -58,9 +61,6 @@ public class Rope : Interaction
 
             yield return null;
         }
-
-        LeftDrawer.layer = 8;
-        RightDrawer.layer = 8;
 
         Destroy(gameObject);
     }
