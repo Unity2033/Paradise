@@ -10,6 +10,7 @@ public class ExitDoor : Interaction
 
     [SerializeField] GameObject key;
 
+    [SerializeField] Animator animator;
     [SerializeField] AudioClip LockAudioClip;
     [SerializeField] AudioClip unLockAudioClip;
 
@@ -29,10 +30,12 @@ public class ExitDoor : Interaction
 
             exitDoor.layer = 8;
 
+            Destroy(animator);
             Destroy(gameObject);
         }
         else
         {
+            animator.Play("Lobby Door Handle");
             AudioManager.Instance.Sound(LockAudioClip);
         }
     }

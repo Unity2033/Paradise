@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DirectorCollider : MonoBehaviour
 {
-    [SerializeField] Zombie zombie;
-    [SerializeField] Animator animator;
+    [SerializeField] Crawler crawler;
+    private WaitForSeconds waitForSeconds = new WaitForSeconds(3.5f);
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,18 +16,25 @@ public class DirectorCollider : MonoBehaviour
         if (player != null)
         {
             player.transform.rotation = Quaternion.identity;
+
             Camera.main.transform.rotation = Quaternion.Euler(0, -90, 0);
 
             player.GetComponent<Rigidbody>().Sleep();
 
+            crawler.enabled = true;
+            crawler.GetComponent<AudioSource>().Play();
+
             GameManager.Instance.State = false;
 
-            animator.Play("Fall Down");
-            
-            zombie.Move();
-
-            AudioManager.Instance.Scenery("Ending");
+            StartCoroutine(Production());
         }
+    }
+
+    private IEnumerator Production()
+    {
+        yield return waitForSeconds;
+
+        StartCoroutine(FadeManager.Instance.GameEnd());
     }
 
 }

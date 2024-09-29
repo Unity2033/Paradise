@@ -1,6 +1,6 @@
 using System.Collections;
-// using System.Drawing;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FadeManager : Singleton<FadeManager>
@@ -49,6 +49,29 @@ public class FadeManager : Singleton<FadeManager>
 
         titleImage.gameObject.SetActive(true);
         screenImage.gameObject.SetActive(false);
+    }
+
+    public IEnumerator GameEnd()
+    {
+        Color color = screenImage.color;
+
+        color.a = 0;
+
+        screenImage.gameObject.SetActive(true);
+
+        while (color.a <= 1.0f)
+        {
+            color.a += Time.deltaTime;
+
+            screenImage.color = color;
+
+            yield return null;
+        }
+
+        titleImage.gameObject.SetActive(true);
+        screenImage.gameObject.SetActive(false);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public IEnumerator SwitchCamera(GameObject onCamera, GameObject offCamera, float coefficient = 0.3f)

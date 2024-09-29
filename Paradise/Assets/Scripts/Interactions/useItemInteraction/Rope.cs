@@ -6,6 +6,7 @@ public class Rope : Interaction
 {
     [SerializeField] GameObject LeftDrawer;
     [SerializeField] GameObject RightDrawer;
+    [SerializeField] AudioClip lockAudioClip;
     [SerializeField] AudioClip collectionAudioClip;
 
     GameObject leftRope;
@@ -13,6 +14,7 @@ public class Rope : Interaction
 
     void Start()
     {
+        lockAudioClip = Resources.Load<AudioClip>("Wood Lock");
         collectionAudioClip = Resources.Load<AudioClip>("Cut Rope");
 
         leftRope = LeftDrawer.transform.GetChild(0).gameObject;
@@ -26,9 +28,20 @@ public class Rope : Interaction
         if (Inventory.Instance.UseItem(item))
         {
             AudioManager.Instance.Sound(collectionAudioClip);
+
+            Destroy(LeftDrawer.GetComponent<Animator>());
+            Destroy(RightDrawer.GetComponent<Animator>());
+
             leftRope.SetActive(true);
             rightRope.SetActive(true);
             StartCoroutine(IECutRope());
+        }
+        else
+        {
+            AudioManager.Instance.Sound(lockAudioClip);
+
+            LeftDrawer.GetComponent<Animator>().Play("Left Cabinet Door");
+            RightDrawer.GetComponent<Animator>().Play("Right Cabinet Door");
         }
     }
 

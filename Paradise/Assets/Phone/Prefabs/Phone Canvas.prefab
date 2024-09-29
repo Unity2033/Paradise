@@ -630,6 +630,7 @@ MonoBehaviour:
   linePrefab: {fileID: 2280631780630728275, guid: b88aa06e23dd6254ab021257c64e84be, type: 3}
   clearImage: {fileID: 6282514828846197898}
   failImage: {fileID: 7284238684706478782}
+  parents: {fileID: 0}
 --- !u!1 &2535598098342183328
 GameObject:
   m_ObjectHideFlags: 0
