@@ -68,10 +68,7 @@ public class FadeManager : Singleton<FadeManager>
             yield return null;
         }
 
-        titleImage.gameObject.SetActive(true);
-        screenImage.gameObject.SetActive(false);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Application.Quit();
     }
 
     public IEnumerator SwitchCamera(GameObject onCamera, GameObject offCamera, float coefficient = 0.3f)
