@@ -12,6 +12,8 @@ public class LockPattern : MonoBehaviour
     [SerializeField] GameObject clearImage;
     [SerializeField] GameObject failImage;
     [SerializeField] PlayPuzzle parents;
+    [SerializeField] GameObject baseScreen;
+    [SerializeField] GameObject changeScreen;
 
     private Dictionary<int, CircleId> circles;
 
@@ -27,6 +29,12 @@ public class LockPattern : MonoBehaviour
 
     private bool unlocking;
     private bool block;
+
+    private void Awake()
+    {
+        baseScreen = GameObject.Find("Screen");
+        changeScreen = GameObject.Find("phone1k").transform.Find("Clear Screen").gameObject;
+    }
 
     void Start()
     {
@@ -129,25 +137,30 @@ public class LockPattern : MonoBehaviour
 
         TrySetLineEdit(cID);
     }
+
     public void OnMouseUpCircle(CircleId cID)
     {
         if (block) return;
 
-        unlocking = false;
-
-        Destroy(lines[lines.Count - 1].gameObject);
-        lines.RemoveAt(lines.Count - 1);
-
-        if (Enumerable.SequenceEqual(rightPattern, myPattern))
+        try
         {
-            RemovePattern();
+            unlocking = false;
 
-            ClearGame();
+            Destroy(lines[lines.Count - 1].gameObject);
+            lines.RemoveAt(lines.Count - 1);
 
-            return;
+            if (Enumerable.SequenceEqual(rightPattern, myPattern))
+            {
+                RemovePattern();
+
+                ClearGame();
+
+                return;
+            }
+
+            StartCoroutine(IERelease());
         }
-
-        StartCoroutine(IERelease());
+        catch { }
     }
     public void ChangeColor(Color color)
     {
@@ -200,6 +213,9 @@ public class LockPattern : MonoBehaviour
 
     private void ClearGame()
     {
+        baseScreen.SetActive(false);
+        changeScreen.SetActive(true);
+
         parents.clear = true;
         clearImage.SetActive(true);
     }
